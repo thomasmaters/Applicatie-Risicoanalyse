@@ -46,19 +46,22 @@
             this.get_Risks_In_ProjectGroupTypeTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_ProjectGroupTypeTableAdapter();
             this.is_Risk_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.is_Risk_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Is_Risk_In_ProjectTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
+            this.addRiskToProjectPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_GroupBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_TypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Project_TypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_ProjectGroupTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.is_Risk_In_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.arA_TextBox1);
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.arA_TextBox1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -73,19 +76,16 @@
             this.arA_TextBox1.BorderSize = 1;
             this.arA_TextBox1.Location = new System.Drawing.Point(3, 3);
             this.arA_TextBox1.Name = "arA_TextBox1";
-            this.arA_TextBox1.Size = new System.Drawing.Size(406, 35);
+            this.arA_TextBox1.Size = new System.Drawing.Size(734, 31);
             this.arA_TextBox1.TabIndex = 0;
             this.arA_TextBox1.Text = "";
             // 
             // addRiskToProjectPanelContent
             // 
-
-            this.addRiskToProjectPanelContent.HorizontalScroll.Maximum = 0;
-            this.addRiskToProjectPanelContent.AutoScroll = false;
-            this.addRiskToProjectPanelContent.VerticalScroll.Visible = false;
             this.addRiskToProjectPanelContent.AutoScroll = true;
-            this.addRiskToProjectPanelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addRiskToProjectPanelContent.BackColor = System.Drawing.Color.DimGray;
+            this.addRiskToProjectPanelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addRiskToProjectPanelContent.Controls.Add(this.dataGridView1);
             this.addRiskToProjectPanelContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.addRiskToProjectPanelContent.Location = new System.Drawing.Point(0, 38);
             this.addRiskToProjectPanelContent.Margin = new System.Windows.Forms.Padding(0);
@@ -164,9 +164,19 @@
             // 
             this.is_Risk_In_ProjectTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // ARA_AddRisksToProject
             // 
-            this.onRiskProjectOverviewLoad();
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
@@ -182,12 +192,14 @@
             this.Text = "ARA_RiskProjectOverview";
             this.Load += new System.EventHandler(this.ARA_AddRisksToProject_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.addRiskToProjectPanelContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_GroupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_TypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Project_TypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_ProjectGroupTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.is_Risk_In_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +223,6 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_ProjectGroupTypeTableAdapter get_Risks_In_ProjectGroupTypeTableAdapter;
         private System.Windows.Forms.BindingSource is_Risk_In_ProjectBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Is_Risk_In_ProjectTableAdapter is_Risk_In_ProjectTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

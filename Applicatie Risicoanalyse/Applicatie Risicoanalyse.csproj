@@ -218,6 +218,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LG_Analysis_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LG_Analysis_DatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LG_Analysis_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\ARA_Button.resx">
@@ -270,6 +275,7 @@
     <None Include="LG_Analysis_DatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>LG_Analysis_DatabaseDataSet1.Designer.cs</LastGenOutput>
     </None>
     <None Include="LG_Analysis_DatabaseDataSet.xss">
       <DependentUpon>LG_Analysis_DatabaseDataSet.xsd</DependentUpon>
