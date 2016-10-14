@@ -5257,8 +5257,6 @@ namespace Applicatie_Risicoanalyse {
             
             private global::System.Data.DataColumn columnTypeName;
             
-            private global::System.Data.DataColumn columnColumn1;
-            
             private global::System.Data.DataColumn columnInProject;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5312,14 +5310,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Column1Column {
-                get {
-                    return this.columnColumn1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn InProjectColumn {
                 get {
                     return this.columnInProject;
@@ -5363,12 +5353,11 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_Risks_In_ProjectGroupTypeRow AddGet_Risks_In_ProjectGroupTypeRow(int RiskID, string TypeName, int Column1, int InProject) {
+            public Get_Risks_In_ProjectGroupTypeRow AddGet_Risks_In_ProjectGroupTypeRow(int RiskID, string TypeName, int InProject) {
                 Get_Risks_In_ProjectGroupTypeRow rowGet_Risks_In_ProjectGroupTypeRow = ((Get_Risks_In_ProjectGroupTypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RiskID,
                         TypeName,
-                        Column1,
                         InProject};
                 rowGet_Risks_In_ProjectGroupTypeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGet_Risks_In_ProjectGroupTypeRow);
@@ -5394,7 +5383,6 @@ namespace Applicatie_Risicoanalyse {
             internal void InitVars() {
                 this.columnRiskID = base.Columns["RiskID"];
                 this.columnTypeName = base.Columns["TypeName"];
-                this.columnColumn1 = base.Columns["Column1"];
                 this.columnInProject = base.Columns["InProject"];
             }
             
@@ -5405,14 +5393,11 @@ namespace Applicatie_Risicoanalyse {
                 base.Columns.Add(this.columnRiskID);
                 this.columnTypeName = new global::System.Data.DataColumn("TypeName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTypeName);
-                this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnColumn1);
                 this.columnInProject = new global::System.Data.DataColumn("InProject", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInProject);
                 this.columnRiskID.AllowDBNull = false;
                 this.columnTypeName.AllowDBNull = false;
                 this.columnTypeName.MaxLength = 64;
-                this.columnColumn1.ReadOnly = true;
                 this.columnInProject.ReadOnly = true;
             }
             
@@ -8027,23 +8012,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Column1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGet_Risks_In_ProjectGroupType.Column1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Column1\' in table \'Get_Risks_In_ProjectGroupType\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableGet_Risks_In_ProjectGroupType.Column1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int InProject {
                 get {
                     try {
@@ -8057,18 +8025,6 @@ namespace Applicatie_Risicoanalyse {
                 set {
                     this[this.tableGet_Risks_In_ProjectGroupType.InProjectColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsColumn1Null() {
-                return this.IsNull(this.tableGet_Risks_In_ProjectGroupType.Column1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetColumn1Null() {
-                this[this.tableGet_Risks_In_ProjectGroupType.Column1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13622,7 +13578,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             tableMapping.DataSetTable = "Get_Risks_In_ProjectGroupType";
             tableMapping.ColumnMappings.Add("RiskID", "RiskID");
             tableMapping.ColumnMappings.Add("TypeName", "TypeName");
-            tableMapping.ColumnMappings.Add("Column1", "Column1");
             tableMapping.ColumnMappings.Add("InProject", "InProject");
             this._adapter.TableMappings.Add(tableMapping);
         }
