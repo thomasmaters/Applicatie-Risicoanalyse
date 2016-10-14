@@ -1294,6 +1294,21 @@ SELECT FileID, FileObject FROM Tbl_BLOB_Storage WHERE (FileID = @FileID)</Comman
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Search_Risks_In_Project" msprop:Generator_TableClassName="Search_Risks_In_ProjectDataTable" msprop:Generator_TableVarName="tableSearch_Risks_In_Project" msprop:Generator_TablePropName="Search_Risks_In_Project" msprop:Generator_RowDeletingName="Search_Risks_In_ProjectRowDeleting" msprop:Generator_RowChangingName="Search_Risks_In_ProjectRowChanging" msprop:Generator_RowEvHandlerName="Search_Risks_In_ProjectRowChangeEventHandler" msprop:Generator_RowDeletedName="Search_Risks_In_ProjectRowDeleted" msprop:Generator_UserTableName="Search_Risks_In_Project" msprop:Generator_RowChangedName="Search_Risks_In_ProjectRowChanged" msprop:Generator_RowEvArgName="Search_Risks_In_ProjectRowChangeEvent" msprop:Generator_RowClassName="Search_Risks_In_ProjectRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RiskID" msprop:Generator_ColumnVarNameInTable="columnRiskID" msprop:Generator_ColumnPropNameInRow="RiskID" msprop:Generator_ColumnPropNameInTable="RiskIDColumn" msprop:Generator_UserColumnName="RiskID" type="xs:int" />
+              <xs:element name="TypeName" msprop:Generator_ColumnVarNameInTable="columnTypeName" msprop:Generator_ColumnPropNameInRow="TypeName" msprop:Generator_ColumnPropNameInTable="TypeNameColumn" msprop:Generator_UserColumnName="TypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="64" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InProject" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInProject" msprop:Generator_ColumnPropNameInRow="InProject" msprop:Generator_ColumnPropNameInTable="InProjectColumn" msprop:Generator_UserColumnName="InProject" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

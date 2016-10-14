@@ -63,6 +63,7 @@
             // ARA_ListGroupContentPanel
             // 
             this.ARA_ListGroupContentPanel.AutoSize = true;
+            this.ARA_ListGroupContentPanel.BackColor = System.Drawing.Color.Maroon;
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupDropDownButton);
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupText);
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupPanelButton);
@@ -104,6 +105,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ARA_ListGroup";
             this.Size = new System.Drawing.Size(750, 355);
+            this.Load += new System.EventHandler(this.onListGroupLoad);
             this.ARA_ListGroupContentPanel.ResumeLayout(false);
             this.ARA_ListGroupContentPanel.PerformLayout();
             this.ResumeLayout(false);
