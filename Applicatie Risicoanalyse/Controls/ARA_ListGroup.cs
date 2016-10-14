@@ -149,6 +149,21 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        public override Font Font
+        {
+            get
+            {
+                return this.ARA_ListGroupDropDownButton.Font;
+            }
+            set
+            {
+                this.ARA_ListGroupContentPanel.Font = this.Font;
+                this.ARA_ListGroupDropDownButton.Font = this.Font;
+                this.ARA_ListGroupPanelButton.Font = this.Font;
+                this.ARA_ListGroupText.Font = this.Font;
+            }
+        }
+
         protected List<ARA_ListInterface> Childeren
         {
             get
@@ -245,6 +260,12 @@ namespace Applicatie_Risicoanalyse.Controls
         public void addControlToDropDownButton(Control control)
         {
             this.ARA_ListGroupDropDownButton.addControlToConnectedPanel(control);
+        }
+
+        private void onListGroupLoad(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

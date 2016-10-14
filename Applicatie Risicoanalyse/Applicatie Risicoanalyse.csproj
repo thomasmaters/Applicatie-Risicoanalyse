@@ -269,7 +269,6 @@
     </None>
     <None Include="LG_Analysis_DatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LG_Analysis_DatabaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="LG_Analysis_DatabaseDataSet.xss">

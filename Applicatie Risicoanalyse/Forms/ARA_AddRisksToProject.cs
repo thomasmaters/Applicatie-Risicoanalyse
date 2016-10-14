@@ -31,7 +31,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onRiskProjectOverviewLoad()
         {
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
 
             foreach (DataRow datarow in this.tbl_Component_GroupTableAdapter.GetData().Rows)
             {
@@ -119,7 +119,6 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void styleListGroupAsGroup(ARA_ListGroup listGroup)
         {
-            listGroup.Font = this.Font;
             listGroup.ARA_ListGroupDropDownButton.Font = this.Font;
             listGroup.ARA_ListGroupDropDownButton.Padding = new Padding(0);
             listGroup.ARA_ListGroupText.Font = this.Font;
@@ -141,7 +140,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void styleListGroupAsType(ARA_ListGroup listParent ,ARA_ListGroup listGroup)
         {
-            listGroup.Font = this.Font;
+            listGroup.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            listGroup.ARA_ListGroupText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
             listGroup.BackColor = System.Drawing.SystemColors.Control;
             listGroup.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             listGroup.DropDownButtonFirstTrianglePadding = 5;
@@ -159,6 +159,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             listParent.addChild(listGroup);
             listParent.addControlToDropDownButton(listGroup);
+            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize/ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
         }
 
         private void styleListItemAsRisk(ARA_ListGroup listParent, ARA_ListItem listItem)
@@ -173,6 +174,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             listParent.addChild(listItem);
             listParent.addControlToDropDownButton(listItem);
+            listItem.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
         }
 
         private void addRiskToProject(object sender, AddRiskToProjectEvent e)
