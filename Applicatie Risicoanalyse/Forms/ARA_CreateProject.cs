@@ -40,7 +40,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onCreateProjectButtonClick(object sender, EventArgs e)
         {
             //Executes procedure for adding an riskproject to the database.
-            this.createProjectDatabaseAdapter.Procedure_Create_RiskProject
+            this.createProjectDatabaseAdapter.Create_RiskProject
                 (
                     1,//TODO USERID
                     this.createProjectInputCustomer.Text,
