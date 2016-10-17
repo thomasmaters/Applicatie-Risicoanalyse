@@ -179,7 +179,6 @@ namespace Applicatie_Risicoanalyse.Controls
 
         protected override void OnPaint(PaintEventArgs pe)
         {
-            Debug.WriteLine("listgroup invalided");
             base.OnPaint(pe);
             this.ARA_ListGroupContentPanel.Invalidate();
             this.ARA_ListGroupPanelButton.Invalidate();

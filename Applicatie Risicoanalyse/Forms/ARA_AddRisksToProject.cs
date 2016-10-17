@@ -59,7 +59,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 return;
             }
-            foreach (DataRow datarow in this.tbl_Component_TypeTableAdapter.GetDataBy(parentGroup.DropDownButtonText).Rows)
+            foreach (DataRow datarow in this.get_TypeNames_In_GroupTableAdapter.GetData(parentGroup.DropDownButtonText).Rows)
             {
                 ARA_ListGroup listType = new ARA_ListGroup();
                 styleListGroupAsType(parentGroup, listType);
@@ -211,224 +211,259 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onSearchBarTextChanged(object sender, EventArgs e)
         {
             this.addRiskToProjectSearchDataGrid.Visible = this.addRiskToProjectSearchTextBox.Text != "";
-            this.addRiskToProjectSearchScollBar.Visible = this.addRiskToProjectSearchTextBox.Text != "";
+            this.addRiskToProjectSearchDataGrid.DataSource = this.search_Risks_In_ProjectTableAdapter.GetData(this.projectID, this.addRiskToProjectSearchTextBox.Text);
+            this.addRiskToProjectSearchDataGrid.Refresh();
         }
 
-        /*
-        private ARA_DropDownButton createGroupNameDropDownButton(string groupName)
+        private void onDataGridRowAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ARA_DropDownButton newDropDownButton = new ARA_DropDownButton();
-            FlowLayoutPanel newFlowLayoutPanel = new FlowLayoutPanel();
-            //Style the button
-            newDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            newDropDownButton.BaseColor = ARA_Colors.ARA_Gray1;
-            newDropDownButton.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newDropDownButton.HoverColor = ARA_Colors.ARA_Gray2;
-            newDropDownButton.Location = new System.Drawing.Point(0, 0);
-            newDropDownButton.Margin = new System.Windows.Forms.Padding(0);
-            newDropDownButton.Name = "addRiskToProjectButton" + groupName;
-            newDropDownButton.PaddingFirstTriangle = -1;
-            newDropDownButton.PaddingSecondTriangle = -1;
-            newDropDownButton.Selected = false;
-            newDropDownButton.SelectedColor = ARA_Colors.ARA_Blue6;
-            newDropDownButton.Size = new System.Drawing.Size(690, 37);
-            newDropDownButton.Text = groupName;
-            newDropDownButton.TextColor = System.Drawing.Color.White;
-            newDropDownButton.TriangleSize = 22;
-            newDropDownButton.VerticalAlignment = System.Drawing.StringAlignment.Center;
-
-            //Style panel.
-            newFlowLayoutPanel.Location = new System.Drawing.Point(0, 40);
-            newFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            newFlowLayoutPanel.Name = "addRiskToProjectPanel" + groupName;
-            newFlowLayoutPanel.Size = new System.Drawing.Size(750, 100);
-            newFlowLayoutPanel.AutoSize = true;
-            newFlowLayoutPanel.Visible = false;
-
-            //Add panels to addRiskToProject content panel.
-            this.addRiskToProjectPanelContent.Controls.Add(newDropDownButton);
-            this.createGroupNameRiskCountText(groupName);
-            this.addRiskToProjectPanelContent.Controls.Add(newFlowLayoutPanel);
-            //Connect panel to button.
-            newDropDownButton.setConnectedPanel(newFlowLayoutPanel);
-
-            //Return the button
-            return newDropDownButton;
-        }
-
-        private ARA_DropDownButton createTypeNameDropDownButton(FlowLayoutPanel parentPanel, string groupName, string typeName)
-        {
-            ARA_DropDownButton newDropDownButton = new ARA_DropDownButton();
-            FlowLayoutPanel newFlowLayoutPanel = new FlowLayoutPanel();
-            //Style the button
-            newDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            newDropDownButton.BaseColor = ARA_Colors.ARA_Gray2;
-            newDropDownButton.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newDropDownButton.HoverColor = ARA_Colors.ARA_Gray2;
-            newDropDownButton.Location = new System.Drawing.Point(0, 37);
-            newDropDownButton.Margin = new System.Windows.Forms.Padding(0);
-            newDropDownButton.Name = "addRiskToProjectButton" + groupName + typeName;
-            newDropDownButton.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            newDropDownButton.PaddingFirstTriangle = 5;
-            newDropDownButton.PaddingSecondTriangle = -1;
-            newDropDownButton.Selected = false;
-            newDropDownButton.SelectedColor = ARA_Colors.ARA_Blue4;
-            newDropDownButton.Size = new System.Drawing.Size(690, 28);
-            newDropDownButton.Text = typeName;
-            newDropDownButton.TextColor = System.Drawing.Color.White;
-            newDropDownButton.TriangleSize = 18;
-            newDropDownButton.VerticalAlignment = System.Drawing.StringAlignment.Center;
-
-            //Style panel.
-            newFlowLayoutPanel.Location = new System.Drawing.Point(0, 40);
-            newFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
-            newFlowLayoutPanel.Name = "addRiskToProjectPanel" + typeName;
-            //newFlowLayoutPanel.Size = new System.Drawing.Size(750, 100);
-            newFlowLayoutPanel.Visible = false;
-            newFlowLayoutPanel.AutoSize = true;
-
-            //Add panels to addRiskToProject content panel.
-            parentPanel.Controls.Add(newDropDownButton);
-            this.createTypeNameRiskCountText(parentPanel,groupName , typeName);
-            parentPanel.Controls.Add(newFlowLayoutPanel);
-            //Connect panel to button.
-            newDropDownButton.setConnectedPanel(newFlowLayoutPanel);
-
-            //Return the button
-            return newDropDownButton;
-        }
-
-        private void createGroupNameRiskCountText(string groupName)
-        {
-            ARA_Text newText = new ARA_Text();
-            //Execute procedure to get risk count.
-            DataRow risksInProjectRow = this.get_Risks_In_Project_GroupTableAdapter.GetData(this.projectID, groupName).Rows[0];
-
-            //Style the text.
-            newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            newText.BackgroundColor = ARA_Colors.ARA_Gray1;
-            newText.ForeColor = System.Drawing.Color.White;
-            newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newText.Location = new System.Drawing.Point(685, 37);
-            newText.Margin = new System.Windows.Forms.Padding(0);
-            newText.Name = "addRisksToProjectText" + groupName;
-            newText.Size = new System.Drawing.Size(60, 37);
-            newText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
-            newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
-
-            //Add it to addRisksToProjectPanelContent controls.
-            this.addRiskToProjectPanelContent.Controls.Add(newText);
-        }
-
-        private void createTypeNameRiskCountText(FlowLayoutPanel parentPanel, string groupName, string typeName)
-        {
-            ARA_Text newText = new ARA_Text();
-            //Execute procedure to get risk count.
-            DataRow risksInProjectRow = this.get_Risks_In_Project_TypeTableAdapter.GetData(this.projectID, groupName, typeName).Rows[0];
-
-            //Style the text.
-            newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            newText.BackgroundColor = ARA_Colors.ARA_Gray1;
-            newText.ForeColor = System.Drawing.Color.White;
-            newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newText.Location = new System.Drawing.Point(685, 37);
-            newText.Margin = new System.Windows.Forms.Padding(0);
-            newText.Name = "addRisksToProjectText" + groupName + typeName;
-            newText.Size = new System.Drawing.Size(60, 28);
-            newText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
-            newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
-
-            //Add it to the parent panel.
-            parentPanel.Controls.Add(newText);
-        }
-
-        private void createRiskIdText(FlowLayoutPanel parentPanel, string riskID)
-        {
-            ARA_Text newText = new ARA_Text();
-
-            newText.BackgroundColor = System.Drawing.Color.White;
-            newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
-            newText.ForeColor = System.Drawing.Color.Black;
-            newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newText.Location = new System.Drawing.Point(0, 65);
-            newText.Margin = new System.Windows.Forms.Padding(0);
-            newText.Name = "addRisksToProjectTextID" + riskID;
-            newText.Size = new System.Drawing.Size(60, 24);
-            newText.Text = "ID " + riskID;
-            newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
-
-            parentPanel.Controls.Add(newText);
-        }
-
-        private void createRiskDescriptionText(FlowLayoutPanel parentPanel, int riskID, string description, string InProject)
-        {
-            ARA_Text newText = new ARA_Text();
-
-            newText.BackgroundColor = InProject == "1" ? ARA_Colors.ARA_Green : System.Drawing.Color.White;
-            newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
-            newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            newText.Location = new System.Drawing.Point(111, 65);
-            newText.Margin = new System.Windows.Forms.Padding(0);
-            newText.Size = new System.Drawing.Size(690, 24);
-            newText.Name = "addRisksToProjectTextID" + description;
-            newText.Text = description;
-            newText.Click += delegate (object o, System.EventArgs e)
-            {
-                ARA_Events.onAddRiskToProjectEvent(o, this.projectID, riskID);
-            };
-
-            parentPanel.Controls.Add(newText);
-        }
-
-        private void addRiskToProject(object sender,AddRiskToProjectEvent e)
-        {
-            ARA_Text clickedText = (ARA_Text)sender;
-            if(clickedText != null)
-            {
-                //Is the risk already in the project?
-                if(clickedText.BackgroundColor == ARA_Colors.ARA_Green)
+            foreach (DataGridViewRow row in this.addRiskToProjectSearchDataGrid.Rows)
+            { 
+                if (row.Cells["inProjectDataGridViewTextBoxColumn"].Value.ToString() == "1")
                 {
-                    //Change its color and remove it from the database.
-                    clickedText.BackgroundColor = Color.White;
-                    this.queriesTableAdapter1.Delete_From_ProjectRisks(e.projectID, e.riskID);
+                    row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Green;
                 }
                 else
                 {
-                    //Change its color and add a new risk to the database.
-                    clickedText.BackgroundColor = ARA_Colors.ARA_Green;
-                    this.queriesTableAdapter1.Insert_In_ProjectRisks(e.projectID, e.riskID);
+                    row.DefaultCellStyle.BackColor = Color.White;
                 }
             }
-                
-            clickedText.Invalidate();
-            updateAmountOfRisksInProject();
         }
 
-        //Ugly function for updating al the text boxes with the amount of risks.
-        private void updateAmountOfRisksInProject()
+        private void onDataGridRowDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            foreach (ARA_DropDownButton control in this.addRiskToProjectPanelContent.Controls.OfType<ARA_DropDownButton>())
+            //Execute query to add or delete the risk to the project.
+            if (this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["inProjectDataGridViewTextBoxColumn"].Value.ToString() == "1")
             {
-                string groupName = control.Text;
-                int buttonIndex = this.addRiskToProjectPanelContent.Controls.GetChildIndex(control);
-
-                ARA_Text groupText = (ARA_Text)this.addRiskToProjectPanelContent.Controls[buttonIndex + 1];
-                DataRow risksInProjectRow = this.get_Risks_In_Project_GroupTableAdapter.GetData(this.projectID, groupName).Rows[0];
-                groupText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
-                groupText.Invalidate();
-                Debug.WriteLine(groupName);
-                foreach (ARA_DropDownButton subControl in this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls.OfType<ARA_DropDownButton>())
-                {
-                    string typeName = subControl.Text;
-                    int subButtonIndex = this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls.GetChildIndex(subControl);
-                    Debug.WriteLine(typeName);
-                    ARA_Text subGroupText = (ARA_Text)this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls[subButtonIndex + 1];
-                    DataRow risksInProjectGroupRow = this.get_Risks_In_Project_TypeTableAdapter.GetData(this.projectID, groupName, typeName).Rows[0];
-                    subGroupText.Text = risksInProjectGroupRow["RisksInProjectGroup"] + "/" + risksInProjectGroupRow["RisksInGroup"];
-                    subGroupText.Invalidate();
-                }
+                this.queriesTableAdapter1.Delete_From_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
             }
+            else
+            {
+                this.queriesTableAdapter1.Insert_In_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
+            }
+            //Sneaky way to fire a textchange event without changing the text.
+            this.addRiskToProjectSearchTextBox.Text += "";
         }
-        */
+
+        private void onDataGridSelectionChanged(object sender, EventArgs e)
+        {
+            this.addRiskToProjectSearchDataGrid.ClearSelection();
+        }
+        /*
+private ARA_DropDownButton createGroupNameDropDownButton(string groupName)
+{
+ARA_DropDownButton newDropDownButton = new ARA_DropDownButton();
+FlowLayoutPanel newFlowLayoutPanel = new FlowLayoutPanel();
+//Style the button
+newDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+newDropDownButton.BaseColor = ARA_Colors.ARA_Gray1;
+newDropDownButton.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newDropDownButton.HoverColor = ARA_Colors.ARA_Gray2;
+newDropDownButton.Location = new System.Drawing.Point(0, 0);
+newDropDownButton.Margin = new System.Windows.Forms.Padding(0);
+newDropDownButton.Name = "addRiskToProjectButton" + groupName;
+newDropDownButton.PaddingFirstTriangle = -1;
+newDropDownButton.PaddingSecondTriangle = -1;
+newDropDownButton.Selected = false;
+newDropDownButton.SelectedColor = ARA_Colors.ARA_Blue6;
+newDropDownButton.Size = new System.Drawing.Size(690, 37);
+newDropDownButton.Text = groupName;
+newDropDownButton.TextColor = System.Drawing.Color.White;
+newDropDownButton.TriangleSize = 22;
+newDropDownButton.VerticalAlignment = System.Drawing.StringAlignment.Center;
+
+//Style panel.
+newFlowLayoutPanel.Location = new System.Drawing.Point(0, 40);
+newFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+newFlowLayoutPanel.Name = "addRiskToProjectPanel" + groupName;
+newFlowLayoutPanel.Size = new System.Drawing.Size(750, 100);
+newFlowLayoutPanel.AutoSize = true;
+newFlowLayoutPanel.Visible = false;
+
+//Add panels to addRiskToProject content panel.
+this.addRiskToProjectPanelContent.Controls.Add(newDropDownButton);
+this.createGroupNameRiskCountText(groupName);
+this.addRiskToProjectPanelContent.Controls.Add(newFlowLayoutPanel);
+//Connect panel to button.
+newDropDownButton.setConnectedPanel(newFlowLayoutPanel);
+
+//Return the button
+return newDropDownButton;
+}
+
+private ARA_DropDownButton createTypeNameDropDownButton(FlowLayoutPanel parentPanel, string groupName, string typeName)
+{
+ARA_DropDownButton newDropDownButton = new ARA_DropDownButton();
+FlowLayoutPanel newFlowLayoutPanel = new FlowLayoutPanel();
+//Style the button
+newDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+newDropDownButton.BaseColor = ARA_Colors.ARA_Gray2;
+newDropDownButton.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newDropDownButton.HoverColor = ARA_Colors.ARA_Gray2;
+newDropDownButton.Location = new System.Drawing.Point(0, 37);
+newDropDownButton.Margin = new System.Windows.Forms.Padding(0);
+newDropDownButton.Name = "addRiskToProjectButton" + groupName + typeName;
+newDropDownButton.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+newDropDownButton.PaddingFirstTriangle = 5;
+newDropDownButton.PaddingSecondTriangle = -1;
+newDropDownButton.Selected = false;
+newDropDownButton.SelectedColor = ARA_Colors.ARA_Blue4;
+newDropDownButton.Size = new System.Drawing.Size(690, 28);
+newDropDownButton.Text = typeName;
+newDropDownButton.TextColor = System.Drawing.Color.White;
+newDropDownButton.TriangleSize = 18;
+newDropDownButton.VerticalAlignment = System.Drawing.StringAlignment.Center;
+
+//Style panel.
+newFlowLayoutPanel.Location = new System.Drawing.Point(0, 40);
+newFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+newFlowLayoutPanel.Name = "addRiskToProjectPanel" + typeName;
+//newFlowLayoutPanel.Size = new System.Drawing.Size(750, 100);
+newFlowLayoutPanel.Visible = false;
+newFlowLayoutPanel.AutoSize = true;
+
+//Add panels to addRiskToProject content panel.
+parentPanel.Controls.Add(newDropDownButton);
+this.createTypeNameRiskCountText(parentPanel,groupName , typeName);
+parentPanel.Controls.Add(newFlowLayoutPanel);
+//Connect panel to button.
+newDropDownButton.setConnectedPanel(newFlowLayoutPanel);
+
+//Return the button
+return newDropDownButton;
+}
+
+private void createGroupNameRiskCountText(string groupName)
+{
+ARA_Text newText = new ARA_Text();
+//Execute procedure to get risk count.
+DataRow risksInProjectRow = this.get_Risks_In_Project_GroupTableAdapter.GetData(this.projectID, groupName).Rows[0];
+
+//Style the text.
+newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+newText.BackgroundColor = ARA_Colors.ARA_Gray1;
+newText.ForeColor = System.Drawing.Color.White;
+newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newText.Location = new System.Drawing.Point(685, 37);
+newText.Margin = new System.Windows.Forms.Padding(0);
+newText.Name = "addRisksToProjectText" + groupName;
+newText.Size = new System.Drawing.Size(60, 37);
+newText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
+newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
+
+//Add it to addRisksToProjectPanelContent controls.
+this.addRiskToProjectPanelContent.Controls.Add(newText);
+}
+
+private void createTypeNameRiskCountText(FlowLayoutPanel parentPanel, string groupName, string typeName)
+{
+ARA_Text newText = new ARA_Text();
+//Execute procedure to get risk count.
+DataRow risksInProjectRow = this.get_Risks_In_Project_TypeTableAdapter.GetData(this.projectID, groupName, typeName).Rows[0];
+
+//Style the text.
+newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+newText.BackgroundColor = ARA_Colors.ARA_Gray1;
+newText.ForeColor = System.Drawing.Color.White;
+newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newText.Location = new System.Drawing.Point(685, 37);
+newText.Margin = new System.Windows.Forms.Padding(0);
+newText.Name = "addRisksToProjectText" + groupName + typeName;
+newText.Size = new System.Drawing.Size(60, 28);
+newText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
+newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
+
+//Add it to the parent panel.
+parentPanel.Controls.Add(newText);
+}
+
+private void createRiskIdText(FlowLayoutPanel parentPanel, string riskID)
+{
+ARA_Text newText = new ARA_Text();
+
+newText.BackgroundColor = System.Drawing.Color.White;
+newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
+newText.ForeColor = System.Drawing.Color.Black;
+newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newText.Location = new System.Drawing.Point(0, 65);
+newText.Margin = new System.Windows.Forms.Padding(0);
+newText.Name = "addRisksToProjectTextID" + riskID;
+newText.Size = new System.Drawing.Size(60, 24);
+newText.Text = "ID " + riskID;
+newText.VerticalAlignment = System.Drawing.StringAlignment.Center;
+
+parentPanel.Controls.Add(newText);
+}
+
+private void createRiskDescriptionText(FlowLayoutPanel parentPanel, int riskID, string description, string InProject)
+{
+ARA_Text newText = new ARA_Text();
+
+newText.BackgroundColor = InProject == "1" ? ARA_Colors.ARA_Green : System.Drawing.Color.White;
+newText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
+newText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+newText.Location = new System.Drawing.Point(111, 65);
+newText.Margin = new System.Windows.Forms.Padding(0);
+newText.Size = new System.Drawing.Size(690, 24);
+newText.Name = "addRisksToProjectTextID" + description;
+newText.Text = description;
+newText.Click += delegate (object o, System.EventArgs e)
+{
+ARA_Events.onAddRiskToProjectEvent(o, this.projectID, riskID);
+};
+
+parentPanel.Controls.Add(newText);
+}
+
+private void addRiskToProject(object sender,AddRiskToProjectEvent e)
+{
+ARA_Text clickedText = (ARA_Text)sender;
+if(clickedText != null)
+{
+//Is the risk already in the project?
+if(clickedText.BackgroundColor == ARA_Colors.ARA_Green)
+{
+//Change its color and remove it from the database.
+clickedText.BackgroundColor = Color.White;
+this.queriesTableAdapter1.Delete_From_ProjectRisks(e.projectID, e.riskID);
+}
+else
+{
+//Change its color and add a new risk to the database.
+clickedText.BackgroundColor = ARA_Colors.ARA_Green;
+this.queriesTableAdapter1.Insert_In_ProjectRisks(e.projectID, e.riskID);
+}
+}
+
+clickedText.Invalidate();
+updateAmountOfRisksInProject();
+}
+
+//Ugly function for updating al the text boxes with the amount of risks.
+private void updateAmountOfRisksInProject()
+{
+foreach (ARA_DropDownButton control in this.addRiskToProjectPanelContent.Controls.OfType<ARA_DropDownButton>())
+{
+string groupName = control.Text;
+int buttonIndex = this.addRiskToProjectPanelContent.Controls.GetChildIndex(control);
+
+ARA_Text groupText = (ARA_Text)this.addRiskToProjectPanelContent.Controls[buttonIndex + 1];
+DataRow risksInProjectRow = this.get_Risks_In_Project_GroupTableAdapter.GetData(this.projectID, groupName).Rows[0];
+groupText.Text = risksInProjectRow["RisksInProjectGroup"] + "/" + risksInProjectRow["RisksInGroup"];
+groupText.Invalidate();
+Debug.WriteLine(groupName);
+foreach (ARA_DropDownButton subControl in this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls.OfType<ARA_DropDownButton>())
+{
+string typeName = subControl.Text;
+int subButtonIndex = this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls.GetChildIndex(subControl);
+Debug.WriteLine(typeName);
+ARA_Text subGroupText = (ARA_Text)this.addRiskToProjectPanelContent.Controls[buttonIndex + 2].Controls[subButtonIndex + 1];
+DataRow risksInProjectGroupRow = this.get_Risks_In_Project_TypeTableAdapter.GetData(this.projectID, groupName, typeName).Rows[0];
+subGroupText.Text = risksInProjectGroupRow["RisksInProjectGroup"] + "/" + risksInProjectGroupRow["RisksInGroup"];
+subGroupText.Invalidate();
+}
+}
+}
+*/
     }
 }
