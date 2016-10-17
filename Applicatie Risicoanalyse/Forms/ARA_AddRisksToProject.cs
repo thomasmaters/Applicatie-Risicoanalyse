@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Applicatie_Risicoanalyse.Controls;
 using Applicatie_Risicoanalyse.Globals;
 using System.Data.Sql;
+using System.IO;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -101,6 +102,12 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 ARA_ListItem listItem = new ARA_ListItem();
                 styleListItemAsRisk(parentType,listItem);
+                if(datarow["FileObject"].ToString() != "")
+                {
+                    var data = (Byte[])(datarow["FileObject"]);
+                    var stream = new MemoryStream(data);
+                    listItem.Tooltip.Tag = Image.FromStream(stream);
+                }
 
                 //Set text of listItem.
                 listItem.TextFirstControl = "ID " + datarow["RiskID"].ToString();
