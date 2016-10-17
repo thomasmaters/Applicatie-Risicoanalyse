@@ -205,7 +205,13 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Component_TypeTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Component_Type);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Component_Group' table. You can move, or remove it, as needed.
             this.tbl_Component_GroupTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Component_Group);
-            
+            this.onRiskProjectOverviewLoad();
+        }
+
+        private void onSearchBarTextChanged(object sender, EventArgs e)
+        {
+            this.addRiskToProjectSearchDataGrid.Visible = this.addRiskToProjectSearchTextBox.Text != "";
+            this.addRiskToProjectSearchScollBar.Visible = this.addRiskToProjectSearchTextBox.Text != "";
         }
 
         /*
