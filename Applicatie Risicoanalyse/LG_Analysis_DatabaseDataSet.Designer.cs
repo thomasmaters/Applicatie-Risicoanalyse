@@ -9744,11 +9744,16 @@ SELECT TypeName, GroupName FROM Tbl_Component_Type WHERE (GroupName = @GroupName
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT TypeName, GroupName FROM dbo.Tbl_Component_Type";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT TypeName FROM dbo.Tbl_Component_Type WHERE GroupName = @groupName";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@groupName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, "GroupName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9770,6 +9775,42 @@ SELECT TypeName, GroupName FROM Tbl_Component_Type WHERE (GroupName = @GroupName
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable dataTable = new LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable dataTable, string groupName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((groupName == null)) {
+                throw new global::System.ArgumentNullException("groupName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(groupName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable GetDataBy(string groupName) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((groupName == null)) {
+                throw new global::System.ArgumentNullException("groupName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(groupName));
+            }
             LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable dataTable = new LG_Analysis_DatabaseDataSet.Tbl_Component_TypeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
