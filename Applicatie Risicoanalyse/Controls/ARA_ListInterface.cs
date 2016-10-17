@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
@@ -14,6 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     {
         private ARA_ListInterface listParent;
         private List<Action> functions = new List<Action>();
+        private ARA_ImageTooltip tooltip = new ARA_ImageTooltip();
 
         public ARA_ListInterface()
         {
@@ -43,6 +45,19 @@ namespace Applicatie_Risicoanalyse.Controls
             set
             {
                 functions = value;
+            }
+        }
+
+        public ARA_ImageTooltip Tooltip
+        {
+            get
+            {
+                return tooltip;
+            }
+
+            set
+            {
+                tooltip = value;
             }
         }
 

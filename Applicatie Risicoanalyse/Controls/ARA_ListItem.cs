@@ -96,6 +96,11 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
             this.arA_Text1.Click += new EventHandler(delegate (object sender, EventArgs e) { this.OnClick(e); });
             this.arA_Text2.Click += new EventHandler(delegate (object sender, EventArgs e) { this.OnClick(e); });
+            if(this.Tag != null)
+            {
+                this.Tooltip.SetToolTip(this.arA_Text1, "Tooltip");
+                this.Tooltip.SetToolTip(this.arA_Text2, "Tooltip");
+            }
         }
 
         protected override void OnClick(EventArgs e)

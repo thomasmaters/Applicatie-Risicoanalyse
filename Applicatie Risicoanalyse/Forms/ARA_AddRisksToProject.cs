@@ -101,10 +101,12 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 ARA_ListItem listItem = new ARA_ListItem();
                 styleListItemAsRisk(parentType,listItem);
+
                 //Set text of listItem.
                 listItem.TextFirstControl = "ID " + datarow["RiskID"].ToString();
                 listItem.TextSecondControl = datarow["TypeName"].ToString();
                 listItem.BackgroundColor = datarow["InProject"].ToString() == "1" ? ARA_Colors.ARA_Green : System.Drawing.Color.White;
+
                 //Add let it execute an event on click.
                 listItem.Click += delegate (object o, System.EventArgs e)
                 {
