@@ -61,6 +61,26 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Gotham_Light {
+            get {
+                object obj = ResourceManager.GetObject("Gotham_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Gotham_LightItalic {
+            get {
+                object obj = ResourceManager.GetObject("Gotham_LightItalic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Langen_Group_Colour {

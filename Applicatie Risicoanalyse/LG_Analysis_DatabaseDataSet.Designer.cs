@@ -5577,6 +5577,8 @@ namespace Applicatie_Risicoanalyse {
             
             private global::System.Data.DataColumn columnInProject;
             
+            private global::System.Data.DataColumn columnFileObject;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Get_Risks_In_ProjectGroupTypeDataTable() {
@@ -5636,6 +5638,14 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FileObjectColumn {
+                get {
+                    return this.columnFileObject;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5671,12 +5681,13 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_Risks_In_ProjectGroupTypeRow AddGet_Risks_In_ProjectGroupTypeRow(int RiskID, string TypeName, int InProject) {
+            public Get_Risks_In_ProjectGroupTypeRow AddGet_Risks_In_ProjectGroupTypeRow(int RiskID, string TypeName, int InProject, byte[] FileObject) {
                 Get_Risks_In_ProjectGroupTypeRow rowGet_Risks_In_ProjectGroupTypeRow = ((Get_Risks_In_ProjectGroupTypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RiskID,
                         TypeName,
-                        InProject};
+                        InProject,
+                        FileObject};
                 rowGet_Risks_In_ProjectGroupTypeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGet_Risks_In_ProjectGroupTypeRow);
                 return rowGet_Risks_In_ProjectGroupTypeRow;
@@ -5702,6 +5713,7 @@ namespace Applicatie_Risicoanalyse {
                 this.columnRiskID = base.Columns["RiskID"];
                 this.columnTypeName = base.Columns["TypeName"];
                 this.columnInProject = base.Columns["InProject"];
+                this.columnFileObject = base.Columns["FileObject"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5713,6 +5725,8 @@ namespace Applicatie_Risicoanalyse {
                 base.Columns.Add(this.columnTypeName);
                 this.columnInProject = new global::System.Data.DataColumn("InProject", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInProject);
+                this.columnFileObject = new global::System.Data.DataColumn("FileObject", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFileObject);
                 this.columnRiskID.AllowDBNull = false;
                 this.columnTypeName.AllowDBNull = false;
                 this.columnTypeName.MaxLength = 64;
@@ -8671,6 +8685,23 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] FileObject {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableGet_Risks_In_ProjectGroupType.FileObjectColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileObject\' in table \'Get_Risks_In_ProjectGroupType\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGet_Risks_In_ProjectGroupType.FileObjectColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsInProjectNull() {
                 return this.IsNull(this.tableGet_Risks_In_ProjectGroupType.InProjectColumn);
             }
@@ -8679,6 +8710,18 @@ namespace Applicatie_Risicoanalyse {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetInProjectNull() {
                 this[this.tableGet_Risks_In_ProjectGroupType.InProjectColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFileObjectNull() {
+                return this.IsNull(this.tableGet_Risks_In_ProjectGroupType.FileObjectColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFileObjectNull() {
+                this[this.tableGet_Risks_In_ProjectGroupType.FileObjectColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14410,6 +14453,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             tableMapping.ColumnMappings.Add("RiskID", "RiskID");
             tableMapping.ColumnMappings.Add("TypeName", "TypeName");
             tableMapping.ColumnMappings.Add("InProject", "InProject");
+            tableMapping.ColumnMappings.Add("FileObject", "FileObject");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

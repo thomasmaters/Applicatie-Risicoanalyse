@@ -34,11 +34,14 @@ namespace Applicatie_Risicoanalyse.Controls
             if (parent.Tag != null)
             {
                 Image pelican = parent.Tag as Image;
-                //create your own custom brush to fill the background with the image
-                TextureBrush b = new TextureBrush(new Bitmap(pelican));// get the image from Tag
+                if(pelican != null)
+                {
+                    //create your own custom brush to fill the background with the image
+                    TextureBrush b = new TextureBrush(new Bitmap(pelican));// get the image from Tag
 
-                g.FillRectangle(b, e.Bounds);
-                b.Dispose();
+                    g.FillRectangle(b, e.Bounds);
+                    b.Dispose();
+                }
             }
                 
             g.Dispose();

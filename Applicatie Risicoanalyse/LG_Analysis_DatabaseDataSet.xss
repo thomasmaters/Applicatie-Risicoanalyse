@@ -21,13 +21,13 @@
     <Shape ID="DesignTable:Get_Recent_Risk_Projects" ZOrder="21" X="1951" Y="70" Height="305" Width="290" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Get_Risks_In_Project_Group" ZOrder="20" X="2311" Y="70" Height="115" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:Get_Risks_In_Project_Type" ZOrder="19" X="2681" Y="70" Height="115" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:Get_Risks_In_ProjectGroupType" ZOrder="18" X="3051" Y="70" Height="134" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:Get_Risks_In_ProjectGroupType" ZOrder="18" X="3051" Y="70" Height="153" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:Is_Risk_In_Project" ZOrder="17" X="3421" Y="70" Height="96" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:Get_Latest_Versions_Of_Risks" ZOrder="16" X="3736" Y="70" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Select_Add_Risk_To_Project_Data" ZOrder="15" X="4106" Y="70" Height="153" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="4476" Y="70" Height="143" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
     <Shape ID="DesignTable:Search_Risks_In_Project" ZOrder="2" X="4846" Y="70" Height="134" Width="280" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:Get_TypeNames_In_Group" ZOrder="1" X="5196" Y="70" Height="96" Width="296" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="4476" Y="70" Height="143" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_ComponentType_ComponentGroup" ZOrder="14" LineWidth="11">

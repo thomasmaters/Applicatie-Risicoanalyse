@@ -14,6 +14,19 @@ namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_ListItem : ARA_ListInterface
     {
+        public new object Tag
+        {
+            get
+            {
+                return this.Tag;
+            }
+            set
+            {
+                this.arA_Text1.Tag = value;
+                this.arA_Text2.Tag = value;
+            }
+        }
+
         public Color BackgroundColor
         {
             get
@@ -96,11 +109,9 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
             this.arA_Text1.Click += new EventHandler(delegate (object sender, EventArgs e) { this.OnClick(e); });
             this.arA_Text2.Click += new EventHandler(delegate (object sender, EventArgs e) { this.OnClick(e); });
-            if(this.Tag != null)
-            {
-                this.Tooltip.SetToolTip(this.arA_Text1, "Tooltip");
-                this.Tooltip.SetToolTip(this.arA_Text2, "Tooltip");
-            }
+
+            this.Tooltip.SetToolTip(this.arA_Text1, "Tooltip");
+            this.Tooltip.SetToolTip(this.arA_Text2, "Tooltip");
         }
 
         protected override void OnClick(EventArgs e)

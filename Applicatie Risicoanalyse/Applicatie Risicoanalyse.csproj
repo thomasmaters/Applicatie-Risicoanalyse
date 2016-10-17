@@ -293,6 +293,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Gotham-Light.otf" />
+    <None Include="Resources\Gotham-LightItalic.otf" />
     <None Include="Resources\Langen Group_Colour.png" />
   </ItemGroup>
   <ItemGroup>
