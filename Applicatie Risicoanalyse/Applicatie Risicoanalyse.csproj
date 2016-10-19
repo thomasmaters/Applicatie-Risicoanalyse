@@ -110,6 +110,24 @@
     <Compile Include="Controls\ARA_Button.Designer.cs">
       <DependentUpon>ARA_Button.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ARA_EditRiskExposedPersons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskExposedPersons.Designer.cs">
+      <DependentUpon>ARA_EditRiskExposedPersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskHazardIndentification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskHazardIndentification.Designer.cs">
+      <DependentUpon>ARA_EditRiskHazardIndentification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskRiskEstimation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskRiskEstimation.Designer.cs">
+      <DependentUpon>ARA_EditRiskRiskEstimation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ARA_ImageTooltip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -170,6 +188,12 @@
     <Compile Include="Forms\ARA_CreateProject.Designer.cs">
       <DependentUpon>ARA_CreateProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_EditRiskBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_EditRiskBaseForm.Designer.cs">
+      <DependentUpon>ARA_EditRiskBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +244,15 @@
     <EmbeddedResource Include="Controls\ARA_Button.resx">
       <DependentUpon>ARA_Button.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARA_EditRiskExposedPersons.resx">
+      <DependentUpon>ARA_EditRiskExposedPersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARA_EditRiskHazardIndentification.resx">
+      <DependentUpon>ARA_EditRiskHazardIndentification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARA_EditRiskRiskEstimation.resx">
+      <DependentUpon>ARA_EditRiskRiskEstimation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_ListGroup.resx">
       <DependentUpon>ARA_ListGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_CreateProject.resx">
       <DependentUpon>ARA_CreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_EditRiskBaseForm.resx">
+      <DependentUpon>ARA_EditRiskBaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_MainMenu.resx">
       <DependentUpon>ARA_MainMenu.cs</DependentUpon>
