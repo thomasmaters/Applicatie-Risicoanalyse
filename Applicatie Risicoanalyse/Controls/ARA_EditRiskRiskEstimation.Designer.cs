@@ -55,11 +55,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.arA_Text3 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.arA_Button5 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.arA_Button16 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.arA_Button17 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.arA_Button16);
+            this.panel1.Controls.Add(this.arA_Button17);
+            this.panel1.Controls.Add(this.arA_Button5);
             this.panel1.Controls.Add(this.arA_Rectangle2);
             this.panel1.Controls.Add(this.arA_Text6);
             this.panel1.Controls.Add(this.arA_Button18);
@@ -169,10 +175,10 @@
             this.arA_Text5.BackgroundColor = System.Drawing.Color.White;
             this.arA_Text5.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
             this.arA_Text5.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text5.Location = new System.Drawing.Point(11, 209);
+            this.arA_Text5.Location = new System.Drawing.Point(15, 209);
             this.arA_Text5.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text5.Name = "arA_Text5";
-            this.arA_Text5.Size = new System.Drawing.Size(728, 23);
+            this.arA_Text5.Size = new System.Drawing.Size(724, 23);
             this.arA_Text5.TabIndex = 54;
             this.arA_Text5.Text = "arA_Text5";
             this.arA_Text5.VerticalAlignment = System.Drawing.StringAlignment.Center;
@@ -268,10 +274,10 @@
             this.arA_Text4.BackgroundColor = System.Drawing.Color.White;
             this.arA_Text4.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
             this.arA_Text4.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text4.Location = new System.Drawing.Point(11, 147);
+            this.arA_Text4.Location = new System.Drawing.Point(15, 147);
             this.arA_Text4.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text4.Name = "arA_Text4";
-            this.arA_Text4.Size = new System.Drawing.Size(728, 23);
+            this.arA_Text4.Size = new System.Drawing.Size(724, 23);
             this.arA_Text4.TabIndex = 48;
             this.arA_Text4.Text = "arA_Text4";
             this.arA_Text4.VerticalAlignment = System.Drawing.StringAlignment.Center;
@@ -367,10 +373,10 @@
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
             this.arA_Text2.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
             this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text2.Location = new System.Drawing.Point(11, 85);
+            this.arA_Text2.Location = new System.Drawing.Point(15, 85);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text2.Name = "arA_Text2";
-            this.arA_Text2.Size = new System.Drawing.Size(728, 23);
+            this.arA_Text2.Size = new System.Drawing.Size(724, 23);
             this.arA_Text2.TabIndex = 42;
             this.arA_Text2.Text = "arA_Text2";
             this.arA_Text2.VerticalAlignment = System.Drawing.StringAlignment.Center;
@@ -487,6 +493,57 @@
             this.arA_Text3.Text = "arA_Text3";
             this.arA_Text3.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // arA_Button5
+            // 
+            this.arA_Button5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.arA_Button5.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.arA_Button5.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Button5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_Button5.Location = new System.Drawing.Point(595, 46);
+            this.arA_Button5.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_Button5.Name = "arA_Button5";
+            this.arA_Button5.Selected = false;
+            this.arA_Button5.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button5.Size = new System.Drawing.Size(144, 39);
+            this.arA_Button5.TabIndex = 62;
+            this.arA_Button5.Text = "Death, loss of eye or finger";
+            this.arA_Button5.TextColor = System.Drawing.Color.White;
+            this.arA_Button5.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // arA_Button16
+            // 
+            this.arA_Button16.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.arA_Button16.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.arA_Button16.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Button16.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_Button16.Location = new System.Drawing.Point(595, 232);
+            this.arA_Button16.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_Button16.Name = "arA_Button16";
+            this.arA_Button16.Selected = false;
+            this.arA_Button16.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button16.Size = new System.Drawing.Size(144, 39);
+            this.arA_Button16.TabIndex = 64;
+            this.arA_Button16.Text = "Death, loss of eye or finger";
+            this.arA_Button16.TextColor = System.Drawing.Color.White;
+            this.arA_Button16.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // arA_Button17
+            // 
+            this.arA_Button17.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.arA_Button17.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.arA_Button17.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Button17.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_Button17.Location = new System.Drawing.Point(450, 232);
+            this.arA_Button17.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_Button17.Name = "arA_Button17";
+            this.arA_Button17.Selected = false;
+            this.arA_Button17.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button17.Size = new System.Drawing.Size(145, 39);
+            this.arA_Button17.TabIndex = 63;
+            this.arA_Button17.Text = "Death, loss of eye or finger";
+            this.arA_Button17.TextColor = System.Drawing.Color.White;
+            this.arA_Button17.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // ARA_EditRiskRiskEstimation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -533,5 +590,8 @@
         private ARA_Button arA_Button3;
         private ARA_Button arA_Button2;
         private ARA_Rectangle arA_Rectangle2;
+        private ARA_Button arA_Button16;
+        private ARA_Button arA_Button17;
+        private ARA_Button arA_Button5;
     }
 }
