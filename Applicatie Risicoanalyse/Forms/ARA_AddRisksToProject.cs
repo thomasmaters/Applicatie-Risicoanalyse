@@ -219,9 +219,16 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void onSearchBarTextChanged(object sender, EventArgs e)
         {
+            int tempScrollPosition = this.addRiskToProjectSearchDataGrid.FirstDisplayedScrollingRowIndex;
+
             this.addRiskToProjectSearchDataGrid.Visible = this.addRiskToProjectSearchTextBox.Text != "";
             this.addRiskToProjectSearchDataGrid.DataSource = this.search_Risks_In_ProjectTableAdapter.GetData(this.projectID, this.addRiskToProjectSearchTextBox.Text);
             this.addRiskToProjectSearchDataGrid.Refresh();
+
+            if(tempScrollPosition != -1 && tempScrollPosition < this.addRiskToProjectSearchDataGrid.Rows.Count)
+            {
+                this.addRiskToProjectSearchDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
+            }
         }
 
         private void onDataGridRowAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -241,17 +248,20 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void onDataGridRowDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //Execute query to add or delete the risk to the project.
-            if (this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["inProjectDataGridViewTextBoxColumn"].Value.ToString() == "1")
+            if (e.RowIndex != -1)
             {
-                this.queriesTableAdapter1.Delete_From_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
+                //Execute query to add or delete the risk to the project.
+                if (this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["inProjectDataGridViewTextBoxColumn"].Value.ToString() == "1")
+                {
+                    this.queriesTableAdapter1.Delete_From_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
+                }
+                else
+                {
+                    this.queriesTableAdapter1.Insert_In_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
+                }
+                //Sneaky way to fire a textchange event without changing the text.
+                this.addRiskToProjectSearchTextBox.Text += "";
             }
-            else
-            {
-                this.queriesTableAdapter1.Insert_In_ProjectRisks(this.projectID, Int32.Parse(this.addRiskToProjectSearchDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value.ToString()));
-            }
-            //Sneaky way to fire a textchange event without changing the text.
-            this.addRiskToProjectSearchTextBox.Text += "";
         }
 
         private void onDataGridSelectionChanged(object sender, EventArgs e)
