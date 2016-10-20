@@ -155,7 +155,7 @@
             this.arA_Text1.Name = "arA_Text1";
             this.arA_Text1.Size = new System.Drawing.Size(728, 23);
             this.arA_Text1.TabIndex = 7;
-            this.arA_Text1.Text = "arA_Text1";
+            this.arA_Text1.Text = "Exposed Persons";
             this.arA_Text1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_EditRiskExposedPersons

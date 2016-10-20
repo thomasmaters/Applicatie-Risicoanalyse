@@ -17,17 +17,7 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
         }
 
-        private void arA_Text2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void arA_Text4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void arA_Text5_Click(object sender, EventArgs e)
+        private void loadRiskEstimationItems()
         {
 
         }

@@ -20,7 +20,7 @@ namespace Applicatie_Risicoanalyse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Applicatie_Risicoanalyse.Forms.ARA_BaseForm());
+            Application.Run(new Applicatie_Risicoanalyse.Forms.ARA_EditRiskBaseForm());
         }
     }
 }
