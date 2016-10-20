@@ -188,7 +188,7 @@
             this.tableAdapterManager.Tbl_Component_GroupTableAdapter = this.tbl_Component_GroupTableAdapter;
             this.tableAdapterManager.Tbl_Component_TypeTableAdapter = this.tbl_Component_TypeTableAdapter;
             this.tableAdapterManager.Tbl_LogTableAdapter = null;
-            this.tableAdapterManager.Tbl_Project_RisksTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
             this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
