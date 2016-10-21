@@ -128,6 +128,12 @@
     <Compile Include="Controls\ARA_EditRiskRiskEstimation.Designer.cs">
       <DependentUpon>ARA_EditRiskRiskEstimation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ARA_EditRiskRiskEstimationItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ARA_EditRiskRiskEstimationItem.Designer.cs">
+      <DependentUpon>ARA_EditRiskRiskEstimationItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ARA_ImageTooltip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_EditRiskRiskEstimation.resx">
       <DependentUpon>ARA_EditRiskRiskEstimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARA_EditRiskRiskEstimationItem.resx">
+      <DependentUpon>ARA_EditRiskRiskEstimationItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_ListGroup.resx">
       <DependentUpon>ARA_ListGroup.cs</DependentUpon>
