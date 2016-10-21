@@ -24,25 +24,29 @@ namespace Applicatie_Risicoanalyse.Controls
             arA_EditRiskRiskEstimationItem4.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
         }
 
-        public void setRiskEstimationData(DataTable selectedRowDataTable)
-        { 
-            DataRowCollection rows = this.tbl_RiskEstimation_GroupTableAdapter.GetData().Rows;
-            string groupName1 = rows[0]["GroupName"].ToString();
-            string groupName2 = rows[1]["GroupName"].ToString();
-            string groupName3 = rows[2]["GroupName"].ToString();
-            string groupName4 = rows[3]["GroupName"].ToString();
+        public void setRiskEstimationData(DataView riskEstimationDataTable)
+        {
+            DataTable temp = riskEstimationDataTable.ToTable(true, "GroupName");
+
+            string groupName1 = temp.Rows[0]["GroupName"].ToString();
+            string groupName2 = temp.Rows[1]["GroupName"].ToString();
+            string groupName3 = temp.Rows[2]["GroupName"].ToString();
+            string groupName4 = temp.Rows[3]["GroupName"].ToString();
 
             this.arA_EditRiskRiskEstimationItem1.setGroupName(groupName1);
             this.arA_EditRiskRiskEstimationItem2.setGroupName(groupName2);
             this.arA_EditRiskRiskEstimationItem3.setGroupName(groupName3);
             this.arA_EditRiskRiskEstimationItem4.setGroupName(groupName4);
 
-            this.arA_EditRiskRiskEstimationItem1.setButtonTextsAndWeights(this.get_RiskEstimationItems_From_GroupTableAdapter.GetData(groupName1).Rows);
-            this.arA_EditRiskRiskEstimationItem2.setButtonTextsAndWeights(this.get_RiskEstimationItems_From_GroupTableAdapter.GetData(groupName2).Rows);
-            this.arA_EditRiskRiskEstimationItem3.setButtonTextsAndWeights(this.get_RiskEstimationItems_From_GroupTableAdapter.GetData(groupName3).Rows);
-            this.arA_EditRiskRiskEstimationItem4.setButtonTextsAndWeights(this.get_RiskEstimationItems_From_GroupTableAdapter.GetData(groupName4).Rows);
-
-            this.arA_EditRiskRiskEstimationItem1.setButtonSelected()
+            riskEstimationDataTable.RowFilter = "GroupName ='" + groupName1 + "'";
+            this.arA_EditRiskRiskEstimationItem1.setButtonTextsAndWeights(riskEstimationDataTable);
+            riskEstimationDataTable.RowFilter = "GroupName ='" + groupName2 + "'";
+            this.arA_EditRiskRiskEstimationItem2.setButtonTextsAndWeights(riskEstimationDataTable);
+            riskEstimationDataTable.RowFilter = "GroupName ='" + groupName3 + "'"; ;
+            this.arA_EditRiskRiskEstimationItem3.setButtonTextsAndWeights(riskEstimationDataTable);
+            riskEstimationDataTable.RowFilter = "GroupName ='" + groupName4 + "'"; ;
+            this.arA_EditRiskRiskEstimationItem4.setButtonTextsAndWeights(riskEstimationDataTable);
+            //Gekozen om dit met static waardes omdat de form dan sneller laad en geen controls aangemaakt hoeven te worden on runtime.
         }
 
         public void updateSafetyMesuresRequirement()
@@ -63,7 +67,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 classText = "No safety measures rquired";
             }
 
-            this.arA_Text6.Text = "Risk class:" + riskClassification.ToString() + " (Points:" + calculateRiskPoints().ToString() + ") " + classText;
+            this.arA_Text6.Text = "Risk class: " + riskClassification.ToString() + " (Points:" + calculateRiskPoints().ToString() + ") " + classText;
             this.arA_Text6.Invalidate();
         }
 
@@ -72,12 +76,12 @@ namespace Applicatie_Risicoanalyse.Controls
             int severity = this.arA_EditRiskRiskEstimationItem1.SelectedWeight;
             int totalRiskPoints = calculateRiskPoints();
 
-            if (totalRiskPoints < 4)
+            if (totalRiskPoints < 4 || severity == 0)
             {
                 return 0;
             }
 
-            int[,] classMatrix = new int[4,12]
+            byte[,] classMatrix = new byte[4,12]
             {
                 { 0,0,0,0,0,0,0,1,1,1,2,2},
                 { 0,0,0,0,1,1,1,2,2,2,2,2},

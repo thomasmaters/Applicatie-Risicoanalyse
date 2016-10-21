@@ -24,7 +24,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 control.Font = this.Font;
             }
 
-            this.arA_EditRiskRiskEstimation1.setRiskEstimationData();
+            DataView view = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(1));
+            this.arA_EditRiskRiskEstimation1.setRiskEstimationData(view);
         }
     }
 }

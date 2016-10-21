@@ -59,16 +59,21 @@ namespace Applicatie_Risicoanalyse.Controls
         }
 
         //Sets button texts from a datarowcollection.
-        public void setButtonTextsAndWeights(DataRowCollection buttonTexts)
+        public void setButtonTextsAndWeights(DataView buttonTexts)
         {
             setAmountOfButtons(buttonTexts.Count);
-
             buttonWeights.Clear();
 
             for (int i = 0; i < buttonTexts.Count; i++)
             {
                 this.RiskEstimationPanel.Controls[i].Text = buttonTexts[i]["ItemDescription"].ToString();
+                Debug.WriteLine(buttonTexts[i]["ItemWeight"].ToString());
                 buttonWeights.Add(Int32.Parse(buttonTexts[i]["ItemWeight"].ToString()));
+                if(buttonTexts[i]["InProject"].ToString() == "1")
+                {
+                    setButtonSelected(i);
+                    this.selectedWeight = Int32.Parse(buttonTexts[i]["ItemWeight"].ToString());
+                }
             }
         }
 

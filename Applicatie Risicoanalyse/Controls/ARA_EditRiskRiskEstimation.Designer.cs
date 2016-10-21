@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.get_RiskEstimationItems_From_GroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.get_RiskEstimationItems_From_GroupTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskEstimationItems_From_GroupTableAdapter();
-            this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.tbl_RiskEstimation_GroupTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskEstimation_GroupTableAdapter();
-            this.tbl_RiskEstimation_GroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RiskEstimationTextTitle = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_EditRiskRiskEstimationItem4 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimationItem();
             this.arA_EditRiskRiskEstimationItem3 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimationItem();
@@ -45,9 +38,6 @@
             this.arA_Rectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.arA_Text6 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.get_RiskEstimationItems_From_GroupBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_RiskEstimation_GroupBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,69 +54,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 312);
+            this.panel1.Size = new System.Drawing.Size(770, 311);
             this.panel1.TabIndex = 0;
-            // 
-            // get_RiskEstimationItems_From_GroupBindingSource
-            // 
-            this.get_RiskEstimationItems_From_GroupBindingSource.DataMember = "Get_RiskEstimationItems_From_Group";
-            this.get_RiskEstimationItems_From_GroupBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(739, 0);
+            this.panel2.Location = new System.Drawing.Point(759, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(11, 312);
+            this.panel2.Size = new System.Drawing.Size(11, 311);
             this.panel2.TabIndex = 35;
-            // 
-            // get_RiskEstimationItems_From_GroupTableAdapter
-            // 
-            this.get_RiskEstimationItems_From_GroupTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
-            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
-            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
-            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
-            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
-            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
-            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
-            this.tableAdapterManager.Tbl_LogTableAdapter = null;
-            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_GroupTableAdapter = this.tbl_RiskEstimation_GroupTableAdapter;
-            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_ItemTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
-            this.tableAdapterManager.Tbl_UserTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // tbl_RiskEstimation_GroupTableAdapter
-            // 
-            this.tbl_RiskEstimation_GroupTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbl_RiskEstimation_GroupBindingSource
-            // 
-            this.tbl_RiskEstimation_GroupBindingSource.DataMember = "Tbl_RiskEstimation_Group";
-            this.tbl_RiskEstimation_GroupBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
             // RiskEstimationTextTitle
             // 
@@ -212,11 +150,8 @@
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ARA_EditRiskRiskEstimation";
-            this.Size = new System.Drawing.Size(750, 312);
+            this.Size = new System.Drawing.Size(770, 311);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.get_RiskEstimationItems_From_GroupBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_RiskEstimation_GroupBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,12 +163,6 @@
         private ARA_Text RiskEstimationTextTitle;
         private ARA_Text arA_Text6;
         private ARA_Rectangle arA_Rectangle2;
-        private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
-        private System.Windows.Forms.BindingSource get_RiskEstimationItems_From_GroupBindingSource;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskEstimationItems_From_GroupTableAdapter get_RiskEstimationItems_From_GroupTableAdapter;
-        private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskEstimation_GroupTableAdapter tbl_RiskEstimation_GroupTableAdapter;
-        private System.Windows.Forms.BindingSource tbl_RiskEstimation_GroupBindingSource;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem4;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem3;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem2;

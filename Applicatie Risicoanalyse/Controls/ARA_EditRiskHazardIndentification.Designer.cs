@@ -128,10 +128,8 @@
             this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_GroupTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_ItemTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
             this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
