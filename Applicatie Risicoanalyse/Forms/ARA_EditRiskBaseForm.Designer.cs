@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
             this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
             this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
-            this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
             this.SuspendLayout();
+            // 
+            // arA_EditRiskRiskEstimation1
+            // 
+            this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(3, 237);
+            this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
+            this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(750, 300);
+            this.arA_EditRiskRiskEstimation1.TabIndex = 2;
             // 
             // arA_EditRiskHazardIndentification1
             // 
+            this.arA_EditRiskHazardIndentification1.AutoScroll = true;
+            this.arA_EditRiskHazardIndentification1.BackColor = System.Drawing.Color.White;
             this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskHazardIndentification1.HasControlBeenChanged = true;
             this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(3, 67);
             this.arA_EditRiskHazardIndentification1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 170);
@@ -51,15 +63,6 @@
             this.arA_EditRiskExposedPersons1.Name = "arA_EditRiskExposedPersons1";
             this.arA_EditRiskExposedPersons1.Size = new System.Drawing.Size(750, 64);
             this.arA_EditRiskExposedPersons1.TabIndex = 0;
-            // 
-            // arA_EditRiskRiskEstimation1
-            // 
-            this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(3, 237);
-            this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
-            this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(750, 300);
-            this.arA_EditRiskRiskEstimation1.TabIndex = 2;
             // 
             // ARA_EditRiskBaseForm
             // 

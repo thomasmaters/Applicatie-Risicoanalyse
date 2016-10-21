@@ -18,7 +18,7 @@ namespace Applicatie_Risicoanalyse.Controls
         private Color selectedColor = ARA_Colors.ARA_Blue6;
         private Color hoverColor = ARA_Colors.ARA_Gray2;
         private Color textColor         = Color.White;
-        protected Color selectedTextColor = Color.White;
+        private Color selectedTextColor = Color.White;
         private StringAlignment horizontalAlignment = StringAlignment.Near;
         private StringAlignment verticalAlignment = StringAlignment.Center;
         public bool selected = false;
@@ -121,6 +121,20 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        [Description("Color of the text in the button when the button is selected."), Category("Appearance")]
+        public Color SelectedTextColor
+        {
+            get
+            {
+                return selectedTextColor;
+            }
+
+            set
+            {
+                selectedTextColor = value;
+            }
+        }
+
         public ARA_Button()
         {
             InitializeComponent();
@@ -140,7 +154,7 @@ namespace Applicatie_Risicoanalyse.Controls
             else if(this.Selected)
             {
                 backgroundBrush = new System.Drawing.SolidBrush(this.selectedColor);
-                textBrush = new System.Drawing.SolidBrush(this.selectedTextColor);
+                textBrush = new System.Drawing.SolidBrush(this.SelectedTextColor);
             }
             else if(this.Enabled == false)
             {

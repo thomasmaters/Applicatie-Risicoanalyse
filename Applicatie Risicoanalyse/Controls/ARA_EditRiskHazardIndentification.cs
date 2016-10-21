@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
@@ -16,9 +17,9 @@ namespace Applicatie_Risicoanalyse.Controls
         private bool hasControlBeenChanged = false;
         private int riskDataID = -1;
 
-        public ARA_EditRiskHazardIndentification(int riskDataID)
+        public ARA_EditRiskHazardIndentification()
         {
-            this.riskDataID = riskDataID;
+            this.riskDataID = 1;
             InitializeComponent();
             setControlData(1);
         }

@@ -23,6 +23,8 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 control.Font = this.Font;
             }
+
+            this.arA_EditRiskRiskEstimation1.setRiskEstimationData();
         }
     }
 }

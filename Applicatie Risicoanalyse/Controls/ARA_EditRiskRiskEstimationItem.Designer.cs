@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            int buttonAlpha = 90;
             this.RiskEstimationPanel = new System.Windows.Forms.Panel();
             this.RiskEstimation5Button = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.RiskEstimation4Button = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -53,91 +54,91 @@
             // 
             // RiskEstimation5Button
             // 
-            this.RiskEstimation5Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.RiskEstimation5Button.BaseColor = System.Drawing.Color.FromArgb(buttonAlpha, Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Red);
             this.RiskEstimation5Button.Font = new System.Drawing.Font("Gotham Light", 12F);
             this.RiskEstimation5Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimation5Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RiskEstimation5Button.HoverColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Red;
             this.RiskEstimation5Button.Location = new System.Drawing.Point(0, 0);
             this.RiskEstimation5Button.Margin = new System.Windows.Forms.Padding(0);
             this.RiskEstimation5Button.Name = "RiskEstimation5Button";
             this.RiskEstimation5Button.Selected = false;
-            this.RiskEstimation5Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RiskEstimation5Button.SelectedColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Red;
             this.RiskEstimation5Button.Size = new System.Drawing.Size(141, 39);
             this.RiskEstimation5Button.TabIndex = 37;
             this.RiskEstimation5Button.Text = "Death, loss of eye or finger";
-            this.RiskEstimation5Button.TextColor = System.Drawing.Color.White;
+            this.RiskEstimation5Button.TextColor = System.Drawing.Color.Black;
             this.RiskEstimation5Button.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.RiskEstimation5Button.Click += new System.EventHandler(this.RiskEstimation5Button_Click);
             // 
             // RiskEstimation4Button
             // 
-            this.RiskEstimation4Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.RiskEstimation4Button.BaseColor = System.Drawing.Color.FromArgb(buttonAlpha, Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Orange);
             this.RiskEstimation4Button.Font = new System.Drawing.Font("Gotham Light", 12F);
             this.RiskEstimation4Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimation4Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RiskEstimation4Button.HoverColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Orange;
             this.RiskEstimation4Button.Location = new System.Drawing.Point(141, 0);
             this.RiskEstimation4Button.Margin = new System.Windows.Forms.Padding(0);
             this.RiskEstimation4Button.Name = "RiskEstimation4Button";
             this.RiskEstimation4Button.Selected = false;
-            this.RiskEstimation4Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RiskEstimation4Button.SelectedColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Orange;
             this.RiskEstimation4Button.Size = new System.Drawing.Size(145, 39);
             this.RiskEstimation4Button.TabIndex = 38;
             this.RiskEstimation4Button.Text = "Death, loss of eye or finger";
-            this.RiskEstimation4Button.TextColor = System.Drawing.Color.White;
+            this.RiskEstimation4Button.TextColor = System.Drawing.Color.Black;
             this.RiskEstimation4Button.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.RiskEstimation4Button.Click += new System.EventHandler(this.RiskEstimation4Button_Click);
             // 
             // RiskEstimation3Button
             // 
-            this.RiskEstimation3Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.RiskEstimation3Button.BaseColor = System.Drawing.Color.FromArgb(buttonAlpha,((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
             this.RiskEstimation3Button.Font = new System.Drawing.Font("Gotham Light", 12F);
             this.RiskEstimation3Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimation3Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RiskEstimation3Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
             this.RiskEstimation3Button.Location = new System.Drawing.Point(286, 0);
             this.RiskEstimation3Button.Margin = new System.Windows.Forms.Padding(0);
             this.RiskEstimation3Button.Name = "RiskEstimation3Button";
             this.RiskEstimation3Button.Selected = false;
-            this.RiskEstimation3Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RiskEstimation3Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
             this.RiskEstimation3Button.Size = new System.Drawing.Size(145, 39);
             this.RiskEstimation3Button.TabIndex = 39;
             this.RiskEstimation3Button.Text = "Death, loss of eye or finger";
-            this.RiskEstimation3Button.TextColor = System.Drawing.Color.White;
+            this.RiskEstimation3Button.TextColor = System.Drawing.Color.Black;
             this.RiskEstimation3Button.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.RiskEstimation3Button.Click += new System.EventHandler(this.RiskEstimation3Button_Click);
             // 
             // RiskEstimation2Button
             // 
-            this.RiskEstimation2Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.RiskEstimation2Button.BaseColor = System.Drawing.Color.FromArgb(buttonAlpha, Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Green);
             this.RiskEstimation2Button.Font = new System.Drawing.Font("Gotham Light", 12F);
             this.RiskEstimation2Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimation2Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RiskEstimation2Button.HoverColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Green;
             this.RiskEstimation2Button.Location = new System.Drawing.Point(431, 0);
             this.RiskEstimation2Button.Margin = new System.Windows.Forms.Padding(0);
             this.RiskEstimation2Button.Name = "RiskEstimation2Button";
             this.RiskEstimation2Button.Selected = false;
-            this.RiskEstimation2Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RiskEstimation2Button.SelectedColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Green;
             this.RiskEstimation2Button.Size = new System.Drawing.Size(145, 39);
             this.RiskEstimation2Button.TabIndex = 40;
             this.RiskEstimation2Button.Text = "Death, loss of eye or finger";
-            this.RiskEstimation2Button.TextColor = System.Drawing.Color.White;
+            this.RiskEstimation2Button.TextColor = System.Drawing.Color.Black;
             this.RiskEstimation2Button.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.RiskEstimation2Button.Click += new System.EventHandler(this.RiskEstimation2Button_Click);
             // 
             // RiskEstimation1Button
             // 
-            this.RiskEstimation1Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.RiskEstimation1Button.BaseColor = System.Drawing.Color.FromArgb(buttonAlpha, Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Blue5);
             this.RiskEstimation1Button.Font = new System.Drawing.Font("Gotham Light", 12F);
             this.RiskEstimation1Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimation1Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RiskEstimation1Button.HoverColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Blue5;
             this.RiskEstimation1Button.Location = new System.Drawing.Point(576, 0);
             this.RiskEstimation1Button.Margin = new System.Windows.Forms.Padding(0);
             this.RiskEstimation1Button.Name = "RiskEstimation1Button";
             this.RiskEstimation1Button.Selected = false;
-            this.RiskEstimation1Button.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RiskEstimation1Button.SelectedColor = Applicatie_Risicoanalyse.Globals.ARA_Colors.ARA_Blue5;
             this.RiskEstimation1Button.Size = new System.Drawing.Size(144, 39);
             this.RiskEstimation1Button.TabIndex = 62;
             this.RiskEstimation1Button.Text = "Death, loss of eye or finger";
-            this.RiskEstimation1Button.TextColor = System.Drawing.Color.White;
+            this.RiskEstimation1Button.TextColor = System.Drawing.Color.Black;
             this.RiskEstimation1Button.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.RiskEstimation1Button.Click += new System.EventHandler(this.RiskEstimation1Button_Click);
             // 

@@ -21,7 +21,8 @@ namespace Applicatie_Risicoanalyse.Globals
 
         private static Color LG_Green  = Color.FromArgb(84  , 185   , 72);
         private static Color LG_Red    = Color.FromArgb(181 , 9     , 56);
-        private static Color LG_Turkois= Color.FromArgb(0  , 140   , 153);
+        private static Color LG_Turkois= Color.FromArgb(0   , 140   , 153);
+        private static Color LG_Orange = Color.FromArgb(236, 136, 29);
         
         public static Color ARA_Blue1
         {
@@ -105,6 +106,14 @@ namespace Applicatie_Risicoanalyse.Globals
             get
             {
                 return LG_Turkois;
+            }
+        }
+
+        public static Color ARA_Orange
+        {
+            get
+            {
+                return LG_Orange;
             }
         }
     }

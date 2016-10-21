@@ -8,36 +8,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskEstimationItem : UserControl
     {
-        private int[] buttonWeights = { 0};
+        private List<int> buttonWeights = new List<int>();
+        private int selectedWeight = 0;
 
-        public int[] ButtonWeights
+        public int SelectedWeight
         {
             get
             {
-                return buttonWeights;
-            }
-
-            set
-            {
-                buttonWeights = value;
+                return selectedWeight;
             }
         }
 
         public ARA_EditRiskRiskEstimationItem()
         {
             InitializeComponent();
+
+            //Scale controls.
+            foreach (Control control in this.Controls)
+            {
+                control.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
+            }
         }
 
+        //Sets groupname of item.
         public void setGroupName(string groupName)
         {
             this.RiskEstimationText.Text = groupName;
         }
 
+        //Shows the amount of buttons in the control.
         public void setAmountOfButtons(int amountOfControls)
         {
             for(int i=0;i<this.RiskEstimationPanel.Controls.Count;i++)
@@ -53,32 +58,45 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        public void setButtonTexts(DataRowCollection buttonTexts)
+        //Sets button texts from a datarowcollection.
+        public void setButtonTextsAndWeights(DataRowCollection buttonTexts)
         {
+            setAmountOfButtons(buttonTexts.Count);
+
+            buttonWeights.Clear();
+
             for (int i = 0; i < buttonTexts.Count; i++)
             {
                 this.RiskEstimationPanel.Controls[i].Text = buttonTexts[i]["ItemDescription"].ToString();
+                buttonWeights.Add(Int32.Parse(buttonTexts[i]["ItemWeight"].ToString()));
             }
         }
 
+        //Sets a specific button selected, while deselecting the other ones.
         public void setButtonSelected(int buttonID)
         {
             setButtonSelected(null);
             ((ARA_Button)(this.RiskEstimationPanel.Controls[buttonID])).setButtonSelected(true);
         }
 
+        //Sets a specific button selected, while deselecting the other ones. Als update the selected weight.
         private void setButtonSelected(ARA_Button button = null)
         {
-            Debug.WriteLine("setButtonSelected");
             foreach(ARA_Button control in this.RiskEstimationPanel.Controls.OfType<ARA_Button>())
             {
                 if(control != button)
                 {
                     control.setButtonSelected(false);
                 }
+                else //Update the selected weight.
+                {
+                    this.selectedWeight = buttonWeights[this.RiskEstimationPanel.Controls.IndexOf(control)];
+                }
             }
+            this.Invalidate();
         }
 
+        //Button click eventhandlers.
         private void RiskEstimation4Button_Click(object sender, EventArgs e)
         {
             this.setButtonSelected((ARA_Button)sender);
