@@ -91,7 +91,6 @@ namespace Applicatie_Risicoanalyse.Controls
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
             this.hasControlBeenChanged = true;
-            Debug.WriteLine("textchanged");
         }
 
         private void arA_TextBox2_TextChanged(object sender, EventArgs e)

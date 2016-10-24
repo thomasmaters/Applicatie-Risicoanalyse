@@ -67,8 +67,9 @@ namespace Applicatie_Risicoanalyse.Controls
             for (int i = 0; i < buttonTexts.Count; i++)
             {
                 this.RiskEstimationPanel.Controls[i].Text = buttonTexts[i]["ItemDescription"].ToString();
-                Debug.WriteLine(buttonTexts[i]["ItemWeight"].ToString());
+
                 buttonWeights.Add(Int32.Parse(buttonTexts[i]["ItemWeight"].ToString()));
+
                 if(buttonTexts[i]["InProject"].ToString() == "1")
                 {
                     setButtonSelected(i);
@@ -95,7 +96,10 @@ namespace Applicatie_Risicoanalyse.Controls
                 }
                 else //Update the selected weight.
                 {
-                    this.selectedWeight = buttonWeights[this.RiskEstimationPanel.Controls.IndexOf(control)];
+                    if(buttonWeights.Count > 0)
+                    {
+                        this.selectedWeight = buttonWeights[this.RiskEstimationPanel.Controls.IndexOf(control)];
+                    }
                 }
             }
             this.Invalidate();

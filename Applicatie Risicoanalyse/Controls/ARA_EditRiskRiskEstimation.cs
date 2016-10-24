@@ -14,6 +14,18 @@ namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskEstimation : UserControl
     {
+        public string TitleText
+        {
+            get
+            {
+                return this.RiskEstimationTextTitle.Text;
+            }
+            set
+            {
+                this.RiskEstimationTextTitle.Text = value;
+            }
+        }
+
         public ARA_EditRiskRiskEstimation()
         {
             InitializeComponent();
@@ -22,6 +34,8 @@ namespace Applicatie_Risicoanalyse.Controls
             arA_EditRiskRiskEstimationItem2.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
             arA_EditRiskRiskEstimationItem3.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
             arA_EditRiskRiskEstimationItem4.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
+
+            updateSafetyMesuresRequirement();
         }
 
         public void setRiskEstimationData(DataView riskEstimationDataTable)
@@ -54,17 +68,17 @@ namespace Applicatie_Risicoanalyse.Controls
             int riskClassification = calculateRiskEstimationClass();
             string classText = "";
 
-            if(riskClassification == 1)
+            switch (riskClassification)
             {
-                classText = "Safety measures recommended.";
-            }
-            else if(riskClassification == 2)
-            {
-                classText = "Safety measures required!";
-            }
-            else
-            {
-                classText = "No safety measures rquired";
+                case 1:
+                    classText = "Safety measures recommended.";
+                    break;
+                case 2:
+                    classText = "Safety measures required!";
+                    break;
+                default:
+                    classText = "No safety measures rquired";
+                    break;
             }
 
             this.arA_Text6.Text = "Risk class: " + riskClassification.ToString() + " (Points:" + calculateRiskPoints().ToString() + ") " + classText;
