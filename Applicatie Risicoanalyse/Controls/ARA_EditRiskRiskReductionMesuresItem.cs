@@ -12,6 +12,21 @@ namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskReductionMesuresItem : UserControl
     {
+        private bool hasControlBeenChanged = false;
+
+        public bool HasControlBeenChanged
+        {
+            get
+            {
+                return hasControlBeenChanged;
+            }
+
+            set
+            {
+                hasControlBeenChanged = value;
+            }
+        }
+
         public ARA_EditRiskRiskReductionMesuresItem()
         {
             InitializeComponent();
@@ -48,7 +63,10 @@ namespace Applicatie_Risicoanalyse.Controls
         //Show or hide when groupcheckbox is checked.
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(this.checkBox1.Checked == true)
+            //Set flag so the control knows it has been changed.
+            this.hasControlBeenChanged = true;
+
+            if (this.checkBox1.Checked == true)
             {
                 this.checkedListBox1.Visible = true;
             }

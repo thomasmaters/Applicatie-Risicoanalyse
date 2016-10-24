@@ -13,6 +13,33 @@ namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskReductionMesures : UserControl
     {
+        private bool hasControlBeenChanged = false;
+
+        public bool HasControlBeenChanged
+        {
+            get
+            {
+                if(hasControlBeenChanged)
+                {
+                    return true;
+                }
+                foreach(ARA_EditRiskRiskReductionMesuresItem item in this.flowLayoutPanel1.Controls)
+                {
+                    if (item.HasControlBeenChanged)
+                    {
+                        this.hasControlBeenChanged = true;
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            set
+            {
+                hasControlBeenChanged = value;
+            }
+        }
+
         public ARA_EditRiskRiskReductionMesures()
         {
             InitializeComponent();
@@ -57,6 +84,11 @@ namespace Applicatie_Risicoanalyse.Controls
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
         {
             this.arA_Rectangle2.Size = new Size(this.arA_Rectangle2.Width, this.flowLayoutPanel1.Size.Height - 10);
+        }
+
+        private void arA_TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.hasControlBeenChanged = true;
         }
     }
 }

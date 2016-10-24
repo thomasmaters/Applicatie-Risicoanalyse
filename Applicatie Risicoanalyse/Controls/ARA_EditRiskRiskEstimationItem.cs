@@ -16,6 +16,20 @@ namespace Applicatie_Risicoanalyse.Controls
     {
         private List<int> buttonWeights = new List<int>();
         private int selectedWeight = 0;
+        private bool hasControlBeenChanged = false;
+
+        public bool HasControlBeenChanged
+        {
+            get
+            {
+                return hasControlBeenChanged;
+            }
+
+            set
+            {
+                hasControlBeenChanged = value;
+            }
+        }
 
         public int SelectedWeight
         {
@@ -34,6 +48,12 @@ namespace Applicatie_Risicoanalyse.Controls
             {
                 control.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
             }
+
+            this.RiskEstimation1Button.Click += onRiskEstimationButtonClick;
+            this.RiskEstimation2Button.Click += onRiskEstimationButtonClick;
+            this.RiskEstimation3Button.Click += onRiskEstimationButtonClick;
+            this.RiskEstimation4Button.Click += onRiskEstimationButtonClick;
+            this.RiskEstimation5Button.Click += onRiskEstimationButtonClick;
         }
 
         //Sets groupname of item.
@@ -88,7 +108,8 @@ namespace Applicatie_Risicoanalyse.Controls
         //Sets a specific button selected, while deselecting the other ones. Als update the selected weight.
         private void setButtonSelected(ARA_Button button = null)
         {
-            foreach(ARA_Button control in this.RiskEstimationPanel.Controls.OfType<ARA_Button>())
+            //Loop throuh all our buttons.
+            foreach (ARA_Button control in this.RiskEstimationPanel.Controls.OfType<ARA_Button>())
             {
                 if(control != button)
                 {
@@ -105,30 +126,18 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
-        //Button click eventhandlers.
-        private void RiskEstimation4Button_Click(object sender, EventArgs e)
+        private void onRiskEstimationButtonClick(object sender, EventArgs e)
         {
-            this.setButtonSelected((ARA_Button)sender);
-        }
-
-        private void RiskEstimation2Button_Click(object sender, EventArgs e)
-        {
-            this.setButtonSelected((ARA_Button)sender);
-        }
-
-        private void RiskEstimation3Button_Click(object sender, EventArgs e)
-        {
-            this.setButtonSelected((ARA_Button)sender);
-        }
-
-        private void RiskEstimation1Button_Click(object sender, EventArgs e)
-        {
-            this.setButtonSelected((ARA_Button)sender);
-        }
-
-        private void RiskEstimation5Button_Click(object sender, EventArgs e)
-        {
-            this.setButtonSelected((ARA_Button)sender);
+            try
+            {
+                this.setButtonSelected((ARA_Button)sender);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            //Set flag so the control knows it has been changed.
+            this.hasControlBeenChanged = true;
         }
     }
 }

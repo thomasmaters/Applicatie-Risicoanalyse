@@ -14,6 +14,25 @@ namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskEstimation : UserControl
     {
+        private bool hasControlBeenChanged = false;
+
+        public bool HasControlBeenChanged
+        {
+            get
+            {
+                return hasControlBeenChanged || 
+                    arA_EditRiskRiskEstimationItem1.HasControlBeenChanged || 
+                    arA_EditRiskRiskEstimationItem2.HasControlBeenChanged ||
+                    arA_EditRiskRiskEstimationItem3.HasControlBeenChanged ||
+                    arA_EditRiskRiskEstimationItem4.HasControlBeenChanged;
+            }
+
+            set
+            {
+                hasControlBeenChanged = value;
+            }
+        }
+
         public string TitleText
         {
             get

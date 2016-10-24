@@ -30,9 +30,9 @@
         {
             this.HazardPanelSpacerRight = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.RiskEstimationText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.arA_Rectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.HarzardTextTitle = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.panel2.SuspendLayout();
@@ -60,6 +60,33 @@
             this.panel2.Size = new System.Drawing.Size(724, 71);
             this.panel2.TabIndex = 73;
             // 
+            // arA_TextBox1
+            // 
+            this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_TextBox1.BorderSize = 1;
+            this.arA_TextBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.arA_TextBox1.Location = new System.Drawing.Point(6, 23);
+            this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_TextBox1.Name = "arA_TextBox1";
+            this.arA_TextBox1.Size = new System.Drawing.Size(718, 48);
+            this.arA_TextBox1.TabIndex = 71;
+            this.arA_TextBox1.Text = "";
+            this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
+            // 
+            // RiskEstimationText
+            // 
+            this.RiskEstimationText.BackgroundColor = System.Drawing.Color.White;
+            this.RiskEstimationText.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
+            this.RiskEstimationText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.RiskEstimationText.Location = new System.Drawing.Point(0, 0);
+            this.RiskEstimationText.Margin = new System.Windows.Forms.Padding(0);
+            this.RiskEstimationText.Name = "RiskEstimationText";
+            this.RiskEstimationText.Size = new System.Drawing.Size(724, 23);
+            this.RiskEstimationText.TabIndex = 70;
+            this.RiskEstimationText.Text = "Other risk reducing mesures";
+            this.RiskEstimationText.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -75,32 +102,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(724, 91);
             this.flowLayoutPanel1.TabIndex = 74;
             this.flowLayoutPanel1.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
-            // 
-            // arA_TextBox1
-            // 
-            this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_TextBox1.BorderSize = 1;
-            this.arA_TextBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
-            this.arA_TextBox1.Location = new System.Drawing.Point(6, 23);
-            this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_TextBox1.Name = "arA_TextBox1";
-            this.arA_TextBox1.Size = new System.Drawing.Size(718, 48);
-            this.arA_TextBox1.TabIndex = 71;
-            this.arA_TextBox1.Text = "";
-            // 
-            // RiskEstimationText
-            // 
-            this.RiskEstimationText.BackgroundColor = System.Drawing.Color.White;
-            this.RiskEstimationText.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
-            this.RiskEstimationText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.RiskEstimationText.Location = new System.Drawing.Point(0, 0);
-            this.RiskEstimationText.Margin = new System.Windows.Forms.Padding(0);
-            this.RiskEstimationText.Name = "RiskEstimationText";
-            this.RiskEstimationText.Size = new System.Drawing.Size(724, 23);
-            this.RiskEstimationText.TabIndex = 70;
-            this.RiskEstimationText.Text = "Other risk reducing mesures";
-            this.RiskEstimationText.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_Rectangle2
             // 
