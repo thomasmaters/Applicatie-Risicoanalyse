@@ -42,6 +42,7 @@
             this.get_MinimalAddition_In_RiskDataTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_MinimalAddition_In_RiskDataTableAdapter();
             this.get_RiskEstimation_In_RiskData_BeforeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_RiskEstimation_In_RiskData_BeforeTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskEstimation_In_RiskData_BeforeTableAdapter();
+            this.get_ExposedPersons_In_RiskDataTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_ExposedPersons_In_RiskDataTableAdapter();
             this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
             this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
             this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
@@ -122,7 +123,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(750, 1500);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 1100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 1110);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // tbl_Risk_DataBindingSource
@@ -152,13 +153,18 @@
             // 
             this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.ClearBeforeFill = true;
             // 
+            // get_ExposedPersons_In_RiskDataTableAdapter1
+            // 
+            this.get_ExposedPersons_In_RiskDataTableAdapter1.ClearBeforeFill = true;
+            // 
             // arA_EditRiskExposedPersons1
             // 
             this.arA_EditRiskExposedPersons1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskExposedPersons1.HasControlBeenChanged = false;
             this.arA_EditRiskExposedPersons1.Location = new System.Drawing.Point(0, 0);
             this.arA_EditRiskExposedPersons1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskExposedPersons1.Name = "arA_EditRiskExposedPersons1";
-            this.arA_EditRiskExposedPersons1.Size = new System.Drawing.Size(750, 64);
+            this.arA_EditRiskExposedPersons1.Size = new System.Drawing.Size(750, 55);
             this.arA_EditRiskExposedPersons1.TabIndex = 0;
             // 
             // arA_EditRiskHazardIndentification1
@@ -167,7 +173,7 @@
             this.arA_EditRiskHazardIndentification1.BackColor = System.Drawing.Color.White;
             this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged = true;
-            this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 64);
+            this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 55);
             this.arA_EditRiskHazardIndentification1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 170);
             this.arA_EditRiskHazardIndentification1.Name = "arA_EditRiskHazardIndentification1";
@@ -177,10 +183,11 @@
             // arA_EditRiskRiskEstimation1
             // 
             this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 234);
+            this.arA_EditRiskRiskEstimation1.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 225);
             this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
-            this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(750, 300);
+            this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(750, 316);
             this.arA_EditRiskRiskEstimation1.TabIndex = 2;
             this.arA_EditRiskRiskEstimation1.TitleText = "Risk Estimation";
             // 
@@ -188,7 +195,8 @@
             // 
             this.arA_EditRiskRiskReductionMesures1.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 534);
+            this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 541);
             this.arA_EditRiskRiskReductionMesures1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures1.MaximumSize = new System.Drawing.Size(750, 500);
             this.arA_EditRiskRiskReductionMesures1.Name = "arA_EditRiskRiskReductionMesures1";
@@ -199,7 +207,8 @@
             // arA_EditRiskRiskEstimation2
             // 
             this.arA_EditRiskRiskEstimation2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 648);
+            this.arA_EditRiskRiskEstimation2.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 655);
             this.arA_EditRiskRiskEstimation2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation2.Name = "arA_EditRiskRiskEstimation2";
             this.arA_EditRiskRiskEstimation2.Size = new System.Drawing.Size(750, 322);
@@ -210,7 +219,8 @@
             // 
             this.arA_EditRiskRiskReductionMesures2.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 970);
+            this.arA_EditRiskRiskReductionMesures2.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 977);
             this.arA_EditRiskRiskReductionMesures2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures2.MaximumSize = new System.Drawing.Size(750, 500);
             this.arA_EditRiskRiskReductionMesures2.Name = "arA_EditRiskRiskReductionMesures2";
@@ -224,7 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(801, 500);
+            this.ClientSize = new System.Drawing.Size(750, 500);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -267,5 +277,6 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_MinimalAddition_In_RiskDataTableAdapter get_MinimalAddition_In_RiskDataTableAdapter;
         private System.Windows.Forms.BindingSource get_RiskEstimation_In_RiskData_BeforeBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskEstimation_In_RiskData_BeforeTableAdapter get_RiskEstimation_In_RiskData_BeforeTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Get_ExposedPersons_In_RiskDataTableAdapter get_ExposedPersons_In_RiskDataTableAdapter1;
     }
 }

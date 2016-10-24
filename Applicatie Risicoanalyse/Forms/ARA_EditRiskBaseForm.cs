@@ -38,6 +38,11 @@ namespace Applicatie_Risicoanalyse.Forms
 
             DataView riskEstimationViewAfter = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(1));
             this.arA_EditRiskRiskEstimation2.setRiskEstimationData(riskEstimationViewAfter);
+
+            this.arA_EditRiskHazardIndentification1.setControlData(1);
+
+            DataView exposedPersonsView = new DataView(this.get_ExposedPersons_In_RiskDataTableAdapter1.GetData(1));
+            this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView);
         }
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)

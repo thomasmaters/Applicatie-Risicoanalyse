@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
@@ -29,6 +30,25 @@ namespace Applicatie_Risicoanalyse.Controls
             set
             {
                 hasControlBeenChanged = value;
+            }
+        }
+
+        //Adds persons from database in to control.
+        public void setControlData(DataView controlData)
+        {
+            foreach (DataRowView row in controlData)
+            {
+                //Create a new checkbox.
+                CheckBox checkbox = new CheckBox();
+
+                //Style the checkbox.
+                checkbox.Text = row["PersonDescription"].ToString();
+                checkbox.AutoSize = true;
+                checkbox.Font = new System.Drawing.Font("Gotham Light", 12F, System.Drawing.FontStyle.Italic);
+                checkbox.Checked = row["InProject"].ToString() == "1";
+
+                //Add it to the flowLayoutPanel.
+                this.flowLayoutPanel1.Controls.Add(checkbox);
             }
         }
     }

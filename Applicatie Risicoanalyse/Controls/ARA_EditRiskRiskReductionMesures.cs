@@ -23,7 +23,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 {
                     return true;
                 }
-                foreach(ARA_EditRiskRiskReductionMesuresItem item in this.flowLayoutPanel1.Controls)
+                foreach(ARA_EditRiskRiskReductionMesuresItem item in this.flowLayoutPanel1.Controls.OfType<ARA_EditRiskRiskReductionMesuresItem>())
                 {
                     if (item.HasControlBeenChanged)
                     {

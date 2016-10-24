@@ -15,13 +15,10 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskHazardIndentification : UserControl
     {
         private bool hasControlBeenChanged = false;
-        private int riskDataID = -1;
 
         public ARA_EditRiskHazardIndentification()
         {
-            this.riskDataID = 1;
             InitializeComponent();
-            setControlData(1);
         }
 
         public bool HasControlBeenChanged
