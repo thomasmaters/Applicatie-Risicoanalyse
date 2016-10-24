@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskRiskReductionMesures : UserControl
     {
         private bool hasControlBeenChanged = false;
+        public EventHandler<MesureItemChangedEvent> itemCheckEventHandler;
+        public EventHandler<EventArgs> reductionMesureInfoChanged;
 
         public bool HasControlBeenChanged
         {
@@ -37,6 +40,14 @@ namespace Applicatie_Risicoanalyse.Controls
             set
             {
                 hasControlBeenChanged = value;
+            }
+        }
+
+        public string ReductionMesureInfo
+        {
+            get
+            {
+                return "" + this.arA_TextBox1.Text;
             }
         }
 
@@ -71,6 +82,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 ARA_EditRiskRiskReductionMesuresItem riskReductionMesureItem = new ARA_EditRiskRiskReductionMesuresItem();
 
                 riskReductionMesureItem.setControlData(controlData);
+                riskReductionMesureItem.itemCheckEventHandler += riskReductionMesureItemChecked;
 
                 this.flowLayoutPanel1.Controls.Add(riskReductionMesureItem);
             }
@@ -89,6 +101,18 @@ namespace Applicatie_Risicoanalyse.Controls
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
             this.hasControlBeenChanged = true;
+            if(reductionMesureInfoChanged != null)
+            {
+                reductionMesureInfoChanged(sender, e);
+            }
+        }
+
+        private void riskReductionMesureItemChecked(object sender, MesureItemChangedEvent e)
+        {
+            if(itemCheckEventHandler != null)
+            {
+                this.itemCheckEventHandler(sender, e);
+            }
         }
     }
 }

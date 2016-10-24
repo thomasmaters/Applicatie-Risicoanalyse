@@ -91,4 +91,21 @@ namespace Applicatie_Risicoanalyse.Globals
             this.riskID = aRiskID;
         }
     }
+
+    public class MesureItemChangedEvent : EventArgs
+    {
+        public int mesureID { get; private set; }
+        public CheckState checkState { get; private set; }
+
+        private MesureItemChangedEvent()
+        {
+
+        }
+
+        public MesureItemChangedEvent(int mesureID, CheckState checkState)
+        {
+            this.mesureID = mesureID;
+            this.checkState = checkState;
+        }
+    }
 }
