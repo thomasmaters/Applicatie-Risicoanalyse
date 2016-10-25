@@ -16,9 +16,11 @@ namespace Applicatie_Risicoanalyse.Forms
     {
         private int riskDataID = 1;
 
-        public ARA_EditRiskBaseForm()
+        public ARA_EditRiskBaseForm(int riskDataID)
         {
             InitializeComponent();
+
+            this.riskDataID = riskDataID;
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);

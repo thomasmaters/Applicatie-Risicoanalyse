@@ -22,13 +22,13 @@ namespace Applicatie_Risicoanalyse.Forms
             InitializeComponent();
 
             //Attach an layoutPanel to the button.
-            this.riskProjectOverviewButtonCreateProject.setConnectedPanel(this.riskProjectOverviewPanelCreateProject);
-            this.riskProjectOverviewButtonOpenProject.setConnectedPanel(this.riskProjectOverviewPanelOpenProject);
-            this.riskProjectOverviewButtonRecentProjects.setConnectedPanel(this.riskProjectOverviewPanelRecentProjects);
+            this.riskProjectOverviewButtonOpenRisk.setConnectedPanel(this.riskProjectOverviewPanelOpenRisk);
+            this.riskProjectOverviewButtonAddRiskToProject.setConnectedPanel(this.riskProjectOverviewPanelAddRiskToProject);
+            this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelRecentProjects);
             //Add Click event to hide all other buttons/panels when one opens.
-            this.riskProjectOverviewButtonCreateProject.Click += hideOtherPanels;
-            this.riskProjectOverviewButtonOpenProject.Click += hideOtherPanels;
-            this.riskProjectOverviewButtonRecentProjects.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonOpenRisk.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonAddRiskToProject.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
         }
 
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
@@ -51,9 +51,10 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void onProjectOverviewLoad(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Get_Newest_Added_Project' table. You can move, or remove it, as needed.
-            //Set scaling.
             this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+
+            this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(1));
+            this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject());
         }
     }
 }

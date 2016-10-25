@@ -83,6 +83,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     this.queriesTableAdapter1.Insert_Risks_From_Type_Into_Project
                     (
                         this.projectID,
+                        parentGroup.DropDownButtonText,
                         datarow["TypeName"].ToString(), 
                         risksInTypeDataRow["RisksInProjectGroup"].ToString() != risksInTypeDataRow["RisksInGroup"].ToString()
                     );

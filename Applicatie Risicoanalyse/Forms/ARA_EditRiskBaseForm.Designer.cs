@@ -320,7 +320,7 @@
             this.EditRiskButtonPreviousRisk.Margin = new System.Windows.Forms.Padding(0);
             this.EditRiskButtonPreviousRisk.Name = "EditRiskButtonPreviousRisk";
             this.EditRiskButtonPreviousRisk.Selected = false;
-            this.EditRiskButtonPreviousRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.EditRiskButtonPreviousRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.EditRiskButtonPreviousRisk.SelectedTextColor = System.Drawing.Color.White;
             this.EditRiskButtonPreviousRisk.Size = new System.Drawing.Size(271, 41);
             this.EditRiskButtonPreviousRisk.TabIndex = 8;
@@ -353,7 +353,7 @@
             this.EditRiskButtonNextRisk.Margin = new System.Windows.Forms.Padding(0);
             this.EditRiskButtonNextRisk.Name = "EditRiskButtonNextRisk";
             this.EditRiskButtonNextRisk.Selected = false;
-            this.EditRiskButtonNextRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.EditRiskButtonNextRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.EditRiskButtonNextRisk.SelectedTextColor = System.Drawing.Color.White;
             this.EditRiskButtonNextRisk.Size = new System.Drawing.Size(271, 41);
             this.EditRiskButtonNextRisk.TabIndex = 10;
@@ -368,12 +368,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 403);
+            this.ClientSize = new System.Drawing.Size(750, 488);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(750, 500);
+            this.MaximumSize = new System.Drawing.Size(750, 488);
             this.Name = "ARA_EditRiskBaseForm";
             this.Text = "ARA_EditRiskInProject";
             this.Load += new System.EventHandler(this.ARA_EditRiskBaseForm_Load);
