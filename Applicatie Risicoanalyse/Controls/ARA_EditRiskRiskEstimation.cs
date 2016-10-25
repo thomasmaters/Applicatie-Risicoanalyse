@@ -106,6 +106,8 @@ namespace Applicatie_Risicoanalyse.Controls
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName4 + "'"; ;
             this.arA_EditRiskRiskEstimationItem4.setControlData(riskEstimationDataTable);
             //Gekozen om dit met static waardes omdat de form dan sneller laad en geen controls aangemaakt hoeven te worden on runtime.
+
+            updateSafetyMesuresRequirement();
         }
 
         //Updates the text when an button is pressed, and calculateds the risk class.

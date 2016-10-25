@@ -15,6 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskHazardIndentification : UserControl
     {
         private bool hasControlBeenChanged = false;
+        public EventHandler<DangerChangedEvent> dangerChangedEventHandler;
 
         public ARA_EditRiskHazardIndentification()
         {
@@ -81,18 +82,32 @@ namespace Applicatie_Risicoanalyse.Controls
             this.HazardTextConsequence1.Invalidate();
             this.HazardTextConsequence2.Invalidate();
 
-            //Let the control know it has been updated.
-            this.hasControlBeenChanged = true;
+            //Let the parent know somethings have changed.
+            onDangerItemChanged();
         }
 
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
             this.hasControlBeenChanged = true;
+            onDangerItemChanged();
         }
 
         private void arA_TextBox2_TextChanged(object sender, EventArgs e)
         {
             this.hasControlBeenChanged = true;
+            onDangerItemChanged();
+        }
+
+        private void onDangerItemChanged()
+        {
+            if(dangerChangedEventHandler != null)
+            {
+                dangerChangedEventHandler
+                (
+                    new object(), 
+                    new DangerChangedEvent((Int32)this.comboBox1.SelectedValue, (Int32)this.comboBox2.SelectedValue, this.arA_TextBox1.Text, this.arA_TextBox2.Text)
+                );
+            }
         }
     }
 }

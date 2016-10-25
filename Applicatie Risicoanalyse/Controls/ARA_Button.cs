@@ -143,6 +143,7 @@ namespace Applicatie_Risicoanalyse.Controls
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+            
             System.Drawing.SolidBrush backgroundBrush;
             System.Drawing.SolidBrush textBrush = new System.Drawing.SolidBrush(this.TextColor);
 
@@ -169,6 +170,7 @@ namespace Applicatie_Risicoanalyse.Controls
             System.Drawing.Graphics formGraphics = this.CreateGraphics();
 
             //Draw the button background rectangle.
+            formGraphics.FillRectangle(new SolidBrush(Color.White), new Rectangle(new Point(0, 0), this.Size));
             formGraphics.FillRectangle(backgroundBrush, new Rectangle(new Point(0,0), this.Size));
 
             //Align text in button to center.

@@ -18,83 +18,106 @@ namespace Applicatie_Risicoanalyse.Forms
             InitializeComponent();
             int riskDataID = 1;
 
-            DataRow riskDataView = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(1);
-
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            foreach(Control control in this.flowLayoutPanel1.Controls)
+            foreach (Control control in this.flowLayoutPanel1.Controls)
             {
                 control.Font = this.Font;
             }
 
-            DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskEstimation1.setControlData(riskEstimationViewBefore);
-            this.arA_EditRiskRiskEstimation1.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
+            try
             {
-                this.queriesTableAdapter1.Insert_Into_RiskEstimation_Before(riskDataID, e.estimationID, e.groupName);
-            };
-
-            DataView riskReductionMesuresView = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskReductionMesures1.setControlData(riskReductionMesuresView);
-            this.arA_EditRiskRiskReductionMesures1.setRiskReductionInfo(riskDataView["RiskReductionInfo"].ToString());
-            this.arA_EditRiskRiskReductionMesures1.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
-            {
-                riskDataView["RiskReductionInfo"] = this.arA_EditRiskRiskReductionMesures1.ReductionMesureInfo;
-                this.tbl_Risk_DataTableAdapter.Update(riskDataView);
-            };
-            this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
-            {
-                if(e.checkState == CheckState.Checked)
+                //Get risk data.
+                DataRow riskDataView = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
+                if(riskDataView == null)
                 {
-                    this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
+                    throw new ArgumentNullException();
                 }
-                else if(e.checkState == CheckState.Unchecked)
+
+                DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
+                this.arA_EditRiskRiskEstimation1.setControlData(riskEstimationViewBefore);
+                this.arA_EditRiskRiskEstimation1.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
                 {
-                    this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
-                }
-            };
+                    this.queriesTableAdapter1.Insert_Into_RiskEstimation_Before(riskDataID, e.estimationID, e.groupName);
+                };
 
-            DataView minimalAdditionView = new DataView(this.get_MinimalAddition_In_RiskDataTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskReductionMesures2.setControlData(minimalAdditionView);
-            this.arA_EditRiskRiskReductionMesures2.setRiskReductionInfo(riskDataView["MinimalAdditionInfo"].ToString());
-            this.arA_EditRiskRiskReductionMesures2.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
-            {
-                riskDataView["MinimalAdditionInfo"] = this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo;
-                this.tbl_Risk_DataTableAdapter.Update(riskDataView);
-            };
-            this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
-            {
-                if (e.checkState == CheckState.Checked)
+                DataView riskReductionMesuresView = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
+                this.arA_EditRiskRiskReductionMesures1.setControlData(riskReductionMesuresView);
+                this.arA_EditRiskRiskReductionMesures1.setRiskReductionInfo(riskDataView["RiskReductionInfo"].ToString());
+                this.arA_EditRiskRiskReductionMesures1.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
                 {
-                    this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
-                }
-                else if (e.checkState == CheckState.Unchecked)
+                    riskDataView["RiskReductionInfo"] = this.arA_EditRiskRiskReductionMesures1.ReductionMesureInfo;
+                    this.tbl_Risk_DataTableAdapter.Update(riskDataView);
+                };
+                this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
                 {
-                    this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
-                }
-            };
+                    if(e.checkState == CheckState.Checked)
+                    {
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
+                    }
+                    else if(e.checkState == CheckState.Unchecked)
+                    {
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
+                    }
+                };
 
-            DataView riskEstimationViewAfter = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskEstimation2.setControlData(riskEstimationViewAfter);
-            this.arA_EditRiskRiskEstimation2.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
+                DataView minimalAdditionView = new DataView(this.get_MinimalAddition_In_RiskDataTableAdapter.GetData(riskDataID));
+                this.arA_EditRiskRiskReductionMesures2.setControlData(minimalAdditionView);
+                this.arA_EditRiskRiskReductionMesures2.setRiskReductionInfo(riskDataView["MinimalAdditionInfo"].ToString());
+                this.arA_EditRiskRiskReductionMesures2.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
+                {
+                    riskDataView["MinimalAdditionInfo"] = this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo;
+                    this.tbl_Risk_DataTableAdapter.Update(riskDataView);
+                };
+                this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
+                {
+                    if (e.checkState == CheckState.Checked)
+                    {
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
+                    }
+                    else if (e.checkState == CheckState.Unchecked)
+                    {
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
+                    }
+                };
+
+                DataView riskEstimationViewAfter = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
+                this.arA_EditRiskRiskEstimation2.setControlData(riskEstimationViewAfter);
+                this.arA_EditRiskRiskEstimation2.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
+                {
+                    this.queriesTableAdapter1.Insert_Into_RiskEstimation_After(riskDataID, e.estimationID, e.groupName);
+                };
+
+                this.arA_EditRiskHazardIndentification1.setControlData(riskDataID);
+                this.arA_EditRiskHazardIndentification1.dangerChangedEventHandler += delegate (object sender, DangerChangedEvent e)
+                {
+                    this.queriesTableAdapter1.Insert_Danger_In_RiskData(riskDataID, e.dangerID, e.dangerSourceID, e.hazardSituation, e.hazardEvent);
+                };
+
+                DataView exposedPersonsView = new DataView(this.get_ExposedPersons_In_RiskDataTableAdapter1.GetData(riskDataID));
+                this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView, riskDataID);
+            }
+            catch (Exception)
             {
-                this.queriesTableAdapter1.Insert_Into_RiskEstimation_After(riskDataID, e.estimationID, e.groupName);
-            };
-
-            this.arA_EditRiskHazardIndentification1.setControlData(riskDataID);
-
-            DataView exposedPersonsView = new DataView(this.get_ExposedPersons_In_RiskDataTableAdapter1.GetData(riskDataID));
-            this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView, riskDataID);
+                throw;
+            }
         }
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
+            this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_MinimalAddition_In_Risk' table. You can move, or remove it, as needed.
             this.tbl_MinimalAddition_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_MinimalAddition_In_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_RiskReduction_In_Risk' table. You can move, or remove it, as needed.
             this.tbl_RiskReduction_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_RiskReduction_In_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
+        }
+
+        private void ARA_EditRiskBaseForm_Paint(object sender, PaintEventArgs e)
+        {
+            this.arA_EditRiskRiskEstimation1.Refresh();
         }
     }
 }

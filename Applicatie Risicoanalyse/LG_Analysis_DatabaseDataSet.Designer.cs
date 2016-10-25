@@ -132,10 +132,6 @@ namespace Applicatie_Risicoanalyse {
         
         private global::System.Data.DataRelation relationFK_RiskData_Danger;
         
-        private global::System.Data.DataRelation relationFK_RiskData_DangerResult1;
-        
-        private global::System.Data.DataRelation relationFK_RiskData_DangerResult2;
-        
         private global::System.Data.DataRelation relationFK_RiskData_DangerSource;
         
         private global::System.Data.DataRelation relationFK_RiskEstimationAfter_RiskData;
@@ -1158,8 +1154,6 @@ namespace Applicatie_Risicoanalyse {
             this.relationFK_ExposedPersonsInRisk_RiskData = this.Relations["FK_ExposedPersonsInRisk_RiskData"];
             this.relationFK_MinimalAddition_RiskData = this.Relations["FK_MinimalAddition_RiskData"];
             this.relationFK_RiskData_Danger = this.Relations["FK_RiskData_Danger"];
-            this.relationFK_RiskData_DangerResult1 = this.Relations["FK_RiskData_DangerResult1"];
-            this.relationFK_RiskData_DangerResult2 = this.Relations["FK_RiskData_DangerResult2"];
             this.relationFK_RiskData_DangerSource = this.Relations["FK_RiskData_DangerSource"];
             this.relationFK_RiskEstimationAfter_RiskData = this.Relations["FK_RiskEstimationAfter_RiskData"];
             this.relationFK_RiskEstimationBefore_RiskData = this.Relations["FK_RiskEstimationBefore_RiskData"];
@@ -1324,14 +1318,6 @@ namespace Applicatie_Risicoanalyse {
                         this.tableTbl_Danger.DangerIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_Risk_Data.DangerIDColumn}, false);
             this.Relations.Add(this.relationFK_RiskData_Danger);
-            this.relationFK_RiskData_DangerResult1 = new global::System.Data.DataRelation("FK_RiskData_DangerResult1", new global::System.Data.DataColumn[] {
-                        this.tableTbl_Danger_Result.DangerResultIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTbl_Risk_Data.DangerResult1IDColumn}, false);
-            this.Relations.Add(this.relationFK_RiskData_DangerResult1);
-            this.relationFK_RiskData_DangerResult2 = new global::System.Data.DataRelation("FK_RiskData_DangerResult2", new global::System.Data.DataColumn[] {
-                        this.tableTbl_Danger_Result.DangerResultIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTbl_Risk_Data.DangerResult2IDColumn}, false);
-            this.Relations.Add(this.relationFK_RiskData_DangerResult2);
             this.relationFK_RiskData_DangerSource = new global::System.Data.DataRelation("FK_RiskData_DangerSource", new global::System.Data.DataColumn[] {
                         this.tableTbl_Danger_Source.DangerSourceIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_Risk_Data.DangerSourceIDColumn}, false);
@@ -9442,10 +9428,6 @@ namespace Applicatie_Risicoanalyse {
             
             private global::System.Data.DataColumn columnDangerSourceID;
             
-            private global::System.Data.DataColumn columnDangerResult1ID;
-            
-            private global::System.Data.DataColumn columnDangerResult2ID;
-            
             private global::System.Data.DataColumn columnHazardSituation;
             
             private global::System.Data.DataColumn columnHazardEvent;
@@ -9508,22 +9490,6 @@ namespace Applicatie_Risicoanalyse {
             public global::System.Data.DataColumn DangerSourceIDColumn {
                 get {
                     return this.columnDangerSourceID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DangerResult1IDColumn {
-                get {
-                    return this.columnDangerResult1ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DangerResult2IDColumn {
-                get {
-                    return this.columnDangerResult2ID;
                 }
             }
             
@@ -9596,12 +9562,10 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_Risk_DataRow AddTbl_Risk_DataRow(int RiskDataID, Tbl_DangerRow parentTbl_DangerRowByFK_RiskData_Danger, Tbl_Danger_SourceRow parentTbl_Danger_SourceRowByFK_RiskData_DangerSource, Tbl_Danger_ResultRow parentTbl_Danger_ResultRowByFK_RiskData_DangerResult1, Tbl_Danger_ResultRow parentTbl_Danger_ResultRowByFK_RiskData_DangerResult2, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo) {
+            public Tbl_Risk_DataRow AddTbl_Risk_DataRow(int RiskDataID, Tbl_DangerRow parentTbl_DangerRowByFK_RiskData_Danger, Tbl_Danger_SourceRow parentTbl_Danger_SourceRowByFK_RiskData_DangerSource, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo) {
                 Tbl_Risk_DataRow rowTbl_Risk_DataRow = ((Tbl_Risk_DataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RiskDataID,
-                        null,
-                        null,
                         null,
                         null,
                         HazardSituation,
@@ -9613,12 +9577,6 @@ namespace Applicatie_Risicoanalyse {
                 }
                 if ((parentTbl_Danger_SourceRowByFK_RiskData_DangerSource != null)) {
                     columnValuesArray[2] = parentTbl_Danger_SourceRowByFK_RiskData_DangerSource[0];
-                }
-                if ((parentTbl_Danger_ResultRowByFK_RiskData_DangerResult1 != null)) {
-                    columnValuesArray[3] = parentTbl_Danger_ResultRowByFK_RiskData_DangerResult1[0];
-                }
-                if ((parentTbl_Danger_ResultRowByFK_RiskData_DangerResult2 != null)) {
-                    columnValuesArray[4] = parentTbl_Danger_ResultRowByFK_RiskData_DangerResult2[0];
                 }
                 rowTbl_Risk_DataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTbl_Risk_DataRow);
@@ -9652,8 +9610,6 @@ namespace Applicatie_Risicoanalyse {
                 this.columnRiskDataID = base.Columns["RiskDataID"];
                 this.columnDangerID = base.Columns["DangerID"];
                 this.columnDangerSourceID = base.Columns["DangerSourceID"];
-                this.columnDangerResult1ID = base.Columns["DangerResult1ID"];
-                this.columnDangerResult2ID = base.Columns["DangerResult2ID"];
                 this.columnHazardSituation = base.Columns["HazardSituation"];
                 this.columnHazardEvent = base.Columns["HazardEvent"];
                 this.columnRiskReductionInfo = base.Columns["RiskReductionInfo"];
@@ -9669,10 +9625,6 @@ namespace Applicatie_Risicoanalyse {
                 base.Columns.Add(this.columnDangerID);
                 this.columnDangerSourceID = new global::System.Data.DataColumn("DangerSourceID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDangerSourceID);
-                this.columnDangerResult1ID = new global::System.Data.DataColumn("DangerResult1ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDangerResult1ID);
-                this.columnDangerResult2ID = new global::System.Data.DataColumn("DangerResult2ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDangerResult2ID);
                 this.columnHazardSituation = new global::System.Data.DataColumn("HazardSituation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHazardSituation);
                 this.columnHazardEvent = new global::System.Data.DataColumn("HazardEvent", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9687,7 +9639,6 @@ namespace Applicatie_Risicoanalyse {
                 this.columnRiskDataID.Unique = true;
                 this.columnDangerID.AllowDBNull = false;
                 this.columnDangerSourceID.AllowDBNull = false;
-                this.columnDangerResult1ID.AllowDBNull = false;
                 this.columnHazardSituation.AllowDBNull = false;
                 this.columnHazardSituation.MaxLength = 255;
                 this.columnHazardEvent.AllowDBNull = false;
@@ -15055,28 +15006,6 @@ namespace Applicatie_Risicoanalyse {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_DangerResult_DangerSource"]);
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_Risk_DataRow[] GetTbl_Risk_DataRowsByFK_RiskData_DangerResult1() {
-                if ((this.Table.ChildRelations["FK_RiskData_DangerResult1"] == null)) {
-                    return new Tbl_Risk_DataRow[0];
-                }
-                else {
-                    return ((Tbl_Risk_DataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskData_DangerResult1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_Risk_DataRow[] GetTbl_Risk_DataRowsByFK_RiskData_DangerResult2() {
-                if ((this.Table.ChildRelations["FK_RiskData_DangerResult2"] == null)) {
-                    return new Tbl_Risk_DataRow[0];
-                }
-                else {
-                    return ((Tbl_Risk_DataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskData_DangerResult2"])));
-                }
-            }
         }
         
         /// <summary>
@@ -15375,33 +15304,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DangerResult1ID {
-                get {
-                    return ((int)(this[this.tableTbl_Risk_Data.DangerResult1IDColumn]));
-                }
-                set {
-                    this[this.tableTbl_Risk_Data.DangerResult1IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DangerResult2ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableTbl_Risk_Data.DangerResult2IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DangerResult2ID\' in table \'Tbl_Risk_Data\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTbl_Risk_Data.DangerResult2IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string HazardSituation {
                 get {
                     return ((string)(this[this.tableTbl_Risk_Data.HazardSituationColumn]));
@@ -15467,28 +15369,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_Danger_ResultRow Tbl_Danger_ResultRowByFK_RiskData_DangerResult1 {
-                get {
-                    return ((Tbl_Danger_ResultRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskData_DangerResult1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskData_DangerResult1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_Danger_ResultRow Tbl_Danger_ResultRowByFK_RiskData_DangerResult2 {
-                get {
-                    return ((Tbl_Danger_ResultRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskData_DangerResult2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskData_DangerResult2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Tbl_Danger_SourceRow Tbl_Danger_SourceRow {
                 get {
                     return ((Tbl_Danger_SourceRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskData_DangerSource"])));
@@ -15496,18 +15376,6 @@ namespace Applicatie_Risicoanalyse {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_RiskData_DangerSource"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDangerResult2IDNull() {
-                return this.IsNull(this.tableTbl_Risk_Data.DangerResult2IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDangerResult2IDNull() {
-                this[this.tableTbl_Risk_Data.DangerResult2IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25268,8 +25136,6 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
             tableMapping.ColumnMappings.Add("RiskDataID", "RiskDataID");
             tableMapping.ColumnMappings.Add("DangerID", "DangerID");
             tableMapping.ColumnMappings.Add("DangerSourceID", "DangerSourceID");
-            tableMapping.ColumnMappings.Add("DangerResult1ID", "DangerResult1ID");
-            tableMapping.ColumnMappings.Add("DangerResult2ID", "DangerResult2ID");
             tableMapping.ColumnMappings.Add("HazardSituation", "HazardSituation");
             tableMapping.ColumnMappings.Add("HazardEvent", "HazardEvent");
             tableMapping.ColumnMappings.Add("RiskReductionInfo", "RiskReductionInfo");
@@ -25277,14 +25143,11 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tbl_Risk_Data] WHERE (([RiskDataID] = @Original_RiskDataID) AND ([DangerID] = @Original_DangerID) AND ([DangerSourceID] = @Original_DangerSourceID) AND ([DangerResult1ID] = @Original_DangerResult1ID) AND ((@IsNull_DangerResult2ID = 1 AND [DangerResult2ID] IS NULL) OR ([DangerResult2ID] = @Original_DangerResult2ID)) AND ([HazardSituation] = @Original_HazardSituation) AND ([HazardEvent] = @Original_HazardEvent) AND ((@IsNull_RiskReductionInfo = 1 AND [RiskReductionInfo] IS NULL) OR ([RiskReductionInfo] = @Original_RiskReductionInfo)) AND ((@IsNull_MinimalAdditionInfo = 1 AND [MinimalAdditionInfo] IS NULL) OR ([MinimalAdditionInfo] = @Original_MinimalAdditionInfo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Tbl_Risk_Data] WHERE (([RiskDataID] = @Original_RiskDataID) AND ([DangerID] = @Original_DangerID) AND ([DangerSourceID] = @Original_DangerSourceID) AND ([HazardSituation] = @Original_HazardSituation) AND ([HazardEvent] = @Original_HazardEvent) AND ((@IsNull_RiskReductionInfo = 1 AND [RiskReductionInfo] IS NULL) OR ([RiskReductionInfo] = @Original_RiskReductionInfo)) AND ((@IsNull_MinimalAdditionInfo = 1 AND [MinimalAdditionInfo] IS NULL) OR ([MinimalAdditionInfo] = @Original_MinimalAdditionInfo)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerSourceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerSourceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerResult1ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult1ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HazardSituation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardSituation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HazardEvent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardEvent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RiskReductionInfo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskReductionInfo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -25293,28 +25156,24 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MinimalAdditionInfo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinimalAdditionInfo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tbl_Risk_Data] ([RiskDataID], [DangerID], [DangerSourceID], [DangerResult1ID], [DangerResult2ID], [HazardSituation], [HazardEvent], [RiskReductionInfo], [MinimalAdditionInfo]) VALUES (@RiskDataID, @DangerID, @DangerSourceID, @DangerResult1ID, @DangerResult2ID, @HazardSituation, @HazardEvent, @RiskReductionInfo, @MinimalAdditionInfo);
-SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo FROM Tbl_Risk_Data WHERE (RiskDataID = @RiskDataID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Tbl_Risk_Data] ([RiskDataID], [DangerID], [DangerSourceID], [HazardSituation], [HazardEvent], [RiskReductionInfo], [MinimalAdditionInfo]) VALUES (@RiskDataID, @DangerID, @DangerSourceID, @HazardSituation, @HazardEvent, @RiskReductionInfo, @MinimalAdditionInfo);
+SELECT RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo FROM Tbl_Risk_Data WHERE (RiskDataID = @RiskDataID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerSourceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerSourceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerResult1ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult1ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HazardSituation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardSituation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HazardEvent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardEvent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskReductionInfo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskReductionInfo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MinimalAdditionInfo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MinimalAdditionInfo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_Risk_Data] SET [RiskDataID] = @RiskDataID, [DangerID] = @DangerID, [DangerSourceID] = @DangerSourceID, [DangerResult1ID] = @DangerResult1ID, [DangerResult2ID] = @DangerResult2ID, [HazardSituation] = @HazardSituation, [HazardEvent] = @HazardEvent, [RiskReductionInfo] = @RiskReductionInfo, [MinimalAdditionInfo] = @MinimalAdditionInfo WHERE (([RiskDataID] = @Original_RiskDataID) AND ([DangerID] = @Original_DangerID) AND ([DangerSourceID] = @Original_DangerSourceID) AND ([DangerResult1ID] = @Original_DangerResult1ID) AND ((@IsNull_DangerResult2ID = 1 AND [DangerResult2ID] IS NULL) OR ([DangerResult2ID] = @Original_DangerResult2ID)) AND ([HazardSituation] = @Original_HazardSituation) AND ([HazardEvent] = @Original_HazardEvent) AND ((@IsNull_RiskReductionInfo = 1 AND [RiskReductionInfo] IS NULL) OR ([RiskReductionInfo] = @Original_RiskReductionInfo)) AND ((@IsNull_MinimalAdditionInfo = 1 AND [MinimalAdditionInfo] IS NULL) OR ([MinimalAdditionInfo] = @Original_MinimalAdditionInfo)));
-SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo FROM Tbl_Risk_Data WHERE (RiskDataID = @RiskDataID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tbl_Risk_Data] SET [RiskDataID] = @RiskDataID, [DangerID] = @DangerID, [DangerSourceID] = @DangerSourceID, [HazardSituation] = @HazardSituation, [HazardEvent] = @HazardEvent, [RiskReductionInfo] = @RiskReductionInfo, [MinimalAdditionInfo] = @MinimalAdditionInfo WHERE (([RiskDataID] = @Original_RiskDataID) AND ([DangerID] = @Original_DangerID) AND ([DangerSourceID] = @Original_DangerSourceID) AND ([HazardSituation] = @Original_HazardSituation) AND ([HazardEvent] = @Original_HazardEvent) AND ((@IsNull_RiskReductionInfo = 1 AND [RiskReductionInfo] IS NULL) OR ([RiskReductionInfo] = @Original_RiskReductionInfo)) AND ((@IsNull_MinimalAdditionInfo = 1 AND [MinimalAdditionInfo] IS NULL) OR ([MinimalAdditionInfo] = @Original_MinimalAdditionInfo)));
+SELECT RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo FROM Tbl_Risk_Data WHERE (RiskDataID = @RiskDataID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerSourceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerSourceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerResult1ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult1ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HazardSituation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardSituation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HazardEvent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardEvent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskReductionInfo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskReductionInfo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -25322,9 +25181,6 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerSourceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerSourceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerResult1ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult1ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DangerResult2ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DangerResult2ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HazardSituation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardSituation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HazardEvent", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HazardEvent", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RiskReductionInfo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskReductionInfo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -25346,9 +25202,8 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, Ha" +
-                "zardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo FROM dbo.Tbl_" +
-                "Risk_Data";
+            this._commandCollection[0].CommandText = "SELECT RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskRe" +
+                "ductionInfo, MinimalAdditionInfo FROM Tbl_Risk_Data";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -25409,46 +25264,37 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RiskDataID, int Original_DangerID, int Original_DangerSourceID, int Original_DangerResult1ID, global::System.Nullable<int> Original_DangerResult2ID, string Original_HazardSituation, string Original_HazardEvent, string Original_RiskReductionInfo, string Original_MinimalAdditionInfo) {
+        public virtual int Delete(int Original_RiskDataID, int Original_DangerID, int Original_DangerSourceID, string Original_HazardSituation, string Original_HazardEvent, string Original_RiskReductionInfo, string Original_MinimalAdditionInfo) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RiskDataID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_DangerID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_DangerSourceID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_DangerResult1ID));
-            if ((Original_DangerResult2ID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_DangerResult2ID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             if ((Original_HazardSituation == null)) {
                 throw new global::System.ArgumentNullException("Original_HazardSituation");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_HazardSituation));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_HazardSituation));
             }
             if ((Original_HazardEvent == null)) {
                 throw new global::System.ArgumentNullException("Original_HazardEvent");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_HazardEvent));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_HazardEvent));
             }
             if ((Original_RiskReductionInfo == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_RiskReductionInfo));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_RiskReductionInfo));
             }
             if ((Original_MinimalAdditionInfo == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_MinimalAdditionInfo));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_MinimalAdditionInfo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25470,40 +25316,33 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int RiskDataID, int DangerID, int DangerSourceID, int DangerResult1ID, global::System.Nullable<int> DangerResult2ID, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo) {
+        public virtual int Insert(int RiskDataID, int DangerID, int DangerSourceID, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RiskDataID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(DangerID));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(DangerSourceID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(DangerResult1ID));
-            if ((DangerResult2ID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(DangerResult2ID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
             if ((HazardSituation == null)) {
                 throw new global::System.ArgumentNullException("HazardSituation");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(HazardSituation));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(HazardSituation));
             }
             if ((HazardEvent == null)) {
                 throw new global::System.ArgumentNullException("HazardEvent");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(HazardEvent));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(HazardEvent));
             }
             if ((RiskReductionInfo == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(RiskReductionInfo));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(RiskReductionInfo));
             }
             if ((MinimalAdditionInfo == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(MinimalAdditionInfo));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(MinimalAdditionInfo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25525,98 +25364,64 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int RiskDataID, 
-                    int DangerID, 
-                    int DangerSourceID, 
-                    int DangerResult1ID, 
-                    global::System.Nullable<int> DangerResult2ID, 
-                    string HazardSituation, 
-                    string HazardEvent, 
-                    string RiskReductionInfo, 
-                    string MinimalAdditionInfo, 
-                    int Original_RiskDataID, 
-                    int Original_DangerID, 
-                    int Original_DangerSourceID, 
-                    int Original_DangerResult1ID, 
-                    global::System.Nullable<int> Original_DangerResult2ID, 
-                    string Original_HazardSituation, 
-                    string Original_HazardEvent, 
-                    string Original_RiskReductionInfo, 
-                    string Original_MinimalAdditionInfo) {
+        public virtual int Update(int RiskDataID, int DangerID, int DangerSourceID, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo, int Original_RiskDataID, int Original_DangerID, int Original_DangerSourceID, string Original_HazardSituation, string Original_HazardEvent, string Original_RiskReductionInfo, string Original_MinimalAdditionInfo) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RiskDataID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(DangerID));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(DangerSourceID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(DangerResult1ID));
-            if ((DangerResult2ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(DangerResult2ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
             if ((HazardSituation == null)) {
                 throw new global::System.ArgumentNullException("HazardSituation");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(HazardSituation));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(HazardSituation));
             }
             if ((HazardEvent == null)) {
                 throw new global::System.ArgumentNullException("HazardEvent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(HazardEvent));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(HazardEvent));
             }
             if ((RiskReductionInfo == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(RiskReductionInfo));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(RiskReductionInfo));
             }
             if ((MinimalAdditionInfo == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(MinimalAdditionInfo));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(MinimalAdditionInfo));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_RiskDataID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_DangerID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_DangerSourceID));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_DangerResult1ID));
-            if ((Original_DangerResult2ID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_DangerResult2ID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_RiskDataID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_DangerID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_DangerSourceID));
             if ((Original_HazardSituation == null)) {
                 throw new global::System.ArgumentNullException("Original_HazardSituation");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_HazardSituation));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_HazardSituation));
             }
             if ((Original_HazardEvent == null)) {
                 throw new global::System.ArgumentNullException("Original_HazardEvent");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_HazardEvent));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_HazardEvent));
             }
             if ((Original_RiskReductionInfo == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_RiskReductionInfo));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_RiskReductionInfo));
             }
             if ((Original_MinimalAdditionInfo == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_MinimalAdditionInfo));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_MinimalAdditionInfo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -25638,25 +25443,8 @@ SELECT RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, H
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int DangerID, 
-                    int DangerSourceID, 
-                    int DangerResult1ID, 
-                    global::System.Nullable<int> DangerResult2ID, 
-                    string HazardSituation, 
-                    string HazardEvent, 
-                    string RiskReductionInfo, 
-                    string MinimalAdditionInfo, 
-                    int Original_RiskDataID, 
-                    int Original_DangerID, 
-                    int Original_DangerSourceID, 
-                    int Original_DangerResult1ID, 
-                    global::System.Nullable<int> Original_DangerResult2ID, 
-                    string Original_HazardSituation, 
-                    string Original_HazardEvent, 
-                    string Original_RiskReductionInfo, 
-                    string Original_MinimalAdditionInfo) {
-            return this.Update(Original_RiskDataID, DangerID, DangerSourceID, DangerResult1ID, DangerResult2ID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo, Original_RiskDataID, Original_DangerID, Original_DangerSourceID, Original_DangerResult1ID, Original_DangerResult2ID, Original_HazardSituation, Original_HazardEvent, Original_RiskReductionInfo, Original_MinimalAdditionInfo);
+        public virtual int Update(int DangerID, int DangerSourceID, string HazardSituation, string HazardEvent, string RiskReductionInfo, string MinimalAdditionInfo, int Original_RiskDataID, int Original_DangerID, int Original_DangerSourceID, string Original_HazardSituation, string Original_HazardEvent, string Original_RiskReductionInfo, string Original_MinimalAdditionInfo) {
+            return this.Update(Original_RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskReductionInfo, MinimalAdditionInfo, Original_RiskDataID, Original_DangerID, Original_DangerSourceID, Original_HazardSituation, Original_HazardEvent, Original_RiskReductionInfo, Original_MinimalAdditionInfo);
         }
     }
     
@@ -28656,7 +28444,7 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[8];
+            this._commandCollection = new global::System.Data.IDbCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.Create_RiskProject";
@@ -28718,6 +28506,16 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estimationID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@groupName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).CommandText = "dbo.Insert_Danger_In_RiskData";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dangerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dangerSourceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hazardSituation", global::System.Data.SqlDbType.VarChar, 512, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hazardEvent", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29004,6 +28802,58 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
             }
             else {
                 command.Parameters[3].Value = ((string)(groupName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Insert_Danger_In_RiskData(global::System.Nullable<int> riskDataID, global::System.Nullable<int> dangerID, global::System.Nullable<int> dangerSourceID, string hazardSituation, string hazardEvent) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[8]));
+            if ((riskDataID.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(riskDataID.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((dangerID.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(dangerID.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((dangerSourceID.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(dangerSourceID.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((hazardSituation == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(hazardSituation));
+            }
+            if ((hazardEvent == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(hazardEvent));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -29649,39 +29499,12 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tbl_User_PermissionsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Tbl_User_Permissions.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_User_PermissionsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_Component_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_Component_TypeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29703,21 +29526,21 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_RiskEstimationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_Component_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_Component_TypeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29755,6 +29578,24 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_ExposedPersonsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_RiskEstimationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -29830,6 +29671,15 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -29864,35 +29714,11 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tbl_User_PermissionsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Tbl_User_Permissions.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_User_PermissionsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_Component_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_Component_TypeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29912,19 +29738,19 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_RiskEstimationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_Component_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_Component_TypeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -29958,6 +29784,22 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_ExposedPersonsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_RiskEstimationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -30025,6 +29867,14 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -30035,6 +29885,14 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(LG_Analysis_DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tbl_LogTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Log.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -30099,6 +29957,22 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._tbl_RiskEstimationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tbl_ExposedPersonsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Tbl_ExposedPersons.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -30132,19 +30006,19 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_RiskEstimationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_Component_TypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_RiskEstimationTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_Component_TypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -30164,35 +30038,11 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_Component_TypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Component_Type.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_Component_TypeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tbl_BLOB_StorageTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_BLOB_Storage.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_BLOB_StorageTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tbl_User_PermissionsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Tbl_User_Permissions.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tbl_User_PermissionsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

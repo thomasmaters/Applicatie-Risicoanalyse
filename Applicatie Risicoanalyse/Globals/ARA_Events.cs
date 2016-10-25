@@ -125,4 +125,25 @@ namespace Applicatie_Risicoanalyse.Globals
             this.groupName = groupName;
         }
     }
+
+    public class DangerChangedEvent : EventArgs
+    {
+        public int dangerID { get; private set; }
+        public int dangerSourceID { get; private set; }
+        public string hazardSituation { get; private set; }
+        public string hazardEvent { get; private set; }
+
+        private DangerChangedEvent()
+        {
+
+        }
+
+        public DangerChangedEvent(int dangerID, int dangerSourceID, string hazardSituation, string hazardEvent)
+        {
+            this.dangerID = dangerID;
+            this.dangerSourceID = dangerSourceID;
+            this.hazardSituation = hazardSituation;
+            this.hazardEvent = hazardEvent;
+        }
+    }
 }
