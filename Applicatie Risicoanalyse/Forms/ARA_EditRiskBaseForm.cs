@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Applicatie_Risicoanalyse.Globals;
+using System.IO;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_EditRiskBaseForm : Form
     {
+        private int riskDataID = 1;
+
         public ARA_EditRiskBaseForm()
         {
             InitializeComponent();
-            int riskDataID = 1;
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -25,11 +27,16 @@ namespace Applicatie_Risicoanalyse.Forms
                 control.Font = this.Font;
             }
 
+            setFormData();
+        }
+
+        private void setFormData()
+        {
             try
             {
                 //Get risk data.
                 DataRow riskDataView = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
-                if(riskDataView == null)
+                if (riskDataView == null)
                 {
                     throw new ArgumentNullException();
                 }
@@ -51,11 +58,11 @@ namespace Applicatie_Risicoanalyse.Forms
                 };
                 this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
                 {
-                    if(e.checkState == CheckState.Checked)
+                    if (e.checkState == CheckState.Checked)
                     {
                         this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
                     }
-                    else if(e.checkState == CheckState.Unchecked)
+                    else if (e.checkState == CheckState.Unchecked)
                     {
                         this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
                     }
@@ -96,6 +103,16 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 DataView exposedPersonsView = new DataView(this.get_ExposedPersons_In_RiskDataTableAdapter1.GetData(riskDataID));
                 this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView, riskDataID);
+
+                if (riskDataView["FileID"] != DBNull.Value)
+                {
+                    loadRiskImage((Int32)riskDataView["FileID"]);
+                }
+                else
+                {
+                    pictureBox1.Image = Applicatie_Risicoanalyse.Properties.Resources.NoRiskPicture;
+                }
+
             }
             catch (Exception)
             {
@@ -105,6 +122,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage' table. You can move, or remove it, as needed.
+            this.tbl_BLOB_StorageTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_MinimalAddition_In_Risk' table. You can move, or remove it, as needed.
@@ -115,9 +134,43 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
         }
 
-        private void ARA_EditRiskBaseForm_Paint(object sender, PaintEventArgs e)
+        private void loadRiskImage(int fileID)
         {
-            this.arA_EditRiskRiskEstimation1.Refresh();
+            if (fileID != -1)
+            {
+                DataRow blodData = this.tbl_BLOB_StorageTableAdapter.GetData().FindByFileID(fileID);
+                var data = (Byte[])(blodData["FileObject"]);
+                pictureBox1.Image = Image.FromStream(new MemoryStream(data));
+            }
+        }
+
+        private void arA_Button1_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.ShowDialog();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            if (e.Cancel == false)
+            {
+                this.pictureBox1.Image = Image.FromFile(this.openFileDialog1.FileName);
+                byte[] arr;
+                ImageConverter converter = new ImageConverter();
+                arr = (byte[])converter.ConvertTo(this.pictureBox1.Image, typeof(byte[]));
+                this.queriesTableAdapter1.Insert_Picture_Into_Risk(this.riskDataID, arr);
+            }
+        }
+
+        private void EditRiskButtonNextRisk_Click(object sender, EventArgs e)
+        {
+            this.riskDataID = 2;
+            setFormData();
+        }
+
+        private void EditRiskButtonPreviousRisk_Click(object sender, EventArgs e)
+        {
+            this.riskDataID = 1;
+            setFormData();
         }
     }
 }

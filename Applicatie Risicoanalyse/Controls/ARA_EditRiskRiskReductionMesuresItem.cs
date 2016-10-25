@@ -37,6 +37,10 @@ namespace Applicatie_Risicoanalyse.Controls
 
         public void setControlData(DataView controlData)
         {
+            this.itemCheckEventHandler = null;
+            this.hasControlBeenChanged = false;
+            this.checkedListBox1.Items.Clear();
+
             this.checkBox1.Text = controlData[0]["MesureGroup"].ToString();
 
             this.checkedListBox1.Items.Clear();

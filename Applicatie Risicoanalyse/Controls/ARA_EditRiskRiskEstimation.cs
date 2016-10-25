@@ -85,6 +85,9 @@ namespace Applicatie_Risicoanalyse.Controls
         //Sets the control data.
         public void setControlData(DataView riskEstimationDataTable)
         {
+            riskEstimationEvenHandler = null;
+            hasControlBeenChanged = false;
+
             DataTable temp = riskEstimationDataTable.ToTable(true, "GroupName");
 
             string groupName1 = temp.Rows[0]["GroupName"].ToString();

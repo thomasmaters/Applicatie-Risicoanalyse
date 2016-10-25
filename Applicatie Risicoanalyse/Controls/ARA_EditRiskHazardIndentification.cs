@@ -37,6 +37,9 @@ namespace Applicatie_Risicoanalyse.Controls
 
         public void setControlData(int riskDataID)
         {
+            dangerChangedEventHandler = null;
+            hasControlBeenChanged = false;
+
             //Get risk data
             DataRow riskDataRow = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
 
@@ -53,11 +56,11 @@ namespace Applicatie_Risicoanalyse.Controls
 
             //Set dropdownbox values and select value.
             DataView dangerSourceView = new DataView(this.tbl_Danger_SourceTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
+            dangerSourceView.RowFilter = string.Format("DangerID = {0}", this.comboBox1.SelectedValue);
             this.comboBox2.DisplayMember = "DangerSourceName";
             this.comboBox2.ValueMember = "DangerSourceID";
             this.comboBox2.DataSource = dangerSourceView;
             this.comboBox2.SelectedValue = riskDataRow["DangerSourceID"];
-            dangerSourceView.RowFilter = string.Format("DangerID = {0}",this.comboBox1.SelectedValue);
 
             //Add event for changing grouping when the first dropdownbox changes.
             this.comboBox1.SelectedIndexChanged += delegate (object sender, EventArgs e)

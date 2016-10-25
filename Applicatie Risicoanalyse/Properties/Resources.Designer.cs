@@ -89,5 +89,15 @@ namespace Applicatie_Risicoanalyse.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoRiskPicture {
+            get {
+                object obj = ResourceManager.GetObject("NoRiskPicture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -71,6 +71,11 @@ namespace Applicatie_Risicoanalyse.Controls
 
         public void setControlData(DataView controlData)
         {
+            //Remove previously added controls.
+            this.itemCheckEventHandler = null;
+            this.reductionMesureInfoChanged = null;
+            this.flowLayoutPanel1.Controls.Clear();
+
             //Get all unique groupnames.
             DataTable distinctGroupNamesDataTable = controlData.ToTable(true, "MesureGroup");
             DataView  distinctGroupNamesDataView = new DataView(distinctGroupNamesDataTable);
