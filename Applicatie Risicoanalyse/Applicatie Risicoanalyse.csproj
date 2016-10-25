@@ -224,6 +224,12 @@
     <Compile Include="Forms\ARA_AddRisksToProject.Designer.cs">
       <DependentUpon>ARA_AddRisksToProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_OpenProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_OpenProject.Designer.cs">
+      <DependentUpon>ARA_OpenProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_OpenRiskInProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_AddRisksToProject.resx">
       <DependentUpon>ARA_AddRisksToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_OpenProject.resx">
+      <DependentUpon>ARA_OpenProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_OpenRiskInProject.resx">
       <DependentUpon>ARA_OpenRiskInProject.cs</DependentUpon>
