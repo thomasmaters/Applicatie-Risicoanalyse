@@ -53,6 +53,7 @@
             this.tbl_RiskReduction_In_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskReduction_In_RiskTableAdapter();
             this.tbl_MinimalAddition_In_RiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_MinimalAddition_In_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_MinimalAddition_In_RiskTableAdapter();
+            this.queriesTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskEstimation_In_RiskData_AfterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskReduction_In_RiskDataBindingSource)).BeginInit();
@@ -309,5 +310,6 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskReduction_In_RiskTableAdapter tbl_RiskReduction_In_RiskTableAdapter;
         private System.Windows.Forms.BindingSource tbl_MinimalAddition_In_RiskBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_MinimalAddition_In_RiskTableAdapter tbl_MinimalAddition_In_RiskTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
     }
 }

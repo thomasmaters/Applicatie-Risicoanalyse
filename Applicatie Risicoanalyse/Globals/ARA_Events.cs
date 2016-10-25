@@ -108,4 +108,21 @@ namespace Applicatie_Risicoanalyse.Globals
             this.checkState = checkState;
         }
     }
+
+    public class RiskEstimationChangedEvent : EventArgs
+    {
+        public int estimationID { get; private set; }
+        public string groupName { get; private set; }
+
+        private RiskEstimationChangedEvent()
+        {
+
+        }
+
+        public RiskEstimationChangedEvent(int estimationID, string groupName)
+        {
+            this.estimationID = estimationID;
+            this.groupName = groupName;
+        }
+    }
 }

@@ -142,33 +142,36 @@
     <value>608, 56</value>
   </metadata>
   <metadata name="tbl_Risk_DataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>810, 56</value>
+    <value>981, 56</value>
   </metadata>
   <metadata name="get_MinimalAddition_In_RiskDataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1007, 56</value>
-  </metadata>
-  <metadata name="get_MinimalAddition_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
   </metadata>
+  <metadata name="get_MinimalAddition_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 95</value>
+  </metadata>
   <metadata name="get_RiskEstimation_In_RiskData_BeforeBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>323, 95</value>
+    <value>635, 95</value>
   </metadata>
   <metadata name="get_RiskEstimation_In_RiskData_BeforeTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>664, 95</value>
+    <value>976, 95</value>
   </metadata>
   <metadata name="get_ExposedPersons_In_RiskDataTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>999, 95</value>
-  </metadata>
-  <metadata name="tbl_RiskReduction_In_RiskBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 134</value>
   </metadata>
+  <metadata name="tbl_RiskReduction_In_RiskBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>327, 134</value>
+  </metadata>
   <metadata name="tbl_RiskReduction_In_RiskTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>286, 134</value>
+    <value>596, 134</value>
   </metadata>
   <metadata name="tbl_MinimalAddition_In_RiskBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>550, 134</value>
+    <value>860, 134</value>
   </metadata>
   <metadata name="tbl_MinimalAddition_In_RiskTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>833, 134</value>
+    <value>17, 173</value>
+  </metadata>
+  <metadata name="queriesTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>810, 56</value>
   </metadata>
 </root>

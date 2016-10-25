@@ -15,6 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskRiskEstimation : UserControl
     {
         private bool hasControlBeenChanged = false;
+        public EventHandler<RiskEstimationChangedEvent> riskEstimationEvenHandler;
 
         public bool HasControlBeenChanged
         {
@@ -48,16 +49,41 @@ namespace Applicatie_Risicoanalyse.Controls
         public ARA_EditRiskRiskEstimation()
         {
             InitializeComponent();
-
-            arA_EditRiskRiskEstimationItem1.Invalidated += delegate(object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
+            
+            //Update the text on subcontrol invalitdate.
+            arA_EditRiskRiskEstimationItem1.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
             arA_EditRiskRiskEstimationItem2.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
             arA_EditRiskRiskEstimationItem3.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
             arA_EditRiskRiskEstimationItem4.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
 
             updateSafetyMesuresRequirement();
+
+            //Make parent notice, some button is pressed.
+            arA_EditRiskRiskEstimationItem1.Invalidated += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem2.Invalidated += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem3.Invalidated += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem4.Invalidated += onRiskEstimationItemChanged;
         }
 
-        public void setRiskEstimationData(DataView riskEstimationDataTable)
+        //Signal parent with custom event that a riskestimationitem has changed.
+        public void onRiskEstimationItemChanged(object sender, InvalidateEventArgs e)
+        {
+            if(riskEstimationEvenHandler != null)
+            {
+                try
+                {
+                    ARA_EditRiskRiskEstimationItem tempItem = (ARA_EditRiskRiskEstimationItem)sender;
+                    riskEstimationEvenHandler(sender, new RiskEstimationChangedEvent(tempItem.SelectedID, tempItem.GroupName));
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        //Sets the control data.
+        public void setControlData(DataView riskEstimationDataTable)
         {
             DataTable temp = riskEstimationDataTable.ToTable(true, "GroupName");
 
@@ -66,22 +92,23 @@ namespace Applicatie_Risicoanalyse.Controls
             string groupName3 = temp.Rows[2]["GroupName"].ToString();
             string groupName4 = temp.Rows[3]["GroupName"].ToString();
 
-            this.arA_EditRiskRiskEstimationItem1.setGroupName(groupName1);
-            this.arA_EditRiskRiskEstimationItem2.setGroupName(groupName2);
-            this.arA_EditRiskRiskEstimationItem3.setGroupName(groupName3);
-            this.arA_EditRiskRiskEstimationItem4.setGroupName(groupName4);
+            this.arA_EditRiskRiskEstimationItem1.GroupName = groupName1;
+            this.arA_EditRiskRiskEstimationItem2.GroupName = groupName2;
+            this.arA_EditRiskRiskEstimationItem3.GroupName = groupName3;
+            this.arA_EditRiskRiskEstimationItem4.GroupName = groupName4;
 
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName1 + "'";
-            this.arA_EditRiskRiskEstimationItem1.setButtonTextsAndWeights(riskEstimationDataTable);
+            this.arA_EditRiskRiskEstimationItem1.setControlData(riskEstimationDataTable);
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName2 + "'";
-            this.arA_EditRiskRiskEstimationItem2.setButtonTextsAndWeights(riskEstimationDataTable);
+            this.arA_EditRiskRiskEstimationItem2.setControlData(riskEstimationDataTable);
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName3 + "'"; ;
-            this.arA_EditRiskRiskEstimationItem3.setButtonTextsAndWeights(riskEstimationDataTable);
+            this.arA_EditRiskRiskEstimationItem3.setControlData(riskEstimationDataTable);
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName4 + "'"; ;
-            this.arA_EditRiskRiskEstimationItem4.setButtonTextsAndWeights(riskEstimationDataTable);
+            this.arA_EditRiskRiskEstimationItem4.setControlData(riskEstimationDataTable);
             //Gekozen om dit met static waardes omdat de form dan sneller laad en geen controls aangemaakt hoeven te worden on runtime.
         }
 
+        //Updates the text when an button is pressed, and calculateds the risk class.
         public void updateSafetyMesuresRequirement()
         {
             int riskClassification = calculateRiskEstimationClass();
@@ -104,7 +131,8 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_Text6.Invalidate();
         }
 
-        public int calculateRiskEstimationClass()
+        //Calcules riskclass.
+        private int calculateRiskEstimationClass()
         {
             int severity = this.arA_EditRiskRiskEstimationItem1.SelectedWeight;
             int totalRiskPoints = calculateRiskPoints();
@@ -125,7 +153,8 @@ namespace Applicatie_Risicoanalyse.Controls
             return classMatrix[severity - 1,totalRiskPoints - 4];
         }
 
-        public int calculateRiskPoints()
+        //Calculates the PR + AV + PS.
+        private int calculateRiskPoints()
         {
             return
             (

@@ -28,7 +28,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
 
             DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskEstimation1.setRiskEstimationData(riskEstimationViewBefore);
+            this.arA_EditRiskRiskEstimation1.setControlData(riskEstimationViewBefore);
+            this.arA_EditRiskRiskEstimation1.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
+            {
+                this.queriesTableAdapter1.Insert_Into_RiskEstimation_Before(riskDataID, e.estimationID, e.groupName);
+            };
 
             DataView riskReductionMesuresView = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
             this.arA_EditRiskRiskReductionMesures1.setControlData(riskReductionMesuresView);
@@ -55,7 +59,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskRiskReductionMesures2.setRiskReductionInfo(riskDataView["MinimalAdditionInfo"].ToString());
             this.arA_EditRiskRiskReductionMesures2.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
             {
-                riskDataView["RiskReductionInfo"] = this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo;
+                riskDataView["MinimalAdditionInfo"] = this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo;
                 this.tbl_Risk_DataTableAdapter.Update(riskDataView);
             };
             this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
@@ -71,7 +75,11 @@ namespace Applicatie_Risicoanalyse.Forms
             };
 
             DataView riskEstimationViewAfter = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
-            this.arA_EditRiskRiskEstimation2.setRiskEstimationData(riskEstimationViewAfter);
+            this.arA_EditRiskRiskEstimation2.setControlData(riskEstimationViewAfter);
+            this.arA_EditRiskRiskEstimation2.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
+            {
+                this.queriesTableAdapter1.Insert_Into_RiskEstimation_After(riskDataID, e.estimationID, e.groupName);
+            };
 
             this.arA_EditRiskHazardIndentification1.setControlData(riskDataID);
 

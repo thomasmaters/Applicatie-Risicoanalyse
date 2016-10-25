@@ -15,7 +15,8 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskRiskEstimationItem : UserControl
     {
         private List<int> buttonWeights = new List<int>();
-        private int selectedWeight = 0;
+        private List<int> buttonIDs = new List<int>();
+        private int selectedIndex = 0;
         private bool hasControlBeenChanged = false;
 
         public bool HasControlBeenChanged
@@ -35,7 +36,22 @@ namespace Applicatie_Risicoanalyse.Controls
         {
             get
             {
-                return selectedWeight;
+                if(selectedIndex > -1 && buttonWeights.Count > 0)
+                {
+                    return buttonWeights[selectedIndex];
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        public int SelectedID
+        {
+            get
+            {
+                return buttonIDs[selectedIndex];
             }
         }
 
@@ -49,6 +65,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 control.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
             }
 
+            //Button click binds.
             this.RiskEstimation1Button.Click += onRiskEstimationButtonClick;
             this.RiskEstimation2Button.Click += onRiskEstimationButtonClick;
             this.RiskEstimation3Button.Click += onRiskEstimationButtonClick;
@@ -57,9 +74,16 @@ namespace Applicatie_Risicoanalyse.Controls
         }
 
         //Sets groupname of item.
-        public void setGroupName(string groupName)
+        public string GroupName
         {
-            this.RiskEstimationText.Text = groupName;
+            get
+            {
+                return this.RiskEstimationText.Text;
+            }
+            set
+            {
+                this.RiskEstimationText.Text = value;
+            }
         }
 
         //Shows the amount of buttons in the control.
@@ -79,21 +103,23 @@ namespace Applicatie_Risicoanalyse.Controls
         }
 
         //Sets button texts from a datarowcollection.
-        public void setButtonTextsAndWeights(DataView buttonTexts)
+        public void setControlData(DataView buttonTexts)
         {
             setAmountOfButtons(buttonTexts.Count);
             buttonWeights.Clear();
+            buttonIDs.Clear();
 
             for (int i = 0; i < buttonTexts.Count; i++)
             {
                 this.RiskEstimationPanel.Controls[i].Text = buttonTexts[i]["ItemDescription"].ToString();
 
                 buttonWeights.Add(Int32.Parse(buttonTexts[i]["ItemWeight"].ToString()));
+                buttonIDs.Add(Int32.Parse(buttonTexts[i]["EstimationID"].ToString()));
 
-                if(buttonTexts[i]["InProject"].ToString() == "1")
+                if (buttonTexts[i]["InProject"].ToString() == "1")
                 {
                     setButtonSelected(i);
-                    this.selectedWeight = Int32.Parse(buttonTexts[i]["ItemWeight"].ToString());
+                    this.selectedIndex = i;
                 }
             }
         }
@@ -119,13 +145,14 @@ namespace Applicatie_Risicoanalyse.Controls
                 {
                     if(buttonWeights.Count > 0)
                     {
-                        this.selectedWeight = buttonWeights[this.RiskEstimationPanel.Controls.IndexOf(control)];
+                        this.selectedIndex = this.RiskEstimationPanel.Controls.IndexOf(control);
                     }
                 }
             }
             this.Invalidate();
         }
 
+        //Handler when one of the buttons is pressed.
         private void onRiskEstimationButtonClick(object sender, EventArgs e)
         {
             try
