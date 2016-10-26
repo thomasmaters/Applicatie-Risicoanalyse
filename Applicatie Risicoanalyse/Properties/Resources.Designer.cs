@@ -61,6 +61,21 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;acl&gt;
+        ///	&lt;acl groupname=&quot;Default&quot;&gt;
+        ///		&lt;!-- none,readonly,all--&gt;
+        ///		&lt;right name=&quot;&quot; access=&quot;readonly&quot;/&gt;
+        ///		&lt;right name=&quot;&quot; access=&quot;none&quot;/&gt;
+        ///	&lt;/acl&gt;
+        ///&lt;/acl&gt;.
+        /// </summary>
+        internal static string ACL {
+            get {
+                return ResourceManager.GetString("ACL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Gotham_Light {

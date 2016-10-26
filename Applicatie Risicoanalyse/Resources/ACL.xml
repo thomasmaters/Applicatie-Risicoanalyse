@@ -1,0 +1,22 @@
+<acl>
+	<acl groupname="Default">
+		<right name="General.ButtonCreateProject"  			access="none"/>
+		<right name="General.ButtonOpenProject" 			access="none"/>
+		<right name="General.ButtonRecentProjects" 			access="none"/>
+		<right name="General.ButtonCreateProjectRevision"	access="none"/>
+		<right name="General.ButtonEditStandardRisks" 		access="none"/>
+	</acl>	
+	<acl groupname="Admin">	
+		<right name="General.ButtonCreateProject"  			access="all"/>
+		<right name="General.ButtonOpenProject" 			access="all"/>
+		<right name="General.ButtonRecentProjects" 			access="all"/>
+		<right name="General.ButtonCreateProjectRevision" 	access="all"/>
+		<right name="General.ButtonEditStandardRisks" 		access="all"/>
+	</acl>	
+	<acl groupname="Engineer">	
+		<right name="General.ButtonCreateProject"  			access="readonly"/>
+		<right name="General.ButtonOpenProject" 			access="all"/>
+		<right name="General.ButtonRecentProjects" 			access="readonly"/>
+		<right name="General.ButtonCreateProjectRevision" 	access="readonly"/>
+	</acl>
+</acl>

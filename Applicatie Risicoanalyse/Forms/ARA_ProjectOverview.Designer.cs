@@ -41,7 +41,7 @@
             this.projectOverviewButtonCreateProjectRevision = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.projectOverviewPanelCreateProjectRevision = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.arA_DropDownButton1 = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.projectOverviewButtonEditStandardRisks = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonCreateProjectRevision);
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewPanelCreateProjectRevision);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.arA_DropDownButton1);
+            this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonEditStandardRisks);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -225,26 +225,26 @@
             this.panel1.Size = new System.Drawing.Size(750, 12);
             this.panel1.TabIndex = 11;
             // 
-            // arA_DropDownButton1
+            // projectOverviewButtonEditStandardRisks
             // 
-            this.arA_DropDownButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.arA_DropDownButton1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_DropDownButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_DropDownButton1.Location = new System.Drawing.Point(0, 484);
-            this.arA_DropDownButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_DropDownButton1.MaximumSize = new System.Drawing.Size(750, 40);
-            this.arA_DropDownButton1.Name = "arA_DropDownButton1";
-            this.arA_DropDownButton1.PaddingFirstTriangle = 250;
-            this.arA_DropDownButton1.PaddingSecondTriangle = 700;
-            this.arA_DropDownButton1.Selected = false;
-            this.arA_DropDownButton1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_DropDownButton1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_DropDownButton1.Size = new System.Drawing.Size(750, 40);
-            this.arA_DropDownButton1.TabIndex = 10;
-            this.arA_DropDownButton1.Text = "Edit Risks";
-            this.arA_DropDownButton1.TextColor = System.Drawing.Color.White;
-            this.arA_DropDownButton1.TriangleSize = 20;
-            this.arA_DropDownButton1.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.projectOverviewButtonEditStandardRisks.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonEditStandardRisks.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.projectOverviewButtonEditStandardRisks.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.projectOverviewButtonEditStandardRisks.Location = new System.Drawing.Point(0, 484);
+            this.projectOverviewButtonEditStandardRisks.Margin = new System.Windows.Forms.Padding(0);
+            this.projectOverviewButtonEditStandardRisks.MaximumSize = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonEditStandardRisks.Name = "projectOverviewButtonEditStandardRisks";
+            this.projectOverviewButtonEditStandardRisks.PaddingFirstTriangle = 250;
+            this.projectOverviewButtonEditStandardRisks.PaddingSecondTriangle = 700;
+            this.projectOverviewButtonEditStandardRisks.Selected = false;
+            this.projectOverviewButtonEditStandardRisks.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonEditStandardRisks.SelectedTextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonEditStandardRisks.Size = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonEditStandardRisks.TabIndex = 10;
+            this.projectOverviewButtonEditStandardRisks.Text = "Edit Risks";
+            this.projectOverviewButtonEditStandardRisks.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonEditStandardRisks.TriangleSize = 20;
+            this.projectOverviewButtonEditStandardRisks.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_ProjectOverview
             // 
@@ -281,6 +281,6 @@
         private System.Windows.Forms.Panel projectOverviewButtonSpacer2;
         private System.Windows.Forms.Panel projectOverviewButtonSpacer3;
         private System.Windows.Forms.Panel panel1;
-        private Controls.ARA_DropDownButton arA_DropDownButton1;
+        private Controls.ARA_DropDownButton projectOverviewButtonEditStandardRisks;
     }
 }
