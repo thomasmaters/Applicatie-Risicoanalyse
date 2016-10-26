@@ -78,12 +78,14 @@
             this.ProjectOverviewButtonRecentProjects.Name = "ProjectOverviewButtonRecentProjects";
             this.ProjectOverviewButtonRecentProjects.PaddingFirstTriangle = 250;
             this.ProjectOverviewButtonRecentProjects.PaddingSecondTriangle = 700;
-            this.ProjectOverviewButtonRecentProjects.TriangleSize = 20;
             this.ProjectOverviewButtonRecentProjects.Selected = false;
             this.ProjectOverviewButtonRecentProjects.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.ProjectOverviewButtonRecentProjects.SelectedTextColor = System.Drawing.Color.White;
             this.ProjectOverviewButtonRecentProjects.Size = new System.Drawing.Size(750, 40);
             this.ProjectOverviewButtonRecentProjects.TabIndex = 0;
             this.ProjectOverviewButtonRecentProjects.Text = "Recent Projects";
+            this.ProjectOverviewButtonRecentProjects.TextColor = System.Drawing.Color.White;
+            this.ProjectOverviewButtonRecentProjects.TriangleSize = 20;
             this.ProjectOverviewButtonRecentProjects.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ProjectOverviewPanelRecentProjects
@@ -115,26 +117,29 @@
             this.projectOverviewButtonOpenProject.Name = "projectOverviewButtonOpenProject";
             this.projectOverviewButtonOpenProject.PaddingFirstTriangle = 250;
             this.projectOverviewButtonOpenProject.PaddingSecondTriangle = 700;
-            this.projectOverviewButtonOpenProject.TriangleSize = 20;
             this.projectOverviewButtonOpenProject.Selected = false;
             this.projectOverviewButtonOpenProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonOpenProject.SelectedTextColor = System.Drawing.Color.White;
             this.projectOverviewButtonOpenProject.Size = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonOpenProject.TabIndex = 2;
             this.projectOverviewButtonOpenProject.Text = "Open Project";
+            this.projectOverviewButtonOpenProject.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonOpenProject.TriangleSize = 20;
             this.projectOverviewButtonOpenProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // projectOverviewPanelOpenProject
             // 
-            this.projectOverviewPanelOpenProject.Location = new System.Drawing.Point(0, 135);
+            this.projectOverviewPanelOpenProject.AutoSize = true;
+            this.projectOverviewPanelOpenProject.Location = new System.Drawing.Point(750, 95);
             this.projectOverviewPanelOpenProject.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelOpenProject.Name = "projectOverviewPanelOpenProject";
-            this.projectOverviewPanelOpenProject.Size = new System.Drawing.Size(750, 43);
+            this.projectOverviewPanelOpenProject.Size = new System.Drawing.Size(0, 0);
             this.projectOverviewPanelOpenProject.TabIndex = 5;
             this.projectOverviewPanelOpenProject.Visible = false;
             // 
             // projectOverviewButtonSpacer2
             // 
-            this.projectOverviewButtonSpacer2.Location = new System.Drawing.Point(0, 178);
+            this.projectOverviewButtonSpacer2.Location = new System.Drawing.Point(0, 135);
             this.projectOverviewButtonSpacer2.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonSpacer2.MaximumSize = new System.Drawing.Size(800, 12);
             this.projectOverviewButtonSpacer2.Name = "projectOverviewButtonSpacer2";
@@ -146,35 +151,35 @@
             this.projectOverviewButtonCreateProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.projectOverviewButtonCreateProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonCreateProject.Location = new System.Drawing.Point(0, 190);
+            this.projectOverviewButtonCreateProject.Location = new System.Drawing.Point(0, 147);
             this.projectOverviewButtonCreateProject.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonCreateProject.MaximumSize = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateProject.Name = "projectOverviewButtonCreateProject";
             this.projectOverviewButtonCreateProject.PaddingFirstTriangle = 250;
             this.projectOverviewButtonCreateProject.PaddingSecondTriangle = 700;
-            this.projectOverviewButtonCreateProject.TriangleSize = 20;
             this.projectOverviewButtonCreateProject.Selected = false;
             this.projectOverviewButtonCreateProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonCreateProject.SelectedTextColor = System.Drawing.Color.White;
             this.projectOverviewButtonCreateProject.Size = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateProject.TabIndex = 3;
             this.projectOverviewButtonCreateProject.Text = "Create Project";
+            this.projectOverviewButtonCreateProject.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonCreateProject.TriangleSize = 20;
             this.projectOverviewButtonCreateProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // projectOverviewPanelCreateProject
             // 
-            this.projectOverviewPanelCreateProject.Location = new System.Drawing.Point(0, 230);
+            this.projectOverviewPanelCreateProject.Location = new System.Drawing.Point(0, 187);
             this.projectOverviewPanelCreateProject.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelCreateProject.MaximumSize = new System.Drawing.Size(750, 190);
             this.projectOverviewPanelCreateProject.Name = "projectOverviewPanelCreateProject";
             this.projectOverviewPanelCreateProject.Size = new System.Drawing.Size(750, 190);
             this.projectOverviewPanelCreateProject.TabIndex = 2;
             this.projectOverviewPanelCreateProject.Visible = false;
-
-            this.addFormToPanel(this.projectOverviewPanelCreateProject, new ARA_CreateProject());
             // 
             // projectOverviewButtonSpacer3
             // 
-            this.projectOverviewButtonSpacer3.Location = new System.Drawing.Point(0, 277);
+            this.projectOverviewButtonSpacer3.Location = new System.Drawing.Point(0, 377);
             this.projectOverviewButtonSpacer3.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonSpacer3.MaximumSize = new System.Drawing.Size(800, 12);
             this.projectOverviewButtonSpacer3.Name = "projectOverviewButtonSpacer3";
@@ -186,23 +191,25 @@
             this.projectOverviewButtonCreateProjectRevision.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.projectOverviewButtonCreateProjectRevision.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateProjectRevision.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonCreateProjectRevision.Location = new System.Drawing.Point(0, 289);
+            this.projectOverviewButtonCreateProjectRevision.Location = new System.Drawing.Point(0, 389);
             this.projectOverviewButtonCreateProjectRevision.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonCreateProjectRevision.MaximumSize = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateProjectRevision.Name = "projectOverviewButtonCreateProjectRevision";
             this.projectOverviewButtonCreateProjectRevision.PaddingFirstTriangle = 250;
             this.projectOverviewButtonCreateProjectRevision.PaddingSecondTriangle = 700;
-            this.projectOverviewButtonCreateProjectRevision.TriangleSize = 20;
             this.projectOverviewButtonCreateProjectRevision.Selected = false;
             this.projectOverviewButtonCreateProjectRevision.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonCreateProjectRevision.SelectedTextColor = System.Drawing.Color.White;
             this.projectOverviewButtonCreateProjectRevision.Size = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateProjectRevision.TabIndex = 4;
             this.projectOverviewButtonCreateProjectRevision.Text = "Create Project Revision";
+            this.projectOverviewButtonCreateProjectRevision.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonCreateProjectRevision.TriangleSize = 20;
             this.projectOverviewButtonCreateProjectRevision.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // projectOverviewPanelCreateProjectRevision
             // 
-            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(0, 329);
+            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(0, 429);
             this.projectOverviewPanelCreateProjectRevision.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelCreateProjectRevision.Name = "projectOverviewPanelCreateProjectRevision";
             this.projectOverviewPanelCreateProjectRevision.Size = new System.Drawing.Size(750, 43);
@@ -211,7 +218,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 372);
+            this.panel1.Location = new System.Drawing.Point(0, 472);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel1.Name = "panel1";
@@ -223,18 +230,20 @@
             this.arA_DropDownButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.arA_DropDownButton1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.arA_DropDownButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_DropDownButton1.Location = new System.Drawing.Point(0, 384);
+            this.arA_DropDownButton1.Location = new System.Drawing.Point(0, 484);
             this.arA_DropDownButton1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_DropDownButton1.MaximumSize = new System.Drawing.Size(750, 40);
             this.arA_DropDownButton1.Name = "arA_DropDownButton1";
             this.arA_DropDownButton1.PaddingFirstTriangle = 250;
             this.arA_DropDownButton1.PaddingSecondTriangle = 700;
-            this.arA_DropDownButton1.TriangleSize = 20;
             this.arA_DropDownButton1.Selected = false;
             this.arA_DropDownButton1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_DropDownButton1.SelectedTextColor = System.Drawing.Color.White;
             this.arA_DropDownButton1.Size = new System.Drawing.Size(750, 40);
             this.arA_DropDownButton1.TabIndex = 10;
             this.arA_DropDownButton1.Text = "Edit Risks";
+            this.arA_DropDownButton1.TextColor = System.Drawing.Color.White;
+            this.arA_DropDownButton1.TriangleSize = 20;
             this.arA_DropDownButton1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_ProjectOverview
@@ -252,6 +261,7 @@
             this.Text = "ProjectOverview";
             this.Load += new System.EventHandler(this.onProjectOverviewLoad);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

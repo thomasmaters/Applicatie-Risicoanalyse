@@ -14,11 +14,11 @@ namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_RiskProjectOverview : Form
     {
-        private int projectID;
-        
+        private int projectID = 1;
 
-        public ARA_RiskProjectOverview()
+        public ARA_RiskProjectOverview(int projectID)
         {
+            this.projectID = projectID;
             InitializeComponent();
 
             //Attach an layoutPanel to the button.
@@ -53,8 +53,8 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
-            this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(1));
-            this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject());
+            this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
+            this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
         }
     }
 }

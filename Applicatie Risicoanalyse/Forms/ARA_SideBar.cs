@@ -54,18 +54,53 @@ namespace Applicatie_Risicoanalyse.Forms
 
         public void onAddNewButtonToSideBar(object sender, SideBarAddNewButtonEvent e)
         {
+
+            //Do we already have this project open?
+            foreach (ARA_Button button in this.SideBarButtonContainer.Controls.OfType<ARA_Button>())
+            {
+                if (button.Text.ToString().Equals(e.Button.Text.ToString()))
+                {
+                    System.Windows.Forms.MessageBox.Show("This project is already opend!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            //Try to open the form instance.
+            try
+            {
+                Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            //Add some style to the button.
             ARA_Button tempButton = e.Button;
             tempButton.Margin = new System.Windows.Forms.Padding(0);
             tempButton.MaximumSize = this.SideBarButtonMenu.MaximumSize;
             tempButton.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             tempButton.Size = this.SideBarButtonMenu.Size;
-            //tempButton.Click += new System.EventHandler(this.onRiskAnalysisButtonClick);
+
+            //And a clickhandler.
+            tempButton.Click += delegate (object senderr, EventArgs ev)
+            {
+                tempButton.setButtonSelected(true);
+                this.hideOtherPanels(new object(), e);
+                Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
+            };
+
+            //Add the button to the sidebar.
             this.addButtonToSideBar(tempButton);
         }
 
         //Dynamicly add buttons to the sidebar.
         public void addButtonToSideBar(ARA_Button control)
         {
+            if(control == null)
+            {
+                return;
+            }
             this.SideBarButtonSpacer.Height -= control.Height;
             this.SideBarButtonContainer.Controls.Add(control);
             control.Click += hideOtherPanels;
@@ -83,14 +118,16 @@ namespace Applicatie_Risicoanalyse.Forms
         //MainMenu button click handler.
         private void onMenuButtonClick(object sender, EventArgs e)
         {
-            this.SideBarButtonRiskAnalysis.setButtonSelected(false);
+            this.SideBarButtonMenu.setButtonSelected(true);
+            this.hideOtherPanels(new object(), e);
             Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(new ARA_MainMenu());
         }
 
         //RiskAnalysis button click handler.
         private void onRiskAnalysisButtonClick(object sender, EventArgs e)
         {
-            this.SideBarButtonMenu.setButtonSelected(false);
+            this.SideBarButtonMenu.setButtonSelected(true);
+            this.hideOtherPanels(new object(), e);
             Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(new ARA_ProjectOverview());
         }
 

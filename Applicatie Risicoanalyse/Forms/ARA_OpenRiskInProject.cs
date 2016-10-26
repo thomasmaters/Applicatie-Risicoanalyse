@@ -12,12 +12,15 @@ namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_OpenRiskInProject : Form
     {
-        public ARA_OpenRiskInProject()
+        private int projectID = 1;
+
+        public ARA_OpenRiskInProject(int projectID)
         {
+            this.projectID = projectID;
             InitializeComponent();
 
             //On form load show datagrid items.
-            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(1, "");
+            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, "");
             this.OpenRiskInProjectDataGrid.Refresh();
         }
 
@@ -25,7 +28,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             int tempScrollPosition = this.OpenRiskInProjectDataGrid.FirstDisplayedScrollingRowIndex;
 
-            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(1, this.arA_TextBox1.Text);
+            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
             this.OpenRiskInProjectDataGrid.Refresh();
 
             if (tempScrollPosition != -1 && tempScrollPosition < this.OpenRiskInProjectDataGrid.Rows.Count)

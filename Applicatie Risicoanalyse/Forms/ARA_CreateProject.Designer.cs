@@ -28,35 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.createProjectContentBox = new System.Windows.Forms.FlowLayoutPanel();
             this.createProjectSpacer1 = new System.Windows.Forms.Panel();
             this.createProjectControlBoxLeft = new System.Windows.Forms.FlowLayoutPanel();
-            this.createProjectSpacer4 = new System.Windows.Forms.Panel();
-            this.createProjectSpacer5 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.createProjectSpacer2 = new System.Windows.Forms.Panel();
-            this.createProjectControlBoxRight = new System.Windows.Forms.FlowLayoutPanel();
-            this.createProjectSpacer3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.createProjectDatabaseAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
             this.createProjectTextCustomer = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.createProjectInputCustomer = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.createProjectSpacer4 = new System.Windows.Forms.Panel();
             this.createProjectTextMachineType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.createProjectSpacer5 = new System.Windows.Forms.Panel();
             this.createProjectInputMachineType = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.createProjectTextMachineNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.createProjectTextOrderNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.createProjectInputOrderNumber = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.createProjectInputMachineNumber = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.createProjectSpacer2 = new System.Windows.Forms.Panel();
+            this.createProjectControlBoxRight = new System.Windows.Forms.FlowLayoutPanel();
             this.createProjectTextExtraInfo = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.createProjectInputExtraInfo = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.createProjectSpacer3 = new System.Windows.Forms.FlowLayoutPanel();
             this.createProjectButtonCreateProject = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.createProjectDatabaseAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
+            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.get_Newest_Added_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_Newest_Added_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter();
+            this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.createProjectContentBox.SuspendLayout();
             this.createProjectControlBoxLeft.SuspendLayout();
             this.panel1.SuspendLayout();
             this.createProjectControlBoxRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // createProjectContentBox
             // 
+            this.createProjectContentBox.AutoScroll = true;
             this.createProjectContentBox.BackColor = System.Drawing.Color.White;
             this.createProjectContentBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.createProjectContentBox.Controls.Add(this.createProjectSpacer1);
@@ -98,65 +106,6 @@
             this.createProjectControlBoxLeft.Size = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxLeft.TabIndex = 4;
             // 
-            // createProjectSpacer4
-            // 
-            this.createProjectSpacer4.Location = new System.Drawing.Point(0, 55);
-            this.createProjectSpacer4.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer4.MaximumSize = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer4.Name = "createProjectSpacer4";
-            this.createProjectSpacer4.Size = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer4.TabIndex = 9;
-            // 
-            // createProjectSpacer5
-            // 
-            this.createProjectSpacer5.Location = new System.Drawing.Point(0, 85);
-            this.createProjectSpacer5.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer5.MaximumSize = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer5.Name = "createProjectSpacer5";
-            this.createProjectSpacer5.Size = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer5.TabIndex = 10;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.createProjectInputOrderNumber);
-            this.panel1.Controls.Add(this.createProjectInputMachineNumber);
-            this.panel1.Location = new System.Drawing.Point(0, 143);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.MaximumSize = new System.Drawing.Size(345, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(345, 28);
-            this.panel1.TabIndex = 10;
-            // 
-            // createProjectSpacer2
-            // 
-            this.createProjectSpacer2.Location = new System.Drawing.Point(365, 0);
-            this.createProjectSpacer2.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer2.MaximumSize = new System.Drawing.Size(20, 189);
-            this.createProjectSpacer2.Name = "createProjectSpacer2";
-            this.createProjectSpacer2.Size = new System.Drawing.Size(20, 189);
-            this.createProjectSpacer2.TabIndex = 2;
-            // 
-            // createProjectControlBoxRight
-            // 
-            this.createProjectControlBoxRight.Controls.Add(this.createProjectTextExtraInfo);
-            this.createProjectControlBoxRight.Controls.Add(this.createProjectInputExtraInfo);
-            this.createProjectControlBoxRight.Controls.Add(this.createProjectSpacer3);
-            this.createProjectControlBoxRight.Controls.Add(this.createProjectButtonCreateProject);
-            this.createProjectControlBoxRight.Location = new System.Drawing.Point(385, 0);
-            this.createProjectControlBoxRight.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectControlBoxRight.MaximumSize = new System.Drawing.Size(345, 190);
-            this.createProjectControlBoxRight.Name = "createProjectControlBoxRight";
-            this.createProjectControlBoxRight.Size = new System.Drawing.Size(345, 190);
-            this.createProjectControlBoxRight.TabIndex = 5;
-            // 
-            // createProjectSpacer3
-            // 
-            this.createProjectSpacer3.Location = new System.Drawing.Point(0, 116);
-            this.createProjectSpacer3.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer3.Name = "createProjectSpacer3";
-            this.createProjectSpacer3.Size = new System.Drawing.Size(344, 27);
-            this.createProjectSpacer3.TabIndex = 13;
-            // 
             // createProjectTextCustomer
             // 
             this.createProjectTextCustomer.BackgroundColor = System.Drawing.Color.White;
@@ -186,6 +135,15 @@
             this.createProjectInputCustomer.Text = "";
             this.createProjectInputCustomer.TextChanged += new System.EventHandler(this.canProjectBeCreated);
             // 
+            // createProjectSpacer4
+            // 
+            this.createProjectSpacer4.Location = new System.Drawing.Point(0, 55);
+            this.createProjectSpacer4.Margin = new System.Windows.Forms.Padding(0);
+            this.createProjectSpacer4.MaximumSize = new System.Drawing.Size(344, 3);
+            this.createProjectSpacer4.Name = "createProjectSpacer4";
+            this.createProjectSpacer4.Size = new System.Drawing.Size(344, 3);
+            this.createProjectSpacer4.TabIndex = 9;
+            // 
             // createProjectTextMachineType
             // 
             this.createProjectTextMachineType.BackgroundColor = System.Drawing.Color.White;
@@ -198,6 +156,15 @@
             this.createProjectTextMachineType.TabIndex = 4;
             this.createProjectTextMachineType.Text = "Machine type";
             this.createProjectTextMachineType.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            // 
+            // createProjectSpacer5
+            // 
+            this.createProjectSpacer5.Location = new System.Drawing.Point(0, 85);
+            this.createProjectSpacer5.Margin = new System.Windows.Forms.Padding(0);
+            this.createProjectSpacer5.MaximumSize = new System.Drawing.Size(344, 3);
+            this.createProjectSpacer5.Name = "createProjectSpacer5";
+            this.createProjectSpacer5.Size = new System.Drawing.Size(344, 3);
+            this.createProjectSpacer5.TabIndex = 10;
             // 
             // createProjectInputMachineType
             // 
@@ -241,6 +208,17 @@
             this.createProjectTextOrderNumber.Text = "Order number";
             this.createProjectTextOrderNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.createProjectInputOrderNumber);
+            this.panel1.Controls.Add(this.createProjectInputMachineNumber);
+            this.panel1.Location = new System.Drawing.Point(0, 143);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.MaximumSize = new System.Drawing.Size(345, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(345, 28);
+            this.panel1.TabIndex = 10;
+            // 
             // createProjectInputOrderNumber
             // 
             this.createProjectInputOrderNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -276,6 +254,29 @@
             this.createProjectInputMachineNumber.Text = "";
             this.createProjectInputMachineNumber.TextChanged += new System.EventHandler(this.canProjectBeCreated);
             // 
+            // createProjectSpacer2
+            // 
+            this.createProjectSpacer2.AutoScroll = true;
+            this.createProjectSpacer2.Location = new System.Drawing.Point(365, 0);
+            this.createProjectSpacer2.Margin = new System.Windows.Forms.Padding(0);
+            this.createProjectSpacer2.MaximumSize = new System.Drawing.Size(20, 189);
+            this.createProjectSpacer2.Name = "createProjectSpacer2";
+            this.createProjectSpacer2.Size = new System.Drawing.Size(20, 189);
+            this.createProjectSpacer2.TabIndex = 2;
+            // 
+            // createProjectControlBoxRight
+            // 
+            this.createProjectControlBoxRight.Controls.Add(this.createProjectTextExtraInfo);
+            this.createProjectControlBoxRight.Controls.Add(this.createProjectInputExtraInfo);
+            this.createProjectControlBoxRight.Controls.Add(this.createProjectSpacer3);
+            this.createProjectControlBoxRight.Controls.Add(this.createProjectButtonCreateProject);
+            this.createProjectControlBoxRight.Location = new System.Drawing.Point(385, 0);
+            this.createProjectControlBoxRight.Margin = new System.Windows.Forms.Padding(0);
+            this.createProjectControlBoxRight.MaximumSize = new System.Drawing.Size(345, 190);
+            this.createProjectControlBoxRight.Name = "createProjectControlBoxRight";
+            this.createProjectControlBoxRight.Size = new System.Drawing.Size(345, 190);
+            this.createProjectControlBoxRight.TabIndex = 5;
+            // 
             // createProjectTextExtraInfo
             // 
             this.createProjectTextExtraInfo.BackgroundColor = System.Drawing.Color.White;
@@ -304,6 +305,14 @@
             this.createProjectInputExtraInfo.TabIndex = 12;
             this.createProjectInputExtraInfo.Text = "";
             // 
+            // createProjectSpacer3
+            // 
+            this.createProjectSpacer3.Location = new System.Drawing.Point(0, 116);
+            this.createProjectSpacer3.Margin = new System.Windows.Forms.Padding(0);
+            this.createProjectSpacer3.Name = "createProjectSpacer3";
+            this.createProjectSpacer3.Size = new System.Drawing.Size(344, 27);
+            this.createProjectSpacer3.TabIndex = 13;
+            // 
             // createProjectButtonCreateProject
             // 
             this.createProjectButtonCreateProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
@@ -316,11 +325,56 @@
             this.createProjectButtonCreateProject.Name = "createProjectButtonCreateProject";
             this.createProjectButtonCreateProject.Selected = false;
             this.createProjectButtonCreateProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.createProjectButtonCreateProject.SelectedTextColor = System.Drawing.Color.White;
             this.createProjectButtonCreateProject.Size = new System.Drawing.Size(345, 27);
             this.createProjectButtonCreateProject.TabIndex = 14;
             this.createProjectButtonCreateProject.Text = "Create project";
+            this.createProjectButtonCreateProject.TextColor = System.Drawing.Color.White;
             this.createProjectButtonCreateProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.createProjectButtonCreateProject.Click += new System.EventHandler(this.onCreateProjectButtonClick);
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // get_Newest_Added_ProjectBindingSource
+            // 
+            this.get_Newest_Added_ProjectBindingSource.DataMember = "Get_Newest_Added_Project";
+            this.get_Newest_Added_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_Newest_Added_ProjectTableAdapter
+            // 
+            this.get_Newest_Added_ProjectTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
+            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
+            this.tableAdapterManager.Tbl_LogTableAdapter = null;
+            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
+            this.tableAdapterManager.Tbl_UserTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // ARA_CreateProject
             // 
@@ -339,6 +393,8 @@
             this.createProjectControlBoxLeft.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.createProjectControlBoxRight.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,5 +422,9 @@
         private Controls.ARA_Button createProjectButtonCreateProject;
         private System.Windows.Forms.Panel panel1;
         private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter createProjectDatabaseAdapter;
+        private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
+        private System.Windows.Forms.BindingSource get_Newest_Added_ProjectBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter get_Newest_Added_ProjectTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

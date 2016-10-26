@@ -26,9 +26,9 @@ namespace Applicatie_Risicoanalyse.Globals
         {
             SetSideBarButtonSelectedEventHandler(aIndex, new SetSideBarButtonSelectedEventArgs(aIndex));
         }
-        public static void onSideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton)
+        public static void onSideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton, Object FormType)
         {
-            SideBarAddNewButtonEventHandler(aButton, new SideBarAddNewButtonEvent(aButton));
+            SideBarAddNewButtonEventHandler(aButton, new SideBarAddNewButtonEvent(aButton,FormType));
         }
         public static void onAddRiskToProjectEvent( object sender, int aProjectID, int aRiskID)
         {
@@ -69,12 +69,14 @@ namespace Applicatie_Risicoanalyse.Globals
     public class SideBarAddNewButtonEvent : EventArgs
     {
         public Applicatie_Risicoanalyse.Controls.ARA_Button Button { get; private set; }
+        public Object FormType { get; private set; }
 
         private SideBarAddNewButtonEvent() { }
 
-        public SideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton)
+        public SideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton, Object FormType)
         {
             this.Button = aButton;
+            this.FormType = FormType;
         }
     }
 
