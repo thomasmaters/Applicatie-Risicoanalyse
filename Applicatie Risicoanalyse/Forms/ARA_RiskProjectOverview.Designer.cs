@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.riskProjectOverviewPanelRecentProjects = new System.Windows.Forms.FlowLayoutPanel();
+            this.riskProjectOverviewPanelEditProjectDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.ProjectOverviewButtonSpacer1 = new System.Windows.Forms.Panel();
             this.riskProjectOverviewPanelAddRiskToProject = new System.Windows.Forms.FlowLayoutPanel();
             this.projectOverviewButtonSpacer2 = new System.Windows.Forms.Panel();
@@ -51,7 +51,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonEditProjectDetails);
-            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelRecentProjects);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelEditProjectDetails);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonSpacer1);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonAddRiskToProject);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelAddRiskToProject);
@@ -68,12 +68,12 @@
             // 
             // riskProjectOverviewPanelRecentProjects
             // 
-            this.riskProjectOverviewPanelRecentProjects.Location = new System.Drawing.Point(0, 40);
-            this.riskProjectOverviewPanelRecentProjects.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewPanelRecentProjects.Name = "riskProjectOverviewPanelRecentProjects";
-            this.riskProjectOverviewPanelRecentProjects.Size = new System.Drawing.Size(750, 43);
-            this.riskProjectOverviewPanelRecentProjects.TabIndex = 1;
-            this.riskProjectOverviewPanelRecentProjects.Visible = false;
+            this.riskProjectOverviewPanelEditProjectDetails.Location = new System.Drawing.Point(0, 40);
+            this.riskProjectOverviewPanelEditProjectDetails.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewPanelEditProjectDetails.Name = "riskProjectOverviewPanelRecentProjects";
+            this.riskProjectOverviewPanelEditProjectDetails.Size = new System.Drawing.Size(750, 43);
+            this.riskProjectOverviewPanelEditProjectDetails.TabIndex = 1;
+            this.riskProjectOverviewPanelEditProjectDetails.Visible = false;
             // 
             // ProjectOverviewButtonSpacer1
             // 
@@ -254,7 +254,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Controls.ARA_DropDownButton riskProjectOverviewButtonEditProjectDetails;
-        private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelRecentProjects;
+        private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelEditProjectDetails;
         private Controls.ARA_DropDownButton riskProjectOverviewButtonAddRiskToProject;
         private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelAddRiskToProject;
         private Controls.ARA_DropDownButton riskProjectOverviewButtonOpenRisk;

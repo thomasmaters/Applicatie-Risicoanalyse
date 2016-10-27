@@ -109,6 +109,7 @@ namespace Applicatie_Risicoanalyse.Controls
             buttonWeights.Clear();
             buttonIDs.Clear();
             hasControlBeenChanged = false;
+            selectedIndex = -1;
             setButtonSelected();
 
             for (int i = 0; i < buttonTexts.Count; i++)

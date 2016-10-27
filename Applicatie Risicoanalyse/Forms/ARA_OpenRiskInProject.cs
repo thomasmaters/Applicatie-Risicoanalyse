@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -22,6 +23,13 @@ namespace Applicatie_Risicoanalyse.Forms
             //On form load show datagrid items.
             this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, "");
             this.OpenRiskInProjectDataGrid.Refresh();
+
+            //Scaling form and controls.
+            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            foreach (Control control in this.Controls)
+            {
+                control.Font = this.Font;
+            }
         }
 
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)

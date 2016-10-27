@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addRiskToProjectSearchTextBox = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.addRiskToProjectPanelContent = new System.Windows.Forms.FlowLayoutPanel();
             this.addRiskToProjectSearchDataGrid = new System.Windows.Forms.DataGridView();
             this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +55,6 @@
             this.search_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_Risks_In_ProjectTableAdapter();
             this.get_TypeNames_In_GroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_TypeNames_In_GroupTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_TypeNames_In_GroupTableAdapter();
-            this.addRiskToProjectSearchTextBox = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.addRiskToProjectPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addRiskToProjectSearchDataGrid)).BeginInit();
@@ -80,10 +80,22 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 38);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // addRiskToProjectSearchTextBox
+            // 
+            this.addRiskToProjectSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.addRiskToProjectSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.addRiskToProjectSearchTextBox.BorderSize = 1;
+            this.addRiskToProjectSearchTextBox.Location = new System.Drawing.Point(3, 3);
+            this.addRiskToProjectSearchTextBox.Name = "addRiskToProjectSearchTextBox";
+            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(743, 31);
+            this.addRiskToProjectSearchTextBox.TabIndex = 0;
+            this.addRiskToProjectSearchTextBox.Text = "";
+            this.addRiskToProjectSearchTextBox.TextChanged += new System.EventHandler(this.onSearchBarTextChanged);
+            // 
             // addRiskToProjectPanelContent
             // 
             this.addRiskToProjectPanelContent.AutoScroll = true;
-            this.addRiskToProjectPanelContent.BackColor = System.Drawing.Color.White;
+            this.addRiskToProjectPanelContent.BackColor = System.Drawing.Color.DimGray;
             this.addRiskToProjectPanelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addRiskToProjectPanelContent.Controls.Add(this.addRiskToProjectSearchDataGrid);
             this.addRiskToProjectPanelContent.Dock = System.Windows.Forms.DockStyle.Top;
@@ -102,6 +114,7 @@
             this.addRiskToProjectSearchDataGrid.AllowUserToResizeRows = false;
             this.addRiskToProjectSearchDataGrid.AutoGenerateColumns = false;
             this.addRiskToProjectSearchDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.addRiskToProjectSearchDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.addRiskToProjectSearchDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.addRiskToProjectSearchDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.addRiskToProjectSearchDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -119,7 +132,7 @@
             this.addRiskToProjectSearchDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.addRiskToProjectSearchDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.addRiskToProjectSearchDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.addRiskToProjectSearchDataGrid.Size = new System.Drawing.Size(727, 186);
+            this.addRiskToProjectSearchDataGrid.Size = new System.Drawing.Size(734, 186);
             this.addRiskToProjectSearchDataGrid.TabIndex = 0;
             this.addRiskToProjectSearchDataGrid.Visible = false;
             this.addRiskToProjectSearchDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onDataGridRowDoubleClick);
@@ -187,11 +200,23 @@
             this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
             this.tableAdapterManager.Tbl_Component_GroupTableAdapter = this.tbl_Component_GroupTableAdapter;
             this.tableAdapterManager.Tbl_Component_TypeTableAdapter = this.tbl_Component_TypeTableAdapter;
+            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
+            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
             this.tableAdapterManager.Tbl_LogTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
             this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
             this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskTableAdapter = null;
             this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
             this.tableAdapterManager.Tbl_UserTableAdapter = null;
@@ -244,18 +269,6 @@
             // get_TypeNames_In_GroupTableAdapter
             // 
             this.get_TypeNames_In_GroupTableAdapter.ClearBeforeFill = true;
-            // 
-            // addRiskToProjectSearchTextBox
-            // 
-            this.addRiskToProjectSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.addRiskToProjectSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.addRiskToProjectSearchTextBox.BorderSize = 1;
-            this.addRiskToProjectSearchTextBox.Location = new System.Drawing.Point(3, 3);
-            this.addRiskToProjectSearchTextBox.Name = "addRiskToProjectSearchTextBox";
-            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(734, 31);
-            this.addRiskToProjectSearchTextBox.TabIndex = 0;
-            this.addRiskToProjectSearchTextBox.Text = "";
-            this.addRiskToProjectSearchTextBox.TextChanged += new System.EventHandler(this.onSearchBarTextChanged);
             // 
             // ARA_AddRisksToProject
             // 

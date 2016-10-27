@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -24,11 +25,26 @@ namespace Applicatie_Risicoanalyse.Forms
             //Attach an layoutPanel to the button.
             this.riskProjectOverviewButtonOpenRisk.setConnectedPanel(this.riskProjectOverviewPanelOpenRisk);
             this.riskProjectOverviewButtonAddRiskToProject.setConnectedPanel(this.riskProjectOverviewPanelAddRiskToProject);
-            this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelRecentProjects);
+            this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             //Add Click event to hide all other buttons/panels when one opens.
             this.riskProjectOverviewButtonOpenRisk.Click += hideOtherPanels;
             this.riskProjectOverviewButtonAddRiskToProject.Click += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
+        }
+
+        private void loadPermissions()
+        {
+            this.riskProjectOverviewButtonAddRiskToProject.Visible      = ARA_ACL.getPermissionLevel("General.ButtonAddRiskToProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelAddRiskToProject.Visible       = ARA_ACL.getPermissionLevel("General.ButtonAddRiskToProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelAddRiskToProject.Enabled       = ARA_ACL.getPermissionLevel("General.ButtonAddRiskToProject") == ARA_Globals.PermissionLevel.All;
+
+            this.riskProjectOverviewButtonEditProjectDetails.Visible    = ARA_ACL.getPermissionLevel("General.ButtonEditProjectDetails") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelEditProjectDetails.Visible     = ARA_ACL.getPermissionLevel("General.ButtonEditProjectDetails") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelEditProjectDetails.Enabled     = ARA_ACL.getPermissionLevel("General.ButtonEditProjectDetails") == ARA_Globals.PermissionLevel.All;
+
+            this.riskProjectOverviewButtonOpenRisk.Visible              = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelOpenRisk.Visible               = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelOpenRisk.Enabled               = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") == ARA_Globals.PermissionLevel.All;
         }
 
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
@@ -55,6 +71,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
             this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
+
+            loadPermissions();
         }
     }
 }

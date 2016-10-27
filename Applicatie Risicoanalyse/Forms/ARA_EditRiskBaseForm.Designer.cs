@@ -426,7 +426,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.BindingSource tbl_BLOB_StorageBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_BLOB_StorageTableAdapter tbl_BLOB_StorageTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private Controls.ARA_Button EditRiskButtonPreviousRisk;
         private Controls.ARA_Text EditRiskTextAmountOfRisksInType;
         private Controls.ARA_Button EditRiskButtonNextRisk;

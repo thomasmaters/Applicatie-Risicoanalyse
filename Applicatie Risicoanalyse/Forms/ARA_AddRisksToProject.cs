@@ -147,6 +147,8 @@ namespace Applicatie_Risicoanalyse.Forms
             listGroup.SelectedColor = ARA_Colors.ARA_Blue6;
             listGroup.Size = new System.Drawing.Size(750, 415);
             listGroup.TextSize = new System.Drawing.Size(94, 37);
+
+            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
         }
 
         private void styleListGroupAsType(ARA_ListGroup listParent ,ARA_ListGroup listGroup)
@@ -217,6 +219,8 @@ namespace Applicatie_Risicoanalyse.Forms
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Component_Group' table. You can move, or remove it, as needed.
             this.tbl_Component_GroupTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Component_Group);
             this.onRiskProjectOverviewLoad();
+
+
         }
 
         private void onSearchBarTextChanged(object sender, EventArgs e)

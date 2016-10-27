@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenRiskInProjectDataGrid = new System.Windows.Forms.DataGridView();
             this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,17 +51,34 @@
             this.OpenRiskInProjectDataGrid.AllowUserToResizeRows = false;
             this.OpenRiskInProjectDataGrid.AutoGenerateColumns = false;
             this.OpenRiskInProjectDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.OpenRiskInProjectDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.OpenRiskInProjectDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.OpenRiskInProjectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OpenRiskInProjectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.riskIDDataGridViewTextBoxColumn,
             this.typeNameDataGridViewTextBoxColumn});
             this.OpenRiskInProjectDataGrid.DataSource = this.searchProjectRisksBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OpenRiskInProjectDataGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.OpenRiskInProjectDataGrid.GridColor = System.Drawing.Color.Silver;
             this.OpenRiskInProjectDataGrid.Location = new System.Drawing.Point(0, 32);
             this.OpenRiskInProjectDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.OpenRiskInProjectDataGrid.Name = "OpenRiskInProjectDataGrid";
             this.OpenRiskInProjectDataGrid.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OpenRiskInProjectDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.OpenRiskInProjectDataGrid.RowHeadersVisible = false;
             this.OpenRiskInProjectDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.OpenRiskInProjectDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;

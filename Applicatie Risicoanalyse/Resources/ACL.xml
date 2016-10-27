@@ -5,6 +5,9 @@
 		<right name="General.ButtonRecentProjects" 			access="none"/>
 		<right name="General.ButtonCreateProjectRevision"	access="none"/>
 		<right name="General.ButtonEditStandardRisks" 		access="none"/>
+		<right name="General.ButtonAddRiskToProject" 		access="none"/>
+		<right name="General.ButtonEditProjectDetails" 		access="none"/>
+		<right name="General.ButtonOpenRisk" 				access="none"/>
 	</acl>	
 	<acl groupname="Admin">	
 		<right name="General.ButtonCreateProject"  			access="all"/>
@@ -12,6 +15,9 @@
 		<right name="General.ButtonRecentProjects" 			access="all"/>
 		<right name="General.ButtonCreateProjectRevision" 	access="all"/>
 		<right name="General.ButtonEditStandardRisks" 		access="all"/>
+		<right name="General.ButtonAddRiskToProject" 		access="all"/>
+		<right name="General.ButtonEditProjectDetails" 		access="all"/>
+		<right name="General.ButtonOpenRisk" 				access="all"/>
 	</acl>	
 	<acl groupname="Engineer">	
 		<right name="General.ButtonCreateProject"  			access="readonly"/>

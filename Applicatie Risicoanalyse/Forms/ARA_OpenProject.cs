@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Applicatie_Risicoanalyse.Controls;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -16,6 +17,13 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_OpenProject()
         {
             InitializeComponent();
+
+            //Scaling form and controls.
+            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            foreach (Control control in this.Controls)
+            {
+                control.Font = this.Font;
+            }
         }
 
         private void ARA_OpenProject_Load(object sender, EventArgs e)

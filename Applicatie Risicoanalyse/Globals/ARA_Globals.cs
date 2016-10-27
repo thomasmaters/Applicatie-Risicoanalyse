@@ -17,7 +17,7 @@ namespace Applicatie_Risicoanalyse.Globals
         private static float aRA_BaseFontSize = 15F;
         private static String aRa_Date = DateTime.Now.ToString("dd-MM-yyyy");
 
-        private static string userPermissionGroup = "Engineer";
+        private static string userPermissionGroup = "Admin";
         public enum PermissionLevel : byte
         {
             None = 0, ReadOnly, All

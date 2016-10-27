@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenProjectDataGrid = new System.Windows.Forms.DataGridView();
-            this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
-            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
+            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -53,6 +54,7 @@
             this.OpenProjectDataGrid.AllowUserToResizeRows = false;
             this.OpenProjectDataGrid.AutoGenerateColumns = false;
             this.OpenProjectDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.OpenProjectDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.OpenProjectDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.OpenProjectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OpenProjectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -68,40 +70,24 @@
             this.OpenProjectDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.OpenProjectDataGrid.Name = "OpenProjectDataGrid";
             this.OpenProjectDataGrid.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OpenProjectDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.OpenProjectDataGrid.RowHeadersVisible = false;
             this.OpenProjectDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.OpenProjectDataGrid.RowTemplate.ReadOnly = true;
             this.OpenProjectDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.OpenProjectDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.OpenProjectDataGrid.ShowCellErrors = false;
+            this.OpenProjectDataGrid.ShowRowErrors = false;
             this.OpenProjectDataGrid.Size = new System.Drawing.Size(750, 309);
             this.OpenProjectDataGrid.TabIndex = 4;
             this.OpenProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenProjectDataGrid_CellMouseDoubleClick);
-            // 
-            // tblRiskAnalysisBindingSource
-            // 
-            this.tblRiskAnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
-            this.tblRiskAnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbl_Risk_AnalysisTableAdapter
-            // 
-            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
-            // 
-            // OpenProjectTextBoxSearch
-            // 
-            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.OpenProjectTextBoxSearch.BorderSize = 1;
-            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 3);
-            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
-            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(750, 32);
-            this.OpenProjectTextBoxSearch.TabIndex = 3;
-            this.OpenProjectTextBoxSearch.Text = "";
-            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
             // customerDataGridViewTextBoxColumn
             // 
@@ -146,6 +132,33 @@
             this.orderNumberDataGridViewTextBoxColumn.HeaderText = "OrderNumber";
             this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
             this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tblRiskAnalysisBindingSource
+            // 
+            this.tblRiskAnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
+            this.tblRiskAnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbl_Risk_AnalysisTableAdapter
+            // 
+            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
+            // 
+            // OpenProjectTextBoxSearch
+            // 
+            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.OpenProjectTextBoxSearch.BorderSize = 1;
+            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 3);
+            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
+            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(750, 32);
+            this.OpenProjectTextBoxSearch.TabIndex = 3;
+            this.OpenProjectTextBoxSearch.Text = "";
+            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
             // ARA_OpenProject
             // 
