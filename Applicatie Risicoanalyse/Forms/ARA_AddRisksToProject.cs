@@ -192,6 +192,10 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void addRiskToProject(object sender, AddRiskToProjectEvent e)
         {
+            if(e.projectID != this.projectID)
+            {
+                return;
+            }
             ARA_ListItem clickedText = (ARA_ListItem)sender;
             if (clickedText != null)
             {
