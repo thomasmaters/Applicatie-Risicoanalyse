@@ -62,7 +62,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
 
                 //Open risk with its risk data.
-                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskDataID,selectedRiskVersionID,selectedRiskDataID,this.projectID, isProjectSpecificRisk));
+                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID,selectedRiskVersionID,selectedRiskDataID,this.projectID, isProjectSpecificRisk));
             }
         }
 

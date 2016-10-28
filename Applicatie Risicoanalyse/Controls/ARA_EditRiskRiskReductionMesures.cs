@@ -74,7 +74,13 @@ namespace Applicatie_Risicoanalyse.Controls
             //Remove previously added controls.
             this.itemCheckEventHandler = null;
             this.reductionMesureInfoChanged = null;
-            this.flowLayoutPanel1.Controls.Clear();
+            for (int i = this.flowLayoutPanel1.Controls.Count - 1; i >= 0; i--)
+            {
+                if (this.flowLayoutPanel1.Controls[i] is ARA_EditRiskRiskReductionMesuresItem)
+                {
+                    this.flowLayoutPanel1.Controls.RemoveAt(i);
+                }
+            }
 
             //Get all unique groupnames.
             DataTable distinctGroupNamesDataTable = controlData.ToTable(true, "MesureGroup");

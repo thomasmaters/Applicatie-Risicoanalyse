@@ -32,21 +32,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenRiskInProjectDataGrid = new System.Windows.Forms.DataGridView();
+            this.searchProjectRisksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.DefaultRiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectRiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VersionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchProjectRisksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_RiskDataID_From_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.search_ProjectRisksTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectRisksTableAdapter();
             this.get_RiskDataID_From_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskDataID_From_Risks_In_ProjectTableAdapter();
             this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HazardSituation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DefaultRiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectRiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VersionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OpenRiskInProjectDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProjectRisksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskDataID_From_Risks_In_ProjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,10 +65,12 @@
             this.OpenRiskInProjectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OpenRiskInProjectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.riskIDDataGridViewTextBoxColumn,
+            this.HazardSituation,
+            this.GroupName,
+            this.typeNameDataGridViewTextBoxColumn,
             this.DefaultRiskDataID,
             this.ProjectRiskDataID,
-            this.VersionID,
-            this.typeNameDataGridViewTextBoxColumn});
+            this.VersionID});
             this.OpenRiskInProjectDataGrid.DataSource = this.searchProjectRisksBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -97,6 +101,11 @@
             this.OpenRiskInProjectDataGrid.TabIndex = 2;
             this.OpenRiskInProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenRiskInProjectDataGrid_CellMouseDoubleClick);
             this.OpenRiskInProjectDataGrid.MouseEnter += new System.EventHandler(this.OpenRiskInProjectDataGrid_MouseEnter);
+            // 
+            // searchProjectRisksBindingSource
+            // 
+            this.searchProjectRisksBindingSource.DataMember = "Search_ProjectRisks";
+            this.searchProjectRisksBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
             // lG_Analysis_DatabaseDataSet
             // 
@@ -132,49 +141,6 @@
             this.tableAdapterManager.Tbl_UserTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // DefaultRiskDataID
-            // 
-            this.DefaultRiskDataID.DataPropertyName = "DefaultRiskDataID";
-            this.DefaultRiskDataID.HeaderText = "DefaultRiskDataID";
-            this.DefaultRiskDataID.Name = "DefaultRiskDataID";
-            this.DefaultRiskDataID.ReadOnly = true;
-            this.DefaultRiskDataID.Visible = false;
-            // 
-            // ProjectRiskDataID
-            // 
-            this.ProjectRiskDataID.DataPropertyName = "ProjectRiskDataID";
-            this.ProjectRiskDataID.HeaderText = "ProjectRiskDataID";
-            this.ProjectRiskDataID.Name = "ProjectRiskDataID";
-            this.ProjectRiskDataID.ReadOnly = true;
-            this.ProjectRiskDataID.Visible = false;
-            // 
-            // VersionID
-            // 
-            this.VersionID.DataPropertyName = "VersionID";
-            this.VersionID.HeaderText = "VersionID";
-            this.VersionID.Name = "VersionID";
-            this.VersionID.ReadOnly = true;
-            this.VersionID.Visible = false;
-            // 
-            // riskIDDataGridViewTextBoxColumn
-            // 
-            this.riskIDDataGridViewTextBoxColumn.DataPropertyName = "RiskID";
-            this.riskIDDataGridViewTextBoxColumn.HeaderText = "RiskID";
-            this.riskIDDataGridViewTextBoxColumn.Name = "riskIDDataGridViewTextBoxColumn";
-            this.riskIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeNameDataGridViewTextBoxColumn
-            // 
-            this.typeNameDataGridViewTextBoxColumn.DataPropertyName = "TypeName";
-            this.typeNameDataGridViewTextBoxColumn.HeaderText = "TypeName";
-            this.typeNameDataGridViewTextBoxColumn.Name = "typeNameDataGridViewTextBoxColumn";
-            this.typeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // searchProjectRisksBindingSource
-            // 
-            this.searchProjectRisksBindingSource.DataMember = "Search_ProjectRisks";
-            this.searchProjectRisksBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
             // get_RiskDataID_From_Risks_In_ProjectBindingSource
             // 
             this.get_RiskDataID_From_Risks_In_ProjectBindingSource.DataMember = "Get_RiskDataID_From_Risks_In_Project";
@@ -201,6 +167,64 @@
             this.arA_TextBox1.Text = "";
             this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
+            // riskIDDataGridViewTextBoxColumn
+            // 
+            this.riskIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.riskIDDataGridViewTextBoxColumn.DataPropertyName = "RiskID";
+            this.riskIDDataGridViewTextBoxColumn.FillWeight = 10F;
+            this.riskIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.riskIDDataGridViewTextBoxColumn.Name = "riskIDDataGridViewTextBoxColumn";
+            this.riskIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.riskIDDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // HazardSituation
+            // 
+            this.HazardSituation.DataPropertyName = "HazardSituation";
+            this.HazardSituation.FillWeight = 60F;
+            this.HazardSituation.HeaderText = "HazardSituation";
+            this.HazardSituation.Name = "HazardSituation";
+            this.HazardSituation.ReadOnly = true;
+            // 
+            // GroupName
+            // 
+            this.GroupName.DataPropertyName = "GroupName";
+            this.GroupName.FillWeight = 20F;
+            this.GroupName.HeaderText = "GroupName";
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            // 
+            // typeNameDataGridViewTextBoxColumn
+            // 
+            this.typeNameDataGridViewTextBoxColumn.DataPropertyName = "TypeName";
+            this.typeNameDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.typeNameDataGridViewTextBoxColumn.HeaderText = "TypeName";
+            this.typeNameDataGridViewTextBoxColumn.Name = "typeNameDataGridViewTextBoxColumn";
+            this.typeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DefaultRiskDataID
+            // 
+            this.DefaultRiskDataID.DataPropertyName = "DefaultRiskDataID";
+            this.DefaultRiskDataID.HeaderText = "DefaultRiskDataID";
+            this.DefaultRiskDataID.Name = "DefaultRiskDataID";
+            this.DefaultRiskDataID.ReadOnly = true;
+            this.DefaultRiskDataID.Visible = false;
+            // 
+            // ProjectRiskDataID
+            // 
+            this.ProjectRiskDataID.DataPropertyName = "ProjectRiskDataID";
+            this.ProjectRiskDataID.HeaderText = "ProjectRiskDataID";
+            this.ProjectRiskDataID.Name = "ProjectRiskDataID";
+            this.ProjectRiskDataID.ReadOnly = true;
+            this.ProjectRiskDataID.Visible = false;
+            // 
+            // VersionID
+            // 
+            this.VersionID.DataPropertyName = "VersionID";
+            this.VersionID.HeaderText = "VersionID";
+            this.VersionID.Name = "VersionID";
+            this.VersionID.ReadOnly = true;
+            this.VersionID.Visible = false;
+            // 
             // ARA_OpenRiskInProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -215,8 +239,8 @@
             this.Name = "ARA_OpenRiskInProject";
             this.Text = "ARA_OpenRiskInProject";
             ((System.ComponentModel.ISupportInitialize)(this.OpenRiskInProjectDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProjectRisksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskDataID_From_Risks_In_ProjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -232,9 +256,11 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView OpenRiskInProjectDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn riskIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HazardSituation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DefaultRiskDataID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectRiskDataID;
         private System.Windows.Forms.DataGridViewTextBoxColumn VersionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeNameDataGridViewTextBoxColumn;
     }
 }

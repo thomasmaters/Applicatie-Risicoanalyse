@@ -41,7 +41,7 @@
             this.checkedListBox1.HorizontalScrollbar = true;
             this.checkedListBox1.Location = new System.Drawing.Point(127, 3);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(597, 23);
+            this.checkedListBox1.Size = new System.Drawing.Size(429, 23);
             this.checkedListBox1.TabIndex = 74;
             this.checkedListBox1.Visible = false;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -70,7 +70,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(724, 500);
             this.Name = "ARA_EditRiskRiskReductionMesuresItem";
-            this.Size = new System.Drawing.Size(724, 32);
+            this.Size = new System.Drawing.Size(700, 32);
             this.ResumeLayout(false);
             this.PerformLayout();
 

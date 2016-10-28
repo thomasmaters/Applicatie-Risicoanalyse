@@ -48,7 +48,14 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)
         {
-            setPanelForm(e.Form, this.TopBar);
+            if(e.Form != null)
+            {
+                setPanelForm(e.Form, this.TopBar);
+            }
+            else
+            {
+                this.TopBar.Controls.Clear();
+            }
         }
     }
 }

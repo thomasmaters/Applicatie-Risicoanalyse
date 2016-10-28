@@ -134,6 +134,7 @@ namespace Applicatie_Risicoanalyse.Forms
         //Deselects all sidebar buttons except the event source.
         private void hideOtherPanels(object sender, EventArgs e)
         {
+            ARA_Events.triggerBaseFormSetTopBarEvent(null);
             foreach (var button in this.SideBarButtonContainer.Controls.OfType<Applicatie_Risicoanalyse.Controls.ARA_Button>())
             {
                 if (button != sender)

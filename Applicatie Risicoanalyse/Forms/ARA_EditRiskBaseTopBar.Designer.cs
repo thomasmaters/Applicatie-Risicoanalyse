@@ -39,8 +39,9 @@
             this.arA_Text2.Location = new System.Drawing.Point(350, 0);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text2.Name = "arA_Text2";
-            this.arA_Text2.Size = new System.Drawing.Size(450, 52);
+            this.arA_Text2.Size = new System.Drawing.Size(425, 52);
             this.arA_Text2.TabIndex = 1;
+            this.arA_Text2.Text = "sdfgsdfg";
             this.arA_Text2.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_Text1

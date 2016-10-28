@@ -148,7 +148,7 @@ namespace Applicatie_Risicoanalyse.Controls
             System.Drawing.SolidBrush textBrush = new System.Drawing.SolidBrush(this.TextColor);
 
             //Change color of button when the user is hovering or the control is selected or disabled.
-            if (!this.Selected && this.hovering)
+            if (this.hovering)
             {
                 backgroundBrush = new System.Drawing.SolidBrush(this.hoverColor);
             }

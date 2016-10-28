@@ -38,10 +38,12 @@ namespace Applicatie_Risicoanalyse.Controls
         //Adds persons from database in to control.
         public void setControlData(DataView controlData, int riskDataID)
         {
+            //Reset form.
             this.flowLayoutPanel1.Controls.Clear();
             this.exposedPersonChangedEventHandler = null;
             hasControlBeenChanged = false;
 
+            //Add checkboxes from database.
             foreach (DataRowView row in controlData)
             {
                 //Create a new checkbox.
