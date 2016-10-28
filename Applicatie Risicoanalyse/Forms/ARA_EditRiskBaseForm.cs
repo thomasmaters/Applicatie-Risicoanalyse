@@ -14,13 +14,22 @@ namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_EditRiskBaseForm : Form
     {
+        private int riskID = 1;
+        private int riskVersionID = 1;
         private int riskDataID = 1;
+        private int projectID = 1;
+        private bool isRiskDataProjectSpecific = false;
 
-        public ARA_EditRiskBaseForm(int riskDataID)
+        public ARA_EditRiskBaseForm(int riskID, int riskVersionID, int riskDataID, int projectID, bool isRiskDataProjectSpecific)
         {
             InitializeComponent();
 
+            //Initialize variables.
+            this.riskID = riskID;
+            this.riskVersionID = riskVersionID;
             this.riskDataID = riskDataID;
+            this.projectID = projectID;
+            this.isRiskDataProjectSpecific = isRiskDataProjectSpecific;
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -40,7 +49,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 DataRow riskDataView = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
                 if (riskDataView == null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException("riskDataView","Couldn't retrieve riskData from database with riskId: " + this.riskDataID.ToString());
                 }
 
                 DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
@@ -100,12 +109,26 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskHazardIndentification1.setControlData(riskDataID);
                 this.arA_EditRiskHazardIndentification1.dangerChangedEventHandler += delegate (object sender, DangerChangedEvent e)
                 {
+                    setRiskDataProjectSpecific();
                     this.queriesTableAdapter1.Insert_Danger_In_RiskData(riskDataID, e.dangerID, e.dangerSourceID, e.hazardSituation, e.hazardEvent);
                 };
 
+                //Exposed persons.
                 DataView exposedPersonsView = new DataView(this.get_ExposedPersons_In_RiskDataTableAdapter1.GetData(riskDataID));
                 this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView, riskDataID);
+                this.arA_EditRiskExposedPersons1.exposedPersonChangedEventHandler += delegate (object sender, ExposedPersonChangedEvent e)
+                {
+                    if (e.checkedState == CheckState.Checked)
+                    {
+                        this.tbl_ExposedPersons_In_RiskTableAdapter.Insert(e.exposedPersonID,this.riskDataID);
+                    }
+                    else
+                    {
+                        this.tbl_ExposedPersons_In_RiskTableAdapter.Delete(e.exposedPersonID, this.riskDataID);
+                    }
+                };
 
+                //Do we have an image, load default picture otherwise.
                 if (riskDataView["FileID"] != DBNull.Value)
                 {
                     loadRiskImage((Int32)riskDataView["FileID"]);
@@ -114,7 +137,6 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     pictureBox1.Image = Applicatie_Risicoanalyse.Properties.Resources.NoRiskPicture;
                 }
-
             }
             catch (Exception)
             {
@@ -122,8 +144,22 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        private void setRiskDataProjectSpecific()
+        {
+            if(this.isRiskDataProjectSpecific == false)
+            {
+                DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
+                this.riskDataID = (Int32)tempRow["newRiskDataID"];
+                this.isRiskDataProjectSpecific = true;
+            }
+        }
+
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_ExposedPersons_In_Risk' table. You can move, or remove it, as needed.
+            this.tbl_ExposedPersons_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_ExposedPersons_In_Risk);
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risks_In_Project' table. You can move, or remove it, as needed.
+            this.tbl_Risks_In_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risks_In_Project);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage' table. You can move, or remove it, as needed.
             this.tbl_BLOB_StorageTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
@@ -136,6 +172,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
         }
 
+        //Loads image from database if we have a fileid.
         private void loadRiskImage(int fileID)
         {
             if (fileID != -1)
@@ -146,11 +183,13 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        //Button clicked for uploading a new image.
         private void arA_Button1_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.ShowDialog();
         }
 
+        //Image file shocen.
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (e.Cancel == false)

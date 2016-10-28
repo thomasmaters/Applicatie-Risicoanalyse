@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
     public partial class ARA_EditRiskExposedPersons : UserControl
     {
         private bool hasControlBeenChanged = false;
+        public EventHandler<ExposedPersonChangedEvent> exposedPersonChangedEventHandler;
 
         public ARA_EditRiskExposedPersons()
         {
@@ -37,6 +39,7 @@ namespace Applicatie_Risicoanalyse.Controls
         public void setControlData(DataView controlData, int riskDataID)
         {
             this.flowLayoutPanel1.Controls.Clear();
+            this.exposedPersonChangedEventHandler = null;
             hasControlBeenChanged = false;
 
             foreach (DataRowView row in controlData)
@@ -55,24 +58,12 @@ namespace Applicatie_Risicoanalyse.Controls
 
                 checkbox.CheckStateChanged += delegate (object sender, EventArgs e)
                 {
-                    if(checkbox.Checked == true)
+                    if(exposedPersonChangedEventHandler != null)
                     {
-                        this.tbl_ExposedPersons_In_RiskTableAdapter.Insert(Int32.Parse(row["ExposedPersonID"].ToString()), riskDataID);
-                    }
-                    else
-                    {
-                        this.tbl_ExposedPersons_In_RiskTableAdapter.Delete(Int32.Parse(row["ExposedPersonID"].ToString()), riskDataID);
+                        exposedPersonChangedEventHandler(checkbox, new ExposedPersonChangedEvent((Int32)row["ExposedPersonID"],checkbox.CheckState));
                     }
                 };
             }
-        }
-
-        private void tbl_ExposedPersons_In_RiskBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tbl_ExposedPersons_In_RiskBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.lG_Analysis_DatabaseDataSet);
-
         }
     }
 }

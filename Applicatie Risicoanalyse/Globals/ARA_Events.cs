@@ -13,6 +13,7 @@ namespace Applicatie_Risicoanalyse.Globals
     {
         //Eventhandlers for storing which function to trigger when the event gets called.
         public static event EventHandler<OpenContentFormEventArgs> openContentFormEventHandler;
+        public static event EventHandler<BaseFormSetTopBarFormEvent> baseFormSetTopBarFormEventHandler;
         public static event EventHandler<SetSideBarButtonSelectedEventArgs> SetSideBarButtonSelectedEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
@@ -21,6 +22,11 @@ namespace Applicatie_Risicoanalyse.Globals
         public static void onOpenContentFormEvent(System.Windows.Forms.Form aForm)
         {
             openContentFormEventHandler(aForm, new OpenContentFormEventArgs(aForm));
+        }
+
+        public static void triggerBaseFormSetTopBarEvent(System.Windows.Forms.Form aForm)
+        {
+            baseFormSetTopBarFormEventHandler(aForm, new BaseFormSetTopBarFormEvent(aForm));
         }
         public static void onSetSideBarButtonSelectedEvent(string aIndex)
         {
@@ -47,6 +53,18 @@ namespace Applicatie_Risicoanalyse.Globals
         private OpenContentFormEventArgs() { }
 
         public OpenContentFormEventArgs(System.Windows.Forms.Form aForm)
+        {
+            this.Form = aForm;
+        }
+    }
+
+    public class BaseFormSetTopBarFormEvent : EventArgs
+    {
+        public System.Windows.Forms.Form Form { get; private set; }
+
+        private BaseFormSetTopBarFormEvent() { }
+
+        public BaseFormSetTopBarFormEvent(System.Windows.Forms.Form aForm)
         {
             this.Form = aForm;
         }
@@ -146,6 +164,23 @@ namespace Applicatie_Risicoanalyse.Globals
             this.dangerSourceID = dangerSourceID;
             this.hazardSituation = hazardSituation;
             this.hazardEvent = hazardEvent;
+        }
+    }
+
+    public class ExposedPersonChangedEvent : EventArgs
+    {
+        public int exposedPersonID { get; private set; }
+        public CheckState checkedState { get; private set; }
+
+        private ExposedPersonChangedEvent()
+        {
+
+        }
+
+        public ExposedPersonChangedEvent(int exposedPersonID, CheckState checkedState)
+        {
+            this.exposedPersonID = exposedPersonID;
+            this.checkedState = checkedState;
         }
     }
 }

@@ -37,51 +37,68 @@ namespace Applicatie_Risicoanalyse.Controls
 
         public void setControlData(int riskDataID)
         {
-            dangerChangedEventHandler = null;
-            hasControlBeenChanged = false;
-
-            //Get risk data
-            DataRow riskDataRow = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
-
-            //Set textbox text.
-            this.arA_TextBox1.Text = riskDataRow["HazardSituation"].ToString();
-            this.arA_TextBox2.Text = riskDataRow["HazardEvent"].ToString();
-
-            //Set dropdownbox values and selected value.
-            DataView dangerView = new DataView(this.tbl_DangerTableAdapter.GetData(),"","",DataViewRowState.CurrentRows);
-            this.comboBox1.DisplayMember = "DangerGroupName";
-            this.comboBox1.ValueMember = "DangerID";
-            this.comboBox1.DataSource = dangerView;
-            this.comboBox1.SelectedValue = riskDataRow["DangerID"];
-
-            //Set dropdownbox values and select value.
-            DataView dangerSourceView = new DataView(this.tbl_Danger_SourceTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
-            dangerSourceView.RowFilter = string.Format("DangerID = {0}", this.comboBox1.SelectedValue);
-            this.comboBox2.DisplayMember = "DangerSourceName";
-            this.comboBox2.ValueMember = "DangerSourceID";
-            this.comboBox2.DataSource = dangerSourceView;
-            this.comboBox2.SelectedValue = riskDataRow["DangerSourceID"];
-
-            //Add event for changing grouping when the first dropdownbox changes.
-            this.comboBox1.SelectedIndexChanged += delegate (object sender, EventArgs e)
+            try
             {
+                dangerChangedEventHandler = null;
+                hasControlBeenChanged = false;
+
+                //Get risk data
+                DataRow riskDataRow = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
+
+                //Set textbox text.
+                this.arA_TextBox1.Text = riskDataRow["HazardSituation"].ToString();
+                this.arA_TextBox2.Text = riskDataRow["HazardEvent"].ToString();
+
+                //Set dropdownbox values and selected value.
+                DataView dangerView = new DataView(this.tbl_DangerTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
+                this.comboBox1.DisplayMember = "DangerGroupName";
+                this.comboBox1.ValueMember = "DangerID";
+                this.comboBox1.DataSource = dangerView;
+                this.comboBox1.SelectedValue = riskDataRow["DangerID"];
+
+                //Set dropdownbox values and select value.
+                DataView dangerSourceView = new DataView(this.tbl_Danger_SourceTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
                 dangerSourceView.RowFilter = string.Format("DangerID = {0}", this.comboBox1.SelectedValue);
-            };
+                this.comboBox2.DisplayMember = "DangerSourceName";
+                this.comboBox2.ValueMember = "DangerSourceID";
+                this.comboBox2.DataSource = dangerSourceView;
+                this.comboBox2.SelectedValue = riskDataRow["DangerSourceID"];
+                Debug.WriteLine("kaas");
 
-            //Add eventhandlers for update to harzard result.
-            this.comboBox1.SelectedIndexChanged += updateHazardResultText;
-            this.comboBox2.SelectedIndexChanged += updateHazardResultText;
+                //Add event for changing grouping when the first dropdownbox changes.
+                this.comboBox1.SelectedIndexChanged += delegate (object sender, EventArgs e)
+                {
+                    dangerSourceView.RowFilter = string.Format("DangerID = {0}", this.comboBox1.SelectedValue);
+                };
 
-            updateHazardResultText(new object(), new EventArgs());
+                //Add eventhandlers for update to harzard result.
+                this.comboBox1.SelectedIndexChanged -= updateHazardResultText;
+                this.comboBox2.SelectedIndexChanged -= updateHazardResultText;
+                this.comboBox1.SelectedIndexChanged += updateHazardResultText;
+                this.comboBox2.SelectedIndexChanged += updateHazardResultText;
+
+                updateHazardResultText(new object(), new EventArgs());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void updateHazardResultText(object sender, EventArgs e)
         {
+            if(this.comboBox2.SelectedValue == null)
+            {
+                throw new ArgumentNullException("Combobox SelectedValue","Some data in the database might be corrupted, could not set ComboBox's selected value.");
+            }
             //Set text control text and update it.
             DataView dangerResultView = new DataView(this.tbl_Danger_ResultTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
             dangerResultView.RowFilter = string.Format("DangerSourceID = {0}", this.comboBox2.SelectedValue);
+
             this.HazardTextConsequence1.Text = dangerResultView.Count > 0 ? dangerResultView[0]["DangerResultName"].ToString() : "";
             this.HazardTextConsequence2.Text = dangerResultView.Count > 1 ? dangerResultView[1]["DangerResultName"].ToString() : "";
+
             this.HazardTextConsequence1.Invalidate();
             this.HazardTextConsequence2.Invalidate();
 

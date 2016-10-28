@@ -20,22 +20,6 @@
             base.Dispose(disposing);
         }
 
-        //Set the content panels form.
-        public void setContentPanelForm(System.Windows.Forms.Form aForm)
-        {
-            //Make it a subform.
-            aForm.TopLevel = false;
-
-            //Clear current form.
-            this.contentPanel.Controls.Clear();
-
-            //Add the from.
-            this.contentPanel.Controls.Add(aForm);
-
-            //Show the form.
-            aForm.Show();
-        }
-
         #region Windows Form Designer generated code
 
         /// <summary>

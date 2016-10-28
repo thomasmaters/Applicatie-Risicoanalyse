@@ -48,9 +48,28 @@ namespace Applicatie_Risicoanalyse.Forms
         private void OpenRiskInProjectDataGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1)
-            {//TODO remove default value.
-                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(1/*(Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value*/));
+            {
+                int selectedRiskID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value;
+                int selectedRiskDataID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["DefaultRiskDataID"].Value;
+                int selectedRiskVersionID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["VersionID"].Value;
+                bool isProjectSpecificRisk = false;
+
+                //Do we have a project specific risk?
+                if (this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value != DBNull.Value)
+                {
+                    selectedRiskDataID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value;
+                    isProjectSpecificRisk = true;
+                }
+
+                //Open risk with its risk data.
+                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskDataID,selectedRiskVersionID,selectedRiskDataID,this.projectID, isProjectSpecificRisk));
             }
+        }
+
+        private void OpenRiskInProjectDataGrid_MouseEnter(object sender, EventArgs e)
+        {
+            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
+            this.OpenRiskInProjectDataGrid.Refresh();
         }
     }
 }

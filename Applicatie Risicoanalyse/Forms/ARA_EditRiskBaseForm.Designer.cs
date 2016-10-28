@@ -31,6 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
+            this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
+            this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
+            this.arA_EditRiskRiskReductionMesures1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
+            this.arA_EditRiskRiskEstimation2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
+            this.arA_EditRiskRiskReductionMesures2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
+            this.EditRiskButtonPreviousRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.EditRiskTextAmountOfRisksInType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.EditRiskButtonNextRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.get_RiskEstimation_In_RiskData_AfterBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -52,16 +62,12 @@
             this.queriesTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
             this.tbl_BLOB_StorageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_BLOB_StorageTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_BLOB_StorageTableAdapter();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
-            this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
-            this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
-            this.arA_EditRiskRiskReductionMesures1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
-            this.arA_EditRiskRiskEstimation2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
-            this.arA_EditRiskRiskReductionMesures2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
-            this.EditRiskButtonPreviousRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.EditRiskTextAmountOfRisksInType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.EditRiskButtonNextRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.tbl_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter();
+            this.update_RiskDataID_In_RisksInProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.update_RiskDataID_In_RisksInProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Update_RiskDataID_In_RisksInProjectTableAdapter();
+            this.tbl_ExposedPersons_In_RiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_ExposedPersons_In_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ExposedPersons_In_RiskTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -73,10 +79,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BLOB_StorageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.update_RiskDataID_In_RisksInProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_ExposedPersons_In_RiskBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.arA_Button1);
@@ -93,7 +103,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(730, 2000);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 1480);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 1753);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // pictureBox1
@@ -105,121 +115,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // get_RiskEstimation_In_RiskData_AfterBindingSource
-            // 
-            this.get_RiskEstimation_In_RiskData_AfterBindingSource.DataMember = "Get_RiskEstimation_In_RiskData_After";
-            this.get_RiskEstimation_In_RiskData_AfterBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // get_RiskEstimation_In_RiskData_AfterTableAdapter
-            // 
-            this.get_RiskEstimation_In_RiskData_AfterTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
-            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
-            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
-            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
-            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
-            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
-            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
-            this.tableAdapterManager.Tbl_LogTableAdapter = null;
-            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
-            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
-            this.tableAdapterManager.Tbl_UserTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // get_RiskReduction_In_RiskDataBindingSource
-            // 
-            this.get_RiskReduction_In_RiskDataBindingSource.DataMember = "Get_RiskReduction_In_RiskData";
-            this.get_RiskReduction_In_RiskDataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // get_RiskReduction_In_RiskDataTableAdapter
-            // 
-            this.get_RiskReduction_In_RiskDataTableAdapter.ClearBeforeFill = true;
-            // 
-            // get_MinimalAddition_In_RiskDataBindingSource
-            // 
-            this.get_MinimalAddition_In_RiskDataBindingSource.DataMember = "Get_MinimalAddition_In_RiskData";
-            this.get_MinimalAddition_In_RiskDataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // get_MinimalAddition_In_RiskDataTableAdapter
-            // 
-            this.get_MinimalAddition_In_RiskDataTableAdapter.ClearBeforeFill = true;
-            // 
-            // get_RiskEstimation_In_RiskData_BeforeBindingSource
-            // 
-            this.get_RiskEstimation_In_RiskData_BeforeBindingSource.DataMember = "Get_RiskEstimation_In_RiskData_Before";
-            this.get_RiskEstimation_In_RiskData_BeforeBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // get_RiskEstimation_In_RiskData_BeforeTableAdapter
-            // 
-            this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.ClearBeforeFill = true;
-            // 
-            // get_ExposedPersons_In_RiskDataTableAdapter1
-            // 
-            this.get_ExposedPersons_In_RiskDataTableAdapter1.ClearBeforeFill = true;
-            // 
-            // tbl_RiskReduction_In_RiskBindingSource
-            // 
-            this.tbl_RiskReduction_In_RiskBindingSource.DataMember = "Tbl_RiskReduction_In_Risk";
-            this.tbl_RiskReduction_In_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_RiskReduction_In_RiskTableAdapter
-            // 
-            this.tbl_RiskReduction_In_RiskTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbl_MinimalAddition_In_RiskBindingSource
-            // 
-            this.tbl_MinimalAddition_In_RiskBindingSource.DataMember = "Tbl_MinimalAddition_In_Risk";
-            this.tbl_MinimalAddition_In_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_MinimalAddition_In_RiskTableAdapter
-            // 
-            this.tbl_MinimalAddition_In_RiskTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbl_Risk_DataBindingSource
-            // 
-            this.tbl_Risk_DataBindingSource.DataMember = "Tbl_Risk_Data";
-            this.tbl_Risk_DataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_Risk_DataTableAdapter
-            // 
-            this.tbl_Risk_DataTableAdapter.ClearBeforeFill = true;
-            // 
-            // tbl_BLOB_StorageBindingSource
-            // 
-            this.tbl_BLOB_StorageBindingSource.DataMember = "Tbl_BLOB_Storage";
-            this.tbl_BLOB_StorageBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_BLOB_StorageTableAdapter
-            // 
-            this.tbl_BLOB_StorageTableAdapter.ClearBeforeFill = true;
             // 
             // arA_Button1
             // 
@@ -362,6 +257,148 @@
             this.EditRiskButtonNextRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.EditRiskButtonNextRisk.Click += new System.EventHandler(this.EditRiskButtonNextRisk_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // get_RiskEstimation_In_RiskData_AfterBindingSource
+            // 
+            this.get_RiskEstimation_In_RiskData_AfterBindingSource.DataMember = "Get_RiskEstimation_In_RiskData_After";
+            this.get_RiskEstimation_In_RiskData_AfterBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_RiskEstimation_In_RiskData_AfterTableAdapter
+            // 
+            this.get_RiskEstimation_In_RiskData_AfterTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
+            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
+            this.tableAdapterManager.Tbl_LogTableAdapter = null;
+            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
+            this.tableAdapterManager.Tbl_UserTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // get_RiskReduction_In_RiskDataBindingSource
+            // 
+            this.get_RiskReduction_In_RiskDataBindingSource.DataMember = "Get_RiskReduction_In_RiskData";
+            this.get_RiskReduction_In_RiskDataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_RiskReduction_In_RiskDataTableAdapter
+            // 
+            this.get_RiskReduction_In_RiskDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // get_MinimalAddition_In_RiskDataBindingSource
+            // 
+            this.get_MinimalAddition_In_RiskDataBindingSource.DataMember = "Get_MinimalAddition_In_RiskData";
+            this.get_MinimalAddition_In_RiskDataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_MinimalAddition_In_RiskDataTableAdapter
+            // 
+            this.get_MinimalAddition_In_RiskDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // get_RiskEstimation_In_RiskData_BeforeBindingSource
+            // 
+            this.get_RiskEstimation_In_RiskData_BeforeBindingSource.DataMember = "Get_RiskEstimation_In_RiskData_Before";
+            this.get_RiskEstimation_In_RiskData_BeforeBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_RiskEstimation_In_RiskData_BeforeTableAdapter
+            // 
+            this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.ClearBeforeFill = true;
+            // 
+            // get_ExposedPersons_In_RiskDataTableAdapter1
+            // 
+            this.get_ExposedPersons_In_RiskDataTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tbl_RiskReduction_In_RiskBindingSource
+            // 
+            this.tbl_RiskReduction_In_RiskBindingSource.DataMember = "Tbl_RiskReduction_In_Risk";
+            this.tbl_RiskReduction_In_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_RiskReduction_In_RiskTableAdapter
+            // 
+            this.tbl_RiskReduction_In_RiskTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_MinimalAddition_In_RiskBindingSource
+            // 
+            this.tbl_MinimalAddition_In_RiskBindingSource.DataMember = "Tbl_MinimalAddition_In_Risk";
+            this.tbl_MinimalAddition_In_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_MinimalAddition_In_RiskTableAdapter
+            // 
+            this.tbl_MinimalAddition_In_RiskTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_Risk_DataBindingSource
+            // 
+            this.tbl_Risk_DataBindingSource.DataMember = "Tbl_Risk_Data";
+            this.tbl_Risk_DataBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_Risk_DataTableAdapter
+            // 
+            this.tbl_Risk_DataTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_BLOB_StorageBindingSource
+            // 
+            this.tbl_BLOB_StorageBindingSource.DataMember = "Tbl_BLOB_Storage";
+            this.tbl_BLOB_StorageBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_BLOB_StorageTableAdapter
+            // 
+            this.tbl_BLOB_StorageTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_Risks_In_ProjectBindingSource
+            // 
+            this.tbl_Risks_In_ProjectBindingSource.DataMember = "Tbl_Risks_In_Project";
+            this.tbl_Risks_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_Risks_In_ProjectTableAdapter
+            // 
+            this.tbl_Risks_In_ProjectTableAdapter.ClearBeforeFill = true;
+            // 
+            // update_RiskDataID_In_RisksInProjectBindingSource
+            // 
+            this.update_RiskDataID_In_RisksInProjectBindingSource.DataMember = "Update_RiskDataID_In_RisksInProject";
+            this.update_RiskDataID_In_RisksInProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // update_RiskDataID_In_RisksInProjectTableAdapter
+            // 
+            this.update_RiskDataID_In_RisksInProjectTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_ExposedPersons_In_RiskBindingSource
+            // 
+            this.tbl_ExposedPersons_In_RiskBindingSource.DataMember = "Tbl_ExposedPersons_In_Risk";
+            this.tbl_ExposedPersons_In_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_ExposedPersons_In_RiskTableAdapter
+            // 
+            this.tbl_ExposedPersons_In_RiskTableAdapter.ClearBeforeFill = true;
+            // 
             // ARA_EditRiskBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -389,6 +426,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BLOB_StorageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.update_RiskDataID_In_RisksInProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_ExposedPersons_In_RiskBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,5 +469,11 @@
         private Controls.ARA_Button EditRiskButtonPreviousRisk;
         private Controls.ARA_Text EditRiskTextAmountOfRisksInType;
         private Controls.ARA_Button EditRiskButtonNextRisk;
+        private System.Windows.Forms.BindingSource tbl_Risks_In_ProjectBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter tbl_Risks_In_ProjectTableAdapter;
+        private System.Windows.Forms.BindingSource update_RiskDataID_In_RisksInProjectBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Update_RiskDataID_In_RisksInProjectTableAdapter update_RiskDataID_In_RisksInProjectTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_ExposedPersons_In_RiskBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ExposedPersons_In_RiskTableAdapter tbl_ExposedPersons_In_RiskTableAdapter;
     }
 }

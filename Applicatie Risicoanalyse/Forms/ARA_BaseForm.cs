@@ -15,22 +15,40 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onApplicationLoad(object sender, EventArgs e)
         {
             //Add events.
-            Applicatie_Risicoanalyse.Globals.ARA_Events.openContentFormEventHandler += onOpenContentFormEvent;
+            ARA_Events.openContentFormEventHandler += onOpenContentFormEvent;
+            ARA_Events.baseFormSetTopBarFormEventHandler += onBaseFormSetTopBarForm;
 
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize); 
+            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize); 
 
             //Add the sidebar to the application base on load.
-            Applicatie_Risicoanalyse.Forms.ARA_SideBar SideBar = new ARA_SideBar();
-            SideBar.TopLevel = false;
-            SideBar.Font = Font;
-            this.SidePanel.Controls.Add(SideBar);
-            SideBar.Show();
+            setPanelForm(new ARA_SideBar(), this.SidePanel);
+        }
+
+        //Set the content panels form.
+        public void setPanelForm(Form aForm, Panel aPanel)
+        {
+            //Make it a subform.
+            aForm.TopLevel = false;
+
+            //Clear current form.
+            aPanel.Controls.Clear();
+
+            //Add the from.
+            aPanel.Controls.Add(aForm);
+
+            //Show the form.
+            aForm.Show();
         }
 
         private void onOpenContentFormEvent(object sender, OpenContentFormEventArgs e)
         {
-            setContentPanelForm(e.Form);
+            setPanelForm(e.Form,this.contentPanel);
+        }
+
+        private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)
+        {
+            setPanelForm(e.Form, this.TopBar);
         }
     }
 }

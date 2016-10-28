@@ -24,5 +24,6 @@
 		<right name="General.ButtonOpenProject" 			access="all"/>
 		<right name="General.ButtonRecentProjects" 			access="readonly"/>
 		<right name="General.ButtonCreateProjectRevision" 	access="readonly"/>
+		<right name="General.ButtonAddRiskToProject" 		access="all"/>
 	</acl>
 </acl>

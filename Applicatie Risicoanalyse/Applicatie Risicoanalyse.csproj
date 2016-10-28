@@ -212,6 +212,12 @@
     <Compile Include="Forms\ARA_EditRiskBaseForm.Designer.cs">
       <DependentUpon>ARA_EditRiskBaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_EditRiskBaseTopBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_EditRiskBaseTopBar.Designer.cs">
+      <DependentUpon>ARA_EditRiskBaseTopBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_EditRiskBaseForm.resx">
       <DependentUpon>ARA_EditRiskBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_EditRiskBaseTopBar.resx">
+      <DependentUpon>ARA_EditRiskBaseTopBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_MainMenu.resx">
       <DependentUpon>ARA_MainMenu.cs</DependentUpon>
