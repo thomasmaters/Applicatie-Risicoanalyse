@@ -35,7 +35,7 @@
             this.arA_EditRiskRiskEstimationItem3 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimationItem();
             this.arA_EditRiskRiskEstimationItem2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimationItem();
             this.arA_EditRiskRiskEstimationItem1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimationItem();
-            this.arA_Rectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
+            this.riskEstimationRectangleIndicatior = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.arA_Text6 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.arA_EditRiskRiskEstimationItem3);
             this.panel1.Controls.Add(this.arA_EditRiskRiskEstimationItem2);
             this.panel1.Controls.Add(this.arA_EditRiskRiskEstimationItem1);
-            this.panel1.Controls.Add(this.arA_Rectangle2);
+            this.panel1.Controls.Add(this.riskEstimationRectangleIndicatior);
             this.panel1.Controls.Add(this.arA_Text6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,13 +120,13 @@
             // 
             // arA_Rectangle2
             // 
-            this.arA_Rectangle2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Rectangle2.Location = new System.Drawing.Point(11, 23);
-            this.arA_Rectangle2.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Rectangle2.Name = "arA_Rectangle2";
-            this.arA_Rectangle2.Size = new System.Drawing.Size(4, 280);
-            this.arA_Rectangle2.TabIndex = 61;
-            this.arA_Rectangle2.Text = "arA_Rectangle2";
+            this.riskEstimationRectangleIndicatior.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskEstimationRectangleIndicatior.Location = new System.Drawing.Point(11, 23);
+            this.riskEstimationRectangleIndicatior.Margin = new System.Windows.Forms.Padding(0);
+            this.riskEstimationRectangleIndicatior.Name = "arA_Rectangle2";
+            this.riskEstimationRectangleIndicatior.Size = new System.Drawing.Size(4, 280);
+            this.riskEstimationRectangleIndicatior.TabIndex = 61;
+            this.riskEstimationRectangleIndicatior.Text = "arA_Rectangle2";
             // 
             // arA_Text6
             // 
@@ -162,7 +162,7 @@
         private System.Windows.Forms.Panel panel2;
         private ARA_Text RiskEstimationTextTitle;
         private ARA_Text arA_Text6;
-        private ARA_Rectangle arA_Rectangle2;
+        private ARA_Rectangle riskEstimationRectangleIndicatior;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem4;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem3;
         private ARA_EditRiskRiskEstimationItem arA_EditRiskRiskEstimationItem2;

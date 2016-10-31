@@ -32,7 +32,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.arA_Rectangle1 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
+            this.exposedPersonsRectangleIndicator = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.arA_Text1 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.flowLayoutPanel1);
-            this.panel3.Controls.Add(this.arA_Rectangle1);
+            this.panel3.Controls.Add(this.exposedPersonsRectangleIndicator);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.arA_Text1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,13 +78,13 @@
             // 
             // arA_Rectangle1
             // 
-            this.arA_Rectangle1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Rectangle1.Location = new System.Drawing.Point(11, 23);
-            this.arA_Rectangle1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Rectangle1.Name = "arA_Rectangle1";
-            this.arA_Rectangle1.Size = new System.Drawing.Size(4, 28);
-            this.arA_Rectangle1.TabIndex = 8;
-            this.arA_Rectangle1.Text = "arA_Rectangle1";
+            this.exposedPersonsRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.exposedPersonsRectangleIndicator.Location = new System.Drawing.Point(11, 23);
+            this.exposedPersonsRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
+            this.exposedPersonsRectangleIndicator.Name = "arA_Rectangle1";
+            this.exposedPersonsRectangleIndicator.Size = new System.Drawing.Size(4, 28);
+            this.exposedPersonsRectangleIndicator.TabIndex = 8;
+            this.exposedPersonsRectangleIndicator.Text = "arA_Rectangle1";
             // 
             // arA_Text1
             // 
@@ -115,7 +115,7 @@
 
         #endregion
 
-        private ARA_Rectangle arA_Rectangle1;
+        private ARA_Rectangle exposedPersonsRectangleIndicator;
         private ARA_Text arA_Text1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;

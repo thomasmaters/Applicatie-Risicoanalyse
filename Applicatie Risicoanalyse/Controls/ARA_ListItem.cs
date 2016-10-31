@@ -117,11 +117,8 @@ namespace Applicatie_Risicoanalyse.Controls
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Debug.WriteLine("listitem click1");
             this.updateControl();
-            Debug.WriteLine("listitem click2");
             this.updateParentControl();
-            Debug.WriteLine("listitem click3");
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -147,7 +144,6 @@ namespace Applicatie_Risicoanalyse.Controls
 
             if(this.ListParent != null)
             {
-                Debug.WriteLine("list item wants to update parent");
                 this.ListParent.updateControl();
                 this.ListParent.updateParentControl();
             }

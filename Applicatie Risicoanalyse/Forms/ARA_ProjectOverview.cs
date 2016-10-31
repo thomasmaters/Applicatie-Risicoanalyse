@@ -23,6 +23,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonCreateProjectRevision.setConnectedPanel(this.projectOverviewPanelCreateProjectRevision);
             this.projectOverviewButtonOpenProject.setConnectedPanel(this.projectOverviewPanelOpenProject);
             this.ProjectOverviewButtonRecentProjects.setConnectedPanel(this.ProjectOverviewPanelRecentProjects);
+            this.projectOverviewButtonEditRiskStandard.setConnectedPanel(this.projectOverviewPanelEditRiskStandard);
             //Add Click event to hide all other buttons/panels when one opens.
             this.projectOverviewButtonCreateProject.Click += hideOtherPanels;
             this.projectOverviewButtonCreateProjectRevision.Click += hideOtherPanels;
@@ -46,7 +47,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonCreateProjectRevision.Visible = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelCreateProjectRevision.Enabled  = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") == ARA_Globals.PermissionLevel.All;
 
-            this.projectOverviewButtonEditStandardRisks.Visible     = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.projectOverviewButtonEditRiskStandard.Visible      = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.projectOverviewPanelEditRiskStandard.Enabled       = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") == ARA_Globals.PermissionLevel.All;
         }
 
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
@@ -75,6 +77,13 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addFormToPanel(this.projectOverviewPanelCreateProject, new ARA_CreateProject());
 
             this.addFormToPanel(this.projectOverviewPanelOpenProject, new ARA_OpenProject());
+
+            this.addFormToPanel(this.projectOverviewPanelEditRiskStandard, new ARA_SearchRiskStandard());
+        }
+
+        private void projectOverviewButtonCreateNewRisk_Click(object sender, EventArgs e)
+        {
+            ARA_Events.onOpenContentFormEvent(new ARA_NewRiskBaseForm());
         }
     }
 }

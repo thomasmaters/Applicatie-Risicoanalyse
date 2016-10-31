@@ -54,7 +54,6 @@ namespace Applicatie_Risicoanalyse.Controls
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-            Debug.WriteLine("draw");
             //Create brush.
             System.Drawing.Pen aPen = new System.Drawing.Pen(new System.Drawing.SolidBrush(this.BorderColor),(float)(this.BorderSize));
             //Create graphics object.

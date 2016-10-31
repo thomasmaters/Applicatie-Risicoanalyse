@@ -17,15 +17,27 @@ namespace Applicatie_Risicoanalyse.Controls
         private bool hasControlBeenChanged = false;
         public EventHandler<RiskEstimationChangedEvent> riskEstimationEvenHandler;
 
+        public Color IndicatorRectangleColor
+        {
+            get
+            {
+                return this.riskEstimationRectangleIndicatior.BackgroundColor;
+            }
+            set
+            {
+                this.riskEstimationRectangleIndicatior.BackgroundColor = value;
+                this.riskEstimationRectangleIndicatior.Invalidate();
+            }
+        }
         public bool HasControlBeenChanged
         {
             get
             {
-                return hasControlBeenChanged || 
-                    arA_EditRiskRiskEstimationItem1.HasControlBeenChanged || 
-                    arA_EditRiskRiskEstimationItem2.HasControlBeenChanged ||
-                    arA_EditRiskRiskEstimationItem3.HasControlBeenChanged ||
-                    arA_EditRiskRiskEstimationItem4.HasControlBeenChanged;
+                return hasControlBeenChanged || ( 
+                    arA_EditRiskRiskEstimationItem1.HasControlBeenChanged &&
+                    arA_EditRiskRiskEstimationItem2.HasControlBeenChanged &&
+                    arA_EditRiskRiskEstimationItem3.HasControlBeenChanged &&
+                    arA_EditRiskRiskEstimationItem4.HasControlBeenChanged);
             }
 
             set
@@ -51,29 +63,32 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
             
             //Update the text on subcontrol invalitdate.
-            arA_EditRiskRiskEstimationItem1.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
-            arA_EditRiskRiskEstimationItem2.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
-            arA_EditRiskRiskEstimationItem3.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
-            arA_EditRiskRiskEstimationItem4.Invalidated += delegate (object sender, InvalidateEventArgs e) { this.updateSafetyMesuresRequirement(); };
+            arA_EditRiskRiskEstimationItem1.riskEstimationItemChangedEventHandler += delegate (object sender, EventArgs e) { this.updateSafetyMesuresRequirement(); };
+            arA_EditRiskRiskEstimationItem2.riskEstimationItemChangedEventHandler += delegate (object sender, EventArgs e) { this.updateSafetyMesuresRequirement(); };
+            arA_EditRiskRiskEstimationItem3.riskEstimationItemChangedEventHandler += delegate (object sender, EventArgs e) { this.updateSafetyMesuresRequirement(); };
+            arA_EditRiskRiskEstimationItem4.riskEstimationItemChangedEventHandler += delegate (object sender, EventArgs e) { this.updateSafetyMesuresRequirement(); };
 
             updateSafetyMesuresRequirement();
 
             //Make parent notice, some button is pressed.
-            arA_EditRiskRiskEstimationItem1.Invalidated += onRiskEstimationItemChanged;
-            arA_EditRiskRiskEstimationItem2.Invalidated += onRiskEstimationItemChanged;
-            arA_EditRiskRiskEstimationItem3.Invalidated += onRiskEstimationItemChanged;
-            arA_EditRiskRiskEstimationItem4.Invalidated += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem1.riskEstimationItemChangedEventHandler += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem2.riskEstimationItemChangedEventHandler += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem3.riskEstimationItemChangedEventHandler += onRiskEstimationItemChanged;
+            arA_EditRiskRiskEstimationItem4.riskEstimationItemChangedEventHandler += onRiskEstimationItemChanged;
         }
 
         //Signal parent with custom event that a riskestimationitem has changed.
-        public void onRiskEstimationItemChanged(object sender, InvalidateEventArgs e)
+        public void onRiskEstimationItemChanged(object sender, EventArgs e)
         {
             if(riskEstimationEvenHandler != null)
             {
                 try
                 {
                     ARA_EditRiskRiskEstimationItem tempItem = (ARA_EditRiskRiskEstimationItem)sender;
-                    riskEstimationEvenHandler(sender, new RiskEstimationChangedEvent(tempItem.SelectedID, tempItem.GroupName));
+                    if(tempItem.SelectedID != -1)
+                    {
+                        riskEstimationEvenHandler(sender, new RiskEstimationChangedEvent(tempItem.SelectedID, tempItem.GroupName));
+                    }
                 }
                 catch (Exception)
                 {

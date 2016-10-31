@@ -17,6 +17,9 @@ namespace Applicatie_Risicoanalyse.Globals
         private static float aRA_BaseFontSize = 15F;
         private static String aRa_Date = DateTime.Now.ToString("dd-MM-yyyy");
 
+        private static int hazardSituationMinimalTextLength = 25;
+        private static int hazardEventMinimalTextLength = 25;
+
         private static string userPermissionGroup = "Admin";
         public enum PermissionLevel : byte
         {
@@ -75,6 +78,22 @@ namespace Applicatie_Risicoanalyse.Globals
             set
             {
                 userPermissionGroup = value;
+            }
+        }
+
+        public static int HazardSituationMinimalTextLength
+        {
+            get
+            {
+                return hazardSituationMinimalTextLength;
+            }
+        }
+
+        public static int HazardEventMinimalTextLength
+        {
+            get
+            {
+                return hazardEventMinimalTextLength;
             }
         }
 

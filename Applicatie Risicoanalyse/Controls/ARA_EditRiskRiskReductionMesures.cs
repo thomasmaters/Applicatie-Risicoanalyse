@@ -18,6 +18,18 @@ namespace Applicatie_Risicoanalyse.Controls
         public EventHandler<MesureItemChangedEvent> itemCheckEventHandler;
         public EventHandler<EventArgs> reductionMesureInfoChanged;
 
+        public Color IndicatorRectangleColor
+        {
+            get
+            {
+                return this.riskReductionRectangleIndicator.BackgroundColor;
+            }
+            set
+            {
+                this.riskReductionRectangleIndicator.BackgroundColor = value;
+                this.riskReductionRectangleIndicator.Invalidate();
+            }
+        }
         public bool HasControlBeenChanged
         {
             get
@@ -30,7 +42,6 @@ namespace Applicatie_Risicoanalyse.Controls
                 {
                     if (item.HasControlBeenChanged)
                     {
-                        this.hasControlBeenChanged = true;
                         return true;
                     }
                 }
@@ -106,12 +117,12 @@ namespace Applicatie_Risicoanalyse.Controls
 
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
         {
-            this.arA_Rectangle2.Size = new Size(this.arA_Rectangle2.Width, this.flowLayoutPanel1.Size.Height - 10);
+            this.riskReductionRectangleIndicator.Size = new Size(this.riskReductionRectangleIndicator.Width, this.flowLayoutPanel1.Size.Height - 10);
         }
 
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
-            this.hasControlBeenChanged = true;
+            this.hasControlBeenChanged = arA_TextBox1.Text != "";
             if(reductionMesureInfoChanged != null)
             {
                 reductionMesureInfoChanged(sender, e);

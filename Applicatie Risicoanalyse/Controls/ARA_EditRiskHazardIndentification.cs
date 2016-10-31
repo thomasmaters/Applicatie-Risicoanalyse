@@ -22,6 +22,18 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
         }
 
+        public Color IndicatorRectangleColor
+        {
+            get
+            {
+                return this.hazardIndentificationRectangleIndicator.BackgroundColor;
+            }
+            set
+            {
+                this.hazardIndentificationRectangleIndicator.BackgroundColor = value;
+                this.hazardIndentificationRectangleIndicator.Invalidate();
+            }
+        }
         public bool HasControlBeenChanged
         {
             get
@@ -63,7 +75,6 @@ namespace Applicatie_Risicoanalyse.Controls
                 this.comboBox2.ValueMember = "DangerSourceID";
                 this.comboBox2.DataSource = dangerSourceView;
                 this.comboBox2.SelectedValue = riskDataRow["DangerSourceID"];
-                Debug.WriteLine("kaas");
 
                 //Add event for changing grouping when the first dropdownbox changes.
                 this.comboBox1.SelectedIndexChanged += delegate (object sender, EventArgs e)
@@ -108,19 +119,24 @@ namespace Applicatie_Risicoanalyse.Controls
 
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
-            this.hasControlBeenChanged = true;
             onDangerItemChanged();
         }
 
         private void arA_TextBox2_TextChanged(object sender, EventArgs e)
         {
-            this.hasControlBeenChanged = true;
             onDangerItemChanged();
         }
 
         private void onDangerItemChanged()
         {
-            if(dangerChangedEventHandler != null)
+            //Check if we can say the control has been changed.
+            if (arA_TextBox1.Text.Length > ARA_Globals.HazardSituationMinimalTextLength && arA_TextBox2.Text.Length > ARA_Globals.HazardEventMinimalTextLength)
+            {
+                this.hasControlBeenChanged = true;
+            }
+
+            //Trigger eventhandlers.
+            if (dangerChangedEventHandler != null)
             {
                 dangerChangedEventHandler
                 (

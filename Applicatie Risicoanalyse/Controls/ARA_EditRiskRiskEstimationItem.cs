@@ -16,6 +16,7 @@ namespace Applicatie_Risicoanalyse.Controls
     {
         private List<int> buttonWeights = new List<int>();
         private List<int> buttonIDs = new List<int>();
+        public EventHandler<EventArgs> riskEstimationItemChangedEventHandler;
         private int selectedIndex = 0;
         private bool hasControlBeenChanged = false;
 
@@ -51,6 +52,10 @@ namespace Applicatie_Risicoanalyse.Controls
         {
             get
             {
+                if(selectedIndex == -1)
+                {
+                    return -1;
+                }
                 return buttonIDs[selectedIndex];
             }
         }
@@ -152,7 +157,6 @@ namespace Applicatie_Risicoanalyse.Controls
                     }
                 }
             }
-            this.Invalidate();
         }
 
         //Handler when one of the buttons is pressed.
@@ -168,6 +172,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
             //Set flag so the control knows it has been changed.
             this.hasControlBeenChanged = true;
+            if (this.riskEstimationItemChangedEventHandler != null)
+            {
+                this.riskEstimationItemChangedEventHandler(this, new EventArgs());
+            }
         }
     }
 }

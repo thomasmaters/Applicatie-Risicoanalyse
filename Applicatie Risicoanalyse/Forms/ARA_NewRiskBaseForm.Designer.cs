@@ -1,6 +1,8 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using System.Diagnostics;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
-    partial class ARA_EditRiskBaseForm
+    partial class ARA_NewRiskBaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,15 +34,13 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.arA_NewRiskRiskGrouping1 = new Applicatie_Risicoanalyse.Controls.ARA_NewRiskRiskGrouping();
             this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
             this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
             this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
             this.arA_EditRiskRiskReductionMesures1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
             this.arA_EditRiskRiskEstimation2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
             this.arA_EditRiskRiskReductionMesures2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
-            this.EditRiskButtonPreviousRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.EditRiskTextAmountOfRisksInType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.EditRiskButtonNextRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.get_RiskEstimation_In_RiskData_AfterBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,20 +62,16 @@
             this.queriesTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
             this.tbl_BLOB_StorageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_BLOB_StorageTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_BLOB_StorageTableAdapter();
-            this.tbl_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter();
-            this.update_RiskDataID_In_RisksInProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.update_RiskDataID_In_RisksInProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Update_RiskDataID_In_RisksInProjectTableAdapter();
             this.tbl_ExposedPersons_In_RiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_ExposedPersons_In_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ExposedPersons_In_RiskTableAdapter();
-            this.get_Risks_With_Type_And_Group_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.get_Risks_With_Type_And_Group_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_With_Type_And_Group_In_ProjectTableAdapter();
             this.tbl_RiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskTableAdapter();
             this.create_New_Risk_VersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.create_New_Risk_VersionTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Create_New_Risk_VersionTableAdapter();
             this.get_Risks_In_Group_And_TypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_Risks_In_Group_And_TypeTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_Group_And_TypeTableAdapter();
+            this.create_New_RiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.create_New_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Create_New_RiskTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -87,13 +83,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BLOB_StorageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.update_RiskDataID_In_RisksInProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ExposedPersons_In_RiskBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.get_Risks_With_Type_And_Group_In_ProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_RiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.create_New_Risk_VersionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Group_And_TypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.create_New_RiskBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -101,20 +95,18 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.arA_Button1);
+            this.flowLayoutPanel1.Controls.Add(this.arA_NewRiskRiskGrouping1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskExposedPersons1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskHazardIndentification1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskRiskEstimation1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskRiskReductionMesures1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskRiskEstimation2);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskRiskReductionMesures2);
-            this.flowLayoutPanel1.Controls.Add(this.EditRiskButtonPreviousRisk);
-            this.flowLayoutPanel1.Controls.Add(this.EditRiskTextAmountOfRisksInType);
-            this.flowLayoutPanel1.Controls.Add(this.EditRiskButtonNextRisk);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(730, 5000);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 1821);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(730, 1838);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // pictureBox1
@@ -145,11 +137,26 @@
             this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
             // 
+            // arA_NewRiskRiskGrouping1
+            // 
+            this.arA_NewRiskRiskGrouping1.AutoScroll = true;
+            this.arA_NewRiskRiskGrouping1.BackColor = System.Drawing.Color.White;
+            this.arA_NewRiskRiskGrouping1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_NewRiskRiskGrouping1.HasControlBeenChanged = false;
+            this.arA_NewRiskRiskGrouping1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_NewRiskRiskGrouping1.Location = new System.Drawing.Point(0, 344);
+            this.arA_NewRiskRiskGrouping1.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_NewRiskRiskGrouping1.MaximumSize = new System.Drawing.Size(750, 140);
+            this.arA_NewRiskRiskGrouping1.Name = "arA_NewRiskRiskGrouping1";
+            this.arA_NewRiskRiskGrouping1.Size = new System.Drawing.Size(750, 140);
+            this.arA_NewRiskRiskGrouping1.TabIndex = 11;
+            // 
             // arA_EditRiskExposedPersons1
             // 
             this.arA_EditRiskExposedPersons1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskExposedPersons1.HasControlBeenChanged = false;
-            this.arA_EditRiskExposedPersons1.Location = new System.Drawing.Point(0, 344);
+            this.arA_EditRiskExposedPersons1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskExposedPersons1.Location = new System.Drawing.Point(0, 484);
             this.arA_EditRiskExposedPersons1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskExposedPersons1.Name = "arA_EditRiskExposedPersons1";
             this.arA_EditRiskExposedPersons1.Size = new System.Drawing.Size(750, 55);
@@ -161,7 +168,8 @@
             this.arA_EditRiskHazardIndentification1.BackColor = System.Drawing.Color.White;
             this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged = true;
-            this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 399);
+            this.arA_EditRiskHazardIndentification1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 539);
             this.arA_EditRiskHazardIndentification1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 170);
             this.arA_EditRiskHazardIndentification1.Name = "arA_EditRiskHazardIndentification1";
@@ -172,7 +180,8 @@
             // 
             this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation1.HasControlBeenChanged = false;
-            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 569);
+            this.arA_EditRiskRiskEstimation1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 709);
             this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
             this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(750, 316);
@@ -184,19 +193,21 @@
             this.arA_EditRiskRiskReductionMesures1.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged = false;
-            this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 885);
+            this.arA_EditRiskRiskReductionMesures1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 1025);
             this.arA_EditRiskRiskReductionMesures1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures1.MaximumSize = new System.Drawing.Size(750, 2000);
             this.arA_EditRiskRiskReductionMesures1.Name = "arA_EditRiskRiskReductionMesures1";
             this.arA_EditRiskRiskReductionMesures1.Size = new System.Drawing.Size(725, 115);
             this.arA_EditRiskRiskReductionMesures1.TabIndex = 3;
-            this.arA_EditRiskRiskReductionMesures1.TitleText = "Hazard Identification";
+            this.arA_EditRiskRiskReductionMesures1.TitleText = "Risk Reduction Mesures";
             // 
             // arA_EditRiskRiskEstimation2
             // 
             this.arA_EditRiskRiskEstimation2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation2.HasControlBeenChanged = false;
-            this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 1000);
+            this.arA_EditRiskRiskEstimation2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 1140);
             this.arA_EditRiskRiskEstimation2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation2.Name = "arA_EditRiskRiskEstimation2";
             this.arA_EditRiskRiskEstimation2.Size = new System.Drawing.Size(750, 322);
@@ -208,65 +219,14 @@
             this.arA_EditRiskRiskReductionMesures2.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures2.HasControlBeenChanged = false;
-            this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 1322);
+            this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 1462);
             this.arA_EditRiskRiskReductionMesures2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures2.MaximumSize = new System.Drawing.Size(725, 2000);
             this.arA_EditRiskRiskReductionMesures2.Name = "arA_EditRiskRiskReductionMesures2";
             this.arA_EditRiskRiskReductionMesures2.Size = new System.Drawing.Size(725, 115);
             this.arA_EditRiskRiskReductionMesures2.TabIndex = 5;
             this.arA_EditRiskRiskReductionMesures2.TitleText = "Minimal Addition";
-            // 
-            // EditRiskButtonPreviousRisk
-            // 
-            this.EditRiskButtonPreviousRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.EditRiskButtonPreviousRisk.Font = new System.Drawing.Font("Gotham Light", 11F);
-            this.EditRiskButtonPreviousRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.EditRiskButtonPreviousRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.EditRiskButtonPreviousRisk.Location = new System.Drawing.Point(0, 1437);
-            this.EditRiskButtonPreviousRisk.Margin = new System.Windows.Forms.Padding(0);
-            this.EditRiskButtonPreviousRisk.Name = "EditRiskButtonPreviousRisk";
-            this.EditRiskButtonPreviousRisk.Selected = false;
-            this.EditRiskButtonPreviousRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.EditRiskButtonPreviousRisk.SelectedTextColor = System.Drawing.Color.White;
-            this.EditRiskButtonPreviousRisk.Size = new System.Drawing.Size(271, 41);
-            this.EditRiskButtonPreviousRisk.TabIndex = 8;
-            this.EditRiskButtonPreviousRisk.Text = "Previous";
-            this.EditRiskButtonPreviousRisk.TextColor = System.Drawing.Color.White;
-            this.EditRiskButtonPreviousRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.EditRiskButtonPreviousRisk.Click += new System.EventHandler(this.EditRiskButtonPreviousRisk_Click);
-            // 
-            // EditRiskTextAmountOfRisksInType
-            // 
-            this.EditRiskTextAmountOfRisksInType.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.EditRiskTextAmountOfRisksInType.ForeColor = System.Drawing.Color.White;
-            this.EditRiskTextAmountOfRisksInType.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.EditRiskTextAmountOfRisksInType.Location = new System.Drawing.Point(271, 1437);
-            this.EditRiskTextAmountOfRisksInType.Margin = new System.Windows.Forms.Padding(0);
-            this.EditRiskTextAmountOfRisksInType.Name = "EditRiskTextAmountOfRisksInType";
-            this.EditRiskTextAmountOfRisksInType.Size = new System.Drawing.Size(188, 41);
-            this.EditRiskTextAmountOfRisksInType.TabIndex = 9;
-            this.EditRiskTextAmountOfRisksInType.Text = "0/0";
-            this.EditRiskTextAmountOfRisksInType.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // EditRiskButtonNextRisk
-            // 
-            this.EditRiskButtonNextRisk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditRiskButtonNextRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.EditRiskButtonNextRisk.Font = new System.Drawing.Font("Gotham Light", 11F);
-            this.EditRiskButtonNextRisk.HorizontalAlignment = System.Drawing.StringAlignment.Far;
-            this.EditRiskButtonNextRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.EditRiskButtonNextRisk.Location = new System.Drawing.Point(459, 1437);
-            this.EditRiskButtonNextRisk.Margin = new System.Windows.Forms.Padding(0);
-            this.EditRiskButtonNextRisk.Name = "EditRiskButtonNextRisk";
-            this.EditRiskButtonNextRisk.Selected = false;
-            this.EditRiskButtonNextRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.EditRiskButtonNextRisk.SelectedTextColor = System.Drawing.Color.White;
-            this.EditRiskButtonNextRisk.Size = new System.Drawing.Size(271, 41);
-            this.EditRiskButtonNextRisk.TabIndex = 10;
-            this.EditRiskButtonNextRisk.Text = "Next";
-            this.EditRiskButtonNextRisk.TextColor = System.Drawing.Color.White;
-            this.EditRiskButtonNextRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.EditRiskButtonNextRisk.Click += new System.EventHandler(this.EditRiskButtonNextRisk_Click);
             // 
             // openFileDialog1
             // 
@@ -383,24 +343,6 @@
             // 
             this.tbl_BLOB_StorageTableAdapter.ClearBeforeFill = true;
             // 
-            // tbl_Risks_In_ProjectBindingSource
-            // 
-            this.tbl_Risks_In_ProjectBindingSource.DataMember = "Tbl_Risks_In_Project";
-            this.tbl_Risks_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_Risks_In_ProjectTableAdapter
-            // 
-            this.tbl_Risks_In_ProjectTableAdapter.ClearBeforeFill = true;
-            // 
-            // update_RiskDataID_In_RisksInProjectBindingSource
-            // 
-            this.update_RiskDataID_In_RisksInProjectBindingSource.DataMember = "Update_RiskDataID_In_RisksInProject";
-            this.update_RiskDataID_In_RisksInProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // update_RiskDataID_In_RisksInProjectTableAdapter
-            // 
-            this.update_RiskDataID_In_RisksInProjectTableAdapter.ClearBeforeFill = true;
-            // 
             // tbl_ExposedPersons_In_RiskBindingSource
             // 
             this.tbl_ExposedPersons_In_RiskBindingSource.DataMember = "Tbl_ExposedPersons_In_Risk";
@@ -409,15 +351,6 @@
             // tbl_ExposedPersons_In_RiskTableAdapter
             // 
             this.tbl_ExposedPersons_In_RiskTableAdapter.ClearBeforeFill = true;
-            // 
-            // get_Risks_With_Type_And_Group_In_ProjectBindingSource
-            // 
-            this.get_Risks_With_Type_And_Group_In_ProjectBindingSource.DataMember = "Get_Risks_With_Type_And_Group_In_Project";
-            this.get_Risks_With_Type_And_Group_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // get_Risks_With_Type_And_Group_In_ProjectTableAdapter
-            // 
-            this.get_Risks_With_Type_And_Group_In_ProjectTableAdapter.ClearBeforeFill = true;
             // 
             // tbl_RiskBindingSource
             // 
@@ -446,7 +379,16 @@
             // 
             this.get_Risks_In_Group_And_TypeTableAdapter.ClearBeforeFill = true;
             // 
-            // ARA_EditRiskBaseForm
+            // create_New_RiskBindingSource
+            // 
+            this.create_New_RiskBindingSource.DataMember = "Create_New_Risk";
+            this.create_New_RiskBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // create_New_RiskTableAdapter
+            // 
+            this.create_New_RiskTableAdapter.ClearBeforeFill = true;
+            // 
+            // ARA_NewRiskBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -458,7 +400,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 488);
-            this.Name = "ARA_EditRiskBaseForm";
+            this.Name = "ARA_NewRiskBaseForm";
             this.Text = "ARA_EditRiskInProject";
             this.Load += new System.EventHandler(this.ARA_EditRiskBaseForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -473,13 +415,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BLOB_StorageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.update_RiskDataID_In_RisksInProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ExposedPersons_In_RiskBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.get_Risks_With_Type_And_Group_In_ProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_RiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.create_New_Risk_VersionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Group_And_TypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.create_New_RiskBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,22 +457,16 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.BindingSource tbl_BLOB_StorageBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_BLOB_StorageTableAdapter tbl_BLOB_StorageTableAdapter;
-        private Controls.ARA_Button EditRiskButtonPreviousRisk;
-        private Controls.ARA_Text EditRiskTextAmountOfRisksInType;
-        private Controls.ARA_Button EditRiskButtonNextRisk;
-        private System.Windows.Forms.BindingSource tbl_Risks_In_ProjectBindingSource;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter tbl_Risks_In_ProjectTableAdapter;
-        private System.Windows.Forms.BindingSource update_RiskDataID_In_RisksInProjectBindingSource;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Update_RiskDataID_In_RisksInProjectTableAdapter update_RiskDataID_In_RisksInProjectTableAdapter;
         private System.Windows.Forms.BindingSource tbl_ExposedPersons_In_RiskBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ExposedPersons_In_RiskTableAdapter tbl_ExposedPersons_In_RiskTableAdapter;
-        private System.Windows.Forms.BindingSource get_Risks_With_Type_And_Group_In_ProjectBindingSource;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_With_Type_And_Group_In_ProjectTableAdapter get_Risks_With_Type_And_Group_In_ProjectTableAdapter;
         private System.Windows.Forms.BindingSource tbl_RiskBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskTableAdapter tbl_RiskTableAdapter;
         private System.Windows.Forms.BindingSource create_New_Risk_VersionBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Create_New_Risk_VersionTableAdapter create_New_Risk_VersionTableAdapter;
         private System.Windows.Forms.BindingSource get_Risks_In_Group_And_TypeBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_Group_And_TypeTableAdapter get_Risks_In_Group_And_TypeTableAdapter;
+        private System.Windows.Forms.BindingSource create_New_RiskBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Create_New_RiskTableAdapter create_New_RiskTableAdapter;
+        private Controls.ARA_NewRiskRiskGrouping arA_NewRiskRiskGrouping1;
     }
 }

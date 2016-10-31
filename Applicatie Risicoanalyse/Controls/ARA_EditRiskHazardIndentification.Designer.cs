@@ -42,7 +42,7 @@
             this.tbl_Danger_ResultTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Danger_ResultTableAdapter();
             this.tbl_Risk_DataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Risk_DataTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_DataTableAdapter();
-            this.arA_Rectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
+            this.hazardIndentificationRectangleIndicator = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.arA_TextBox2 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.HazardTextEvent = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
@@ -162,13 +162,13 @@
             // 
             // arA_Rectangle2
             // 
-            this.arA_Rectangle2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Rectangle2.Location = new System.Drawing.Point(11, 23);
-            this.arA_Rectangle2.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Rectangle2.Name = "arA_Rectangle2";
-            this.arA_Rectangle2.Size = new System.Drawing.Size(4, 138);
-            this.arA_Rectangle2.TabIndex = 29;
-            this.arA_Rectangle2.Text = "arA_Rectangle2";
+            this.hazardIndentificationRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.hazardIndentificationRectangleIndicator.Location = new System.Drawing.Point(11, 23);
+            this.hazardIndentificationRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
+            this.hazardIndentificationRectangleIndicator.Name = "arA_Rectangle2";
+            this.hazardIndentificationRectangleIndicator.Size = new System.Drawing.Size(4, 138);
+            this.hazardIndentificationRectangleIndicator.TabIndex = 29;
+            this.hazardIndentificationRectangleIndicator.Text = "arA_Rectangle2";
             // 
             // arA_TextBox2
             // 
@@ -297,7 +297,7 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.HazardPanelSpacerRight);
-            this.Controls.Add(this.arA_Rectangle2);
+            this.Controls.Add(this.hazardIndentificationRectangleIndicator);
             this.Controls.Add(this.arA_TextBox2);
             this.Controls.Add(this.HazardTextEvent);
             this.Controls.Add(this.arA_TextBox1);
@@ -323,7 +323,7 @@
 
         #endregion
 
-        private ARA_Rectangle arA_Rectangle2;
+        private ARA_Rectangle hazardIndentificationRectangleIndicator;
         private ARA_TextBox arA_TextBox2;
         private ARA_Text HazardTextEvent;
         private ARA_TextBox arA_TextBox1;

@@ -170,6 +170,12 @@
     <Compile Include="Controls\ARA_ListItem.Designer.cs">
       <DependentUpon>ARA_ListItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ARA_NewRiskRiskGrouping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ARA_NewRiskRiskGrouping.Designer.cs">
+      <DependentUpon>ARA_NewRiskRiskGrouping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ARA_TextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -205,6 +211,12 @@
     </Compile>
     <Compile Include="Forms\ARA_CreateProject.Designer.cs">
       <DependentUpon>ARA_CreateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARA_NewRiskBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_NewRiskBaseForm.Designer.cs">
+      <DependentUpon>ARA_NewRiskBaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ARA_EditRiskBaseForm.cs">
       <SubType>Form</SubType>
@@ -247,6 +259,12 @@
     </Compile>
     <Compile Include="Forms\ARA_RiskProjectOverview.Designer.cs">
       <DependentUpon>ARA_RiskProjectOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ARA_SearchRiskStandard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_SearchRiskStandard.Designer.cs">
+      <DependentUpon>ARA_SearchRiskStandard.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ARA_SideBar.cs">
       <SubType>Form</SubType>
@@ -304,11 +322,18 @@
     <EmbeddedResource Include="Controls\ARA_ListItem.resx">
       <DependentUpon>ARA_ListItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ARA_NewRiskRiskGrouping.resx">
+      <DependentUpon>ARA_NewRiskRiskGrouping.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_BaseForm.resx">
       <DependentUpon>ARA_BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_CreateProject.resx">
       <DependentUpon>ARA_CreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_NewRiskBaseForm.resx">
+      <DependentUpon>ARA_NewRiskBaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_EditRiskBaseForm.resx">
       <DependentUpon>ARA_EditRiskBaseForm.cs</DependentUpon>
@@ -330,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_RiskProjectOverview.resx">
       <DependentUpon>ARA_RiskProjectOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_SearchRiskStandard.resx">
+      <DependentUpon>ARA_SearchRiskStandard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_SideBar.resx">
       <DependentUpon>ARA_SideBar.cs</DependentUpon>

@@ -9,30 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Applicatie_Risicoanalyse.Globals;
 using System.IO;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
-    public partial class ARA_EditRiskBaseForm : Form
+    public partial class ARA_NewRiskBaseForm : Form
     {
         private int riskID = 1;
         private int riskVersionID = 1;
         private int riskDataID = 1;
-        private int projectID = 1;
         private string riskGroupName = "";
         private string riskTypeName = "";
         private string hazardSituation = "";
-        private bool isRiskDataProjectSpecific = false;
 
-        public ARA_EditRiskBaseForm(int riskID, int riskVersionID, int riskDataID, int projectID, bool isRiskDataProjectSpecific)
+        public ARA_NewRiskBaseForm()
         {
             InitializeComponent();
 
-            //Initialize variables.
-            this.riskID = riskID;
-            this.riskVersionID = riskVersionID;
-            this.riskDataID = riskDataID;
-            this.projectID = projectID;
-            this.isRiskDataProjectSpecific = isRiskDataProjectSpecific;
+            //Initalize variables.
+            DataRow newRisk = this.create_New_RiskTableAdapter.GetData().Rows[0];
+            this.riskID = (Int32)newRisk["newRiskID"];
+            this.riskDataID = (Int32)newRisk["newRiskDataID"];
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -40,11 +37,13 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 control.Font = this.Font;
             }
-            this.EditRiskButtonNextRisk.Font = new Font("Gotham Light", 11);
-            this.EditRiskButtonPreviousRisk.Font = new Font("Gotham Light", 11);
 
+            //Add event.
+            ARA_Events.openContentFormEventHandler += checkIfControlHasBeenFilledOnClose;
+
+            //Fill form.
             setFormData();
-            setNextRisk(0);
+            setControlsEnabled();
         }
 
         private void setFormData()
@@ -63,27 +62,41 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.riskTypeName = riskView["TypeName"].ToString();
                 this.hazardSituation = riskDataView["HazardSituation"].ToString();
 
+                //Risk grouping.
+                this.arA_NewRiskRiskGrouping1.setControlData();
+                this.arA_NewRiskRiskGrouping1.riskComponentGroupAndTypeChangedEventHandler += delegate (object sender, RiskComponentGroupAndTypeChangedEvent e)
+                {
+                    setControlsEnabled();
+
+                    //Update some displayed data.
+                    this.riskGroupName = e.componentGroup;
+                    this.riskTypeName = e.componentType;
+                    setTopBarRiskInfo();
+
+                    this.queriesTableAdapter1.Update_ComponentTypeAndGroup_In_Risk(this.riskID, this.riskVersionID, e.componentGroup, e.componentType);
+                };
+
                 //Risk estimation before risk reduction.
                 DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
                 this.arA_EditRiskRiskEstimation1.setControlData(riskEstimationViewBefore);
                 this.arA_EditRiskRiskEstimation1.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     this.queriesTableAdapter1.Insert_Into_RiskEstimation_Before(riskDataID, e.estimationID, e.groupName);
                 };
 
-                //Risk reduction.
+                //Risk reduction after risk reduction.
                 DataView riskReductionMesuresView = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
                 this.arA_EditRiskRiskReductionMesures1.setControlData(riskReductionMesuresView);
                 this.arA_EditRiskRiskReductionMesures1.setRiskReductionInfo(riskDataView["RiskReductionInfo"].ToString());
                 this.arA_EditRiskRiskReductionMesures1.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     this.queriesTableAdapter1.Update_RiskReductionInfo_In_RiskData(this.riskDataID, this.arA_EditRiskRiskReductionMesures1.ReductionMesureInfo);
                 };
                 this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
                         this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
@@ -100,12 +113,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskRiskReductionMesures2.setRiskReductionInfo(riskDataView["MinimalAdditionInfo"].ToString());
                 this.arA_EditRiskRiskReductionMesures2.reductionMesureInfoChanged += delegate (object sender, EventArgs e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     this.queriesTableAdapter1.Update_MinimalAdditionInfo_In_RiskData(this.riskDataID, this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo);
                 };
                 this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
                         this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
@@ -121,7 +134,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskRiskEstimation2.setControlData(riskEstimationViewAfter);
                 this.arA_EditRiskRiskEstimation2.riskEstimationEvenHandler += delegate (object sender, RiskEstimationChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     this.queriesTableAdapter1.Insert_Into_RiskEstimation_After(riskDataID, e.estimationID, e.groupName);
                 };
 
@@ -129,7 +142,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskHazardIndentification1.setControlData(riskDataID);
                 this.arA_EditRiskHazardIndentification1.dangerChangedEventHandler += delegate (object sender, DangerChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     this.queriesTableAdapter1.Insert_Danger_In_RiskData(riskDataID, e.dangerID, e.dangerSourceID, e.hazardSituation, e.hazardEvent);
                 };
 
@@ -138,7 +151,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskExposedPersons1.setControlData(exposedPersonsView, riskDataID);
                 this.arA_EditRiskExposedPersons1.exposedPersonChangedEventHandler += delegate (object sender, ExposedPersonChangedEvent e)
                 {
-                    setRiskDataProjectSpecific();
+                    setControlsEnabled();
                     if (e.checkedState == CheckState.Checked)
                     {
                         this.tbl_ExposedPersons_In_RiskTableAdapter.Insert(e.exposedPersonID,this.riskDataID);
@@ -168,28 +181,23 @@ namespace Applicatie_Risicoanalyse.Forms
         }
 
         //Signals the form and the database to make a project specific risk.
-        private void setRiskDataProjectSpecific()
+        private void setControlsEnabled()
         {
-            if(this.isRiskDataProjectSpecific == false)
-            {
-                if (this.projectID == -1)
-                {
-                    DataRow tempRow = this.create_New_Risk_VersionTableAdapter.GetData(this.riskID, this.riskVersionID, this.riskDataID).Rows[0];
-                    if(tempRow != null && tempRow["newRiskDataID"] != DBNull.Value)
-                    {
-                        this.riskVersionID += 1;
-                        this.riskDataID = (Int32)tempRow["newRiskDataID"];
-                    }
-                }
-                else
-                {
-                    DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
-                    this.riskDataID = (Int32)tempRow["newRiskDataID"];
-                }
+            this.arA_EditRiskExposedPersons1.Enabled = this.arA_NewRiskRiskGrouping1.HasControlBeenChanged;
+            this.arA_EditRiskHazardIndentification1.Enabled = this.arA_EditRiskExposedPersons1.HasControlBeenChanged;
+            this.arA_EditRiskRiskEstimation1.Enabled = this.arA_EditRiskHazardIndentification1.HasControlBeenChanged;
+            this.arA_EditRiskRiskReductionMesures1.Enabled = this.arA_EditRiskRiskEstimation1.HasControlBeenChanged;
+            this.arA_EditRiskRiskEstimation2.Enabled = this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged;
+            this.arA_EditRiskRiskReductionMesures2.Enabled = this.arA_EditRiskRiskEstimation2.HasControlBeenChanged;
 
-                this.isRiskDataProjectSpecific = true;
-                setTopBarRiskInfo();
-            }
+            //Set indicator color to show user what is correctly filled in.
+            this.arA_NewRiskRiskGrouping1.IndicatorRectangleColor = this.arA_EditRiskExposedPersons1.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskExposedPersons1.IndicatorRectangleColor = this.arA_EditRiskHazardIndentification1.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskHazardIndentification1.IndicatorRectangleColor = this.arA_EditRiskRiskEstimation1.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskRiskEstimation1.IndicatorRectangleColor = this.arA_EditRiskRiskReductionMesures1.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskRiskReductionMesures1.IndicatorRectangleColor = this.arA_EditRiskRiskEstimation2.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskRiskEstimation2.IndicatorRectangleColor = this.arA_EditRiskRiskReductionMesures2.Enabled ? ARA_Colors.ARA_Green : ARA_Colors.ARA_Red;
+            this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = ARA_Colors.ARA_Green;
         }
 
         private void setTopBarRiskInfo()
@@ -197,7 +205,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Set top bar info.
             ARA_EditRiskBaseTopBar aForm = new ARA_EditRiskBaseTopBar(
                     string.Format("RiskID: {0} -- {1} -> {2}\nVersion: {3}",this.riskID,this.riskGroupName,this.riskTypeName,this.riskVersionID),
-                    string.Format("{0} {1}", this.hazardSituation,this.isRiskDataProjectSpecific && this.projectID != -1 ? "\n(Project specific)":""));
+                    string.Format("{0}", this.hazardSituation));
             ARA_Events.triggerBaseFormSetTopBarEvent(aForm);
         }
 
@@ -207,8 +215,6 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_ExposedPersons_In_Risk' table. You can move, or remove it, as needed.
             this.tbl_ExposedPersons_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_ExposedPersons_In_Risk);
-            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risks_In_Project' table. You can move, or remove it, as needed.
-            this.tbl_Risks_In_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risks_In_Project);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage' table. You can move, or remove it, as needed.
             this.tbl_BLOB_StorageTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_BLOB_Storage);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
@@ -243,7 +249,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if (e.Cancel == false)
             {
-                setRiskDataProjectSpecific();
+                setControlsEnabled();
 
                 this.pictureBox1.Image = Image.FromFile(this.openFileDialog1.FileName);
                 byte[] arr;
@@ -254,108 +260,26 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        private void EditRiskButtonNextRisk_Click(object sender, EventArgs e)
+        //Check if we have filled the form, delete the risk otherwise.
+        private void checkIfControlHasBeenFilledOnClose(object sender, OpenContentFormEventArgs e)
         {
-            setNextRisk(1);
-            setFormData();
-        }
-
-        private void EditRiskButtonPreviousRisk_Click(object sender, EventArgs e)
-        {
-            setNextRisk(-1);
-            setFormData();
-        }
-
-        //Sets button texts.
-        private void setPreviousAndNextButtonTexts()
-        {
-            //Set previous and next button texts.
-            this.EditRiskButtonPreviousRisk.Text = string.Format("< Previous risk in\n{0} - {1}", this.riskGroupName, this.riskTypeName);
-            this.EditRiskButtonNextRisk.Text = string.Format("Next risk in>\n{0} - {1}", this.riskGroupName, this.riskTypeName);
-            this.EditRiskButtonPreviousRisk.setButtonSelected(false);
-            this.EditRiskButtonNextRisk.setButtonSelected(false);
-        }
-
-        //Sets the forms current displayed risk to the next risk in the group.
-        private void setNextRisk(int direction)
-        {
-            //TODO zorg dat hij een andere lijst laad als het projectid -1 is
-            DataTable risksInGroupAndTypeView;
-            if (this.projectID == -1)
+            if(e.Form == this)
             {
-                risksInGroupAndTypeView = this.get_Risks_In_Group_And_TypeTableAdapter.GetData(this.riskGroupName, this.riskTypeName);
-            }
-            else
-            {
-                risksInGroupAndTypeView = this.get_Risks_With_Type_And_Group_In_ProjectTableAdapter.GetData(this.projectID, this.riskGroupName, this.riskTypeName);
-            }
-            int currentRiskRowIndex = risksInGroupAndTypeView.Rows.IndexOf(risksInGroupAndTypeView.Select("RiskID = " + this.riskID.ToString())[0]);
-            int risksInGroupAndTypeCount = risksInGroupAndTypeView.Rows.Count;
-
-            //Calculate next riskRowIndex.
-            if (currentRiskRowIndex + direction == risksInGroupAndTypeView.Rows.Count)
-            {
-                currentRiskRowIndex = 0;
-            }
-            else if(currentRiskRowIndex + direction == -1)
-            {
-                currentRiskRowIndex = risksInGroupAndTypeView.Rows.Count - 1;
-            }
-            else
-            {
-                currentRiskRowIndex += direction;
+                return;
             }
 
-            //Determin wich button u can press.
-            if (risksInGroupAndTypeCount == 1)
+            if(this.arA_NewRiskRiskGrouping1.HasControlBeenChanged == false ||
+            this.arA_EditRiskExposedPersons1.HasControlBeenChanged == false ||
+            this.arA_EditRiskHazardIndentification1.HasControlBeenChanged == false ||
+            this.arA_EditRiskRiskEstimation1.HasControlBeenChanged == false ||
+            this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged == false)
             {
-                this.EditRiskButtonNextRisk.Enabled = false;
-                this.EditRiskButtonPreviousRisk.Enabled = false;
-            }
-            else if (currentRiskRowIndex == 0)
-            {
-                this.EditRiskButtonNextRisk.Enabled = true;
-                this.EditRiskButtonPreviousRisk.Enabled = false;
-            }
-            else if (risksInGroupAndTypeCount == 2 || currentRiskRowIndex == risksInGroupAndTypeCount - 1)
-            {
-                this.EditRiskButtonNextRisk.Enabled = false;
-                this.EditRiskButtonPreviousRisk.Enabled = true;
-            }
-            else
-            {
-                this.EditRiskButtonNextRisk.Enabled = true;
-                this.EditRiskButtonPreviousRisk.Enabled = true;
+                System.Windows.Forms.MessageBox.Show("The risk couldn't be created, because not all required fields where filled.", "Could not create new risk.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.queriesTableAdapter1.Delete_Risk(this.riskID, this.riskDataID);
+                ARA_Events.openContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
             }
 
-            //Set class variables.
-            this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
-            this.riskVersionID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["VersionID"];
-
-            if(this.projectID != -1) //Are we editing a standard risk?
-            {
-                if(risksInGroupAndTypeView.Rows[currentRiskRowIndex]["ProjectRiskDataID"] != DBNull.Value)
-                {
-                    this.riskDataID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["ProjectRiskDataID"];
-                    this.isRiskDataProjectSpecific = true;
-                }
-                else
-                {
-                    this.riskDataID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["DefaultRiskDataID"];
-                    this.isRiskDataProjectSpecific = false;
-                }
-            }
-            else
-            {
-                this.riskDataID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskDataID"];
-                this.isRiskDataProjectSpecific = false;
-            }
-
-            //Sets navigator data.
-            this.EditRiskTextAmountOfRisksInType.Text = (currentRiskRowIndex + 1).ToString() + "/" + risksInGroupAndTypeCount.ToString();
-
-            //Set previous and next button texts.
-            setPreviousAndNextButtonTexts();
+            this.Dispose(true);
         }
     }
 }

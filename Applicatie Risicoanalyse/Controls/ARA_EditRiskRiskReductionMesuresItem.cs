@@ -58,7 +58,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 }
 
                 //Scale checkedlistbox height when we add an item.
-                this.checkedListBox1.ClientSize = new Size(this.checkedListBox1.ClientSize.Width, this.checkedListBox1.GetItemRectangle(0).Height * checkedListBox1.Items.Count);
+                this.checkedListBox1.Size = new Size(this.checkedListBox1.Size.Width, this.checkedListBox1.GetItemRectangle(0).Height * checkedListBox1.Items.Count);
             }
 
             //Delegate for mass removal of reduction mesures from riskdata.
@@ -67,6 +67,11 @@ namespace Applicatie_Risicoanalyse.Controls
                 if (itemCheckEventHandler != null)
                 {
                     controlData.RowFilter = "MesureGroup ='" + this.checkBox1.Text + "'";
+
+                    //Set flag so the control knows it has been changed.
+                    this.hasControlBeenChanged = !(this.checkedListBox1.CheckedItems.Count == 1 && e.NewValue == CheckState.Unchecked) || e.NewValue == CheckState.Checked;
+
+                    //Trigger eventhandler.
                     itemCheckEventHandler(sender, new MesureItemChangedEvent(Int32.Parse(controlData[e.Index]["MesureID"].ToString()), e.NewValue));
                 }
             };
@@ -93,8 +98,6 @@ namespace Applicatie_Risicoanalyse.Controls
         //Show or hide when groupcheckbox is checked.
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //Set flag so the control knows it has been changed.
-            this.hasControlBeenChanged = true;
             //Hide or show checkedlistbox on checkstate of checkbox1.
             this.checkedListBox1.Visible = this.checkBox1.Checked;
         }

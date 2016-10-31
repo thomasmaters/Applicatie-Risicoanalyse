@@ -16,6 +16,18 @@ namespace Applicatie_Risicoanalyse.Controls
     {
         private bool hasControlBeenChanged = false;
         public EventHandler<ExposedPersonChangedEvent> exposedPersonChangedEventHandler;
+        public Color IndicatorRectangleColor
+        {
+            get
+            {
+                return this.exposedPersonsRectangleIndicator.BackgroundColor;
+            }
+            set
+            {
+                this.exposedPersonsRectangleIndicator.BackgroundColor = value;
+                this.exposedPersonsRectangleIndicator.Invalidate();
+            }
+        }
 
         public ARA_EditRiskExposedPersons()
         {
@@ -60,11 +72,26 @@ namespace Applicatie_Risicoanalyse.Controls
 
                 checkbox.CheckStateChanged += delegate (object sender, EventArgs e)
                 {
-                    if(exposedPersonChangedEventHandler != null)
+                    setControlHasBeenChanged();
+
+                    if (exposedPersonChangedEventHandler != null)
                     {
                         exposedPersonChangedEventHandler(checkbox, new ExposedPersonChangedEvent((Int32)row["ExposedPersonID"],checkbox.CheckState));
                     }
                 };
+            }
+        }
+
+        private void setControlHasBeenChanged()
+        {
+            hasControlBeenChanged = false;
+            foreach (CheckBox control in this.flowLayoutPanel1.Controls.OfType<CheckBox>())
+            {
+                if (control.CheckState == CheckState.Checked)
+                {
+                    hasControlBeenChanged = true;
+                    break;
+                }
             }
         }
     }

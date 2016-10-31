@@ -41,12 +41,18 @@
             this.projectOverviewButtonCreateProjectRevision = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.projectOverviewPanelCreateProjectRevision = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.projectOverviewButtonEditStandardRisks = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.projectOverviewButtonEditRiskStandard = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.projectOverviewPanelEditRiskStandard = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.projectOverviewButtonCreateNewRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonRecentProjects);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewPanelRecentProjects);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonSpacer1);
@@ -59,7 +65,11 @@
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonCreateProjectRevision);
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewPanelCreateProjectRevision);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonEditStandardRisks);
+            this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonEditRiskStandard);
+            this.flowLayoutPanel1.Controls.Add(this.projectOverviewPanelEditRiskStandard);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonCreateNewRisk);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -173,13 +183,13 @@
             this.projectOverviewPanelCreateProject.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelCreateProject.MaximumSize = new System.Drawing.Size(750, 190);
             this.projectOverviewPanelCreateProject.Name = "projectOverviewPanelCreateProject";
-            this.projectOverviewPanelCreateProject.Size = new System.Drawing.Size(750, 190);
+            this.projectOverviewPanelCreateProject.Size = new System.Drawing.Size(750, 39);
             this.projectOverviewPanelCreateProject.TabIndex = 2;
             this.projectOverviewPanelCreateProject.Visible = false;
             // 
             // projectOverviewButtonSpacer3
             // 
-            this.projectOverviewButtonSpacer3.Location = new System.Drawing.Point(0, 377);
+            this.projectOverviewButtonSpacer3.Location = new System.Drawing.Point(0, 226);
             this.projectOverviewButtonSpacer3.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonSpacer3.MaximumSize = new System.Drawing.Size(800, 12);
             this.projectOverviewButtonSpacer3.Name = "projectOverviewButtonSpacer3";
@@ -191,7 +201,7 @@
             this.projectOverviewButtonCreateProjectRevision.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.projectOverviewButtonCreateProjectRevision.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateProjectRevision.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonCreateProjectRevision.Location = new System.Drawing.Point(0, 389);
+            this.projectOverviewButtonCreateProjectRevision.Location = new System.Drawing.Point(0, 238);
             this.projectOverviewButtonCreateProjectRevision.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonCreateProjectRevision.MaximumSize = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateProjectRevision.Name = "projectOverviewButtonCreateProjectRevision";
@@ -209,7 +219,7 @@
             // 
             // projectOverviewPanelCreateProjectRevision
             // 
-            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(0, 429);
+            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(0, 278);
             this.projectOverviewPanelCreateProjectRevision.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelCreateProjectRevision.Name = "projectOverviewPanelCreateProjectRevision";
             this.projectOverviewPanelCreateProjectRevision.Size = new System.Drawing.Size(750, 43);
@@ -218,38 +228,86 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 472);
+            this.panel1.Location = new System.Drawing.Point(0, 321);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 12);
             this.panel1.TabIndex = 11;
             // 
-            // projectOverviewButtonEditStandardRisks
+            // projectOverviewButtonEditRiskStandard
             // 
-            this.projectOverviewButtonEditStandardRisks.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.projectOverviewButtonEditStandardRisks.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.projectOverviewButtonEditStandardRisks.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonEditStandardRisks.Location = new System.Drawing.Point(0, 484);
-            this.projectOverviewButtonEditStandardRisks.Margin = new System.Windows.Forms.Padding(0);
-            this.projectOverviewButtonEditStandardRisks.MaximumSize = new System.Drawing.Size(750, 40);
-            this.projectOverviewButtonEditStandardRisks.Name = "projectOverviewButtonEditStandardRisks";
-            this.projectOverviewButtonEditStandardRisks.PaddingFirstTriangle = 250;
-            this.projectOverviewButtonEditStandardRisks.PaddingSecondTriangle = 700;
-            this.projectOverviewButtonEditStandardRisks.Selected = false;
-            this.projectOverviewButtonEditStandardRisks.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.projectOverviewButtonEditStandardRisks.SelectedTextColor = System.Drawing.Color.White;
-            this.projectOverviewButtonEditStandardRisks.Size = new System.Drawing.Size(750, 40);
-            this.projectOverviewButtonEditStandardRisks.TabIndex = 10;
-            this.projectOverviewButtonEditStandardRisks.Text = "Edit Risks";
-            this.projectOverviewButtonEditStandardRisks.TextColor = System.Drawing.Color.White;
-            this.projectOverviewButtonEditStandardRisks.TriangleSize = 20;
-            this.projectOverviewButtonEditStandardRisks.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.projectOverviewButtonEditRiskStandard.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonEditRiskStandard.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.projectOverviewButtonEditRiskStandard.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.projectOverviewButtonEditRiskStandard.Location = new System.Drawing.Point(0, 333);
+            this.projectOverviewButtonEditRiskStandard.Margin = new System.Windows.Forms.Padding(0);
+            this.projectOverviewButtonEditRiskStandard.MaximumSize = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonEditRiskStandard.Name = "projectOverviewButtonEditRiskStandard";
+            this.projectOverviewButtonEditRiskStandard.PaddingFirstTriangle = 250;
+            this.projectOverviewButtonEditRiskStandard.PaddingSecondTriangle = 700;
+            this.projectOverviewButtonEditRiskStandard.Selected = false;
+            this.projectOverviewButtonEditRiskStandard.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonEditRiskStandard.SelectedTextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonEditRiskStandard.Size = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonEditRiskStandard.TabIndex = 10;
+            this.projectOverviewButtonEditRiskStandard.Text = "Edit Risk Standard";
+            this.projectOverviewButtonEditRiskStandard.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonEditRiskStandard.TriangleSize = 20;
+            this.projectOverviewButtonEditRiskStandard.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // projectOverviewPanelEditRiskStandard
+            // 
+            this.projectOverviewPanelEditRiskStandard.AutoSize = true;
+            this.projectOverviewPanelEditRiskStandard.Location = new System.Drawing.Point(750, 333);
+            this.projectOverviewPanelEditRiskStandard.Margin = new System.Windows.Forms.Padding(0);
+            this.projectOverviewPanelEditRiskStandard.Name = "projectOverviewPanelEditRiskStandard";
+            this.projectOverviewPanelEditRiskStandard.Size = new System.Drawing.Size(0, 0);
+            this.projectOverviewPanelEditRiskStandard.TabIndex = 12;
+            this.projectOverviewPanelEditRiskStandard.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(0, 373);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.MaximumSize = new System.Drawing.Size(800, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(750, 12);
+            this.panel2.TabIndex = 13;
+            // 
+            // projectOverviewButtonCreateNewRisk
+            // 
+            this.projectOverviewButtonCreateNewRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonCreateNewRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.projectOverviewButtonCreateNewRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.projectOverviewButtonCreateNewRisk.Location = new System.Drawing.Point(0, 385);
+            this.projectOverviewButtonCreateNewRisk.Margin = new System.Windows.Forms.Padding(0);
+            this.projectOverviewButtonCreateNewRisk.MaximumSize = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonCreateNewRisk.Name = "projectOverviewButtonCreateNewRisk";
+            this.projectOverviewButtonCreateNewRisk.Selected = false;
+            this.projectOverviewButtonCreateNewRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonCreateNewRisk.SelectedTextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonCreateNewRisk.Size = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonCreateNewRisk.TabIndex = 14;
+            this.projectOverviewButtonCreateNewRisk.Text = "Create New Risk";
+            this.projectOverviewButtonCreateNewRisk.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonCreateNewRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.projectOverviewButtonCreateNewRisk.Click += new System.EventHandler(this.projectOverviewButtonCreateNewRisk_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 425);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.MaximumSize = new System.Drawing.Size(800, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(750, 12);
+            this.panel3.TabIndex = 15;
             // 
             // ARA_ProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 488);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -263,6 +321,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -281,6 +340,10 @@
         private System.Windows.Forms.Panel projectOverviewButtonSpacer2;
         private System.Windows.Forms.Panel projectOverviewButtonSpacer3;
         private System.Windows.Forms.Panel panel1;
-        private Controls.ARA_DropDownButton projectOverviewButtonEditStandardRisks;
+        private Controls.ARA_DropDownButton projectOverviewButtonEditRiskStandard;
+        private System.Windows.Forms.FlowLayoutPanel projectOverviewPanelEditRiskStandard;
+        private System.Windows.Forms.Panel panel2;
+        private Controls.ARA_Button projectOverviewButtonCreateNewRisk;
+        private System.Windows.Forms.Panel panel3;
     }
 }

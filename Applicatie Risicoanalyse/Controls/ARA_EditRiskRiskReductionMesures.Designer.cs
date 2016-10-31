@@ -28,25 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.HazardPanelSpacerRight = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.RiskEstimationText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
-            this.arA_Rectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
+            this.riskReductionRectangleIndicator = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.HarzardTextTitle = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // HazardPanelSpacerRight
-            // 
-            this.HazardPanelSpacerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.HazardPanelSpacerRight.Location = new System.Drawing.Point(739, 0);
-            this.HazardPanelSpacerRight.Margin = new System.Windows.Forms.Padding(0);
-            this.HazardPanelSpacerRight.Name = "HazardPanelSpacerRight";
-            this.HazardPanelSpacerRight.Size = new System.Drawing.Size(11, 178);
-            this.HazardPanelSpacerRight.TabIndex = 35;
             // 
             // flowLayoutPanel1
             // 
@@ -58,10 +48,10 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 23);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(724, 500);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(710, 500);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(724, 92);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(710, 92);
             this.flowLayoutPanel1.TabIndex = 80;
             this.flowLayoutPanel1.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
             // 
@@ -97,20 +87,20 @@
             this.arA_TextBox1.Location = new System.Drawing.Point(6, 23);
             this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_TextBox1.Name = "arA_TextBox1";
-            this.arA_TextBox1.Size = new System.Drawing.Size(718, 48);
+            this.arA_TextBox1.Size = new System.Drawing.Size(705, 48);
             this.arA_TextBox1.TabIndex = 71;
             this.arA_TextBox1.Text = "";
             this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
             // arA_Rectangle2
             // 
-            this.arA_Rectangle2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Rectangle2.Location = new System.Drawing.Point(11, 23);
-            this.arA_Rectangle2.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Rectangle2.Name = "arA_Rectangle2";
-            this.arA_Rectangle2.Size = new System.Drawing.Size(4, 50);
-            this.arA_Rectangle2.TabIndex = 34;
-            this.arA_Rectangle2.Text = "arA_Rectangle2";
+            this.riskReductionRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskReductionRectangleIndicator.Location = new System.Drawing.Point(11, 23);
+            this.riskReductionRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
+            this.riskReductionRectangleIndicator.Name = "arA_Rectangle2";
+            this.riskReductionRectangleIndicator.Size = new System.Drawing.Size(4, 50);
+            this.riskReductionRectangleIndicator.TabIndex = 34;
+            this.riskReductionRectangleIndicator.Text = "arA_Rectangle2";
             // 
             // HarzardTextTitle
             // 
@@ -119,9 +109,9 @@
             this.HarzardTextTitle.Location = new System.Drawing.Point(11, 0);
             this.HarzardTextTitle.Margin = new System.Windows.Forms.Padding(0);
             this.HarzardTextTitle.Name = "HarzardTextTitle";
-            this.HarzardTextTitle.Size = new System.Drawing.Size(728, 23);
+            this.HarzardTextTitle.Size = new System.Drawing.Size(714, 23);
             this.HarzardTextTitle.TabIndex = 33;
-            this.HarzardTextTitle.Text = "Hazard Identification";
+            this.HarzardTextTitle.Text = "Risk reduction";
             this.HarzardTextTitle.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_EditRiskRiskReductionMesures
@@ -130,14 +120,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.HazardPanelSpacerRight);
-            this.Controls.Add(this.arA_Rectangle2);
+            this.Controls.Add(this.riskReductionRectangleIndicator);
             this.Controls.Add(this.HarzardTextTitle);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(750, 500);
+            this.MaximumSize = new System.Drawing.Size(725, 2000);
             this.Name = "ARA_EditRiskRiskReductionMesures";
-            this.Size = new System.Drawing.Size(750, 178);
+            this.Size = new System.Drawing.Size(725, 178);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -146,9 +135,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel HazardPanelSpacerRight;
-        private ARA_Rectangle arA_Rectangle2;
+        private ARA_Rectangle riskReductionRectangleIndicator;
         private ARA_Text HarzardTextTitle;
         private ARA_Text RiskEstimationText;
         private ARA_TextBox arA_TextBox1;

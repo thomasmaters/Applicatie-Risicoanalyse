@@ -183,4 +183,21 @@ namespace Applicatie_Risicoanalyse.Globals
             this.checkedState = checkedState;
         }
     }
+
+    public class RiskComponentGroupAndTypeChangedEvent : EventArgs
+    {
+        public string componentGroup { get; private set; }
+        public string componentType { get; private set; }
+
+        private RiskComponentGroupAndTypeChangedEvent()
+        {
+
+        }
+
+        public RiskComponentGroupAndTypeChangedEvent(string componentGroup, string componentType)
+        {
+            this.componentGroup = componentGroup;
+            this.componentType = componentType;
+        }
+    }
 }

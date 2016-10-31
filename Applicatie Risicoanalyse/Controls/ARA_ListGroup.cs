@@ -189,7 +189,6 @@ namespace Applicatie_Risicoanalyse.Controls
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Debug.WriteLine("ARA_ListGroup");
             this.updateControl();
             this.updateParentControl();
             this.updateChilderenControls();
@@ -198,7 +197,6 @@ namespace Applicatie_Risicoanalyse.Controls
         protected override void OnDoubleClick(EventArgs e)
         {
             base.OnDoubleClick(e);
-            Debug.WriteLine("doubleclick");
             this.updateControl();
             this.updateParentControl();
             this.updateChilderenControls();
@@ -211,7 +209,6 @@ namespace Applicatie_Risicoanalyse.Controls
             {
                 action();
             }
-            Debug.WriteLine("updateControl");
             this.Invalidate();
         }
 
