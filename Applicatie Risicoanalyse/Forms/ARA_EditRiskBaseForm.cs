@@ -172,7 +172,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if(this.isRiskDataProjectSpecific == false)
             {
-                if (this.projectID == -1)
+                if (this.projectID == -1)//Are we edeting the standard?
                 {
                     DataRow tempRow = this.create_New_Risk_VersionTableAdapter.GetData(this.riskID, this.riskVersionID, this.riskDataID).Rows[0];
                     if(tempRow != null && tempRow["newRiskDataID"] != DBNull.Value)
@@ -180,6 +180,7 @@ namespace Applicatie_Risicoanalyse.Forms
                         this.riskVersionID += 1;
                         this.riskDataID = (Int32)tempRow["newRiskDataID"];
                     }
+                    //TODO make open projects update there risks if the user creates a new risk version.
                 }
                 else
                 {
@@ -279,7 +280,6 @@ namespace Applicatie_Risicoanalyse.Forms
         //Sets the forms current displayed risk to the next risk in the group.
         private void setNextRisk(int direction)
         {
-            //TODO zorg dat hij een andere lijst laad als het projectid -1 is
             DataTable risksInGroupAndTypeView;
             if (this.projectID == -1)
             {
@@ -332,7 +332,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
             this.riskVersionID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["VersionID"];
 
-            if(this.projectID != -1) //Are we editing a standard risk?
+            if(this.projectID != -1) //Are we not editing a standard risk?
             {
                 if(risksInGroupAndTypeView.Rows[currentRiskRowIndex]["ProjectRiskDataID"] != DBNull.Value)
                 {
