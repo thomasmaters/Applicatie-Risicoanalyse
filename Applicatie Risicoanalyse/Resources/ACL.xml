@@ -12,6 +12,14 @@
 		<right name="General.ButtonOpenRisk" 				access="none"/>
 		<right name="General.ButtonEditRiskStandard"		access="none"/>
 		<right name="General.ButtonCreateNewRisk"			access="none"/>
+		
+		<right name="Function.EditExposedPersons"			access="none"/>
+		<right name="Function.EditHazardIndentification"	access="none"/>
+		<right name="Function.EditRiskEstimationBeforeRiskReduction"	access="none"/>
+		<right name="Function.EditRiskEstimationAfterRiskReduction"		access="none"/>
+		<right name="Function.EditRiskReductionMesures"		access="none"/>
+		<right name="Function.EditRemaingRisk"				access="none"/>
+		<right name="Function.EditRiskImage"				access="none"/>
 	</acl>	
 	<acl groupname="Admin">	
 		<right name="General.ButtonOpenAdminPanel"			access="all"/>
@@ -26,6 +34,14 @@
 		<right name="General.ButtonOpenRisk" 				access="all"/>
 		<right name="General.ButtonEditRiskStandard"		access="all"/>
 		<right name="General.ButtonCreateNewRisk"			access="all"/>
+		
+		<right name="Function.EditExposedPersons"			access="all"/>
+		<right name="Function.EditHazardIndentification"	access="all"/>
+		<right name="Function.EditRiskEstimationBeforeRiskReduction"	access="all"/>
+		<right name="Function.EditRiskEstimationAfterRiskReduction"		access="all"/>
+		<right name="Function.EditRiskReductionMesures"		access="all"/>
+		<right name="Function.EditRemaingRisk"				access="all"/>
+		<right name="Function.EditRiskImage"				access="all"/>
 	</acl>	
 	<acl groupname="Engineer">	
 		<right name="General.ButtonCreateProject"  			access="readonly"/>

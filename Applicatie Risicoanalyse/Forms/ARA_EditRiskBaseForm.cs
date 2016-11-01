@@ -45,6 +45,19 @@ namespace Applicatie_Risicoanalyse.Forms
 
             setFormData();
             setNextRisk(0);
+
+            loadPermissions();
+        }
+
+        private void loadPermissions()
+        {
+            this.arA_EditRiskExposedPersons1.Enabled        = ARA_ACL.getPermissionLevel("Function.EditExposedPersons") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskHazardIndentification1.Enabled = ARA_ACL.getPermissionLevel("Function.EditHazardIndentification") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskEstimation1.Enabled        = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationBeforeRiskReduction") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskEstimation2.Enabled        = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationAfterRiskReduction") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskReductionMesures1.Enabled  = ARA_ACL.getPermissionLevel("Function.EditRiskReductionMesures") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskReductionMesures2.Enabled  = ARA_ACL.getPermissionLevel("Function.EditRemaingRisk") == ARA_Globals.PermissionLevel.All;
+            this.arA_Button1.Enabled                        = ARA_ACL.getPermissionLevel("Function.EditRiskImage") == ARA_Globals.PermissionLevel.All;
         }
 
         private void setFormData()
