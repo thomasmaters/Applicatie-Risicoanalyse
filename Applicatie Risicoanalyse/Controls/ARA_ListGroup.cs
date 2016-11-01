@@ -30,6 +30,19 @@ namespace Applicatie_Risicoanalyse.Controls
 
             //Add random function.
         }
+        [Category("Sub controls")]
+        public Color TextColor
+        {
+            get
+            {
+                return this.ARA_ListGroupDropDownButton.TextColor;
+            }
+            set
+            {
+                this.ARA_ListGroupDropDownButton.TextColor = value;
+                this.ARA_ListGroupText.ForeColor = value;
+            }
+        }
 
         [Category("Sub controls")]
         public Color BackgroundColor

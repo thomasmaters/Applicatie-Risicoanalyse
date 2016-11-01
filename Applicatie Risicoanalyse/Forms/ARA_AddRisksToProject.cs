@@ -155,8 +155,8 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             listGroup.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
             listGroup.ARA_ListGroupText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            listGroup.BackColor = System.Drawing.SystemColors.Control;
-            listGroup.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            listGroup.BackColor = Color.White;
+            listGroup.BackgroundColor = Color.White;
             listGroup.DropDownButtonFirstTrianglePadding = 5;
             listGroup.DropDownButtonSecondTrianglePadding = -1;
             listGroup.DropDownButtonSize = new System.Drawing.Size(656, 28);
@@ -169,6 +169,7 @@ namespace Applicatie_Risicoanalyse.Forms
             listGroup.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(160)))), ((int)(((byte)(198)))));
             listGroup.Size = new System.Drawing.Size(750, 415);
             listGroup.TextSize = new System.Drawing.Size(94, 28);
+            listGroup.TextColor = Color.Black;
 
             listParent.addChild(listGroup);
             listParent.addControlToDropDownButton(listGroup);

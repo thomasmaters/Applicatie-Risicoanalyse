@@ -200,6 +200,12 @@
     <Compile Include="Controls\ARA_DropDownButton.Designer.cs">
       <DependentUpon>ARA_DropDownButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_AdministratorForm.Designer.cs">
+      <DependentUpon>ARA_AdministratorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_NewRiskRiskGrouping.resx">
       <DependentUpon>ARA_NewRiskRiskGrouping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_AdministratorForm.resx">
+      <DependentUpon>ARA_AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_BaseForm.resx">
       <DependentUpon>ARA_BaseForm.cs</DependentUpon>

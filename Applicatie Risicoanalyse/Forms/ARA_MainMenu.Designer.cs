@@ -35,12 +35,13 @@
             this.MainMenuRecentActivityText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.MainMenuPanelContent = new System.Windows.Forms.FlowLayoutPanel();
             this.MainMenuTable = new System.Windows.Forms.DataGridView();
-            this.tblLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
             this.logDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
+            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.MainMenuPanelTitle.SuspendLayout();
             this.MainMenuPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenuTable)).BeginInit();
@@ -74,6 +75,7 @@
             // 
             this.MainMenuPanelContent.BackColor = System.Drawing.Color.White;
             this.MainMenuPanelContent.Controls.Add(this.MainMenuTable);
+            this.MainMenuPanelContent.Controls.Add(this.arA_Button1);
             this.MainMenuPanelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainMenuPanelContent.Location = new System.Drawing.Point(0, 27);
             this.MainMenuPanelContent.Margin = new System.Windows.Forms.Padding(0);
@@ -131,20 +133,6 @@
             this.MainMenuTable.TabIndex = 0;
             this.MainMenuTable.SelectionChanged += new System.EventHandler(this.onMainMenuTableSelectionChanged);
             // 
-            // tblLogBindingSource
-            // 
-            this.tblLogBindingSource.DataMember = "Tbl_Log";
-            this.tblLogBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbl_LogTableAdapter
-            // 
-            this.tbl_LogTableAdapter.ClearBeforeFill = true;
-            // 
             // logDateDataGridViewTextBoxColumn
             // 
             this.logDateDataGridViewTextBoxColumn.DataPropertyName = "LogDate";
@@ -168,6 +156,38 @@
             this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
             this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.userIDDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // tblLogBindingSource
+            // 
+            this.tblLogBindingSource.DataMember = "Tbl_Log";
+            this.tblLogBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbl_LogTableAdapter
+            // 
+            this.tbl_LogTableAdapter.ClearBeforeFill = true;
+            // 
+            // arA_Button1
+            // 
+            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_Button1.Location = new System.Drawing.Point(0, 183);
+            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_Button1.Name = "arA_Button1";
+            this.arA_Button1.Selected = false;
+            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
+            this.arA_Button1.Size = new System.Drawing.Size(750, 33);
+            this.arA_Button1.TabIndex = 1;
+            this.arA_Button1.Text = "Open admin panel";
+            this.arA_Button1.TextColor = System.Drawing.Color.White;
+            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
             // 
             // ARA_MainMenu
             // 
@@ -206,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn logDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actionDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private Controls.ARA_Button arA_Button1;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -16,11 +17,13 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_MainMenu()
         {
             InitializeComponent();
+
+            loadPermissions();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void loadPermissions()
         {
-
+            this.arA_Button1.Visible = ARA_ACL.getPermissionLevel("General.ButtonOpenAdminPanel") == ARA_Globals.PermissionLevel.All;
         }
 
         private void ARA_MainMenu_Load(object sender, EventArgs e)
@@ -35,6 +38,11 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onMainMenuTableSelectionChanged(object sender, EventArgs e)
         {
             this.MainMenuTable.ClearSelection();
+        }
+
+        private void arA_Button1_Click(object sender, EventArgs e)
+        {
+            ARA_Events.onOpenContentFormEvent(new ARA_AdministratorForm());
         }
     }
 }

@@ -1,5 +1,7 @@
 <acl>
 	<acl groupname="Default">
+		<right name="General.ButtonOpenAdminPanel"			access="none"/>
+	
 		<right name="General.ButtonCreateProject"  			access="none"/>
 		<right name="General.ButtonOpenProject" 			access="none"/>
 		<right name="General.ButtonRecentProjects" 			access="none"/>
@@ -12,6 +14,8 @@
 		<right name="General.ButtonCreateNewRisk"			access="none"/>
 	</acl>	
 	<acl groupname="Admin">	
+		<right name="General.ButtonOpenAdminPanel"			access="all"/>
+	
 		<right name="General.ButtonCreateProject"  			access="all"/>
 		<right name="General.ButtonOpenProject" 			access="all"/>
 		<right name="General.ButtonRecentProjects" 			access="all"/>

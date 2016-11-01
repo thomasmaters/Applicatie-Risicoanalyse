@@ -23,6 +23,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Add the sidebar to the application base on load.
             setPanelForm(new ARA_SideBar(), this.SidePanel);
+            setPanelForm(new ARA_MainMenu(), this.contentPanel);
         }
 
         //Set the content panels form.
