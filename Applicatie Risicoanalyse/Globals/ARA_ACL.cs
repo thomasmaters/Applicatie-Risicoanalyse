@@ -20,14 +20,19 @@ namespace Applicatie_Risicoanalyse.Globals
         {
             appPermissions = new List<Permission>();
 
+            loadPermissionsFromXML();
+        }
+
+        private void loadPermissionsFromXML()
+        {
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(Applicatie_Risicoanalyse.Properties.Resources.ACL);
 
             foreach (XmlNode node in xml.FirstChild.ChildNodes)
             {
-                foreach(XmlNode value in node)
+                foreach (XmlNode value in node)
                 {
-                    if(appPermissions.Find(x => x.PermissionName == value.Attributes[0].Value.ToString()) == null)
+                    if (appPermissions.Find(x => x.PermissionName == value.Attributes[0].Value.ToString()) == null)
                     {
                         appPermissions.Add(new Permission(value.Attributes[0].Value.ToString()));
                     }
