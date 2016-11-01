@@ -21,7 +21,7 @@ namespace Applicatie_Risicoanalyse.Controls
 
         private void OnPopup(object sender, PopupEventArgs e) // use this event to set the size of the tool tip
         {
-            e.ToolTipSize = new Size(300, 200);
+            e.ToolTipSize = new Size(300, 300);
         }
 
         private void OnDraw(object sender, DrawToolTipEventArgs e) // use this to customzie the tool tip
@@ -33,11 +33,12 @@ namespace Applicatie_Risicoanalyse.Controls
            
             if (parent.Tag != null)
             {
-                Image pelican = parent.Tag as Image;
-                if(pelican != null)
+                Image image = parent.Tag as Image;
+                
+                if(image != null)
                 {
-                    //create your own custom brush to fill the background with the image
-                    TextureBrush b = new TextureBrush(new Bitmap(pelican));// get the image from Tag
+                    //create image brush.
+                    TextureBrush b = new TextureBrush(new Bitmap(image,e.Bounds.Size));// get the image from Tag
 
                     g.FillRectangle(b, e.Bounds);
                     b.Dispose();

@@ -15,7 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     {
         private ARA_ListInterface listParent;
         private List<Action> functions = new List<Action>();
-        private ARA_ImageTooltip tooltip = new ARA_ImageTooltip();
+        private ARA_ImageTooltip tooltip = null;
 
         public ARA_ListInterface()
         {
@@ -52,6 +52,10 @@ namespace Applicatie_Risicoanalyse.Controls
         {
             get
             {
+                if(tooltip == null)
+                {
+                    this.tooltip = new ARA_ImageTooltip();
+                }
                 return tooltip;
             }
 

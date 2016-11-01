@@ -149,6 +149,7 @@
             // 
             this.arA_EditRiskExposedPersons1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskExposedPersons1.HasControlBeenChanged = false;
+            this.arA_EditRiskExposedPersons1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskExposedPersons1.Location = new System.Drawing.Point(0, 344);
             this.arA_EditRiskExposedPersons1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskExposedPersons1.Name = "arA_EditRiskExposedPersons1";
@@ -161,6 +162,7 @@
             this.arA_EditRiskHazardIndentification1.BackColor = System.Drawing.Color.White;
             this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged = true;
+            this.arA_EditRiskHazardIndentification1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 399);
             this.arA_EditRiskHazardIndentification1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 170);
@@ -172,6 +174,7 @@
             // 
             this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation1.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskEstimation1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 569);
             this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
@@ -184,18 +187,20 @@
             this.arA_EditRiskRiskReductionMesures1.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 885);
             this.arA_EditRiskRiskReductionMesures1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures1.MaximumSize = new System.Drawing.Size(750, 2000);
             this.arA_EditRiskRiskReductionMesures1.Name = "arA_EditRiskRiskReductionMesures1";
             this.arA_EditRiskRiskReductionMesures1.Size = new System.Drawing.Size(725, 115);
             this.arA_EditRiskRiskReductionMesures1.TabIndex = 3;
-            this.arA_EditRiskRiskReductionMesures1.TitleText = "Hazard Identification";
+            this.arA_EditRiskRiskReductionMesures1.TitleText = "Risk Reduction";
             // 
             // arA_EditRiskRiskEstimation2
             // 
             this.arA_EditRiskRiskEstimation2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation2.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskEstimation2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 1000);
             this.arA_EditRiskRiskEstimation2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimation2.Name = "arA_EditRiskRiskEstimation2";
@@ -208,13 +213,14 @@
             this.arA_EditRiskRiskReductionMesures2.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures2.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 1322);
             this.arA_EditRiskRiskReductionMesures2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskReductionMesures2.MaximumSize = new System.Drawing.Size(725, 2000);
             this.arA_EditRiskRiskReductionMesures2.Name = "arA_EditRiskRiskReductionMesures2";
             this.arA_EditRiskRiskReductionMesures2.Size = new System.Drawing.Size(725, 115);
             this.arA_EditRiskRiskReductionMesures2.TabIndex = 5;
-            this.arA_EditRiskRiskReductionMesures2.TitleText = "Minimal Addition";
+            this.arA_EditRiskRiskReductionMesures2.TitleText = "Remaining Risks";
             // 
             // EditRiskButtonPreviousRisk
             // 

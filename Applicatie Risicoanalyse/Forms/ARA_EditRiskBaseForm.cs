@@ -180,7 +180,9 @@ namespace Applicatie_Risicoanalyse.Forms
                         this.riskVersionID += 1;
                         this.riskDataID = (Int32)tempRow["newRiskDataID"];
                     }
-                    //TODO make open projects update there risks if the user creates a new risk version.
+
+                    //Update risks in open risk projects with new risk version.
+                    this.queriesTableAdapter1.Update_Risks_In_Open_Risk_Projects();
                 }
                 else
                 {
@@ -306,7 +308,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 currentRiskRowIndex += direction;
             }
 
-            //Determin wich button u can press.
+            //Determin wich button the user can press.
             if (risksInGroupAndTypeCount == 1)
             {
                 this.EditRiskButtonNextRisk.Enabled = false;
@@ -332,7 +334,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
             this.riskVersionID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["VersionID"];
 
-            if(this.projectID != -1) //Are we not editing a standard risk?
+            if(this.projectID != -1) //We are edeting a project specific risk.
             {
                 if(risksInGroupAndTypeView.Rows[currentRiskRowIndex]["ProjectRiskDataID"] != DBNull.Value)
                 {
@@ -345,7 +347,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     this.isRiskDataProjectSpecific = false;
                 }
             }
-            else
+            else //We are editing a standard risk.
             {
                 this.riskDataID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskDataID"];
                 this.isRiskDataProjectSpecific = false;

@@ -44,6 +44,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onOpenContentFormEvent(object sender, OpenContentFormEventArgs e)
         {
             setPanelForm(e.Form,this.contentPanel);
+            GC.Collect();
         }
 
         private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)
@@ -56,6 +57,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 this.TopBar.Controls.Clear();
             }
+            GC.Collect();
         }
     }
 }
