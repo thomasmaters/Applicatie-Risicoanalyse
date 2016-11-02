@@ -254,10 +254,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 }
             }
         }
-        /// <summary>
-        /// Adds a child to this control, so when this control gets updated the childeren are getting updated also.
-        /// </summary>
-        /// <param name="child">An ARA_ListInterface instance.</param>
+
         public void addChild(ARA_ListInterface child)
         {
             if(child != null)

@@ -17,6 +17,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if (disposing && (components != null))
             {
+                deleteControlIfItIsNotFilled();
                 components.Dispose();
             }
             base.Dispose(disposing);

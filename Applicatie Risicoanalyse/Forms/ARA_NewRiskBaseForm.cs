@@ -268,7 +268,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 return;
             }
 
-            if(this.arA_NewRiskRiskGrouping1.HasControlBeenChanged == false ||
+            deleteControlIfItIsNotFilled();
+        }
+
+        private void deleteControlIfItIsNotFilled()
+        {
+            if (this.arA_NewRiskRiskGrouping1.HasControlBeenChanged == false ||
             this.arA_EditRiskExposedPersons1.HasControlBeenChanged == false ||
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged == false ||
             this.arA_EditRiskRiskEstimation1.HasControlBeenChanged == false ||
@@ -278,8 +283,6 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.queriesTableAdapter1.Delete_Risk(this.riskID, this.riskDataID);
                 ARA_Events.openContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
             }
-
-            this.Dispose(true);
         }
     }
 }

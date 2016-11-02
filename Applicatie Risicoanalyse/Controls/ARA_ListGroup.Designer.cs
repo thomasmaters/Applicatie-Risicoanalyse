@@ -63,7 +63,7 @@
             // ARA_ListGroupContentPanel
             // 
             this.ARA_ListGroupContentPanel.AutoSize = true;
-            this.ARA_ListGroupContentPanel.BackColor = System.Drawing.Color.Maroon;
+            this.ARA_ListGroupContentPanel.BackColor = System.Drawing.Color.White;
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupDropDownButton);
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupText);
             this.ARA_ListGroupContentPanel.Controls.Add(this.ARA_ListGroupPanelButton);
@@ -89,6 +89,7 @@
             this.ARA_ListGroupDropDownButton.PaddingSecondTriangle = -1;
             this.ARA_ListGroupDropDownButton.Selected = false;
             this.ARA_ListGroupDropDownButton.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(160)))), ((int)(((byte)(198)))));
+            this.ARA_ListGroupDropDownButton.SelectedTextColor = System.Drawing.Color.White;
             this.ARA_ListGroupDropDownButton.Size = new System.Drawing.Size(656, 37);
             this.ARA_ListGroupDropDownButton.TabIndex = 1;
             this.ARA_ListGroupDropDownButton.TextColor = System.Drawing.Color.White;
