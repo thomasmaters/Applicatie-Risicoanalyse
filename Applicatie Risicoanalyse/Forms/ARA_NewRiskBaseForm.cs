@@ -277,12 +277,16 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskExposedPersons1.HasControlBeenChanged == false ||
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged == false ||
             this.arA_EditRiskRiskEstimation1.HasControlBeenChanged == false ||
-            this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged == false)
+            this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged == false) //The form is not filled in correctly.
             {
                 System.Windows.Forms.MessageBox.Show("The risk couldn't be created, because not all required fields where filled.", "Could not create new risk.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.queriesTableAdapter1.Delete_Risk(this.riskID, this.riskDataID);
-                ARA_Events.openContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
             }
+            else //We filled the form correctly
+            {
+                System.Windows.Forms.MessageBox.Show("A new risk has been added to the standard!", "New Risk created.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            ARA_Events.openContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
         }
     }
 }
