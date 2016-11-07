@@ -18,7 +18,7 @@ namespace Applicatie_Risicoanalyse.Forms
         public testForm()
         {
             InitializeComponent();
-            this.arA_ListGroup1.addFunction(delegate () { this.arA_ListGroup1.ARA_ListGroupText.Text = "test"; });
+            
         }
     }
 }

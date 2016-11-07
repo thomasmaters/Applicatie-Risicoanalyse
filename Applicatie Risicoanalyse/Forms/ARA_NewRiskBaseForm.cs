@@ -237,7 +237,11 @@ namespace Applicatie_Risicoanalyse.Forms
                 pictureBox1.Image = Image.FromStream(new MemoryStream(data));
             }
         }
-
+        /// <summary>
+        ///   
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         //Button clicked for uploading a new image.
         private void arA_Button1_Click(object sender, EventArgs e)
         {

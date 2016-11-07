@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Applicatie_Risicoanalyse.Globals;
+
 namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_SearchRiskStandard : Form
@@ -15,6 +17,11 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_SearchRiskStandard()
         {
             InitializeComponent();
+            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            foreach (Control control in this.Controls)
+            {
+                control.Font = this.Font;
+            }
 
             this.OpenProjectDataGrid.DataSource = this.search_Risk_StandardTableAdapter.GetData(this.OpenProjectTextBoxSearch.Text);
             this.OpenProjectDataGrid.Sort(this.OpenProjectDataGrid.Columns[0],ListSortDirection.Ascending);

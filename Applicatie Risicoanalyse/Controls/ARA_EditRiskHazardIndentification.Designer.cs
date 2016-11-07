@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.HazardPanelSpacerRight = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tbl_Danger_SourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,15 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Danger_ResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // HazardPanelSpacerRight
-            // 
-            this.HazardPanelSpacerRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.HazardPanelSpacerRight.Location = new System.Drawing.Point(739, 0);
-            this.HazardPanelSpacerRight.Margin = new System.Windows.Forms.Padding(0);
-            this.HazardPanelSpacerRight.Name = "HazardPanelSpacerRight";
-            this.HazardPanelSpacerRight.Size = new System.Drawing.Size(11, 170);
-            this.HazardPanelSpacerRight.TabIndex = 32;
             // 
             // comboBox1
             // 
@@ -130,6 +120,7 @@
             this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
             this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
@@ -160,12 +151,12 @@
             // 
             this.tbl_Risk_DataTableAdapter.ClearBeforeFill = true;
             // 
-            // arA_Rectangle2
+            // hazardIndentificationRectangleIndicator
             // 
             this.hazardIndentificationRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.hazardIndentificationRectangleIndicator.Location = new System.Drawing.Point(11, 23);
             this.hazardIndentificationRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
-            this.hazardIndentificationRectangleIndicator.Name = "arA_Rectangle2";
+            this.hazardIndentificationRectangleIndicator.Name = "hazardIndentificationRectangleIndicator";
             this.hazardIndentificationRectangleIndicator.Size = new System.Drawing.Size(4, 138);
             this.hazardIndentificationRectangleIndicator.TabIndex = 29;
             this.hazardIndentificationRectangleIndicator.Text = "arA_Rectangle2";
@@ -194,7 +185,7 @@
             this.HazardTextEvent.Name = "HazardTextEvent";
             this.HazardTextEvent.Size = new System.Drawing.Size(356, 23);
             this.HazardTextEvent.TabIndex = 27;
-            this.HazardTextEvent.Text = "Hazard Event";
+            this.HazardTextEvent.Text = "Event description";
             this.HazardTextEvent.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_TextBox1
@@ -221,7 +212,7 @@
             this.HazardTextSituation.Name = "HazardTextSituation";
             this.HazardTextSituation.Size = new System.Drawing.Size(356, 23);
             this.HazardTextSituation.TabIndex = 25;
-            this.HazardTextSituation.Text = "Hazard situation";
+            this.HazardTextSituation.Text = "Brief action description";
             this.HazardTextSituation.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // HazardTextConsequence2
@@ -296,7 +287,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.HazardPanelSpacerRight);
             this.Controls.Add(this.hazardIndentificationRectangleIndicator);
             this.Controls.Add(this.arA_TextBox2);
             this.Controls.Add(this.HazardTextEvent);
@@ -333,7 +323,6 @@
         private ARA_Text HazardTextSource;
         private ARA_Text HazardTextType;
         private ARA_Text HarzardTextTitle;
-        private System.Windows.Forms.Panel HazardPanelSpacerRight;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.BindingSource tbl_DangerBindingSource;

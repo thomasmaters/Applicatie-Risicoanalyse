@@ -100,6 +100,7 @@
             this.OpenRiskInProjectDataGrid.Size = new System.Drawing.Size(750, 309);
             this.OpenRiskInProjectDataGrid.TabIndex = 2;
             this.OpenRiskInProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenRiskInProjectDataGrid_CellMouseDoubleClick);
+            this.OpenRiskInProjectDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.onDataGridRowAdded);
             this.OpenRiskInProjectDataGrid.MouseEnter += new System.EventHandler(this.OpenRiskInProjectDataGrid_MouseEnter);
             // 
             // searchProjectRisksBindingSource
@@ -169,7 +170,7 @@
             // 
             // riskIDDataGridViewTextBoxColumn
             // 
-            this.riskIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.riskIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.riskIDDataGridViewTextBoxColumn.DataPropertyName = "RiskID";
             this.riskIDDataGridViewTextBoxColumn.FillWeight = 10F;
             this.riskIDDataGridViewTextBoxColumn.HeaderText = "ID";
@@ -215,6 +216,7 @@
             this.ProjectRiskDataID.HeaderText = "ProjectRiskDataID";
             this.ProjectRiskDataID.Name = "ProjectRiskDataID";
             this.ProjectRiskDataID.ReadOnly = true;
+            this.ProjectRiskDataID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ProjectRiskDataID.Visible = false;
             // 
             // VersionID

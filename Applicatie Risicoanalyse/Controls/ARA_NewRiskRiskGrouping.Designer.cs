@@ -35,10 +35,6 @@
             this.HazardTextSource = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.HazardTextType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.RiskGroupingText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.arA_Button2 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tbl_Component_GroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Component_GroupTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Component_GroupTableAdapter();
@@ -75,12 +71,12 @@
             this.riskGroupingComboBoxComponentGroup.TabIndex = 39;
             this.riskGroupingComboBoxComponentGroup.ValueMember = "DangerGroupName";
             // 
-            // arA_Rectangle2
+            // riskGroupingRectangleIndicator
             // 
             this.riskGroupingRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.riskGroupingRectangleIndicator.Location = new System.Drawing.Point(11, 28);
             this.riskGroupingRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
-            this.riskGroupingRectangleIndicator.Name = "arA_Rectangle2";
+            this.riskGroupingRectangleIndicator.Name = "riskGroupingRectangleIndicator";
             this.riskGroupingRectangleIndicator.Size = new System.Drawing.Size(4, 100);
             this.riskGroupingRectangleIndicator.TabIndex = 38;
             this.riskGroupingRectangleIndicator.Text = "arA_Rectangle2";
@@ -122,60 +118,6 @@
             this.RiskGroupingText.TabIndex = 35;
             this.RiskGroupingText.Text = "Risk Grouping";
             this.RiskGroupingText.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // arA_Button1
-            // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.White;
-            this.arA_Button1.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_Button1.Location = new System.Drawing.Point(382, 51);
-            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Button1.Name = "arA_Button1";
-            this.arA_Button1.Selected = false;
-            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button1.Size = new System.Drawing.Size(149, 26);
-            this.arA_Button1.TabIndex = 41;
-            this.arA_Button1.Text = "New group";
-            this.arA_Button1.TextColor = System.Drawing.Color.Black;
-            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // arA_Button2
-            // 
-            this.arA_Button2.BaseColor = System.Drawing.Color.White;
-            this.arA_Button2.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_Button2.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Button2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_Button2.Location = new System.Drawing.Point(382, 97);
-            this.arA_Button2.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Button2.Name = "arA_Button2";
-            this.arA_Button2.Selected = false;
-            this.arA_Button2.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Button2.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button2.Size = new System.Drawing.Size(149, 26);
-            this.arA_Button2.TabIndex = 42;
-            this.arA_Button2.Text = "New sub-group";
-            this.arA_Button2.TextColor = System.Drawing.Color.Black;
-            this.arA_Button2.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(534, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 28);
-            this.textBox1.TabIndex = 43;
-            this.textBox1.Text = "New group name";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(534, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 28);
-            this.textBox2.TabIndex = 44;
-            this.textBox2.Text = "New sub-group name";
             // 
             // lG_Analysis_DatabaseDataSet
             // 
@@ -234,10 +176,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.arA_Button2);
-            this.Controls.Add(this.arA_Button1);
             this.Controls.Add(this.riskGroupingComboBoxComponentType);
             this.Controls.Add(this.riskGroupingComboBoxComponentGroup);
             this.Controls.Add(this.riskGroupingRectangleIndicator);
@@ -253,7 +191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_GroupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_TypeBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -265,10 +202,6 @@
         private ARA_Text HazardTextSource;
         private ARA_Text HazardTextType;
         private ARA_Text RiskGroupingText;
-        private ARA_Button arA_Button1;
-        private ARA_Button arA_Button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private System.Windows.Forms.BindingSource tbl_Component_GroupBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Component_GroupTableAdapter tbl_Component_GroupTableAdapter;

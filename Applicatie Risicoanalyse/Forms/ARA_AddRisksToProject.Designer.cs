@@ -33,9 +33,9 @@
             this.addRiskToProjectSearchTextBox = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.addRiskToProjectPanelContent = new System.Windows.Forms.FlowLayoutPanel();
             this.addRiskToProjectSearchDataGrid = new System.Windows.Forms.DataGridView();
-            this.fKComponentTypeComponentGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchRisksInProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.fKComponentTypeComponentGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Component_GroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_Risks_In_Project_TypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Component_GroupTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Component_GroupTableAdapter();
@@ -60,9 +60,9 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.addRiskToProjectPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addRiskToProjectSearchDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKComponentTypeComponentGroupBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRisksInProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKComponentTypeComponentGroupBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_GroupBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Project_TypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_TypeBindingSource)).BeginInit();
@@ -143,11 +143,6 @@
             this.addRiskToProjectSearchDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.onDataGridRowAdded);
             this.addRiskToProjectSearchDataGrid.SelectionChanged += new System.EventHandler(this.onDataGridSelectionChanged);
             // 
-            // fKComponentTypeComponentGroupBindingSource
-            // 
-            this.fKComponentTypeComponentGroupBindingSource.DataMember = "FK_ComponentType_ComponentGroup";
-            this.fKComponentTypeComponentGroupBindingSource.DataSource = this.tbl_Component_GroupBindingSource;
-            // 
             // searchRisksInProjectBindingSource
             // 
             this.searchRisksInProjectBindingSource.DataMember = "Search_Risks_In_Project";
@@ -157,6 +152,11 @@
             // 
             this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
             this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // fKComponentTypeComponentGroupBindingSource
+            // 
+            this.fKComponentTypeComponentGroupBindingSource.DataMember = "FK_ComponentType_ComponentGroup";
+            this.fKComponentTypeComponentGroupBindingSource.DataSource = this.tbl_Component_GroupBindingSource;
             // 
             // tbl_Component_GroupBindingSource
             // 
@@ -261,7 +261,7 @@
             // 
             this.HazardSituation.DataPropertyName = "HazardSituation";
             this.HazardSituation.FillWeight = 60F;
-            this.HazardSituation.HeaderText = "HazardSituation";
+            this.HazardSituation.HeaderText = "Brief event description";
             this.HazardSituation.Name = "HazardSituation";
             this.HazardSituation.ReadOnly = true;
             // 
@@ -310,9 +310,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.addRiskToProjectPanelContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.addRiskToProjectSearchDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKComponentTypeComponentGroupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRisksInProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKComponentTypeComponentGroupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_GroupBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_Project_TypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Component_TypeBindingSource)).EndInit();

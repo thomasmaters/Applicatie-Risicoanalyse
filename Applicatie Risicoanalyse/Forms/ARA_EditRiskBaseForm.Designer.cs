@@ -267,7 +267,7 @@
             this.EditRiskButtonNextRisk.Selected = false;
             this.EditRiskButtonNextRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.EditRiskButtonNextRisk.SelectedTextColor = System.Drawing.Color.White;
-            this.EditRiskButtonNextRisk.Size = new System.Drawing.Size(271, 41);
+            this.EditRiskButtonNextRisk.Size = new System.Drawing.Size(270, 41);
             this.EditRiskButtonNextRisk.TabIndex = 10;
             this.EditRiskButtonNextRisk.Text = "Next";
             this.EditRiskButtonNextRisk.TextColor = System.Drawing.Color.White;

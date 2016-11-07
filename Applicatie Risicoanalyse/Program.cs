@@ -16,7 +16,7 @@ namespace Applicatie_Risicoanalyse
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [MTAThread]
+        [STAThread]
         static void Main()
         {
             ARA_ACL kaas = ARA_ACL.Instance;

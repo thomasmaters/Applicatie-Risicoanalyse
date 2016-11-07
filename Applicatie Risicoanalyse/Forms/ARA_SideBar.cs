@@ -18,6 +18,11 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_SideBar()
         {
             InitializeComponent();
+            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize );
+            foreach (Control control in this.Controls)
+            {
+                control.Font = this.Font;
+            }
         }
 
         private void onMainMenuLoad(object sender, EventArgs e)

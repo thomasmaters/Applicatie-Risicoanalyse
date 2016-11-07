@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Applicatie_Risicoanalyse.Globals;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -70,6 +71,21 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
             this.OpenRiskInProjectDataGrid.Refresh();
+        }
+
+        private void onDataGridRowAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.OpenRiskInProjectDataGrid.Rows)
+            {
+                if (row.Cells["ProjectRiskDataID"].Value.ToString() != "")
+                {
+                    row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Blue1;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+            }
         }
     }
 }

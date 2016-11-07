@@ -14,7 +14,7 @@ namespace Applicatie_Risicoanalyse.Globals
     {
         private static String aRA_Version = "ALPHA-V2.001";
         private static float aRa_NoScaleFontSize = 15F;
-        private static float aRA_BaseFontSize = 15F;
+        private static float aRA_BaseFontSize = 19F;
         private static String aRa_Date = DateTime.Now.ToString("dd-MM-yyyy");
 
         private static int hazardSituationMinimalTextLength = 25;

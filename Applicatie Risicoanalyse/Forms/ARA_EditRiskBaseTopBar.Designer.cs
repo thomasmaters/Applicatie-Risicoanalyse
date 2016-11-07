@@ -36,10 +36,10 @@
             // 
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
             this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Far;
-            this.arA_Text2.Location = new System.Drawing.Point(350, 0);
+            this.arA_Text2.Location = new System.Drawing.Point(375, 0);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text2.Name = "arA_Text2";
-            this.arA_Text2.Size = new System.Drawing.Size(425, 52);
+            this.arA_Text2.Size = new System.Drawing.Size(400, 52);
             this.arA_Text2.TabIndex = 1;
             this.arA_Text2.Text = "sdfgsdfg";
             this.arA_Text2.VerticalAlignment = System.Drawing.StringAlignment.Center;
@@ -51,7 +51,7 @@
             this.arA_Text1.Location = new System.Drawing.Point(0, 0);
             this.arA_Text1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text1.Name = "arA_Text1";
-            this.arA_Text1.Size = new System.Drawing.Size(350, 52);
+            this.arA_Text1.Size = new System.Drawing.Size(375, 52);
             this.arA_Text1.TabIndex = 0;
             this.arA_Text1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
