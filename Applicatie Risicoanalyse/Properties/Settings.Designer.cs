@@ -44,5 +44,27 @@ namespace Applicatie_Risicoanalyse.Properties {
                 return ((string)(this["LG_Analysis_DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WS-024\\SQLEXPRESS;Initial Catalog=test;User ID=sa;Password=Wachtwoord" +
+            "@1")]
+        public string testConnectionString {
+            get {
+                return ((string)(this["testConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WS-024\\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;User ID=sa;Pas" +
+            "sword=Wachtwoord@1")]
+        public string LG_Analysis_DatabaseConnectionString1 {
+            get {
+                return ((string)(this["LG_Analysis_DatabaseConnectionString1"]));
+            }
+        }
     }
 }
