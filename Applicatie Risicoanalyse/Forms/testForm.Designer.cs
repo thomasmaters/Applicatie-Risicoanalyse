@@ -32,11 +32,15 @@
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tblRiskBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskTableAdapter();
-            this.arA_DropDownButton1 = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
-            this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
-            this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
+            this.tbl_Risk_AnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
+            this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.tbl_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter();
+            this.tbl_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lG_Analysis_DatabaseDataSet
@@ -53,60 +57,64 @@
             // 
             this.tbl_RiskTableAdapter.ClearBeforeFill = true;
             // 
-            // arA_DropDownButton1
+            // tbl_Risk_AnalysisBindingSource
             // 
-            this.arA_DropDownButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.arA_DropDownButton1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_DropDownButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_DropDownButton1.Location = new System.Drawing.Point(184, 54);
-            this.arA_DropDownButton1.Name = "arA_DropDownButton1";
-            this.arA_DropDownButton1.PaddingFirstTriangle = -1;
-            this.arA_DropDownButton1.PaddingSecondTriangle = 200;
-            this.arA_DropDownButton1.Selected = false;
-            this.arA_DropDownButton1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_DropDownButton1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_DropDownButton1.Size = new System.Drawing.Size(722, 23);
-            this.arA_DropDownButton1.TabIndex = 0;
-            this.arA_DropDownButton1.Text = "xfgcvbjnhjk";
-            this.arA_DropDownButton1.TextColor = System.Drawing.Color.White;
-            this.arA_DropDownButton1.TriangleSize = 22;
-            this.arA_DropDownButton1.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.tbl_Risk_AnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
+            this.tbl_Risk_AnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
-            // arA_TextBox1
+            // tbl_Risk_AnalysisTableAdapter
             // 
-            this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_TextBox1.BorderSize = 1;
-            this.arA_TextBox1.Location = new System.Drawing.Point(353, 171);
-            this.arA_TextBox1.Name = "arA_TextBox1";
-            this.arA_TextBox1.Size = new System.Drawing.Size(352, 96);
-            this.arA_TextBox1.TabIndex = 1;
-            this.arA_TextBox1.Text = "";
+            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
             // 
-            // arA_EditRiskRiskEstimation1
+            // tableAdapterManager
             // 
-            this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arA_EditRiskRiskEstimation1.HasControlBeenChanged = false;
-            this.arA_EditRiskRiskEstimation1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(104, 121);
-            this.arA_EditRiskRiskEstimation1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_EditRiskRiskEstimation1.Name = "arA_EditRiskRiskEstimation1";
-            this.arA_EditRiskRiskEstimation1.Size = new System.Drawing.Size(770, 311);
-            this.arA_EditRiskRiskEstimation1.TabIndex = 2;
-            this.arA_EditRiskRiskEstimation1.TitleText = "Risk Estimation";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
+            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
+            this.tableAdapterManager.Tbl_LogTableAdapter = null;
+            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = this.tbl_Risk_AnalysisTableAdapter;
+            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = this.tbl_Risks_In_ProjectTableAdapter;
+            this.tableAdapterManager.Tbl_RiskTableAdapter = this.tbl_RiskTableAdapter;
+            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
+            this.tableAdapterManager.Tbl_UserTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // tbl_Risks_In_ProjectTableAdapter
+            // 
+            this.tbl_Risks_In_ProjectTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbl_Risks_In_ProjectBindingSource
+            // 
+            this.tbl_Risks_In_ProjectBindingSource.DataMember = "Tbl_Risks_In_Project";
+            this.tbl_Risks_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
             // testForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 491);
-            this.Controls.Add(this.arA_EditRiskRiskEstimation1);
-            this.Controls.Add(this.arA_TextBox1);
-            this.Controls.Add(this.arA_DropDownButton1);
+            this.ClientSize = new System.Drawing.Size(1135, 511);
             this.Name = "testForm";
             this.Text = "testForm";
+            this.Load += new System.EventHandler(this.testForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,8 +123,10 @@
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private System.Windows.Forms.BindingSource tblRiskBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_RiskTableAdapter tbl_RiskTableAdapter;
-        private Controls.ARA_DropDownButton arA_DropDownButton1;
-        private Controls.ARA_TextBox arA_TextBox1;
-        private Controls.ARA_EditRiskRiskEstimation arA_EditRiskRiskEstimation1;
+        private System.Windows.Forms.BindingSource tbl_Risk_AnalysisBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter tbl_Risks_In_ProjectTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_Risks_In_ProjectBindingSource;
     }
 }

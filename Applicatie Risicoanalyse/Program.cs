@@ -26,7 +26,7 @@ namespace Applicatie_Risicoanalyse
             Debug.WriteLine(ARA_ACL.getPermissionLevel("hendrik111111").ToString());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Applicatie_Risicoanalyse.Forms.ARA_BaseForm());
+            Application.Run(new Applicatie_Risicoanalyse.Forms.testForm());
         }
     }
 }
