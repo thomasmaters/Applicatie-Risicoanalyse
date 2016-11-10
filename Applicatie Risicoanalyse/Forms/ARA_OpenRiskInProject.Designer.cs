@@ -182,7 +182,7 @@
             // 
             this.HazardSituation.DataPropertyName = "HazardSituation";
             this.HazardSituation.FillWeight = 60F;
-            this.HazardSituation.HeaderText = "HazardSituation";
+            this.HazardSituation.HeaderText = "Action description";
             this.HazardSituation.Name = "HazardSituation";
             this.HazardSituation.ReadOnly = true;
             // 

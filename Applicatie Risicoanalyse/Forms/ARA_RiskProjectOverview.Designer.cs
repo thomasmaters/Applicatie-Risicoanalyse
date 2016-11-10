@@ -222,7 +222,7 @@
             this.riskProjectOverviewButtonOpenRisk.SelectedTextColor = System.Drawing.Color.White;
             this.riskProjectOverviewButtonOpenRisk.Size = new System.Drawing.Size(750, 40);
             this.riskProjectOverviewButtonOpenRisk.TabIndex = 3;
-            this.riskProjectOverviewButtonOpenRisk.Text = "Open risks in project";
+            this.riskProjectOverviewButtonOpenRisk.Text = "Edit risks";
             this.riskProjectOverviewButtonOpenRisk.TextColor = System.Drawing.Color.White;
             this.riskProjectOverviewButtonOpenRisk.TriangleSize = 20;
             this.riskProjectOverviewButtonOpenRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
