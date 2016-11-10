@@ -1,5 +1,4 @@
-﻿using Microsoft.Reporting.WebForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +8,12 @@ using Applicatie_Risicoanalyse.Reports.RiskAssesmentReport;
 using System.Diagnostics;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
-using Microsoft.Office;
 
 namespace Applicatie_Risicoanalyse.Reports
 {
     class ReportGenerator
     {
-        protected ReportViewer reportViewer = new ReportViewer();
+        /*protected ReportViewer reportViewer = new ReportViewer();
         protected PdfDocument report;
         protected string documentFileName;
 
@@ -75,6 +73,6 @@ namespace Applicatie_Risicoanalyse.Reports
             {
                 to.AddPage(from.Pages[i]);
             }
-        }
+        }*/
     }
 }

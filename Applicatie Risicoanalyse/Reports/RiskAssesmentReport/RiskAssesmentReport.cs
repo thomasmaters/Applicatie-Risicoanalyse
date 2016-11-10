@@ -1,16 +1,13 @@
-﻿using Microsoft.Reporting.WebForms;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 using System.Data;
-using Microsoft.Office.Interop.Word;
-using Microsoft.Office.Core;
 
 namespace Applicatie_Risicoanalyse.Reports.RiskAssesmentReport
 {
     class RiskAssesmentReport : ReportGenerator
     {
-        public RiskAssesmentReport(string documentFileName) : base(documentFileName)
+       /* public RiskAssesmentReport(string documentFileName) : base(documentFileName)
         {
             this.reportViewer.ProcessingMode = ProcessingMode.Local;
             
@@ -26,6 +23,6 @@ namespace Applicatie_Risicoanalyse.Reports.RiskAssesmentReport
         public override void documentCreateProcedure()
         {
             
-        }
+        }*/
     }
 }

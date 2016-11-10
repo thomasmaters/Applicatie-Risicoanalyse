@@ -29,8 +29,8 @@ namespace Applicatie_Risicoanalyse.Forms
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
 
-            RiskAssesmentReport temp = new RiskAssesmentReport("RiskAssesmentReport.pdf");
-            temp.documentCreateProcedure();
+            //RiskAssesmentReport temp = new RiskAssesmentReport("RiskAssesmentReport.pdf");
+            //temp.documentCreateProcedure();
 
             //this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Project",this.tbl_Risk_AnalysisBindingSource));
             //this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("RiskInProject", this.tbl_Risks_In_ProjectBindingSource));
