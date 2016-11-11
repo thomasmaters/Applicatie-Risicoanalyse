@@ -37,10 +37,13 @@
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.tbl_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter();
             this.tbl_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_Risks_With_RiskData_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_Risks_With_RiskData_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_With_RiskData_In_ProjectTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_Risks_With_RiskData_In_ProjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lG_Analysis_DatabaseDataSet
@@ -103,6 +106,15 @@
             this.tbl_Risks_In_ProjectBindingSource.DataMember = "Tbl_Risks_In_Project";
             this.tbl_Risks_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
+            // get_Risks_With_RiskData_In_ProjectBindingSource
+            // 
+            this.get_Risks_With_RiskData_In_ProjectBindingSource.DataMember = "Get_Risks_With_RiskData_In_Project";
+            this.get_Risks_With_RiskData_In_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_Risks_With_RiskData_In_ProjectTableAdapter
+            // 
+            this.get_Risks_With_RiskData_In_ProjectTableAdapter.ClearBeforeFill = true;
+            // 
             // testForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risks_In_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_Risks_With_RiskData_In_ProjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,5 +141,7 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risks_In_ProjectTableAdapter tbl_Risks_In_ProjectTableAdapter;
         private System.Windows.Forms.BindingSource tbl_Risks_In_ProjectBindingSource;
+        private System.Windows.Forms.BindingSource get_Risks_With_RiskData_In_ProjectBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_With_RiskData_In_ProjectTableAdapter get_Risks_With_RiskData_In_ProjectTableAdapter;
     }
 }

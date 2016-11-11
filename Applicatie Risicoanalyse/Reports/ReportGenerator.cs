@@ -6,23 +6,21 @@ using System.Threading.Tasks;
 using System.IO;
 using Applicatie_Risicoanalyse.Reports.RiskAssesmentReport;
 using System.Diagnostics;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
+using Microsoft.Office.Core;
+using Microsoft.Office.Interop;
+using Microsoft.Office.Interop.Word;
 
 namespace Applicatie_Risicoanalyse.Reports
 {
     class ReportGenerator
     {
-        /*protected ReportViewer reportViewer = new ReportViewer();
-        protected PdfDocument report;
-        protected string documentFileName;
 
-        public ReportGenerator(string documentFileName)
+        public ReportGenerator()
         {
-            this.documentFileName = documentFileName;
+            
         }
 
-        public virtual void documentCreateProcedure()
+        /*public virtual void documentCreateProcedure()
         {
 
         }
