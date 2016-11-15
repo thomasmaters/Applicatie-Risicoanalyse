@@ -15,7 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskRiskReductionMesures : UserControl
     {
         private bool hasControlBeenChanged = false;
-        public EventHandler<MesureItemChangedEvent> itemCheckEventHandler;
+        public EventHandler<MeasureItemChangedEvent> itemCheckEventHandler;
         public EventHandler<EventArgs> reductionMesureInfoChanged;
 
         public Color IndicatorRectangleColor
@@ -94,13 +94,13 @@ namespace Applicatie_Risicoanalyse.Controls
             }
 
             //Get all unique groupnames.
-            DataTable distinctGroupNamesDataTable = controlData.ToTable(true, "MesureGroup");
+            DataTable distinctGroupNamesDataTable = controlData.ToTable(true, "MeasureGroup");
             DataView  distinctGroupNamesDataView = new DataView(distinctGroupNamesDataTable);
 
             //Create subgroups for each group.
             foreach (DataRowView row in distinctGroupNamesDataView)
             {
-                controlData.RowFilter = "MesureGroup = '" + row["MesureGroup"].ToString()+ "'";
+                controlData.RowFilter = "MeasureGroup = '" + row["MeasureGroup"].ToString()+ "'";
                 ARA_EditRiskRiskReductionMesuresItem riskReductionMesureItem = new ARA_EditRiskRiskReductionMesuresItem();
 
                 riskReductionMesureItem.setControlData(controlData);
@@ -129,7 +129,7 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        private void riskReductionMesureItemChecked(object sender, MesureItemChangedEvent e)
+        private void riskReductionMesureItemChecked(object sender, MeasureItemChangedEvent e)
         {
             if(itemCheckEventHandler != null)
             {

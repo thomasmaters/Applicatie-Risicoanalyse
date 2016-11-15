@@ -1,6 +1,6 @@
 ﻿namespace Applicatie_Risicoanalyse.Forms
 {
-    partial class testForm
+    partial class RiskAssesmentReport
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,9 @@
             this.tbl_Danger_SourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Danger_SourceTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Danger_SourceTableAdapter();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.RarProgressBar = new System.Windows.Forms.ProgressBar();
+            this.RarButtonCancel = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.RarProgressText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
@@ -225,21 +227,56 @@
             // 
             this.tbl_Danger_SourceTableAdapter.ClearBeforeFill = true;
             // 
-            // progressBar1
+            // RarProgressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(44, 35);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(956, 23);
-            this.progressBar1.TabIndex = 0;
+            this.RarProgressBar.Location = new System.Drawing.Point(16, 13);
+            this.RarProgressBar.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.RarProgressBar.Name = "RarProgressBar";
+            this.RarProgressBar.Size = new System.Drawing.Size(381, 40);
+            this.RarProgressBar.TabIndex = 0;
             // 
-            // testForm
+            // RarButtonCancel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.RarButtonCancel.BaseColor = System.Drawing.Color.Maroon;
+            this.RarButtonCancel.HorizontalAlignment = System.Drawing.StringAlignment.Center;
+            this.RarButtonCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.RarButtonCancel.Location = new System.Drawing.Point(16, 93);
+            this.RarButtonCancel.Name = "RarButtonCancel";
+            this.RarButtonCancel.Selected = false;
+            this.RarButtonCancel.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.RarButtonCancel.SelectedTextColor = System.Drawing.Color.White;
+            this.RarButtonCancel.Size = new System.Drawing.Size(381, 23);
+            this.RarButtonCancel.TabIndex = 2;
+            this.RarButtonCancel.Text = "Cancel";
+            this.RarButtonCancel.TextColor = System.Drawing.Color.White;
+            this.RarButtonCancel.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.RarButtonCancel.Click += new System.EventHandler(this.RarButtonCancel_Click);
+            // 
+            // RarProgressText
+            // 
+            this.RarProgressText.BackgroundColor = System.Drawing.Color.White;
+            this.RarProgressText.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RarProgressText.HorizontalAlignment = System.Drawing.StringAlignment.Center;
+            this.RarProgressText.Location = new System.Drawing.Point(16, 56);
+            this.RarProgressText.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.RarProgressText.Name = "RarProgressText";
+            this.RarProgressText.Size = new System.Drawing.Size(381, 28);
+            this.RarProgressText.TabIndex = 1;
+            this.RarProgressText.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // RiskAssesmentReport
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1135, 511);
-            this.Controls.Add(this.progressBar1);
-            this.Name = "testForm";
-            this.Text = "testForm";
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(413, 124);
+            this.Controls.Add(this.RarButtonCancel);
+            this.Controls.Add(this.RarProgressText);
+            this.Controls.Add(this.RarProgressBar);
+            this.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Name = "RiskAssesmentReport";
+            this.Text = "Risk Assesment Report";
             this.Load += new System.EventHandler(this.testForm_Load);
             this.Shown += new System.EventHandler(this.testForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
@@ -290,6 +327,8 @@
         private System.Windows.Forms.BindingSource tbl_Danger_SourceBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Danger_SourceTableAdapter tbl_Danger_SourceTableAdapter;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar RarProgressBar;
+        private Controls.ARA_Text RarProgressText;
+        private Controls.ARA_Button RarButtonCancel;
     }
 }

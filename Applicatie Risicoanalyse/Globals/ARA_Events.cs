@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Applicatie_Risicoanalyse.Controls;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Applicatie_Risicoanalyse.Globals
 {
@@ -17,13 +18,13 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<SetSideBarButtonSelectedEventArgs> SetSideBarButtonSelectedEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
+        public static event EventHandler<GenerateRiskReportEventArgs> GenerateRiskReportEventHandler;
 
         //Static function for adding an event to the event handlers.
         public static void onOpenContentFormEvent(System.Windows.Forms.Form aForm)
         {
             openContentFormEventHandler(aForm, new OpenContentFormEventArgs(aForm));
         }
-
         public static void triggerBaseFormSetTopBarEvent(System.Windows.Forms.Form aForm)
         {
             baseFormSetTopBarFormEventHandler(aForm, new BaseFormSetTopBarFormEvent(aForm));
@@ -112,19 +113,19 @@ namespace Applicatie_Risicoanalyse.Globals
         }
     }
 
-    public class MesureItemChangedEvent : EventArgs
+    public class MeasureItemChangedEvent : EventArgs
     {
-        public int mesureID { get; private set; }
+        public int measureID { get; private set; }
         public CheckState checkState { get; private set; }
 
-        private MesureItemChangedEvent()
+        private MeasureItemChangedEvent()
         {
 
         }
 
-        public MesureItemChangedEvent(int mesureID, CheckState checkState)
+        public MeasureItemChangedEvent(int measureID, CheckState checkState)
         {
-            this.mesureID = mesureID;
+            this.measureID = measureID;
             this.checkState = checkState;
         }
     }
@@ -198,6 +199,25 @@ namespace Applicatie_Risicoanalyse.Globals
         {
             this.componentGroup = componentGroup;
             this.componentType = componentType;
+        }
+    }
+
+    public class GenerateRiskReportEventArgs : DoWorkEventArgs
+    {
+        public int projectID { get; private set; }
+        public object templateLocation { get; private set; }
+        public object saveLocation { get; private set; }
+
+        private GenerateRiskReportEventArgs() : base(new object())
+        {
+
+        }
+
+        public GenerateRiskReportEventArgs(int projectID, object templateLocation, object saveLocation) : base(new object())
+        {
+            this.projectID = projectID;
+            this.templateLocation = templateLocation;
+            this.saveLocation = saveLocation;
         }
     }
 }

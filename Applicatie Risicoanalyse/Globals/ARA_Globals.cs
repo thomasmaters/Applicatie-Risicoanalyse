@@ -21,6 +21,13 @@ namespace Applicatie_Risicoanalyse.Globals
         private static int hazardEventMinimalTextLength = 25;
 
         private static string userPermissionGroup = "Admin";
+
+        public static string[] riskClassDescription = 
+        {
+            "No safety measures required.",
+            "Safety measures recommended!",
+            "Safety measures required!!"
+        };
         public enum PermissionLevel : byte
         {
             None = 0, ReadOnly, All

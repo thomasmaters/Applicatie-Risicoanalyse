@@ -62,8 +62,6 @@ namespace Applicatie_Risicoanalyse {
         
         private Tbl_RiskReduction_In_RiskDataTable tableTbl_RiskReduction_In_Risk;
         
-        private Tbl_RiskReductionMesuresDataTable tableTbl_RiskReductionMesures;
-        
         private Tbl_Risks_In_ProjectDataTable tableTbl_Risks_In_Project;
         
         private Tbl_UserDataTable tableTbl_User;
@@ -120,6 +118,8 @@ namespace Applicatie_Risicoanalyse {
         
         private Get_Risks_With_RiskData_In_ProjectDataTable tableGet_Risks_With_RiskData_In_Project;
         
+        private Tbl_RiskReductionMeasuresDataTable tableTbl_RiskReductionMeasures;
+        
         private global::System.Data.DataRelation relationFK_ComponentType_ComponentGroup;
         
         private global::System.Data.DataRelation relationFK_DangerResult_DangerSource;
@@ -131,8 +131,6 @@ namespace Applicatie_Risicoanalyse {
         private global::System.Data.DataRelation relationFK_ExposedPersonsInRisk_RiskData;
         
         private global::System.Data.DataRelation relationFK_Log_User;
-        
-        private global::System.Data.DataRelation relationFK_MinimalAddition_ExposedPersons;
         
         private global::System.Data.DataRelation relationFK_MinimalAddition_RiskData;
         
@@ -162,11 +160,7 @@ namespace Applicatie_Risicoanalyse {
         
         private global::System.Data.DataRelation relationFK_RiskEstimationBefore_RiskEstimation;
         
-        private global::System.Data.DataRelation relationFK_RiskReductionInRisk_ExposedPersons;
-        
         private global::System.Data.DataRelation relationFK_RiskReductionInRisk_RiskData;
-        
-        private global::System.Data.DataRelation relationFK_RiskReductionMesures_BlobStorage;
         
         private global::System.Data.DataRelation relationFK_ProjectRisks_Project;
         
@@ -175,6 +169,12 @@ namespace Applicatie_Risicoanalyse {
         private global::System.Data.DataRelation relationFK_RisksInProject_RiskData;
         
         private global::System.Data.DataRelation relationFK_User_UserPermissions;
+        
+        private global::System.Data.DataRelation relationFK_MinimalAddition_ExposedPersons;
+        
+        private global::System.Data.DataRelation relationFK_RiskReductionInRisk_ExposedPersons;
+        
+        private global::System.Data.DataRelation relationFK_RiskReductionMeasures_BlobStorage;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -261,9 +261,6 @@ namespace Applicatie_Risicoanalyse {
                 if ((ds.Tables["Tbl_RiskReduction_In_Risk"] != null)) {
                     base.Tables.Add(new Tbl_RiskReduction_In_RiskDataTable(ds.Tables["Tbl_RiskReduction_In_Risk"]));
                 }
-                if ((ds.Tables["Tbl_RiskReductionMesures"] != null)) {
-                    base.Tables.Add(new Tbl_RiskReductionMesuresDataTable(ds.Tables["Tbl_RiskReductionMesures"]));
-                }
                 if ((ds.Tables["Tbl_Risks_In_Project"] != null)) {
                     base.Tables.Add(new Tbl_Risks_In_ProjectDataTable(ds.Tables["Tbl_Risks_In_Project"]));
                 }
@@ -347,6 +344,9 @@ namespace Applicatie_Risicoanalyse {
                 }
                 if ((ds.Tables["Get_Risks_With_RiskData_In_Project"] != null)) {
                     base.Tables.Add(new Get_Risks_With_RiskData_In_ProjectDataTable(ds.Tables["Get_Risks_With_RiskData_In_Project"]));
+                }
+                if ((ds.Tables["Tbl_RiskReductionMeasures"] != null)) {
+                    base.Tables.Add(new Tbl_RiskReductionMeasuresDataTable(ds.Tables["Tbl_RiskReductionMeasures"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -553,16 +553,6 @@ namespace Applicatie_Risicoanalyse {
         public Tbl_RiskReduction_In_RiskDataTable Tbl_RiskReduction_In_Risk {
             get {
                 return this.tableTbl_RiskReduction_In_Risk;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Tbl_RiskReductionMesuresDataTable Tbl_RiskReductionMesures {
-            get {
-                return this.tableTbl_RiskReductionMesures;
             }
         }
         
@@ -848,6 +838,16 @@ namespace Applicatie_Risicoanalyse {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Tbl_RiskReductionMeasuresDataTable Tbl_RiskReductionMeasures {
+            get {
+                return this.tableTbl_RiskReductionMeasures;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -970,9 +970,6 @@ namespace Applicatie_Risicoanalyse {
                 if ((ds.Tables["Tbl_RiskReduction_In_Risk"] != null)) {
                     base.Tables.Add(new Tbl_RiskReduction_In_RiskDataTable(ds.Tables["Tbl_RiskReduction_In_Risk"]));
                 }
-                if ((ds.Tables["Tbl_RiskReductionMesures"] != null)) {
-                    base.Tables.Add(new Tbl_RiskReductionMesuresDataTable(ds.Tables["Tbl_RiskReductionMesures"]));
-                }
                 if ((ds.Tables["Tbl_Risks_In_Project"] != null)) {
                     base.Tables.Add(new Tbl_Risks_In_ProjectDataTable(ds.Tables["Tbl_Risks_In_Project"]));
                 }
@@ -1056,6 +1053,9 @@ namespace Applicatie_Risicoanalyse {
                 }
                 if ((ds.Tables["Get_Risks_With_RiskData_In_Project"] != null)) {
                     base.Tables.Add(new Get_Risks_With_RiskData_In_ProjectDataTable(ds.Tables["Get_Risks_With_RiskData_In_Project"]));
+                }
+                if ((ds.Tables["Tbl_RiskReductionMeasures"] != null)) {
+                    base.Tables.Add(new Tbl_RiskReductionMeasuresDataTable(ds.Tables["Tbl_RiskReductionMeasures"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -1202,12 +1202,6 @@ namespace Applicatie_Risicoanalyse {
             if ((initTable == true)) {
                 if ((this.tableTbl_RiskReduction_In_Risk != null)) {
                     this.tableTbl_RiskReduction_In_Risk.InitVars();
-                }
-            }
-            this.tableTbl_RiskReductionMesures = ((Tbl_RiskReductionMesuresDataTable)(base.Tables["Tbl_RiskReductionMesures"]));
-            if ((initTable == true)) {
-                if ((this.tableTbl_RiskReductionMesures != null)) {
-                    this.tableTbl_RiskReductionMesures.InitVars();
                 }
             }
             this.tableTbl_Risks_In_Project = ((Tbl_Risks_In_ProjectDataTable)(base.Tables["Tbl_Risks_In_Project"]));
@@ -1378,13 +1372,18 @@ namespace Applicatie_Risicoanalyse {
                     this.tableGet_Risks_With_RiskData_In_Project.InitVars();
                 }
             }
+            this.tableTbl_RiskReductionMeasures = ((Tbl_RiskReductionMeasuresDataTable)(base.Tables["Tbl_RiskReductionMeasures"]));
+            if ((initTable == true)) {
+                if ((this.tableTbl_RiskReductionMeasures != null)) {
+                    this.tableTbl_RiskReductionMeasures.InitVars();
+                }
+            }
             this.relationFK_ComponentType_ComponentGroup = this.Relations["FK_ComponentType_ComponentGroup"];
             this.relationFK_DangerResult_DangerSource = this.Relations["FK_DangerResult_DangerSource"];
             this.relationFK_DangerSource_Danger = this.Relations["FK_DangerSource_Danger"];
             this.relationFK_ExposedPersonsInRisk_ExposedPersons = this.Relations["FK_ExposedPersonsInRisk_ExposedPersons"];
             this.relationFK_ExposedPersonsInRisk_RiskData = this.Relations["FK_ExposedPersonsInRisk_RiskData"];
             this.relationFK_Log_User = this.Relations["FK_Log_User"];
-            this.relationFK_MinimalAddition_ExposedPersons = this.Relations["FK_MinimalAddition_ExposedPersons"];
             this.relationFK_MinimalAddition_RiskData = this.Relations["FK_MinimalAddition_RiskData"];
             this.relationFK_Project_Project = this.Relations["FK_Project_Project"];
             this.relationFK_Project_User = this.Relations["FK_Project_User"];
@@ -1399,13 +1398,14 @@ namespace Applicatie_Risicoanalyse {
             this.relationFK_RiskEstimationAfter_RiskEstimation = this.Relations["FK_RiskEstimationAfter_RiskEstimation"];
             this.relationFK_RiskEstimationBefore_RiskData = this.Relations["FK_RiskEstimationBefore_RiskData"];
             this.relationFK_RiskEstimationBefore_RiskEstimation = this.Relations["FK_RiskEstimationBefore_RiskEstimation"];
-            this.relationFK_RiskReductionInRisk_ExposedPersons = this.Relations["FK_RiskReductionInRisk_ExposedPersons"];
             this.relationFK_RiskReductionInRisk_RiskData = this.Relations["FK_RiskReductionInRisk_RiskData"];
-            this.relationFK_RiskReductionMesures_BlobStorage = this.Relations["FK_RiskReductionMesures_BlobStorage"];
             this.relationFK_ProjectRisks_Project = this.Relations["FK_ProjectRisks_Project"];
             this.relationFK_ProjectRisks_Risk = this.Relations["FK_ProjectRisks_Risk"];
             this.relationFK_RisksInProject_RiskData = this.Relations["FK_RisksInProject_RiskData"];
             this.relationFK_User_UserPermissions = this.Relations["FK_User_UserPermissions"];
+            this.relationFK_MinimalAddition_ExposedPersons = this.Relations["FK_MinimalAddition_ExposedPersons"];
+            this.relationFK_RiskReductionInRisk_ExposedPersons = this.Relations["FK_RiskReductionInRisk_ExposedPersons"];
+            this.relationFK_RiskReductionMeasures_BlobStorage = this.Relations["FK_RiskReductionMeasures_BlobStorage"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1454,8 +1454,6 @@ namespace Applicatie_Risicoanalyse {
             base.Tables.Add(this.tableTbl_RiskEstimation_In_Risk_Before);
             this.tableTbl_RiskReduction_In_Risk = new Tbl_RiskReduction_In_RiskDataTable();
             base.Tables.Add(this.tableTbl_RiskReduction_In_Risk);
-            this.tableTbl_RiskReductionMesures = new Tbl_RiskReductionMesuresDataTable();
-            base.Tables.Add(this.tableTbl_RiskReductionMesures);
             this.tableTbl_Risks_In_Project = new Tbl_Risks_In_ProjectDataTable();
             base.Tables.Add(this.tableTbl_Risks_In_Project);
             this.tableTbl_User = new Tbl_UserDataTable();
@@ -1512,6 +1510,8 @@ namespace Applicatie_Risicoanalyse {
             base.Tables.Add(this.tableSelect_Add_Risk_To_Project_Data);
             this.tableGet_Risks_With_RiskData_In_Project = new Get_Risks_With_RiskData_In_ProjectDataTable();
             base.Tables.Add(this.tableGet_Risks_With_RiskData_In_Project);
+            this.tableTbl_RiskReductionMeasures = new Tbl_RiskReductionMeasuresDataTable();
+            base.Tables.Add(this.tableTbl_RiskReductionMeasures);
             this.relationFK_ComponentType_ComponentGroup = new global::System.Data.DataRelation("FK_ComponentType_ComponentGroup", new global::System.Data.DataColumn[] {
                         this.tableTbl_Component_Group.GroupNameColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_Component_Type.GroupNameColumn}, false);
@@ -1536,10 +1536,6 @@ namespace Applicatie_Risicoanalyse {
                         this.tableTbl_User.UserIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_Log.UserIDColumn}, false);
             this.Relations.Add(this.relationFK_Log_User);
-            this.relationFK_MinimalAddition_ExposedPersons = new global::System.Data.DataRelation("FK_MinimalAddition_ExposedPersons", new global::System.Data.DataColumn[] {
-                        this.tableTbl_RiskReductionMesures.MesureIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTbl_MinimalAddition_In_Risk.MesureIDColumn}, false);
-            this.Relations.Add(this.relationFK_MinimalAddition_ExposedPersons);
             this.relationFK_MinimalAddition_RiskData = new global::System.Data.DataRelation("FK_MinimalAddition_RiskData", new global::System.Data.DataColumn[] {
                         this.tableTbl_Risk_Data.RiskDataIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_MinimalAddition_In_Risk.RiskDataIDColumn}, false);
@@ -1602,18 +1598,10 @@ namespace Applicatie_Risicoanalyse {
                         this.tableTbl_RiskEstimation_In_Risk_Before.EstimationIDColumn,
                         this.tableTbl_RiskEstimation_In_Risk_Before.GroupNameColumn}, false);
             this.Relations.Add(this.relationFK_RiskEstimationBefore_RiskEstimation);
-            this.relationFK_RiskReductionInRisk_ExposedPersons = new global::System.Data.DataRelation("FK_RiskReductionInRisk_ExposedPersons", new global::System.Data.DataColumn[] {
-                        this.tableTbl_RiskReductionMesures.MesureIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTbl_RiskReduction_In_Risk.MesureIDColumn}, false);
-            this.Relations.Add(this.relationFK_RiskReductionInRisk_ExposedPersons);
             this.relationFK_RiskReductionInRisk_RiskData = new global::System.Data.DataRelation("FK_RiskReductionInRisk_RiskData", new global::System.Data.DataColumn[] {
                         this.tableTbl_Risk_Data.RiskDataIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_RiskReduction_In_Risk.RiskDataIDColumn}, false);
             this.Relations.Add(this.relationFK_RiskReductionInRisk_RiskData);
-            this.relationFK_RiskReductionMesures_BlobStorage = new global::System.Data.DataRelation("FK_RiskReductionMesures_BlobStorage", new global::System.Data.DataColumn[] {
-                        this.tableTbl_BLOB_Storage.FileIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTbl_RiskReductionMesures.FileIDColumn}, false);
-            this.Relations.Add(this.relationFK_RiskReductionMesures_BlobStorage);
             this.relationFK_ProjectRisks_Project = new global::System.Data.DataRelation("FK_ProjectRisks_Project", new global::System.Data.DataColumn[] {
                         this.tableTbl_Project.ProjectIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_Risks_In_Project.ProjectIDColumn}, false);
@@ -1632,6 +1620,18 @@ namespace Applicatie_Risicoanalyse {
                         this.tableTbl_User_Permissions.PermissionIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTbl_User.PermissionIDColumn}, false);
             this.Relations.Add(this.relationFK_User_UserPermissions);
+            this.relationFK_MinimalAddition_ExposedPersons = new global::System.Data.DataRelation("FK_MinimalAddition_ExposedPersons", new global::System.Data.DataColumn[] {
+                        this.tableTbl_RiskReductionMeasures.MeasureIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTbl_MinimalAddition_In_Risk.MeasureIDColumn}, false);
+            this.Relations.Add(this.relationFK_MinimalAddition_ExposedPersons);
+            this.relationFK_RiskReductionInRisk_ExposedPersons = new global::System.Data.DataRelation("FK_RiskReductionInRisk_ExposedPersons", new global::System.Data.DataColumn[] {
+                        this.tableTbl_RiskReductionMeasures.MeasureIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTbl_RiskReduction_In_Risk.MeasureIDColumn}, false);
+            this.Relations.Add(this.relationFK_RiskReductionInRisk_ExposedPersons);
+            this.relationFK_RiskReductionMeasures_BlobStorage = new global::System.Data.DataRelation("FK_RiskReductionMeasures_BlobStorage", new global::System.Data.DataColumn[] {
+                        this.tableTbl_BLOB_Storage.FileIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTbl_RiskReductionMeasures.FileIDColumn}, false);
+            this.Relations.Add(this.relationFK_RiskReductionMeasures_BlobStorage);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1745,12 +1745,6 @@ namespace Applicatie_Risicoanalyse {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeTbl_RiskReduction_In_Risk() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeTbl_RiskReductionMesures() {
             return false;
         }
         
@@ -1924,6 +1918,12 @@ namespace Applicatie_Risicoanalyse {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeTbl_RiskReductionMeasures() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -2035,9 +2035,6 @@ namespace Applicatie_Risicoanalyse {
         public delegate void Tbl_RiskReduction_In_RiskRowChangeEventHandler(object sender, Tbl_RiskReduction_In_RiskRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Tbl_RiskReductionMesuresRowChangeEventHandler(object sender, Tbl_RiskReductionMesuresRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Tbl_Risks_In_ProjectRowChangeEventHandler(object sender, Tbl_Risks_In_ProjectRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2120,6 +2117,9 @@ namespace Applicatie_Risicoanalyse {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Get_Risks_With_RiskData_In_ProjectRowChangeEventHandler(object sender, Get_Risks_With_RiskData_In_ProjectRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Tbl_RiskReductionMeasuresRowChangeEventHandler(object sender, Tbl_RiskReductionMeasuresRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4647,9 +4647,9 @@ namespace Applicatie_Risicoanalyse {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Tbl_MinimalAddition_In_RiskDataTable : global::System.Data.TypedTableBase<Tbl_MinimalAddition_In_RiskRow> {
             
-            private global::System.Data.DataColumn columnMesureID;
-            
             private global::System.Data.DataColumn columnRiskDataID;
+            
+            private global::System.Data.DataColumn columnMeasureID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4686,17 +4686,17 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureIDColumn {
+            public global::System.Data.DataColumn RiskDataIDColumn {
                 get {
-                    return this.columnMesureID;
+                    return this.columnRiskDataID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RiskDataIDColumn {
+            public global::System.Data.DataColumn MeasureIDColumn {
                 get {
-                    return this.columnRiskDataID;
+                    return this.columnMeasureID;
                 }
             }
             
@@ -4737,16 +4737,16 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_MinimalAddition_In_RiskRow AddTbl_MinimalAddition_In_RiskRow(Tbl_RiskReductionMesuresRow parentTbl_RiskReductionMesuresRowByFK_MinimalAddition_ExposedPersons, Tbl_Risk_DataRow parentTbl_Risk_DataRowByFK_MinimalAddition_RiskData) {
+            public Tbl_MinimalAddition_In_RiskRow AddTbl_MinimalAddition_In_RiskRow(Tbl_Risk_DataRow parentTbl_Risk_DataRowByFK_MinimalAddition_RiskData, Tbl_RiskReductionMeasuresRow parentTbl_RiskReductionMeasuresRowByFK_MinimalAddition_ExposedPersons) {
                 Tbl_MinimalAddition_In_RiskRow rowTbl_MinimalAddition_In_RiskRow = ((Tbl_MinimalAddition_In_RiskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentTbl_RiskReductionMesuresRowByFK_MinimalAddition_ExposedPersons != null)) {
-                    columnValuesArray[0] = parentTbl_RiskReductionMesuresRowByFK_MinimalAddition_ExposedPersons[0];
-                }
                 if ((parentTbl_Risk_DataRowByFK_MinimalAddition_RiskData != null)) {
-                    columnValuesArray[1] = parentTbl_Risk_DataRowByFK_MinimalAddition_RiskData[0];
+                    columnValuesArray[0] = parentTbl_Risk_DataRowByFK_MinimalAddition_RiskData[0];
+                }
+                if ((parentTbl_RiskReductionMeasuresRowByFK_MinimalAddition_ExposedPersons != null)) {
+                    columnValuesArray[1] = parentTbl_RiskReductionMeasuresRowByFK_MinimalAddition_ExposedPersons[0];
                 }
                 rowTbl_MinimalAddition_In_RiskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTbl_MinimalAddition_In_RiskRow);
@@ -4755,10 +4755,10 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_MinimalAddition_In_RiskRow FindByMesureIDRiskDataID(int MesureID, int RiskDataID) {
+            public Tbl_MinimalAddition_In_RiskRow FindByRiskDataIDMeasureID(int RiskDataID, int MeasureID) {
                 return ((Tbl_MinimalAddition_In_RiskRow)(this.Rows.Find(new object[] {
-                            MesureID,
-                            RiskDataID})));
+                            RiskDataID,
+                            MeasureID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4778,22 +4778,22 @@ namespace Applicatie_Risicoanalyse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMesureID = base.Columns["MesureID"];
                 this.columnRiskDataID = base.Columns["RiskDataID"];
+                this.columnMeasureID = base.Columns["MeasureID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMesureID = new global::System.Data.DataColumn("MesureID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureID);
                 this.columnRiskDataID = new global::System.Data.DataColumn("RiskDataID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRiskDataID);
+                this.columnMeasureID = new global::System.Data.DataColumn("MeasureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMesureID,
-                                this.columnRiskDataID}, true));
-                this.columnMesureID.AllowDBNull = false;
+                                this.columnRiskDataID,
+                                this.columnMeasureID}, true));
                 this.columnRiskDataID.AllowDBNull = false;
+                this.columnMeasureID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7516,9 +7516,9 @@ namespace Applicatie_Risicoanalyse {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Tbl_RiskReduction_In_RiskDataTable : global::System.Data.TypedTableBase<Tbl_RiskReduction_In_RiskRow> {
             
-            private global::System.Data.DataColumn columnMesureID;
-            
             private global::System.Data.DataColumn columnRiskDataID;
+            
+            private global::System.Data.DataColumn columnMeasureID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7555,17 +7555,17 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureIDColumn {
+            public global::System.Data.DataColumn RiskDataIDColumn {
                 get {
-                    return this.columnMesureID;
+                    return this.columnRiskDataID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RiskDataIDColumn {
+            public global::System.Data.DataColumn MeasureIDColumn {
                 get {
-                    return this.columnRiskDataID;
+                    return this.columnMeasureID;
                 }
             }
             
@@ -7606,16 +7606,16 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReduction_In_RiskRow AddTbl_RiskReduction_In_RiskRow(Tbl_RiskReductionMesuresRow parentTbl_RiskReductionMesuresRowByFK_RiskReductionInRisk_ExposedPersons, Tbl_Risk_DataRow parentTbl_Risk_DataRowByFK_RiskReductionInRisk_RiskData) {
+            public Tbl_RiskReduction_In_RiskRow AddTbl_RiskReduction_In_RiskRow(Tbl_Risk_DataRow parentTbl_Risk_DataRowByFK_RiskReductionInRisk_RiskData, Tbl_RiskReductionMeasuresRow parentTbl_RiskReductionMeasuresRowByFK_RiskReductionInRisk_ExposedPersons) {
                 Tbl_RiskReduction_In_RiskRow rowTbl_RiskReduction_In_RiskRow = ((Tbl_RiskReduction_In_RiskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentTbl_RiskReductionMesuresRowByFK_RiskReductionInRisk_ExposedPersons != null)) {
-                    columnValuesArray[0] = parentTbl_RiskReductionMesuresRowByFK_RiskReductionInRisk_ExposedPersons[0];
-                }
                 if ((parentTbl_Risk_DataRowByFK_RiskReductionInRisk_RiskData != null)) {
-                    columnValuesArray[1] = parentTbl_Risk_DataRowByFK_RiskReductionInRisk_RiskData[0];
+                    columnValuesArray[0] = parentTbl_Risk_DataRowByFK_RiskReductionInRisk_RiskData[0];
+                }
+                if ((parentTbl_RiskReductionMeasuresRowByFK_RiskReductionInRisk_ExposedPersons != null)) {
+                    columnValuesArray[1] = parentTbl_RiskReductionMeasuresRowByFK_RiskReductionInRisk_ExposedPersons[0];
                 }
                 rowTbl_RiskReduction_In_RiskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTbl_RiskReduction_In_RiskRow);
@@ -7624,10 +7624,10 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReduction_In_RiskRow FindByMesureIDRiskDataID(int MesureID, int RiskDataID) {
+            public Tbl_RiskReduction_In_RiskRow FindByRiskDataIDMeasureID(int RiskDataID, int MeasureID) {
                 return ((Tbl_RiskReduction_In_RiskRow)(this.Rows.Find(new object[] {
-                            MesureID,
-                            RiskDataID})));
+                            RiskDataID,
+                            MeasureID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7647,22 +7647,22 @@ namespace Applicatie_Risicoanalyse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMesureID = base.Columns["MesureID"];
                 this.columnRiskDataID = base.Columns["RiskDataID"];
+                this.columnMeasureID = base.Columns["MeasureID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMesureID = new global::System.Data.DataColumn("MesureID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureID);
                 this.columnRiskDataID = new global::System.Data.DataColumn("RiskDataID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRiskDataID);
+                this.columnMeasureID = new global::System.Data.DataColumn("MeasureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMesureID,
-                                this.columnRiskDataID}, true));
-                this.columnMesureID.AllowDBNull = false;
+                                this.columnRiskDataID,
+                                this.columnMeasureID}, true));
                 this.columnRiskDataID.AllowDBNull = false;
+                this.columnMeasureID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7749,313 +7749,6 @@ namespace Applicatie_Risicoanalyse {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Tbl_RiskReduction_In_RiskDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Tbl_RiskReductionMesuresDataTable : global::System.Data.TypedTableBase<Tbl_RiskReductionMesuresRow> {
-            
-            private global::System.Data.DataColumn columnMesureID;
-            
-            private global::System.Data.DataColumn columnMesureGroup;
-            
-            private global::System.Data.DataColumn columnMesureSubGroup;
-            
-            private global::System.Data.DataColumn columnFileID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresDataTable() {
-                this.TableName = "Tbl_RiskReductionMesures";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Tbl_RiskReductionMesuresDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Tbl_RiskReductionMesuresDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureIDColumn {
-                get {
-                    return this.columnMesureID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureGroupColumn {
-                get {
-                    return this.columnMesureGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureSubGroupColumn {
-                get {
-                    return this.columnMesureSubGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FileIDColumn {
-                get {
-                    return this.columnFileID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow this[int index] {
-                get {
-                    return ((Tbl_RiskReductionMesuresRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Tbl_RiskReductionMesuresRowChangeEventHandler Tbl_RiskReductionMesuresRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Tbl_RiskReductionMesuresRowChangeEventHandler Tbl_RiskReductionMesuresRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Tbl_RiskReductionMesuresRowChangeEventHandler Tbl_RiskReductionMesuresRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Tbl_RiskReductionMesuresRowChangeEventHandler Tbl_RiskReductionMesuresRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddTbl_RiskReductionMesuresRow(Tbl_RiskReductionMesuresRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow AddTbl_RiskReductionMesuresRow(int MesureID, string MesureGroup, string MesureSubGroup, Tbl_BLOB_StorageRow parentTbl_BLOB_StorageRowByFK_RiskReductionMesures_BlobStorage) {
-                Tbl_RiskReductionMesuresRow rowTbl_RiskReductionMesuresRow = ((Tbl_RiskReductionMesuresRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        MesureID,
-                        MesureGroup,
-                        MesureSubGroup,
-                        null};
-                if ((parentTbl_BLOB_StorageRowByFK_RiskReductionMesures_BlobStorage != null)) {
-                    columnValuesArray[3] = parentTbl_BLOB_StorageRowByFK_RiskReductionMesures_BlobStorage[0];
-                }
-                rowTbl_RiskReductionMesuresRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTbl_RiskReductionMesuresRow);
-                return rowTbl_RiskReductionMesuresRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow FindByMesureID(int MesureID) {
-                return ((Tbl_RiskReductionMesuresRow)(this.Rows.Find(new object[] {
-                            MesureID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                Tbl_RiskReductionMesuresDataTable cln = ((Tbl_RiskReductionMesuresDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new Tbl_RiskReductionMesuresDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnMesureID = base.Columns["MesureID"];
-                this.columnMesureGroup = base.Columns["MesureGroup"];
-                this.columnMesureSubGroup = base.Columns["MesureSubGroup"];
-                this.columnFileID = base.Columns["FileID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnMesureID = new global::System.Data.DataColumn("MesureID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureID);
-                this.columnMesureGroup = new global::System.Data.DataColumn("MesureGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureGroup);
-                this.columnMesureSubGroup = new global::System.Data.DataColumn("MesureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureSubGroup);
-                this.columnFileID = new global::System.Data.DataColumn("FileID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFileID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMesureID}, true));
-                this.columnMesureID.AllowDBNull = false;
-                this.columnMesureID.Unique = true;
-                this.columnMesureGroup.AllowDBNull = false;
-                this.columnMesureGroup.MaxLength = 64;
-                this.columnMesureSubGroup.AllowDBNull = false;
-                this.columnMesureSubGroup.MaxLength = 128;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow NewTbl_RiskReductionMesuresRow() {
-                return ((Tbl_RiskReductionMesuresRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Tbl_RiskReductionMesuresRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(Tbl_RiskReductionMesuresRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.Tbl_RiskReductionMesuresRowChanged != null)) {
-                    this.Tbl_RiskReductionMesuresRowChanged(this, new Tbl_RiskReductionMesuresRowChangeEvent(((Tbl_RiskReductionMesuresRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.Tbl_RiskReductionMesuresRowChanging != null)) {
-                    this.Tbl_RiskReductionMesuresRowChanging(this, new Tbl_RiskReductionMesuresRowChangeEvent(((Tbl_RiskReductionMesuresRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.Tbl_RiskReductionMesuresRowDeleted != null)) {
-                    this.Tbl_RiskReductionMesuresRowDeleted(this, new Tbl_RiskReductionMesuresRowChangeEvent(((Tbl_RiskReductionMesuresRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.Tbl_RiskReductionMesuresRowDeleting != null)) {
-                    this.Tbl_RiskReductionMesuresRowDeleting(this, new Tbl_RiskReductionMesuresRowChangeEvent(((Tbl_RiskReductionMesuresRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveTbl_RiskReductionMesuresRow(Tbl_RiskReductionMesuresRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                LG_Analysis_DatabaseDataSet ds = new LG_Analysis_DatabaseDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Tbl_RiskReductionMesuresDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -10052,15 +9745,15 @@ namespace Applicatie_Risicoanalyse {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Get_MinimalAddition_In_RiskDataDataTable : global::System.Data.TypedTableBase<Get_MinimalAddition_In_RiskDataRow> {
             
-            private global::System.Data.DataColumn columnMesureID;
-            
-            private global::System.Data.DataColumn columnMesureGroup;
-            
-            private global::System.Data.DataColumn columnMesureSubGroup;
-            
             private global::System.Data.DataColumn columnFileID;
             
             private global::System.Data.DataColumn columnInProject;
+            
+            private global::System.Data.DataColumn columnMeasureID;
+            
+            private global::System.Data.DataColumn columnMeasureGroup;
+            
+            private global::System.Data.DataColumn columnMeasureSubGroup;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -10097,30 +9790,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureIDColumn {
-                get {
-                    return this.columnMesureID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureGroupColumn {
-                get {
-                    return this.columnMesureGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureSubGroupColumn {
-                get {
-                    return this.columnMesureSubGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn FileIDColumn {
                 get {
                     return this.columnFileID;
@@ -10132,6 +9801,30 @@ namespace Applicatie_Risicoanalyse {
             public global::System.Data.DataColumn InProjectColumn {
                 get {
                     return this.columnInProject;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureIDColumn {
+                get {
+                    return this.columnMeasureID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureGroupColumn {
+                get {
+                    return this.columnMeasureGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureSubGroupColumn {
+                get {
+                    return this.columnMeasureSubGroup;
                 }
             }
             
@@ -10172,14 +9865,14 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_MinimalAddition_In_RiskDataRow AddGet_MinimalAddition_In_RiskDataRow(int MesureID, string MesureGroup, string MesureSubGroup, int FileID, int InProject) {
+            public Get_MinimalAddition_In_RiskDataRow AddGet_MinimalAddition_In_RiskDataRow(int FileID, int InProject, int MeasureID, string MeasureGroup, string MeasureSubGroup) {
                 Get_MinimalAddition_In_RiskDataRow rowGet_MinimalAddition_In_RiskDataRow = ((Get_MinimalAddition_In_RiskDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MesureID,
-                        MesureGroup,
-                        MesureSubGroup,
                         FileID,
-                        InProject};
+                        InProject,
+                        MeasureID,
+                        MeasureGroup,
+                        MeasureSubGroup};
                 rowGet_MinimalAddition_In_RiskDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGet_MinimalAddition_In_RiskDataRow);
                 return rowGet_MinimalAddition_In_RiskDataRow;
@@ -10187,9 +9880,9 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_MinimalAddition_In_RiskDataRow FindByMesureID(int MesureID) {
+            public Get_MinimalAddition_In_RiskDataRow FindByMeasureID(int MeasureID) {
                 return ((Get_MinimalAddition_In_RiskDataRow)(this.Rows.Find(new object[] {
-                            MesureID})));
+                            MeasureID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10209,35 +9902,35 @@ namespace Applicatie_Risicoanalyse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMesureID = base.Columns["MesureID"];
-                this.columnMesureGroup = base.Columns["MesureGroup"];
-                this.columnMesureSubGroup = base.Columns["MesureSubGroup"];
                 this.columnFileID = base.Columns["FileID"];
                 this.columnInProject = base.Columns["InProject"];
+                this.columnMeasureID = base.Columns["MeasureID"];
+                this.columnMeasureGroup = base.Columns["MeasureGroup"];
+                this.columnMeasureSubGroup = base.Columns["MeasureSubGroup"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMesureID = new global::System.Data.DataColumn("MesureID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureID);
-                this.columnMesureGroup = new global::System.Data.DataColumn("MesureGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureGroup);
-                this.columnMesureSubGroup = new global::System.Data.DataColumn("MesureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureSubGroup);
                 this.columnFileID = new global::System.Data.DataColumn("FileID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFileID);
                 this.columnInProject = new global::System.Data.DataColumn("InProject", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInProject);
+                this.columnMeasureID = new global::System.Data.DataColumn("MeasureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureID);
+                this.columnMeasureGroup = new global::System.Data.DataColumn("MeasureGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureGroup);
+                this.columnMeasureSubGroup = new global::System.Data.DataColumn("MeasureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureSubGroup);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMesureID}, true));
-                this.columnMesureID.AllowDBNull = false;
-                this.columnMesureID.Unique = true;
-                this.columnMesureGroup.AllowDBNull = false;
-                this.columnMesureGroup.MaxLength = 64;
-                this.columnMesureSubGroup.AllowDBNull = false;
-                this.columnMesureSubGroup.MaxLength = 128;
+                                this.columnMeasureID}, true));
                 this.columnInProject.ReadOnly = true;
+                this.columnMeasureID.AllowDBNull = false;
+                this.columnMeasureID.Unique = true;
+                this.columnMeasureGroup.AllowDBNull = false;
+                this.columnMeasureGroup.MaxLength = 64;
+                this.columnMeasureSubGroup.AllowDBNull = false;
+                this.columnMeasureSubGroup.MaxLength = 128;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11938,15 +11631,15 @@ namespace Applicatie_Risicoanalyse {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class Get_RiskReduction_In_RiskDataDataTable : global::System.Data.TypedTableBase<Get_RiskReduction_In_RiskDataRow> {
             
-            private global::System.Data.DataColumn columnMesureID;
-            
-            private global::System.Data.DataColumn columnMesureGroup;
-            
-            private global::System.Data.DataColumn columnMesureSubGroup;
-            
             private global::System.Data.DataColumn columnFileID;
             
             private global::System.Data.DataColumn columnInProject;
+            
+            private global::System.Data.DataColumn columnMeasureID;
+            
+            private global::System.Data.DataColumn columnMeasureGroup;
+            
+            private global::System.Data.DataColumn columnMeasureSubGroup;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -11983,30 +11676,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureIDColumn {
-                get {
-                    return this.columnMesureID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureGroupColumn {
-                get {
-                    return this.columnMesureGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MesureSubGroupColumn {
-                get {
-                    return this.columnMesureSubGroup;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn FileIDColumn {
                 get {
                     return this.columnFileID;
@@ -12018,6 +11687,30 @@ namespace Applicatie_Risicoanalyse {
             public global::System.Data.DataColumn InProjectColumn {
                 get {
                     return this.columnInProject;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureIDColumn {
+                get {
+                    return this.columnMeasureID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureGroupColumn {
+                get {
+                    return this.columnMeasureGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureSubGroupColumn {
+                get {
+                    return this.columnMeasureSubGroup;
                 }
             }
             
@@ -12058,14 +11751,14 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_RiskReduction_In_RiskDataRow AddGet_RiskReduction_In_RiskDataRow(int MesureID, string MesureGroup, string MesureSubGroup, int FileID, int InProject) {
+            public Get_RiskReduction_In_RiskDataRow AddGet_RiskReduction_In_RiskDataRow(int FileID, int InProject, int MeasureID, string MeasureGroup, string MeasureSubGroup) {
                 Get_RiskReduction_In_RiskDataRow rowGet_RiskReduction_In_RiskDataRow = ((Get_RiskReduction_In_RiskDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MesureID,
-                        MesureGroup,
-                        MesureSubGroup,
                         FileID,
-                        InProject};
+                        InProject,
+                        MeasureID,
+                        MeasureGroup,
+                        MeasureSubGroup};
                 rowGet_RiskReduction_In_RiskDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGet_RiskReduction_In_RiskDataRow);
                 return rowGet_RiskReduction_In_RiskDataRow;
@@ -12073,9 +11766,9 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Get_RiskReduction_In_RiskDataRow FindByMesureID(int MesureID) {
+            public Get_RiskReduction_In_RiskDataRow FindByMeasureID(int MeasureID) {
                 return ((Get_RiskReduction_In_RiskDataRow)(this.Rows.Find(new object[] {
-                            MesureID})));
+                            MeasureID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12095,35 +11788,35 @@ namespace Applicatie_Risicoanalyse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMesureID = base.Columns["MesureID"];
-                this.columnMesureGroup = base.Columns["MesureGroup"];
-                this.columnMesureSubGroup = base.Columns["MesureSubGroup"];
                 this.columnFileID = base.Columns["FileID"];
                 this.columnInProject = base.Columns["InProject"];
+                this.columnMeasureID = base.Columns["MeasureID"];
+                this.columnMeasureGroup = base.Columns["MeasureGroup"];
+                this.columnMeasureSubGroup = base.Columns["MeasureSubGroup"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMesureID = new global::System.Data.DataColumn("MesureID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureID);
-                this.columnMesureGroup = new global::System.Data.DataColumn("MesureGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureGroup);
-                this.columnMesureSubGroup = new global::System.Data.DataColumn("MesureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMesureSubGroup);
                 this.columnFileID = new global::System.Data.DataColumn("FileID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFileID);
                 this.columnInProject = new global::System.Data.DataColumn("InProject", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInProject);
+                this.columnMeasureID = new global::System.Data.DataColumn("MeasureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureID);
+                this.columnMeasureGroup = new global::System.Data.DataColumn("MeasureGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureGroup);
+                this.columnMeasureSubGroup = new global::System.Data.DataColumn("MeasureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureSubGroup);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMesureID}, true));
-                this.columnMesureID.AllowDBNull = false;
-                this.columnMesureID.Unique = true;
-                this.columnMesureGroup.AllowDBNull = false;
-                this.columnMesureGroup.MaxLength = 64;
-                this.columnMesureSubGroup.AllowDBNull = false;
-                this.columnMesureSubGroup.MaxLength = 128;
+                                this.columnMeasureID}, true));
                 this.columnInProject.ReadOnly = true;
+                this.columnMeasureID.AllowDBNull = false;
+                this.columnMeasureID.Unique = true;
+                this.columnMeasureGroup.AllowDBNull = false;
+                this.columnMeasureGroup.MaxLength = 64;
+                this.columnMeasureSubGroup.AllowDBNull = false;
+                this.columnMeasureSubGroup.MaxLength = 128;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16498,6 +16191,313 @@ namespace Applicatie_Risicoanalyse {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Tbl_RiskReductionMeasuresDataTable : global::System.Data.TypedTableBase<Tbl_RiskReductionMeasuresRow> {
+            
+            private global::System.Data.DataColumn columnMeasureID;
+            
+            private global::System.Data.DataColumn columnMeasureGroup;
+            
+            private global::System.Data.DataColumn columnMeasureSubGroup;
+            
+            private global::System.Data.DataColumn columnFileID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresDataTable() {
+                this.TableName = "Tbl_RiskReductionMeasures";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Tbl_RiskReductionMeasuresDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Tbl_RiskReductionMeasuresDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureIDColumn {
+                get {
+                    return this.columnMeasureID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureGroupColumn {
+                get {
+                    return this.columnMeasureGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MeasureSubGroupColumn {
+                get {
+                    return this.columnMeasureSubGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FileIDColumn {
+                get {
+                    return this.columnFileID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow this[int index] {
+                get {
+                    return ((Tbl_RiskReductionMeasuresRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Tbl_RiskReductionMeasuresRowChangeEventHandler Tbl_RiskReductionMeasuresRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Tbl_RiskReductionMeasuresRowChangeEventHandler Tbl_RiskReductionMeasuresRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Tbl_RiskReductionMeasuresRowChangeEventHandler Tbl_RiskReductionMeasuresRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Tbl_RiskReductionMeasuresRowChangeEventHandler Tbl_RiskReductionMeasuresRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddTbl_RiskReductionMeasuresRow(Tbl_RiskReductionMeasuresRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow AddTbl_RiskReductionMeasuresRow(int MeasureID, string MeasureGroup, string MeasureSubGroup, Tbl_BLOB_StorageRow parentTbl_BLOB_StorageRowByFK_RiskReductionMeasures_BlobStorage) {
+                Tbl_RiskReductionMeasuresRow rowTbl_RiskReductionMeasuresRow = ((Tbl_RiskReductionMeasuresRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        MeasureID,
+                        MeasureGroup,
+                        MeasureSubGroup,
+                        null};
+                if ((parentTbl_BLOB_StorageRowByFK_RiskReductionMeasures_BlobStorage != null)) {
+                    columnValuesArray[3] = parentTbl_BLOB_StorageRowByFK_RiskReductionMeasures_BlobStorage[0];
+                }
+                rowTbl_RiskReductionMeasuresRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTbl_RiskReductionMeasuresRow);
+                return rowTbl_RiskReductionMeasuresRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow FindByMeasureID(int MeasureID) {
+                return ((Tbl_RiskReductionMeasuresRow)(this.Rows.Find(new object[] {
+                            MeasureID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Tbl_RiskReductionMeasuresDataTable cln = ((Tbl_RiskReductionMeasuresDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Tbl_RiskReductionMeasuresDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnMeasureID = base.Columns["MeasureID"];
+                this.columnMeasureGroup = base.Columns["MeasureGroup"];
+                this.columnMeasureSubGroup = base.Columns["MeasureSubGroup"];
+                this.columnFileID = base.Columns["FileID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnMeasureID = new global::System.Data.DataColumn("MeasureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureID);
+                this.columnMeasureGroup = new global::System.Data.DataColumn("MeasureGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureGroup);
+                this.columnMeasureSubGroup = new global::System.Data.DataColumn("MeasureSubGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMeasureSubGroup);
+                this.columnFileID = new global::System.Data.DataColumn("FileID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFileID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnMeasureID}, true));
+                this.columnMeasureID.AllowDBNull = false;
+                this.columnMeasureID.Unique = true;
+                this.columnMeasureGroup.AllowDBNull = false;
+                this.columnMeasureGroup.MaxLength = 64;
+                this.columnMeasureSubGroup.AllowDBNull = false;
+                this.columnMeasureSubGroup.MaxLength = 128;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow NewTbl_RiskReductionMeasuresRow() {
+                return ((Tbl_RiskReductionMeasuresRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Tbl_RiskReductionMeasuresRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Tbl_RiskReductionMeasuresRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Tbl_RiskReductionMeasuresRowChanged != null)) {
+                    this.Tbl_RiskReductionMeasuresRowChanged(this, new Tbl_RiskReductionMeasuresRowChangeEvent(((Tbl_RiskReductionMeasuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Tbl_RiskReductionMeasuresRowChanging != null)) {
+                    this.Tbl_RiskReductionMeasuresRowChanging(this, new Tbl_RiskReductionMeasuresRowChangeEvent(((Tbl_RiskReductionMeasuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Tbl_RiskReductionMeasuresRowDeleted != null)) {
+                    this.Tbl_RiskReductionMeasuresRowDeleted(this, new Tbl_RiskReductionMeasuresRowChangeEvent(((Tbl_RiskReductionMeasuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Tbl_RiskReductionMeasuresRowDeleting != null)) {
+                    this.Tbl_RiskReductionMeasuresRowDeleting(this, new Tbl_RiskReductionMeasuresRowChangeEvent(((Tbl_RiskReductionMeasuresRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveTbl_RiskReductionMeasuresRow(Tbl_RiskReductionMeasuresRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                LG_Analysis_DatabaseDataSet ds = new LG_Analysis_DatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Tbl_RiskReductionMeasuresDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class Tbl_BLOB_StorageRow : global::System.Data.DataRow {
@@ -16546,12 +16546,12 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow[] GetTbl_RiskReductionMesuresRows() {
-                if ((this.Table.ChildRelations["FK_RiskReductionMesures_BlobStorage"] == null)) {
-                    return new Tbl_RiskReductionMesuresRow[0];
+            public Tbl_RiskReductionMeasuresRow[] GetTbl_RiskReductionMeasuresRows() {
+                if ((this.Table.ChildRelations["FK_RiskReductionMeasures_BlobStorage"] == null)) {
+                    return new Tbl_RiskReductionMeasuresRow[0];
                 }
                 else {
-                    return ((Tbl_RiskReductionMesuresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskReductionMesures_BlobStorage"])));
+                    return ((Tbl_RiskReductionMeasuresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskReductionMeasures_BlobStorage"])));
                 }
             }
         }
@@ -17033,17 +17033,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MesureID {
-                get {
-                    return ((int)(this[this.tableTbl_MinimalAddition_In_Risk.MesureIDColumn]));
-                }
-                set {
-                    this[this.tableTbl_MinimalAddition_In_Risk.MesureIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int RiskDataID {
                 get {
                     return ((int)(this[this.tableTbl_MinimalAddition_In_Risk.RiskDataIDColumn]));
@@ -17055,12 +17044,12 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow Tbl_RiskReductionMesuresRow {
+            public int MeasureID {
                 get {
-                    return ((Tbl_RiskReductionMesuresRow)(this.GetParentRow(this.Table.ParentRelations["FK_MinimalAddition_ExposedPersons"])));
+                    return ((int)(this[this.tableTbl_MinimalAddition_In_Risk.MeasureIDColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_MinimalAddition_ExposedPersons"]);
+                    this[this.tableTbl_MinimalAddition_In_Risk.MeasureIDColumn] = value;
                 }
             }
             
@@ -17072,6 +17061,17 @@ namespace Applicatie_Risicoanalyse {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_MinimalAddition_RiskData"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow Tbl_RiskReductionMeasuresRow {
+                get {
+                    return ((Tbl_RiskReductionMeasuresRow)(this.GetParentRow(this.Table.ParentRelations["FK_MinimalAddition_ExposedPersons"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_MinimalAddition_ExposedPersons"]);
                 }
             }
         }
@@ -18040,17 +18040,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MesureID {
-                get {
-                    return ((int)(this[this.tableTbl_RiskReduction_In_Risk.MesureIDColumn]));
-                }
-                set {
-                    this[this.tableTbl_RiskReduction_In_Risk.MesureIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int RiskDataID {
                 get {
                     return ((int)(this[this.tableTbl_RiskReduction_In_Risk.RiskDataIDColumn]));
@@ -18062,12 +18051,12 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow Tbl_RiskReductionMesuresRow {
+            public int MeasureID {
                 get {
-                    return ((Tbl_RiskReductionMesuresRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskReductionInRisk_ExposedPersons"])));
+                    return ((int)(this[this.tableTbl_RiskReduction_In_Risk.MeasureIDColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskReductionInRisk_ExposedPersons"]);
+                    this[this.tableTbl_RiskReduction_In_Risk.MeasureIDColumn] = value;
                 }
             }
             
@@ -18081,113 +18070,15 @@ namespace Applicatie_Risicoanalyse {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_RiskReductionInRisk_RiskData"]);
                 }
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class Tbl_RiskReductionMesuresRow : global::System.Data.DataRow {
-            
-            private Tbl_RiskReductionMesuresDataTable tableTbl_RiskReductionMesures;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Tbl_RiskReductionMesuresRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableTbl_RiskReductionMesures = ((Tbl_RiskReductionMesuresDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MesureID {
+            public Tbl_RiskReductionMeasuresRow Tbl_RiskReductionMeasuresRow {
                 get {
-                    return ((int)(this[this.tableTbl_RiskReductionMesures.MesureIDColumn]));
+                    return ((Tbl_RiskReductionMeasuresRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskReductionInRisk_ExposedPersons"])));
                 }
                 set {
-                    this[this.tableTbl_RiskReductionMesures.MesureIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureGroup {
-                get {
-                    return ((string)(this[this.tableTbl_RiskReductionMesures.MesureGroupColumn]));
-                }
-                set {
-                    this[this.tableTbl_RiskReductionMesures.MesureGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureSubGroup {
-                get {
-                    return ((string)(this[this.tableTbl_RiskReductionMesures.MesureSubGroupColumn]));
-                }
-                set {
-                    this[this.tableTbl_RiskReductionMesures.MesureSubGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int FileID {
-                get {
-                    try {
-                        return ((int)(this[this.tableTbl_RiskReductionMesures.FileIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FileID\' in table \'Tbl_RiskReductionMesures\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTbl_RiskReductionMesures.FileIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_BLOB_StorageRow Tbl_BLOB_StorageRow {
-                get {
-                    return ((Tbl_BLOB_StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskReductionMesures_BlobStorage"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskReductionMesures_BlobStorage"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFileIDNull() {
-                return this.IsNull(this.tableTbl_RiskReductionMesures.FileIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFileIDNull() {
-                this[this.tableTbl_RiskReductionMesures.FileIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_MinimalAddition_In_RiskRow[] GetTbl_MinimalAddition_In_RiskRows() {
-                if ((this.Table.ChildRelations["FK_MinimalAddition_ExposedPersons"] == null)) {
-                    return new Tbl_MinimalAddition_In_RiskRow[0];
-                }
-                else {
-                    return ((Tbl_MinimalAddition_In_RiskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_MinimalAddition_ExposedPersons"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReduction_In_RiskRow[] GetTbl_RiskReduction_In_RiskRows() {
-                if ((this.Table.ChildRelations["FK_RiskReductionInRisk_ExposedPersons"] == null)) {
-                    return new Tbl_RiskReduction_In_RiskRow[0];
-                }
-                else {
-                    return ((Tbl_RiskReduction_In_RiskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskReductionInRisk_ExposedPersons"])));
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskReductionInRisk_ExposedPersons"]);
                 }
             }
         }
@@ -18682,39 +18573,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MesureID {
-                get {
-                    return ((int)(this[this.tableGet_MinimalAddition_In_RiskData.MesureIDColumn]));
-                }
-                set {
-                    this[this.tableGet_MinimalAddition_In_RiskData.MesureIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureGroup {
-                get {
-                    return ((string)(this[this.tableGet_MinimalAddition_In_RiskData.MesureGroupColumn]));
-                }
-                set {
-                    this[this.tableGet_MinimalAddition_In_RiskData.MesureGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureSubGroup {
-                get {
-                    return ((string)(this[this.tableGet_MinimalAddition_In_RiskData.MesureSubGroupColumn]));
-                }
-                set {
-                    this[this.tableGet_MinimalAddition_In_RiskData.MesureSubGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int FileID {
                 get {
                     try {
@@ -18744,6 +18602,39 @@ namespace Applicatie_Risicoanalyse {
                 }
                 set {
                     this[this.tableGet_MinimalAddition_In_RiskData.InProjectColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MeasureID {
+                get {
+                    return ((int)(this[this.tableGet_MinimalAddition_In_RiskData.MeasureIDColumn]));
+                }
+                set {
+                    this[this.tableGet_MinimalAddition_In_RiskData.MeasureIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureGroup {
+                get {
+                    return ((string)(this[this.tableGet_MinimalAddition_In_RiskData.MeasureGroupColumn]));
+                }
+                set {
+                    this[this.tableGet_MinimalAddition_In_RiskData.MeasureGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureSubGroup {
+                get {
+                    return ((string)(this[this.tableGet_MinimalAddition_In_RiskData.MeasureSubGroupColumn]));
+                }
+                set {
+                    this[this.tableGet_MinimalAddition_In_RiskData.MeasureSubGroupColumn] = value;
                 }
             }
             
@@ -19350,39 +19241,6 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MesureID {
-                get {
-                    return ((int)(this[this.tableGet_RiskReduction_In_RiskData.MesureIDColumn]));
-                }
-                set {
-                    this[this.tableGet_RiskReduction_In_RiskData.MesureIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureGroup {
-                get {
-                    return ((string)(this[this.tableGet_RiskReduction_In_RiskData.MesureGroupColumn]));
-                }
-                set {
-                    this[this.tableGet_RiskReduction_In_RiskData.MesureGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string MesureSubGroup {
-                get {
-                    return ((string)(this[this.tableGet_RiskReduction_In_RiskData.MesureSubGroupColumn]));
-                }
-                set {
-                    this[this.tableGet_RiskReduction_In_RiskData.MesureSubGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int FileID {
                 get {
                     try {
@@ -19412,6 +19270,39 @@ namespace Applicatie_Risicoanalyse {
                 }
                 set {
                     this[this.tableGet_RiskReduction_In_RiskData.InProjectColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MeasureID {
+                get {
+                    return ((int)(this[this.tableGet_RiskReduction_In_RiskData.MeasureIDColumn]));
+                }
+                set {
+                    this[this.tableGet_RiskReduction_In_RiskData.MeasureIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureGroup {
+                get {
+                    return ((string)(this[this.tableGet_RiskReduction_In_RiskData.MeasureGroupColumn]));
+                }
+                set {
+                    this[this.tableGet_RiskReduction_In_RiskData.MeasureGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureSubGroup {
+                get {
+                    return ((string)(this[this.tableGet_RiskReduction_In_RiskData.MeasureSubGroupColumn]));
+                }
+                set {
+                    this[this.tableGet_RiskReduction_In_RiskData.MeasureSubGroupColumn] = value;
                 }
             }
             
@@ -20944,6 +20835,115 @@ namespace Applicatie_Risicoanalyse {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Tbl_RiskReductionMeasuresRow : global::System.Data.DataRow {
+            
+            private Tbl_RiskReductionMeasuresDataTable tableTbl_RiskReductionMeasures;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Tbl_RiskReductionMeasuresRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTbl_RiskReductionMeasures = ((Tbl_RiskReductionMeasuresDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int MeasureID {
+                get {
+                    return ((int)(this[this.tableTbl_RiskReductionMeasures.MeasureIDColumn]));
+                }
+                set {
+                    this[this.tableTbl_RiskReductionMeasures.MeasureIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureGroup {
+                get {
+                    return ((string)(this[this.tableTbl_RiskReductionMeasures.MeasureGroupColumn]));
+                }
+                set {
+                    this[this.tableTbl_RiskReductionMeasures.MeasureGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MeasureSubGroup {
+                get {
+                    return ((string)(this[this.tableTbl_RiskReductionMeasures.MeasureSubGroupColumn]));
+                }
+                set {
+                    this[this.tableTbl_RiskReductionMeasures.MeasureSubGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int FileID {
+                get {
+                    try {
+                        return ((int)(this[this.tableTbl_RiskReductionMeasures.FileIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FileID\' in table \'Tbl_RiskReductionMeasures\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTbl_RiskReductionMeasures.FileIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_BLOB_StorageRow Tbl_BLOB_StorageRow {
+                get {
+                    return ((Tbl_BLOB_StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK_RiskReductionMeasures_BlobStorage"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_RiskReductionMeasures_BlobStorage"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFileIDNull() {
+                return this.IsNull(this.tableTbl_RiskReductionMeasures.FileIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFileIDNull() {
+                this[this.tableTbl_RiskReductionMeasures.FileIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_MinimalAddition_In_RiskRow[] GetTbl_MinimalAddition_In_RiskRows() {
+                if ((this.Table.ChildRelations["FK_MinimalAddition_ExposedPersons"] == null)) {
+                    return new Tbl_MinimalAddition_In_RiskRow[0];
+                }
+                else {
+                    return ((Tbl_MinimalAddition_In_RiskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_MinimalAddition_ExposedPersons"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReduction_In_RiskRow[] GetTbl_RiskReduction_In_RiskRows() {
+                if ((this.Table.ChildRelations["FK_RiskReductionInRisk_ExposedPersons"] == null)) {
+                    return new Tbl_RiskReduction_In_RiskRow[0];
+                }
+                else {
+                    return ((Tbl_RiskReduction_In_RiskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RiskReductionInRisk_ExposedPersons"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -21575,40 +21575,6 @@ namespace Applicatie_Risicoanalyse {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Tbl_RiskReduction_In_RiskRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Tbl_RiskReductionMesuresRowChangeEvent : global::System.EventArgs {
-            
-            private Tbl_RiskReductionMesuresRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRowChangeEvent(Tbl_RiskReductionMesuresRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_RiskReductionMesuresRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -22574,6 +22540,40 @@ namespace Applicatie_Risicoanalyse {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Tbl_RiskReductionMeasuresRowChangeEvent : global::System.EventArgs {
+            
+            private Tbl_RiskReductionMeasuresRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRowChangeEvent(Tbl_RiskReductionMeasuresRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Tbl_RiskReductionMeasuresRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters {
@@ -22729,7 +22729,7 @@ namespace Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23031,7 +23031,7 @@ namespace Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23347,7 +23347,7 @@ SELECT TypeName, GroupName FROM Tbl_Component_Type WHERE (GroupName = @GroupName
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23687,7 +23687,7 @@ SELECT DangerID, DangerGroupName FROM Tbl_Danger WHERE (DangerID = @DangerID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24012,7 +24012,7 @@ SELECT DangerResultID, DangerSourceID, DangerResultName FROM Tbl_Danger_Result W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24342,7 +24342,7 @@ SELECT DangerSourceID, DangerID, DangerSourceName FROM Tbl_Danger_Source WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24666,7 +24666,7 @@ SELECT ExposedPersonID, PersonDescription FROM Tbl_ExposedPersons WHERE (Exposed
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24985,7 +24985,7 @@ SELECT ExposedPersonID, RiskDataID FROM Tbl_ExposedPersons_In_Risk WHERE (Expose
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25290,7 +25290,7 @@ SELECT LogDate, ActionDescription, UserID FROM Tbl_Log WHERE (LogDate = @LogDate
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25581,40 +25581,40 @@ SELECT LogDate, ActionDescription, UserID FROM Tbl_Log WHERE (LogDate = @LogDate
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Tbl_MinimalAddition_In_Risk";
-            tableMapping.ColumnMappings.Add("MesureID", "MesureID");
             tableMapping.ColumnMappings.Add("RiskDataID", "RiskDataID");
+            tableMapping.ColumnMappings.Add("MeasureID", "MeasureID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tbl_MinimalAddition_In_Risk] WHERE (([MesureID] = @Original_Me" +
-                "sureID) AND ([RiskDataID] = @Original_RiskDataID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Tbl_MinimalAddition_In_Risk] WHERE (([RiskDataID] = @Original_RiskDa" +
+                "taID) AND ([MeasureID] = @Original_MeasureID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tbl_MinimalAddition_In_Risk] ([MesureID], [RiskDataID]) VALUES" +
-                " (@MesureID, @RiskDataID);\r\nSELECT MesureID, RiskDataID FROM Tbl_MinimalAddition" +
-                "_In_Risk WHERE (MesureID = @MesureID) AND (RiskDataID = @RiskDataID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Tbl_MinimalAddition_In_Risk] ([RiskDataID], [MeasureID]) VALUES (@Ri" +
+                "skDataID, @MeasureID);\r\nSELECT RiskDataID, MeasureID FROM Tbl_MinimalAddition_In" +
+                "_Risk WHERE (MeasureID = @MeasureID) AND (RiskDataID = @RiskDataID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_MinimalAddition_In_Risk] SET [MesureID] = @MesureID, [RiskDataID] = @RiskDataID WHERE (([MesureID] = @Original_MesureID) AND ([RiskDataID] = @Original_RiskDataID));
-SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @MesureID) AND (RiskDataID = @RiskDataID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tbl_MinimalAddition_In_Risk] SET [RiskDataID] = @RiskDataID, [MeasureID] = @MeasureID WHERE (([RiskDataID] = @Original_RiskDataID) AND ([MeasureID] = @Original_MeasureID));
+SELECT RiskDataID, MeasureID FROM Tbl_MinimalAddition_In_Risk WHERE (MeasureID = @MeasureID) AND (RiskDataID = @RiskDataID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25623,7 +25623,7 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MesureID, RiskDataID FROM dbo.Tbl_MinimalAddition_In_Risk";
+            this._commandCollection[0].CommandText = "SELECT RiskDataID, MeasureID FROM Tbl_MinimalAddition_In_Risk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -25684,9 +25684,9 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MesureID, int Original_RiskDataID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MesureID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RiskDataID));
+        public virtual int Delete(int Original_RiskDataID, int Original_MeasureID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RiskDataID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25707,9 +25707,9 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MesureID, int RiskDataID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MesureID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(RiskDataID));
+        public virtual int Insert(int RiskDataID, int MeasureID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RiskDataID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25730,11 +25730,11 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MesureID, int RiskDataID, int Original_MesureID, int Original_RiskDataID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MesureID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(RiskDataID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_MesureID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_RiskDataID));
+        public virtual int Update(int RiskDataID, int MeasureID, int Original_RiskDataID, int Original_MeasureID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RiskDataID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(MeasureID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_RiskDataID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -25755,8 +25755,8 @@ SELECT MesureID, RiskDataID FROM Tbl_MinimalAddition_In_Risk WHERE (MesureID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Original_MesureID, int Original_RiskDataID) {
-            return this.Update(Original_MesureID, Original_RiskDataID, Original_MesureID, Original_RiskDataID);
+        public virtual int Update(int Original_RiskDataID, int Original_MeasureID) {
+            return this.Update(Original_RiskDataID, Original_MeasureID, Original_RiskDataID, Original_MeasureID);
         }
     }
     
@@ -25933,7 +25933,7 @@ SELECT ProjectID, Revision, DateCreated, LatestActivity, UserID, ProjectRevision
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26293,7 +26293,7 @@ SELECT RiskID, VersionID, DateCreated, TypeName, GroupName, RiskDataID FROM Tbl_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26699,7 +26699,7 @@ SELECT ProjectID, StateID, Customer, MachineType, MachineNumber, OrderNumber, In
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27157,7 +27157,7 @@ SELECT RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27609,7 +27609,7 @@ SELECT RiskDataID, DangerID, DangerSourceID, HazardSituation, HazardEvent, RiskR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27938,7 +27938,7 @@ SELECT EstimationID, GroupName, ItemDescription, ItemWeight FROM Tbl_RiskEstimat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28292,7 +28292,7 @@ SELECT RiskDataID, EstimationID, GroupName FROM Tbl_RiskEstimation_In_Risk_After
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28622,7 +28622,7 @@ SELECT RiskDataID, EstimationID, GroupName FROM Tbl_RiskEstimation_In_Risk_Befor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28914,40 +28914,40 @@ SELECT RiskDataID, EstimationID, GroupName FROM Tbl_RiskEstimation_In_Risk_Befor
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Tbl_RiskReduction_In_Risk";
-            tableMapping.ColumnMappings.Add("MesureID", "MesureID");
             tableMapping.ColumnMappings.Add("RiskDataID", "RiskDataID");
+            tableMapping.ColumnMappings.Add("MeasureID", "MeasureID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tbl_RiskReduction_In_Risk] WHERE (([MesureID] = @Original_Mesu" +
-                "reID) AND ([RiskDataID] = @Original_RiskDataID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Tbl_RiskReduction_In_Risk] WHERE (([RiskDataID] = @Original_RiskData" +
+                "ID) AND ([MeasureID] = @Original_MeasureID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tbl_RiskReduction_In_Risk] ([MesureID], [RiskDataID]) VALUES (" +
-                "@MesureID, @RiskDataID);\r\nSELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_" +
-                "Risk WHERE (MesureID = @MesureID) AND (RiskDataID = @RiskDataID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Tbl_RiskReduction_In_Risk] ([RiskDataID], [MeasureID]) VALUES (@Risk" +
+                "DataID, @MeasureID);\r\nSELECT RiskDataID, MeasureID FROM Tbl_RiskReduction_In_Ris" +
+                "k WHERE (MeasureID = @MeasureID) AND (RiskDataID = @RiskDataID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_RiskReduction_In_Risk] SET [MesureID] = @MesureID, [RiskDataID] = @RiskDataID WHERE (([MesureID] = @Original_MesureID) AND ([RiskDataID] = @Original_RiskDataID));
-SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @MesureID) AND (RiskDataID = @RiskDataID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tbl_RiskReduction_In_Risk] SET [RiskDataID] = @RiskDataID, [MeasureID] = @MeasureID WHERE (([RiskDataID] = @Original_RiskDataID) AND ([MeasureID] = @Original_MeasureID));
+SELECT RiskDataID, MeasureID FROM Tbl_RiskReduction_In_Risk WHERE (MeasureID = @MeasureID) AND (RiskDataID = @RiskDataID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RiskDataID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RiskDataID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28956,7 +28956,7 @@ SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @Me
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MesureID, RiskDataID FROM dbo.Tbl_RiskReduction_In_Risk";
+            this._commandCollection[0].CommandText = "SELECT RiskDataID, MeasureID FROM Tbl_RiskReduction_In_Risk";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -29017,9 +29017,9 @@ SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @Me
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MesureID, int Original_RiskDataID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MesureID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_RiskDataID));
+        public virtual int Delete(int Original_RiskDataID, int Original_MeasureID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RiskDataID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -29040,9 +29040,9 @@ SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @Me
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MesureID, int RiskDataID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MesureID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(RiskDataID));
+        public virtual int Insert(int RiskDataID, int MeasureID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RiskDataID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -29063,11 +29063,11 @@ SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @Me
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MesureID, int RiskDataID, int Original_MesureID, int Original_RiskDataID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MesureID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(RiskDataID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_MesureID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_RiskDataID));
+        public virtual int Update(int RiskDataID, int MeasureID, int Original_RiskDataID, int Original_MeasureID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RiskDataID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(MeasureID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_RiskDataID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MeasureID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -29088,391 +29088,8 @@ SELECT MesureID, RiskDataID FROM Tbl_RiskReduction_In_Risk WHERE (MesureID = @Me
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Original_MesureID, int Original_RiskDataID) {
-            return this.Update(Original_MesureID, Original_RiskDataID, Original_MesureID, Original_RiskDataID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Tbl_RiskReductionMesuresTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Tbl_RiskReductionMesuresTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Tbl_RiskReductionMesures";
-            tableMapping.ColumnMappings.Add("MesureID", "MesureID");
-            tableMapping.ColumnMappings.Add("MesureGroup", "MesureGroup");
-            tableMapping.ColumnMappings.Add("MesureSubGroup", "MesureSubGroup");
-            tableMapping.ColumnMappings.Add("FileID", "FileID");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tbl_RiskReductionMesures] WHERE (([MesureID] = @Original_MesureID) AND ([MesureGroup] = @Original_MesureGroup) AND ([MesureSubGroup] = @Original_MesureSubGroup) AND ((@IsNull_FileID = 1 AND [FileID] IS NULL) OR ([FileID] = @Original_FileID)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureSubGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tbl_RiskReductionMesures] ([MesureID], [MesureGroup], [MesureSubGroup], [FileID]) VALUES (@MesureID, @MesureGroup, @MesureSubGroup, @FileID);
-SELECT MesureID, MesureGroup, MesureSubGroup, FileID FROM Tbl_RiskReductionMesures WHERE (MesureID = @MesureID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureSubGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_RiskReductionMesures] SET [MesureID] = @MesureID, [MesureGroup] = @MesureGroup, [MesureSubGroup] = @MesureSubGroup, [FileID] = @FileID WHERE (([MesureID] = @Original_MesureID) AND ([MesureGroup] = @Original_MesureGroup) AND ([MesureSubGroup] = @Original_MesureSubGroup) AND ((@IsNull_FileID = 1 AND [FileID] IS NULL) OR ([FileID] = @Original_FileID)));
-SELECT MesureID, MesureGroup, MesureSubGroup, FileID FROM Tbl_RiskReductionMesures WHERE (MesureID = @MesureID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MesureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureSubGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MesureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MesureSubGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MesureID, MesureGroup, MesureSubGroup, FileID FROM dbo.Tbl_RiskReductionMe" +
-                "sures";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMesuresDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMesuresDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMesuresDataTable dataTable = new LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMesuresDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMesuresDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LG_Analysis_DatabaseDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Tbl_RiskReductionMesures");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MesureID, string Original_MesureGroup, string Original_MesureSubGroup, global::System.Nullable<int> Original_FileID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MesureID));
-            if ((Original_MesureGroup == null)) {
-                throw new global::System.ArgumentNullException("Original_MesureGroup");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_MesureGroup));
-            }
-            if ((Original_MesureSubGroup == null)) {
-                throw new global::System.ArgumentNullException("Original_MesureSubGroup");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_MesureSubGroup));
-            }
-            if ((Original_FileID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_FileID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MesureID, string MesureGroup, string MesureSubGroup, global::System.Nullable<int> FileID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MesureID));
-            if ((MesureGroup == null)) {
-                throw new global::System.ArgumentNullException("MesureGroup");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MesureGroup));
-            }
-            if ((MesureSubGroup == null)) {
-                throw new global::System.ArgumentNullException("MesureSubGroup");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MesureSubGroup));
-            }
-            if ((FileID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(FileID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MesureID, string MesureGroup, string MesureSubGroup, global::System.Nullable<int> FileID, int Original_MesureID, string Original_MesureGroup, string Original_MesureSubGroup, global::System.Nullable<int> Original_FileID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MesureID));
-            if ((MesureGroup == null)) {
-                throw new global::System.ArgumentNullException("MesureGroup");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MesureGroup));
-            }
-            if ((MesureSubGroup == null)) {
-                throw new global::System.ArgumentNullException("MesureSubGroup");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MesureSubGroup));
-            }
-            if ((FileID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(FileID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_MesureID));
-            if ((Original_MesureGroup == null)) {
-                throw new global::System.ArgumentNullException("Original_MesureGroup");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_MesureGroup));
-            }
-            if ((Original_MesureSubGroup == null)) {
-                throw new global::System.ArgumentNullException("Original_MesureSubGroup");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_MesureSubGroup));
-            }
-            if ((Original_FileID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_FileID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string MesureGroup, string MesureSubGroup, global::System.Nullable<int> FileID, int Original_MesureID, string Original_MesureGroup, string Original_MesureSubGroup, global::System.Nullable<int> Original_FileID) {
-            return this.Update(Original_MesureID, MesureGroup, MesureSubGroup, FileID, Original_MesureID, Original_MesureGroup, Original_MesureSubGroup, Original_FileID);
+        public virtual int Update(int Original_RiskDataID, int Original_MeasureID) {
+            return this.Update(Original_RiskDataID, Original_MeasureID, Original_RiskDataID, Original_MeasureID);
         }
     }
     
@@ -29643,7 +29260,7 @@ SELECT ProjectID, VersionID, RiskID, RiskDataID FROM Tbl_Risks_In_Project WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29985,7 +29602,7 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30331,7 +29948,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30625,7 +30242,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30807,7 +30424,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30975,7 +30592,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31184,7 +30801,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31357,11 +30974,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Get_MinimalAddition_In_RiskData";
-            tableMapping.ColumnMappings.Add("MesureID", "MesureID");
-            tableMapping.ColumnMappings.Add("MesureGroup", "MesureGroup");
-            tableMapping.ColumnMappings.Add("MesureSubGroup", "MesureSubGroup");
             tableMapping.ColumnMappings.Add("FileID", "FileID");
             tableMapping.ColumnMappings.Add("InProject", "InProject");
+            tableMapping.ColumnMappings.Add("MeasureID", "MeasureID");
+            tableMapping.ColumnMappings.Add("MeasureGroup", "MeasureGroup");
+            tableMapping.ColumnMappings.Add("MeasureSubGroup", "MeasureSubGroup");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -31369,7 +30986,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31550,7 +31167,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31730,7 +31347,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31911,7 +31528,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32109,7 +31726,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32294,7 +31911,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32467,11 +32084,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Get_RiskReduction_In_RiskData";
-            tableMapping.ColumnMappings.Add("MesureID", "MesureID");
-            tableMapping.ColumnMappings.Add("MesureGroup", "MesureGroup");
-            tableMapping.ColumnMappings.Add("MesureSubGroup", "MesureSubGroup");
             tableMapping.ColumnMappings.Add("FileID", "FileID");
             tableMapping.ColumnMappings.Add("InProject", "InProject");
+            tableMapping.ColumnMappings.Add("MeasureID", "MeasureID");
+            tableMapping.ColumnMappings.Add("MeasureGroup", "MeasureGroup");
+            tableMapping.ColumnMappings.Add("MeasureSubGroup", "MeasureSubGroup");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -32479,7 +32096,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32665,7 +32282,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32860,7 +32477,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33055,7 +32672,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33266,7 +32883,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33476,7 +33093,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33683,7 +33300,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33864,7 +33481,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34064,7 +33681,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34263,7 +33880,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34451,7 +34068,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34645,7 +34262,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34844,7 +34461,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -35015,7 +34632,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -35190,7 +34807,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -35251,6 +34868,389 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Tbl_RiskReductionMeasuresTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Tbl_RiskReductionMeasuresTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Tbl_RiskReductionMeasures";
+            tableMapping.ColumnMappings.Add("MeasureID", "MeasureID");
+            tableMapping.ColumnMappings.Add("MeasureGroup", "MeasureGroup");
+            tableMapping.ColumnMappings.Add("MeasureSubGroup", "MeasureSubGroup");
+            tableMapping.ColumnMappings.Add("FileID", "FileID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Tbl_RiskReductionMeasures] WHERE (([MeasureID] = @Original_MeasureID) AND ([MeasureGroup] = @Original_MeasureGroup) AND ([MeasureSubGroup] = @Original_MeasureSubGroup) AND ((@IsNull_FileID = 1 AND [FileID] IS NULL) OR ([FileID] = @Original_FileID)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureSubGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tbl_RiskReductionMeasures] ([MeasureID], [MeasureGroup], [MeasureSubGroup], [FileID]) VALUES (@MeasureID, @MeasureGroup, @MeasureSubGroup, @FileID);
+SELECT MeasureID, MeasureGroup, MeasureSubGroup, FileID FROM Tbl_RiskReductionMeasures WHERE (MeasureID = @MeasureID)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureSubGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_RiskReductionMeasures] SET [MeasureID] = @MeasureID, [MeasureGroup] = @MeasureGroup, [MeasureSubGroup] = @MeasureSubGroup, [FileID] = @FileID WHERE (([MeasureID] = @Original_MeasureID) AND ([MeasureGroup] = @Original_MeasureGroup) AND ([MeasureSubGroup] = @Original_MeasureSubGroup) AND ((@IsNull_FileID = 1 AND [FileID] IS NULL) OR ([FileID] = @Original_FileID)));
+SELECT MeasureID, MeasureGroup, MeasureSubGroup, FileID FROM Tbl_RiskReductionMeasures WHERE (MeasureID = @MeasureID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MeasureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureSubGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MeasureSubGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MeasureSubGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FileID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FileID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT MeasureID, MeasureGroup, MeasureSubGroup, FileID FROM dbo.Tbl_RiskReductio" +
+                "nMeasures";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMeasuresDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMeasuresDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMeasuresDataTable dataTable = new LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMeasuresDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(LG_Analysis_DatabaseDataSet.Tbl_RiskReductionMeasuresDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(LG_Analysis_DatabaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Tbl_RiskReductionMeasures");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_MeasureID, string Original_MeasureGroup, string Original_MeasureSubGroup, global::System.Nullable<int> Original_FileID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MeasureID));
+            if ((Original_MeasureGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_MeasureGroup");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_MeasureGroup));
+            }
+            if ((Original_MeasureSubGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_MeasureSubGroup");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_MeasureSubGroup));
+            }
+            if ((Original_FileID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_FileID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int MeasureID, string MeasureGroup, string MeasureSubGroup, global::System.Nullable<int> FileID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MeasureID));
+            if ((MeasureGroup == null)) {
+                throw new global::System.ArgumentNullException("MeasureGroup");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(MeasureGroup));
+            }
+            if ((MeasureSubGroup == null)) {
+                throw new global::System.ArgumentNullException("MeasureSubGroup");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(MeasureSubGroup));
+            }
+            if ((FileID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(FileID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int MeasureID, string MeasureGroup, string MeasureSubGroup, global::System.Nullable<int> FileID, int Original_MeasureID, string Original_MeasureGroup, string Original_MeasureSubGroup, global::System.Nullable<int> Original_FileID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MeasureID));
+            if ((MeasureGroup == null)) {
+                throw new global::System.ArgumentNullException("MeasureGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(MeasureGroup));
+            }
+            if ((MeasureSubGroup == null)) {
+                throw new global::System.ArgumentNullException("MeasureSubGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MeasureSubGroup));
+            }
+            if ((FileID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(FileID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_MeasureID));
+            if ((Original_MeasureGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_MeasureGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_MeasureGroup));
+            }
+            if ((Original_MeasureSubGroup == null)) {
+                throw new global::System.ArgumentNullException("Original_MeasureSubGroup");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_MeasureSubGroup));
+            }
+            if ((Original_FileID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_FileID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string MeasureGroup, string MeasureSubGroup, global::System.Nullable<int> FileID, int Original_MeasureID, string Original_MeasureGroup, string Original_MeasureSubGroup, global::System.Nullable<int> Original_FileID) {
+            return this.Update(Original_MeasureID, MeasureGroup, MeasureSubGroup, FileID, Original_MeasureID, Original_MeasureGroup, Original_MeasureSubGroup, Original_FileID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.IDbCommand[] _commandCollection;
@@ -35271,7 +35271,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.IDbCommand[14];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.Create_RiskProject";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35282,28 +35282,28 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@orderNumber", global::System.Data.SqlDbType.Char, 8, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@extraInfo", global::System.Data.SqlDbType.VarChar, 512, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "dbo.Create_RiskProject_Revision";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OriginalProjectID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUserID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "dbo.Delete_From_ProjectRisks";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projectID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).CommandText = "dbo.Delete_Risk";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[3])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).CommandText = "dbo.Insert_Danger_In_RiskData";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35313,14 +35313,14 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hazardSituation", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[4])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hazardEvent", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).CommandText = "dbo.Insert_In_ProjectRisks";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projectID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[5])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).CommandText = "dbo.Insert_Into_RiskEstimation_After";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35328,7 +35328,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estimationID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@groupName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).CommandText = "dbo.Insert_Into_RiskEstimation_Before";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35336,14 +35336,14 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@estimationID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@groupName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).CommandText = "dbo.Insert_Picture_Into_Risk";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@objectData", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).CommandText = "dbo.Insert_Risks_From_Type_Into_Project";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35352,7 +35352,7 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[9])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deleteOrInsert", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).CommandText = "dbo.Update_ComponentTypeAndGroup_In_Risk";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35361,21 +35361,21 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@groupName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[10])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeName", global::System.Data.SqlDbType.VarChar, 64, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).CommandText = "dbo.Update_MinimalAdditionInfo_In_RiskData";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[11])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskReductionInfo", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).CommandText = "dbo.Update_RiskReductionInfo_In_RiskData";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskDataID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[12])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@riskReductionInfo", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).CommandText = "dbo.Update_Risks_In_Open_Risk_Projects";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[13])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -35974,13 +35974,13 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         
         private Tbl_RiskReduction_In_RiskTableAdapter _tbl_RiskReduction_In_RiskTableAdapter;
         
-        private Tbl_RiskReductionMesuresTableAdapter _tbl_RiskReductionMesuresTableAdapter;
-        
         private Tbl_Risks_In_ProjectTableAdapter _tbl_Risks_In_ProjectTableAdapter;
         
         private Tbl_UserTableAdapter _tbl_UserTableAdapter;
         
         private Tbl_User_PermissionsTableAdapter _tbl_User_PermissionsTableAdapter;
+        
+        private Tbl_RiskReductionMeasuresTableAdapter _tbl_RiskReductionMeasuresTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -36268,20 +36268,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Tbl_RiskReductionMesuresTableAdapter Tbl_RiskReductionMesuresTableAdapter {
-            get {
-                return this._tbl_RiskReductionMesuresTableAdapter;
-            }
-            set {
-                this._tbl_RiskReductionMesuresTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public Tbl_Risks_In_ProjectTableAdapter Tbl_Risks_In_ProjectTableAdapter {
             get {
                 return this._tbl_Risks_In_ProjectTableAdapter;
@@ -36316,6 +36302,20 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             }
             set {
                 this._tbl_User_PermissionsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Tbl_RiskReductionMeasuresTableAdapter Tbl_RiskReductionMeasuresTableAdapter {
+            get {
+                return this._tbl_RiskReductionMeasuresTableAdapter;
+            }
+            set {
+                this._tbl_RiskReductionMeasuresTableAdapter = value;
             }
         }
         
@@ -36414,10 +36414,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                             && (this._tbl_RiskReduction_In_RiskTableAdapter.Connection != null))) {
                     return this._tbl_RiskReduction_In_RiskTableAdapter.Connection;
                 }
-                if (((this._tbl_RiskReductionMesuresTableAdapter != null) 
-                            && (this._tbl_RiskReductionMesuresTableAdapter.Connection != null))) {
-                    return this._tbl_RiskReductionMesuresTableAdapter.Connection;
-                }
                 if (((this._tbl_Risks_In_ProjectTableAdapter != null) 
                             && (this._tbl_Risks_In_ProjectTableAdapter.Connection != null))) {
                     return this._tbl_Risks_In_ProjectTableAdapter.Connection;
@@ -36429,6 +36425,10 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                 if (((this._tbl_User_PermissionsTableAdapter != null) 
                             && (this._tbl_User_PermissionsTableAdapter.Connection != null))) {
                     return this._tbl_User_PermissionsTableAdapter.Connection;
+                }
+                if (((this._tbl_RiskReductionMeasuresTableAdapter != null) 
+                            && (this._tbl_RiskReductionMeasuresTableAdapter.Connection != null))) {
+                    return this._tbl_RiskReductionMeasuresTableAdapter.Connection;
                 }
                 return null;
             }
@@ -36500,9 +36500,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                 if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._tbl_Risks_In_ProjectTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -36510,6 +36507,9 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     count = (count + 1);
                 }
                 if ((this._tbl_User_PermissionsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -36595,21 +36595,21 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tbl_RiskEstimationTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_RiskEstimationTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -36622,12 +36622,12 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReductionMeasures.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_RiskReductionMeasuresTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -36650,30 +36650,12 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_LogTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Log.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_LogTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -36686,12 +36668,21 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_LogTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Log.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_LogTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -36713,6 +36704,15 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._tbl_Risks_In_ProjectTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Risks_In_Project.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -36722,12 +36722,12 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -36805,19 +36805,19 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tbl_RiskEstimationTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_RiskEstimationTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -36829,11 +36829,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReductionMeasures.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_RiskReductionMeasuresTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -36854,27 +36854,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_LogTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Log.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_LogTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -36886,11 +36870,19 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_LogTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Log.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_LogTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -36910,6 +36902,14 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._tbl_Risks_In_ProjectTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Tbl_Risks_In_Project.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -36918,11 +36918,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -36936,11 +36936,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(LG_Analysis_DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_Danger_ResultTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -36949,6 +36949,14 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tbl_Risks_In_ProjectTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tbl_RiskReduction_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReduction_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_RiskReduction_In_RiskTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -36968,19 +36976,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tbl_MinimalAddition_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_MinimalAddition_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_MinimalAddition_In_RiskTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -36992,19 +36992,19 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_ExposedPersons_In_RiskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_ExposedPersons_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_MinimalAddition_In_RiskTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_MinimalAddition_In_Risk.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_ExposedPersons_In_RiskTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_MinimalAddition_In_RiskTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_Danger_ResultTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Danger_Result.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_Risk_AnalysisTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Risk_Analysis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_Danger_ResultTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_Risk_AnalysisTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -37025,11 +37025,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReductionMeasures.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_RiskReductionMeasuresTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -37041,19 +37041,19 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._tbl_Risk_Project_StateTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_Risk_Project_State.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_Risk_Project_StateTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._tbl_RiskEstimationTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskEstimation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tbl_RiskEstimationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Tbl_RiskReductionMesures.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_RiskReductionMesuresTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -37255,11 +37255,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._tbl_RiskReductionMesuresTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_RiskReductionMesuresTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._tbl_Risks_In_ProjectTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tbl_Risks_In_ProjectTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -37272,6 +37267,11 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
             }
             if (((this._tbl_User_PermissionsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tbl_User_PermissionsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._tbl_RiskReductionMeasuresTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tbl_RiskReductionMeasuresTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -37478,15 +37478,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_RiskReduction_In_RiskTableAdapter.Adapter);
                     }
                 }
-                if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_RiskReductionMesuresTableAdapter, this._tbl_RiskReductionMesuresTableAdapter.Connection);
-                    this._tbl_RiskReductionMesuresTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tbl_RiskReductionMesuresTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tbl_RiskReductionMesuresTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_RiskReductionMesuresTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_RiskReductionMesuresTableAdapter.Adapter);
-                    }
-                }
                 if ((this._tbl_Risks_In_ProjectTableAdapter != null)) {
                     revertConnections.Add(this._tbl_Risks_In_ProjectTableAdapter, this._tbl_Risks_In_ProjectTableAdapter.Connection);
                     this._tbl_Risks_In_ProjectTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -37512,6 +37503,15 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     if (this._tbl_User_PermissionsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._tbl_User_PermissionsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_User_PermissionsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
+                    revertConnections.Add(this._tbl_RiskReductionMeasuresTableAdapter, this._tbl_RiskReductionMeasuresTableAdapter.Connection);
+                    this._tbl_RiskReductionMeasuresTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tbl_RiskReductionMeasuresTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tbl_RiskReductionMeasuresTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tbl_RiskReductionMeasuresTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_RiskReductionMeasuresTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -37648,10 +37648,6 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                     this._tbl_RiskReduction_In_RiskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_RiskReduction_In_RiskTableAdapter]));
                     this._tbl_RiskReduction_In_RiskTableAdapter.Transaction = null;
                 }
-                if ((this._tbl_RiskReductionMesuresTableAdapter != null)) {
-                    this._tbl_RiskReductionMesuresTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_RiskReductionMesuresTableAdapter]));
-                    this._tbl_RiskReductionMesuresTableAdapter.Transaction = null;
-                }
                 if ((this._tbl_Risks_In_ProjectTableAdapter != null)) {
                     this._tbl_Risks_In_ProjectTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_Risks_In_ProjectTableAdapter]));
                     this._tbl_Risks_In_ProjectTableAdapter.Transaction = null;
@@ -37663,6 +37659,10 @@ SELECT PermissionID, PermissionName FROM Tbl_User_Permissions WHERE (PermissionI
                 if ((this._tbl_User_PermissionsTableAdapter != null)) {
                     this._tbl_User_PermissionsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_User_PermissionsTableAdapter]));
                     this._tbl_User_PermissionsTableAdapter.Transaction = null;
+                }
+                if ((this._tbl_RiskReductionMeasuresTableAdapter != null)) {
+                    this._tbl_RiskReductionMeasuresTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_RiskReductionMeasuresTableAdapter]));
+                    this._tbl_RiskReductionMeasuresTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

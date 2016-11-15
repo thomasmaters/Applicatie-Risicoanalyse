@@ -301,8 +301,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ReportGenerator.cs" />
-    <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.cs" />
+    <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.Designer.cs">
+      <DependentUpon>RiskAssesmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WordInterface.cs" />
     <EmbeddedResource Include="Controls\ARA_Button.resx">
       <DependentUpon>ARA_Button.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,12 +383,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\testForm.resx">
       <DependentUpon>testForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RiskAssesmentReport\InitialRisk.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RiskAssesmentReport\PageRisk.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -462,8 +461,8 @@
     <None Include="Resources\NoRiskPicture.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\RiskAssesmentReport\Header.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <EmbeddedResource Include="Reports\RiskAssesmentReport\RiskAssesmentReport.resx">
+      <DependentUpon>RiskAssesmentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ACL.xml" />
   </ItemGroup>

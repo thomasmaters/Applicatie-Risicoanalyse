@@ -15,7 +15,7 @@ namespace Applicatie_Risicoanalyse.Controls
     public partial class ARA_EditRiskRiskReductionMesuresItem : UserControl
     {
         private bool hasControlBeenChanged = false;
-        public EventHandler<MesureItemChangedEvent> itemCheckEventHandler;
+        public EventHandler<MeasureItemChangedEvent> itemCheckEventHandler;
 
         public bool HasControlBeenChanged
         {
@@ -41,13 +41,13 @@ namespace Applicatie_Risicoanalyse.Controls
             this.hasControlBeenChanged = false;
             this.checkedListBox1.Items.Clear();
 
-            this.checkBox1.Text = controlData[0]["MesureGroup"].ToString();
+            this.checkBox1.Text = controlData[0]["MeasureGroup"].ToString();
 
             this.checkedListBox1.Items.Clear();
             //Fill checklistbox with items.
             foreach(DataRowView row in controlData)
             {
-                this.checkedListBox1.Items.Add(row["MesureSubGroup"]);
+                this.checkedListBox1.Items.Add(row["MeasureSubGroup"]);
 
                 //Is this option in riskData.
                 if (row["InProject"].ToString() == "1")
@@ -66,13 +66,13 @@ namespace Applicatie_Risicoanalyse.Controls
             {
                 if (itemCheckEventHandler != null)
                 {
-                    controlData.RowFilter = "MesureGroup ='" + this.checkBox1.Text + "'";
+                    controlData.RowFilter = "MeasureGroup ='" + this.checkBox1.Text + "'";
 
                     //Set flag so the control knows it has been changed.
                     this.hasControlBeenChanged = !(this.checkedListBox1.CheckedItems.Count == 1 && e.NewValue == CheckState.Unchecked) || e.NewValue == CheckState.Checked;
 
                     //Trigger eventhandler.
-                    itemCheckEventHandler(sender, new MesureItemChangedEvent(Int32.Parse(controlData[e.Index]["MesureID"].ToString()), e.NewValue));
+                    itemCheckEventHandler(sender, new MeasureItemChangedEvent((Int32)controlData[e.Index]["MeasureID"], e.NewValue));
                 }
             };
 

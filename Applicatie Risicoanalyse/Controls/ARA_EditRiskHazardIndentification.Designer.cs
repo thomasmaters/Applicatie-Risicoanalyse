@@ -122,7 +122,7 @@
             this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
-            this.tableAdapterManager.Tbl_RiskReductionMesuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMeasuresTableAdapter = null;
             this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
             this.tableAdapterManager.Tbl_RiskTableAdapter = null;
             this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;

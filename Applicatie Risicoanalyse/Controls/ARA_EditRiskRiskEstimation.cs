@@ -132,27 +132,14 @@ namespace Applicatie_Risicoanalyse.Controls
         public void updateSafetyMesuresRequirement()
         {
             int riskClassification = calculateRiskEstimationClass();
-            string classText = "";
-
-            switch (riskClassification)
-            {
-                case 1:
-                    classText = "Safety measures recommended.";
-                    break;
-                case 2:
-                    classText = "Safety measures required!";
-                    break;
-                default:
-                    classText = "No safety measures rquired";
-                    break;
-            }
+            string classText = ARA_Globals.riskClassDescription[riskClassification];
 
             this.arA_Text6.Text = "Risk class: " + riskClassification.ToString() + " (Points:" + calculateRiskPoints().ToString() + ") " + classText;
             this.arA_Text6.Invalidate();
         }
 
         //Calcules riskclass.
-        private int calculateRiskEstimationClass()
+        public int calculateRiskEstimationClass()
         {
             int severity = this.arA_EditRiskRiskEstimationItem1.SelectedWeight;
             int totalRiskPoints = calculateRiskPoints();

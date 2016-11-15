@@ -94,16 +94,16 @@ namespace Applicatie_Risicoanalyse.Forms
                     setControlsEnabled();
                     this.queriesTableAdapter1.Update_RiskReductionInfo_In_RiskData(this.riskDataID, this.arA_EditRiskRiskReductionMesures1.ReductionMesureInfo);
                 };
-                this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
+                this.arA_EditRiskRiskReductionMesures1.itemCheckEventHandler += delegate (object sender, MeasureItemChangedEvent e)
                 {
                     setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
                     }
                 };
 
@@ -116,16 +116,16 @@ namespace Applicatie_Risicoanalyse.Forms
                     setControlsEnabled();
                     this.queriesTableAdapter1.Update_MinimalAdditionInfo_In_RiskData(this.riskDataID, this.arA_EditRiskRiskReductionMesures2.ReductionMesureInfo);
                 };
-                this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MesureItemChangedEvent e)
+                this.arA_EditRiskRiskReductionMesures2.itemCheckEventHandler += delegate (object sender, MeasureItemChangedEvent e)
                 {
                     setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.mesureID, riskDataID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.mesureID, riskDataID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
                     }
                 };
 
