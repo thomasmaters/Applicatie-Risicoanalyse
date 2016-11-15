@@ -205,19 +205,23 @@ namespace Applicatie_Risicoanalyse.Globals
     public class GenerateRiskReportEventArgs : DoWorkEventArgs
     {
         public int projectID { get; private set; }
-        public object templateLocation { get; private set; }
-        public object saveLocation { get; private set; }
+        public object newDocumentLocation { get; private set; }
+        public byte[] riskPageTemplateLocation { get; private set; }
+        public byte[] indexPageTemplateLocation { get; private set; }
+        public byte[] frontPageTemplateLocation { get; private set; }
 
         private GenerateRiskReportEventArgs() : base(new object())
         {
 
         }
 
-        public GenerateRiskReportEventArgs(int projectID, object templateLocation, object saveLocation) : base(new object())
+        public GenerateRiskReportEventArgs(int projectID, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
         {
-            this.projectID = projectID;
-            this.templateLocation = templateLocation;
-            this.saveLocation = saveLocation;
+            this.projectID                  = projectID;
+            this.newDocumentLocation        = newDocumentLocation;
+            this.riskPageTemplateLocation   = riskPageTemplateLocation;
+            this.indexPageTemplateLocation  = indexPageTemplateLocation;
+            this.frontPageTemplateLocation  = frontPageTemplateLocation;
         }
     }
 }

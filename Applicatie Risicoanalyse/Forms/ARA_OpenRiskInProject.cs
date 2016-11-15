@@ -27,9 +27,10 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.OpenRiskInProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
             foreach (Control control in this.Controls)
             {
-                control.Font = this.Font;
+                //control.Font = this.Font;
             }
         }
 

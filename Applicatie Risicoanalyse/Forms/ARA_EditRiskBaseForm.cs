@@ -99,11 +99,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setRiskDataProjectSpecific();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
                     }
                 };
 
@@ -121,11 +121,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setRiskDataProjectSpecific();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
                     }
                 };
 

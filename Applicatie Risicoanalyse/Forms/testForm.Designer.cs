@@ -240,8 +240,6 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "testForm";
             this.Text = "testForm";
-            this.Load += new System.EventHandler(this.testForm_Load);
-            this.Shown += new System.EventHandler(this.testForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();

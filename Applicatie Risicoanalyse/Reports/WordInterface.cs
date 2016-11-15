@@ -27,7 +27,7 @@ namespace Applicatie_Risicoanalyse.Reports
             this.app = new Microsoft.Office.Interop.Word.Application();
         }
 
-        public void fillTable(Document document, Microsoft.Office.Interop.Word.Table table, DataView dataRows, string displayColumn, string checkBoxSelectionColumn = "")
+        public void fillTableWithRiskReducingMeasures(Document document, Microsoft.Office.Interop.Word.Table table, DataView dataRows, string displayColumn, string checkBoxSelectionColumn = "")
         {
             if (table != null)
             {
@@ -87,20 +87,22 @@ namespace Applicatie_Risicoanalyse.Reports
 
         public void saveDocument(Document doc, string location)
         {
-            object saveLocation = location;
+            object saveLocation = @location;
 
             //Save the document at a location.
-            doc.SaveAs(ref saveLocation, ref missing, ref missing,
+            doc.SaveAs2(saveLocation);
+            /*doc.SaveAs(ref saveLocation, ref missing, ref missing,
                 ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing,
-                ref missing);
+                ref missing);*/
         }
 
         public void copyDocumentToOtherDocument(Document documentToCopy, Document documentToPasteIn, bool addPageBreak = false)
         {
             //Select ranges.
+            documentToPasteIn.Activate();
             object docStart = documentToPasteIn.Content.End - 1;
             object docEnd = documentToPasteIn.Content.End;
 

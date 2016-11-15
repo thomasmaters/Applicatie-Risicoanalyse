@@ -8,6 +8,7 @@ using Applicatie_Risicoanalyse.Globals;
 using System.Data;
 using System.Diagnostics;
 using System.Security.AccessControl;
+using System.Reflection;
 
 namespace Applicatie_Risicoanalyse
 {
@@ -26,7 +27,8 @@ namespace Applicatie_Risicoanalyse
             Debug.WriteLine(ARA_ACL.getPermissionLevel("hendrik111111").ToString());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RiskAssesmentReport());
+            Debug.WriteLine(Assembly.GetExecutingAssembly().GetManifestResourceStream("Applicatie_Risicoanalyse.Resources.RiskAssessmentRiskPageTemplate.docx"));
+            Application.Run(new ARA_BaseForm());
         }
     }
 }

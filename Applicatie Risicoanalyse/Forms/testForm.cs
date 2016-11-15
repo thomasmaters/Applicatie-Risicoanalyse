@@ -22,7 +22,7 @@ namespace Applicatie_Risicoanalyse.Forms
         object missing = Type.Missing;
         object paramFalse = false;
 
-        public testForm()
+        /*public testForm()
         {
             InitializeComponent();
 
@@ -180,13 +180,13 @@ namespace Applicatie_Risicoanalyse.Forms
                     Microsoft.Office.Interop.Word.Table appliedRiskReductionMeasuresTable   = wordInterface.findTableWithTitle(wordDocument, "AppliedRiskReductionMeasures");
                     DataView appliedRiskReductionMeasures                                   = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
                     appliedRiskReductionMeasures.RowFilter                                  = "InProject = '1'";
-                    wordInterface.fillTable(wordDocument, appliedRiskReductionMeasuresTable, appliedRiskReductionMeasures, "MeasureSubGroup", "InProject");
+                    wordInterface.fillTableWithRiskReducingMeasures(wordDocument, appliedRiskReductionMeasuresTable, appliedRiskReductionMeasures, "MeasureSubGroup", "InProject");
                     appliedRiskReductionMeasuresTable.Title                                 = "a";
 
                     Microsoft.Office.Interop.Word.Table minimalAdditionMeasuresTable        = wordInterface.findTableWithTitle(wordDocument, "MinimalAdditionMeasures");
                     DataView minimalAdditionMeasures                                        = new DataView(this.get_MinimalAddition_In_RiskDataTableAdapter.GetData(riskDataID));
                     minimalAdditionMeasures.RowFilter                                       = "InProject = '1'";
-                    wordInterface.fillTable(wordDocument, minimalAdditionMeasuresTable, minimalAdditionMeasures, "MeasureSubGroup", "InProject");
+                    wordInterface.fillTableWithRiskReducingMeasures(wordDocument, minimalAdditionMeasuresTable, minimalAdditionMeasures, "MeasureSubGroup", "InProject");
                     minimalAdditionMeasuresTable.Title                                      = "a";
 
                     //Set generating process
@@ -225,6 +225,6 @@ namespace Applicatie_Risicoanalyse.Forms
         private void testForm_Shown(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
-        }
+        }*/
     }
 }

@@ -26,10 +26,12 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonOpenRisk.setConnectedPanel(this.riskProjectOverviewPanelOpenRisk);
             this.riskProjectOverviewButtonAddRiskToProject.setConnectedPanel(this.riskProjectOverviewPanelAddRiskToProject);
             this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
+            this.riskProjectOverviewButtonGenerateReports.setConnectedPanel(this.riskProjectOverviewPanelGenerateReports);
             //Add Click event to hide all other buttons/panels when one opens.
             this.riskProjectOverviewButtonOpenRisk.Click += hideOtherPanels;
             this.riskProjectOverviewButtonAddRiskToProject.Click += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonGenerateReports.Click += hideOtherPanels;
         }
 
         private void loadPermissions()
@@ -71,6 +73,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
+            this.addFormToPanel(this.riskProjectOverviewPanelGenerateReports, new ARA_GenerateReportsForm(projectID));
 
             loadPermissions();
         }

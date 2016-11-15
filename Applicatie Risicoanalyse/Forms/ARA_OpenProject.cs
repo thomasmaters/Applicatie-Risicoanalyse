@@ -24,6 +24,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 control.Font = this.Font;
             }
+            this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         private void ARA_OpenProject_Load(object sender, EventArgs e)

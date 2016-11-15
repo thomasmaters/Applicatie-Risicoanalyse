@@ -63,11 +63,15 @@ namespace Applicatie_Risicoanalyse.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;acl&gt;
         ///	&lt;acl groupname=&quot;Default&quot;&gt;
-        ///		&lt;!-- none,readonly,all--&gt;
-        ///		&lt;right name=&quot;&quot; access=&quot;readonly&quot;/&gt;
-        ///		&lt;right name=&quot;&quot; access=&quot;none&quot;/&gt;
-        ///	&lt;/acl&gt;
-        ///&lt;/acl&gt;.
+        ///		&lt;right name=&quot;General.ButtonOpenAdminPanel&quot;			access=&quot;none&quot;/&gt;
+        ///	
+        ///		&lt;right name=&quot;General.ButtonCreateProject&quot;  			access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonOpenProject&quot; 			access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonRecentProjects&quot; 			access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonCreateProjectRevision&quot;	access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonEditStandardRisks&quot; 		access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonAddRiskToProject&quot; 		access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;G [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ACL {
             get {
@@ -112,6 +116,66 @@ namespace Applicatie_Risicoanalyse.Properties {
             get {
                 object obj = ResourceManager.GetObject("NoRiskPicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PerformanceLevelReportIcon {
+            get {
+                object obj = ResourceManager.GetObject("PerformanceLevelReportIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemainingRiskReportIcon {
+            get {
+                object obj = ResourceManager.GetObject("RemainingRiskReportIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RiskAssessmentFrontPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RiskAssessmentFrontPageTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RiskAssessmentIndexPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RiskAssessmentIndexPageTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RiskAssessmentReportIcon {
+            get {
+                object obj = ResourceManager.GetObject("RiskAssessmentReportIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RiskAssessmentRiskPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RiskAssessmentRiskPageTemplate", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

@@ -36,13 +36,16 @@
             this.projectOverviewButtonSpacer2 = new System.Windows.Forms.Panel();
             this.riskProjectOverviewPanelOpenRisk = new System.Windows.Forms.FlowLayoutPanel();
             this.projectOverviewButtonSpacer3 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.get_Newest_Added_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_Newest_Added_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.riskProjectOverviewPanelGenerateReports = new System.Windows.Forms.FlowLayoutPanel();
             this.riskProjectOverviewButtonEditProjectDetails = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewButtonAddRiskToProject = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewButtonOpenRisk = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.riskProjectOverviewButtonGenerateReports = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).BeginInit();
@@ -59,6 +62,9 @@
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonOpenRisk);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelOpenRisk);
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonSpacer3);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonGenerateReports);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelGenerateReports);
+            this.flowLayoutPanel1.Controls.Add(this.panel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -66,11 +72,11 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 488);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // riskProjectOverviewPanelRecentProjects
+            // riskProjectOverviewPanelEditProjectDetails
             // 
             this.riskProjectOverviewPanelEditProjectDetails.Location = new System.Drawing.Point(0, 40);
             this.riskProjectOverviewPanelEditProjectDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewPanelEditProjectDetails.Name = "riskProjectOverviewPanelRecentProjects";
+            this.riskProjectOverviewPanelEditProjectDetails.Name = "riskProjectOverviewPanelEditProjectDetails";
             this.riskProjectOverviewPanelEditProjectDetails.Size = new System.Drawing.Size(750, 43);
             this.riskProjectOverviewPanelEditProjectDetails.TabIndex = 1;
             this.riskProjectOverviewPanelEditProjectDetails.Visible = false;
@@ -121,6 +127,15 @@
             this.projectOverviewButtonSpacer3.Size = new System.Drawing.Size(750, 12);
             this.projectOverviewButtonSpacer3.TabIndex = 9;
             // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(0, 239);
+            this.panel.Margin = new System.Windows.Forms.Padding(0);
+            this.panel.MaximumSize = new System.Drawing.Size(800, 12);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(750, 12);
+            this.panel.TabIndex = 11;
+            // 
             // lG_Analysis_DatabaseDataSet
             // 
             this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
@@ -163,6 +178,17 @@
             this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
             this.tableAdapterManager.Tbl_UserTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // riskProjectOverviewPanelGenerateReports
+            // 
+            this.riskProjectOverviewPanelGenerateReports.AutoSize = true;
+            this.riskProjectOverviewPanelGenerateReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.riskProjectOverviewPanelGenerateReports.Location = new System.Drawing.Point(750, 199);
+            this.riskProjectOverviewPanelGenerateReports.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewPanelGenerateReports.Name = "riskProjectOverviewPanelGenerateReports";
+            this.riskProjectOverviewPanelGenerateReports.Size = new System.Drawing.Size(0, 0);
+            this.riskProjectOverviewPanelGenerateReports.TabIndex = 12;
+            this.riskProjectOverviewPanelGenerateReports.Visible = false;
             // 
             // riskProjectOverviewButtonEditProjectDetails
             // 
@@ -227,6 +253,27 @@
             this.riskProjectOverviewButtonOpenRisk.TriangleSize = 20;
             this.riskProjectOverviewButtonOpenRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // riskProjectOverviewButtonGenerateReports
+            // 
+            this.riskProjectOverviewButtonGenerateReports.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonGenerateReports.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonGenerateReports.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonGenerateReports.Location = new System.Drawing.Point(0, 199);
+            this.riskProjectOverviewButtonGenerateReports.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonGenerateReports.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonGenerateReports.Name = "riskProjectOverviewButtonGenerateReports";
+            this.riskProjectOverviewButtonGenerateReports.PaddingFirstTriangle = 250;
+            this.riskProjectOverviewButtonGenerateReports.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonGenerateReports.Selected = false;
+            this.riskProjectOverviewButtonGenerateReports.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonGenerateReports.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonGenerateReports.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonGenerateReports.TabIndex = 10;
+            this.riskProjectOverviewButtonGenerateReports.Text = "Generate Reports";
+            this.riskProjectOverviewButtonGenerateReports.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonGenerateReports.TriangleSize = 20;
+            this.riskProjectOverviewButtonGenerateReports.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // ARA_RiskProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -266,5 +313,8 @@
         private System.Windows.Forms.BindingSource get_Newest_Added_ProjectBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter get_Newest_Added_ProjectTableAdapter;
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private Controls.ARA_DropDownButton riskProjectOverviewButtonGenerateReports;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelGenerateReports;
     }
 }
