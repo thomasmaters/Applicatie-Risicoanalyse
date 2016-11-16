@@ -130,12 +130,42 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RemainingRiskFrontPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RemainingRiskFrontPageTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap RemainingRiskReportIcon {
             get {
                 object obj = ResourceManager.GetObject("RemainingRiskReportIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RemainingRiskRiskPageHeaderTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RemainingRiskRiskPageHeaderTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RemainingRiskRiskPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("RemainingRiskRiskPageTemplate", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

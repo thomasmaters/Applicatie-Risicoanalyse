@@ -225,4 +225,31 @@ namespace Applicatie_Risicoanalyse.Globals
             this.frontPageTemplateLocation  = frontPageTemplateLocation;
         }
     }
+
+    public class GenerateRemainingRiskReportEventArgs : DoWorkEventArgs
+    {
+        public int projectID { get; private set; }
+        public string sortingKey { get; private set; }
+        public object newDocumentLocation { get; private set; }
+        public byte[] remainingRiskPageTemplateLocation { get; private set; }
+        public byte[] indexPageTemplateLocation { get; private set; }
+        public byte[] frontPageTemplateLocation { get; private set; }
+        public byte[] remainingRiskHeaderPageTemplateLocation { get; private set; }
+
+        private GenerateRemainingRiskReportEventArgs() : base(new object())
+        {
+
+        }
+
+        public GenerateRemainingRiskReportEventArgs(int projectID, string sortingKey, object newDocumentLocation, byte[] remainingRiskHeaderPageTemplateLocation, byte[] remainingRiskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
+        {
+            this.projectID = projectID;
+            this.sortingKey = sortingKey;
+            this.newDocumentLocation = newDocumentLocation;
+            this.remainingRiskHeaderPageTemplateLocation = remainingRiskHeaderPageTemplateLocation;
+            this.remainingRiskPageTemplateLocation = remainingRiskPageTemplateLocation;
+            this.indexPageTemplateLocation = indexPageTemplateLocation;
+            this.frontPageTemplateLocation = frontPageTemplateLocation;
+        }
+    }
 }

@@ -127,6 +127,7 @@
             this.arA_Button3.Text = "Generate Report";
             this.arA_Button3.TextColor = System.Drawing.Color.White;
             this.arA_Button3.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_Button3.Click += new System.EventHandler(this.arA_Button3_Click);
             // 
             // arA_Button2
             // 

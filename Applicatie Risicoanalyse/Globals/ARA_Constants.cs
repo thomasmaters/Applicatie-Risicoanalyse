@@ -16,6 +16,8 @@ namespace Applicatie_Risicoanalyse.Globals
         public const int hazardSituationMinimalTextLength = 25;
         public const int hazardEventMinimalTextLength = 25;
 
-
+        //Document generation constants.
+        public const string riskAssesmentReportFileName = "Risk Assessment Report.docx";
+        public const string remainingRiskReportFileName = "Remaining Rest-Risk Report.docx";
     }
 }

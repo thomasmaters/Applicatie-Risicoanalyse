@@ -313,6 +313,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RemainingRiskReport\RemainingRiskReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RemainingRiskReport\RemainingRiskReport.Designer.cs">
+      <DependentUpon>RemainingRiskReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +432,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Reports\RemainingRiskReport\RemainingRiskReport.resx">
+      <DependentUpon>RemainingRiskReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\RiskAssessmentFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -480,6 +489,9 @@
   <ItemGroup>
     <Content Include="MooreBrabazon_with_Flying_Pig.ico" />
     <None Include="Resources\PerformanceLevelReportIcon.png" />
+    <None Include="Resources\RemainingRiskFrontPageTemplate.docx" />
+    <None Include="Resources\RemainingRiskRiskPageHeaderTemplate.docx" />
+    <None Include="Resources\RemainingRiskRiskPageTemplate.docx" />
     <None Include="Resources\RiskAssessmentReportIcon.png" />
     <None Include="Resources\RemainingRiskReportIcon.png" />
   </ItemGroup>

@@ -42,11 +42,30 @@ namespace Applicatie_Risicoanalyse.Forms
             if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-                RiskAssesmentReport report = new RiskAssesmentReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\RiskAssessmentReport.docx",
+                RiskAssesmentReport report = new RiskAssesmentReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.riskAssesmentReportFileName,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentRiskPageTemplate,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
                  report.Show();
+            }
+        }
+
+        private void arA_Button3_Click(object sender, EventArgs e)
+        {
+            if (this.generateReportsComboBoxSort.SelectedItem == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Select a sorting option before generating any report!", "Sorting option missing.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+                RemainingRiskReport report = new RemainingRiskReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.remainingRiskReportFileName,
+                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageHeaderTemplate,
+                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageTemplate,
+                     Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
+                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskFrontPageTemplate);
+                report.Show();
             }
         }
     }
