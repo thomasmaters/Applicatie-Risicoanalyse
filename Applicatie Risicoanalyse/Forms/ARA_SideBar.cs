@@ -32,7 +32,7 @@ namespace Applicatie_Risicoanalyse.Forms
             Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarAddNewButtonEventHandler += onAddNewButtonToSideBar;
 
             //Set application version form globals.
-            this.SideBarApplicationVersion.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_Version;
+            this.SideBarApplicationVersion.Text = Applicatie_Risicoanalyse.Globals.ARA_Constants.applicationVersion;
 
             //Set current date.
             this.SideBarDate.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARa_Date;

@@ -148,7 +148,7 @@ namespace Applicatie_Risicoanalyse.Forms
             listGroup.Size = new System.Drawing.Size(750, 415);
             listGroup.TextSize = new System.Drawing.Size(94, 37);
 
-            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
+            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
         private void styleListGroupAsType(ARA_ListGroup listParent ,ARA_ListGroup listGroup)
@@ -173,7 +173,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             listParent.addChild(listGroup);
             listParent.addControlToDropDownButton(listGroup);
-            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize/ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
+            listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize/ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
         private void styleListItemAsRisk(ARA_ListGroup listParent, ARA_ListItem listItem)
@@ -188,7 +188,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             listParent.addChild(listItem);
             listParent.addControlToDropDownButton(listItem);
-            listItem.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
+            listItem.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
         private void addRiskToProject(object sender, AddRiskToProjectEvent e)

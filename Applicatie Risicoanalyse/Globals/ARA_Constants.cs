@@ -8,5 +8,14 @@ namespace Applicatie_Risicoanalyse.Globals
 {
     public static class ARA_Constants
     {
+        //Application constants.
+        public const string applicationVersion = "ALPHA-V3.001";
+        public const float noScaleFontSize = 15F;
+
+        //New risk creation constants.
+        public const int hazardSituationMinimalTextLength = 25;
+        public const int hazardEventMinimalTextLength = 25;
+
+
     }
 }

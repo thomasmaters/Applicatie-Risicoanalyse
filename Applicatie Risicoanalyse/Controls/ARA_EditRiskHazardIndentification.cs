@@ -130,7 +130,7 @@ namespace Applicatie_Risicoanalyse.Controls
         private void onDangerItemChanged()
         {
             //Check if we can say the control has been changed.
-            this.hasControlBeenChanged = (arA_TextBox1.Text.Length > ARA_Globals.HazardSituationMinimalTextLength && arA_TextBox2.Text.Length > ARA_Globals.HazardEventMinimalTextLength);
+            this.hasControlBeenChanged = (arA_TextBox1.Text.Length > ARA_Constants.hazardSituationMinimalTextLength && arA_TextBox2.Text.Length > ARA_Constants.hazardEventMinimalTextLength);
 
             //Trigger eventhandlers.
             if (dangerChangedEventHandler != null)

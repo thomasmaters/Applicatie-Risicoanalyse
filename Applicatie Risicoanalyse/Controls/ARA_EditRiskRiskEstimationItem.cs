@@ -67,7 +67,7 @@ namespace Applicatie_Risicoanalyse.Controls
             //Scale controls.
             foreach (Control control in this.Controls)
             {
-                control.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Globals.ARa_NoScaleFontSize));
+                control.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
             }
 
             //Button click binds.
