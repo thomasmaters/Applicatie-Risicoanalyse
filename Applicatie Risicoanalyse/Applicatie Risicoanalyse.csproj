@@ -297,6 +297,7 @@
       <DependentUpon>testForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals\ARA_Colors.cs" />
+    <Compile Include="Globals\ARA_Constants.cs" />
     <Compile Include="Globals\ARA_Events.cs" />
     <Compile Include="Globals\ARA_Globals.cs" />
     <Compile Include="Globals\ARA_ACL.cs" />

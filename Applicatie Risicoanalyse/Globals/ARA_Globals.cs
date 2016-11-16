@@ -12,22 +12,32 @@ namespace Applicatie_Risicoanalyse.Globals
 {
     public static class ARA_Globals
     {
-        private static String aRA_Version = "ALPHA-V2.001";
-        private static float aRa_NoScaleFontSize = 15F;
-        private static float aRA_BaseFontSize = 19F;
+        private const String aRA_Version = "ALPHA-V3.001";
+        private const float aRa_NoScaleFontSize = 15F;
+        private const float aRA_BaseFontSize = 19F;
         private static String aRa_Date = DateTime.Now.ToString("dd-MM-yyyy");
 
-        private static int hazardSituationMinimalTextLength = 25;
-        private static int hazardEventMinimalTextLength = 25;
+        private const int hazardSituationMinimalTextLength = 25;
+        private const int hazardEventMinimalTextLength = 25;
 
         private static string userPermissionGroup = "Admin";
 
-        public static string[] riskClassDescription = 
+        private static string[] riskClassDescription = 
         {
             "No safety measures required.",
             "Safety measures recommended!",
             "Safety measures required!!"
         };
+
+        private static Dictionary<string,string> riskSortingOptions = new Dictionary<string,string>()
+        {
+            {"RiskID Descending","RiskID DESC"},
+            {"RiskID Ascending","RiskID ASC"},
+            {"Component Group","GroupName"},
+            {"Alphabetical A-Z","HazardSituation ASC"},
+            {"Alphabetical Z-A","HazardSituation DESC"},
+        };
+
         public enum PermissionLevel : byte
         {
             None = 0, ReadOnly, All
@@ -101,6 +111,22 @@ namespace Applicatie_Risicoanalyse.Globals
             get
             {
                 return hazardEventMinimalTextLength;
+            }
+        }
+
+        public static Dictionary<string,string> RiskSortingOptions
+        {
+            get
+            {
+                return riskSortingOptions;
+            }
+        }
+
+        public static string[] RiskClassDescription
+        {
+            get
+            {
+                return riskClassDescription;
             }
         }
 

@@ -18,7 +18,6 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<SetSideBarButtonSelectedEventArgs> SetSideBarButtonSelectedEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
-        public static event EventHandler<GenerateRiskReportEventArgs> GenerateRiskReportEventHandler;
 
         //Static function for adding an event to the event handlers.
         public static void onOpenContentFormEvent(System.Windows.Forms.Form aForm)
@@ -205,6 +204,7 @@ namespace Applicatie_Risicoanalyse.Globals
     public class GenerateRiskReportEventArgs : DoWorkEventArgs
     {
         public int projectID { get; private set; }
+        public string sortingKey { get; private set; }
         public object newDocumentLocation { get; private set; }
         public byte[] riskPageTemplateLocation { get; private set; }
         public byte[] indexPageTemplateLocation { get; private set; }
@@ -215,9 +215,10 @@ namespace Applicatie_Risicoanalyse.Globals
 
         }
 
-        public GenerateRiskReportEventArgs(int projectID, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
+        public GenerateRiskReportEventArgs(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
         {
             this.projectID                  = projectID;
+            this.sortingKey                 = sortingKey;
             this.newDocumentLocation        = newDocumentLocation;
             this.riskPageTemplateLocation   = riskPageTemplateLocation;
             this.indexPageTemplateLocation  = indexPageTemplateLocation;

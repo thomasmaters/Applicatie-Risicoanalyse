@@ -31,6 +31,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.arA_Text4 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_Button4 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.arA_Button3 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.arA_Button2 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -38,7 +40,7 @@
             this.arA_Text2 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.arA_Text1 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.generateReportsComboBoxSort = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -76,6 +78,19 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            // 
+            // arA_Text4
+            // 
+            this.arA_Text4.BackgroundColor = System.Drawing.Color.White;
+            this.arA_Text4.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Text4.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Text4.Location = new System.Drawing.Point(502, 82);
+            this.arA_Text4.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_Text4.Name = "arA_Text4";
+            this.arA_Text4.Size = new System.Drawing.Size(239, 23);
+            this.arA_Text4.TabIndex = 13;
+            this.arA_Text4.Text = "Sort Risks By:";
+            this.arA_Text4.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // arA_Button4
             // 
@@ -189,12 +204,23 @@
             this.arA_Text1.Text = "Risk Assessment Report";
             this.arA_Text1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // generateReportsComboBoxSort
+            // 
+            this.generateReportsComboBoxSort.Font = new System.Drawing.Font("Gotham Book", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateReportsComboBoxSort.FormattingEnabled = true;
+            this.generateReportsComboBoxSort.Location = new System.Drawing.Point(502, 104);
+            this.generateReportsComboBoxSort.Name = "generateReportsComboBoxSort";
+            this.generateReportsComboBoxSort.Size = new System.Drawing.Size(236, 28);
+            this.generateReportsComboBoxSort.TabIndex = 14;
+            // 
             // ARA_GenerateReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 211);
+            this.Controls.Add(this.generateReportsComboBoxSort);
+            this.Controls.Add(this.arA_Text4);
             this.Controls.Add(this.arA_Button4);
             this.Controls.Add(this.arA_Button3);
             this.Controls.Add(this.arA_Button2);
@@ -231,5 +257,7 @@
         private Controls.ARA_Button arA_Button3;
         private Controls.ARA_Button arA_Button4;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private Controls.ARA_Text arA_Text4;
+        private System.Windows.Forms.ComboBox generateReportsComboBoxSort;
     }
 }

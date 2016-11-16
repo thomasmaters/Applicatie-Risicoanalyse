@@ -132,7 +132,7 @@ namespace Applicatie_Risicoanalyse.Controls
         public void updateSafetyMesuresRequirement()
         {
             int riskClassification = calculateRiskEstimationClass();
-            string classText = ARA_Globals.riskClassDescription[riskClassification];
+            string classText = ARA_Globals.RiskClassDescription[riskClassification];
 
             this.arA_Text6.Text = "Risk class: " + riskClassification.ToString() + " (Points:" + calculateRiskPoints().ToString() + ") " + classText;
             this.arA_Text6.Invalidate();

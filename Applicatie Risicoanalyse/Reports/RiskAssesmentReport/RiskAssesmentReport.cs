@@ -23,7 +23,7 @@ namespace Applicatie_Risicoanalyse.Forms
         object missing = Type.Missing;
         object paramFalse                   = false;
 
-        public RiskAssesmentReport(int projectID, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation)
+        public RiskAssesmentReport(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // Enabled cancelation of thread progress.
             backgroundWorker1.WorkerSupportsCancellation = true;
             // This event will be raised on the worker thread when the worker starts.
-            DoWorkEventArgs eventArgs = new GenerateRiskReportEventArgs(projectID,  newDocumentLocation,  riskPageTemplateLocation,  indexPageTemplateLocation,  frontPageTemplateLocation);
+            DoWorkEventArgs eventArgs = new GenerateRiskReportEventArgs(projectID, sortingKey, newDocumentLocation,  riskPageTemplateLocation,  indexPageTemplateLocation,  frontPageTemplateLocation);
             backgroundWorker1.DoWork += (obj, e) => generateReport(obj, eventArgs);
             // This event will be raised when we call ReportProgress.
             backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
@@ -112,7 +112,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation);
 
                 DataRow projectInfoRow = tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
-                DataRowCollection riskDataRows = this.get_Risks_With_RiskData_In_ProjectTableAdapter.GetData(e.projectID).Rows;
+                DataView riskDataRows = new DataView(this.get_Risks_With_RiskData_In_ProjectTableAdapter.GetData(e.projectID));
+                riskDataRows.Sort = ARA_Globals.RiskSortingOptions[e.sortingKey];
 
                 //Set generating process.
 
@@ -150,7 +151,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.ToString(),"Something went wrong wile generating.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(ex.ToString(),"Something went wrong while generating.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -168,7 +169,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataRowCollection riskDataRows)
+        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows)
         {
             try
             {
@@ -189,7 +190,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
 
                 //Fill index table.
-                foreach (DataRow riskDataRow in riskDataRows)
+                foreach (DataRowView riskDataRow in riskDataRows)
                 {
                     int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
 
@@ -273,7 +274,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        private void generateRiskPages(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataRowCollection riskDataRows, DataRow projectInfoRow)
+        private void generateRiskPages(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows, DataRow projectInfoRow)
         {
             int currentRisk = 0;
             try
@@ -283,7 +284,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 File.WriteAllBytes(tempTemplateFile, templateLocation);
                 Document riskTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
 
-                foreach (DataRow riskDataRow in riskDataRows)
+                foreach (DataRowView riskDataRow in riskDataRows)
                 {
                     //Set generating process
                     backgroundWorker1.ReportProgress(
@@ -369,7 +370,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     wordInterface.searchAndReplace(wordInterface.app, "<PRWeightB>"             , riskEstimationBeforeView[2]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<AVWeightB>"             , riskEstimationBeforeView[3]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueB>"       , temp.calculateRiskEstimationClass().ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionB>" , ARA_Globals.riskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
+                    wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionB>" , ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
                     temp.setControlData(riskEstimationAfterView);
                     riskEstimationAfterView.RowFilter = "InProject = '1'";
@@ -384,7 +385,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     wordInterface.searchAndReplace(wordInterface.app, "<PRWeightA>"             , riskEstimationAfterView[2]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<AVWeightA>"             , riskEstimationAfterView[3]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueA>"       , temp.calculateRiskEstimationClass().ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionA>" , ARA_Globals.riskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
+                    wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionA>" , ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
                     //Find table and do stuff with it.
                     Microsoft.Office.Interop.Word.Table appliedRiskReductionMeasuresTable       = wordInterface.findTableWithTitle(wordDocument, "AppliedRiskReductionMeasures");
