@@ -68,7 +68,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        private void OpenRiskInProjectDataGrid_MouseEnter(object sender, EventArgs e)
+        private void OpenRiskInProjectDataGrid_VisabilityChanged(object sender, EventArgs e)
         {
             this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
             this.OpenRiskInProjectDataGrid.Refresh();

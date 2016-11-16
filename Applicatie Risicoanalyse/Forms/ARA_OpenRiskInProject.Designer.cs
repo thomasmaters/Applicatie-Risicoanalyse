@@ -101,7 +101,7 @@
             this.OpenRiskInProjectDataGrid.TabIndex = 2;
             this.OpenRiskInProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenRiskInProjectDataGrid_CellMouseDoubleClick);
             this.OpenRiskInProjectDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.onDataGridRowAdded);
-            this.OpenRiskInProjectDataGrid.MouseEnter += new System.EventHandler(this.OpenRiskInProjectDataGrid_MouseEnter);
+            this.OpenRiskInProjectDataGrid.VisibleChanged += new System.EventHandler(this.OpenRiskInProjectDataGrid_VisabilityChanged);
             // 
             // searchProjectRisksBindingSource
             // 
