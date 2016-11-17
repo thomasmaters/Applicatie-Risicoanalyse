@@ -98,13 +98,12 @@ namespace Applicatie_Risicoanalyse.Forms
 
             Document wordDocument = null;
 
+            //Create a word interface so we can talk easylie to word.
+            WordInterface wordInterface = new WordInterface();
+
             try
             {
-                //Create a word interface so we can talk easylie to word.
-                WordInterface wordInterface = new WordInterface();
-
                 // Open a new document.
-                //wordDocument = wordInterface.app.Documents.Add(ref missing, ref missing, ref missing, ref missing);
                 FileStream newDocument = File.Create((string)e.newDocumentLocation);
                 newDocument.Close();
                 newDocument = null;
@@ -144,10 +143,6 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     args.Cancel = true;
                 }
-
-                //Clean the word interface.
-                wordInterface.Quit();
-                wordInterface = null;
             }
             catch (Exception ex)
             {
@@ -164,9 +159,11 @@ namespace Applicatie_Risicoanalyse.Forms
             // Close and release the Document object.
             if (wordDocument != null)
             {
-                
                 wordDocument = null;
             }
+            //Clean the word interface.
+            wordInterface.Quit();
+            wordInterface = null;
         }
 
         private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows)
@@ -420,7 +417,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
             catch (Exception ex)
             {
-
+                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Something went wrong while generating risk pages.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

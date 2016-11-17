@@ -24,6 +24,9 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 control.Font = this.Font;
             }
+
+            //Special scaling for the datagrid.
+            this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
         }
 

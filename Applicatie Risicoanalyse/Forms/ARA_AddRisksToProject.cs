@@ -27,6 +27,10 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Add event.
             ARA_Events.AddRiskToProjectEventHandler += addRiskToProject;
+
+            //Special scaling for the searchdatagrid.
+            this.addRiskToProjectSearchDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
+            this.addRiskToProjectSearchDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         private void onRiskProjectOverviewLoad()
