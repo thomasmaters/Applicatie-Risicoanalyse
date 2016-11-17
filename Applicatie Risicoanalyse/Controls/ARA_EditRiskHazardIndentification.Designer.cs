@@ -185,7 +185,7 @@
             this.HazardTextEvent.Name = "HazardTextEvent";
             this.HazardTextEvent.Size = new System.Drawing.Size(356, 23);
             this.HazardTextEvent.TabIndex = 27;
-            this.HazardTextEvent.Text = "Event description";
+            this.HazardTextEvent.Text = "Event description (min 25 chr.)";
             this.HazardTextEvent.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_TextBox1
@@ -212,7 +212,7 @@
             this.HazardTextSituation.Name = "HazardTextSituation";
             this.HazardTextSituation.Size = new System.Drawing.Size(356, 23);
             this.HazardTextSituation.TabIndex = 25;
-            this.HazardTextSituation.Text = "Brief action description";
+            this.HazardTextSituation.Text = "Brief action description (min 25 chr.)";
             this.HazardTextSituation.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // HazardTextConsequence2

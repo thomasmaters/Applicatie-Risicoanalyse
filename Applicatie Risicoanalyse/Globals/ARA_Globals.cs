@@ -28,7 +28,7 @@ namespace Applicatie_Risicoanalyse.Globals
         {
             {"RiskID Descending","RiskID DESC"},
             {"RiskID Ascending","RiskID ASC"},
-            {"Component Group","GroupName, TypeName ASC"},
+            {"Component Group & Type","GroupName, TypeName ASC"},
             {"Alphabetical A-Z","HazardSituation ASC"},
             {"Alphabetical Z-A","HazardSituation DESC"},
         };

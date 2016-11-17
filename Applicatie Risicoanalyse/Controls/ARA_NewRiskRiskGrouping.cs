@@ -77,7 +77,7 @@ namespace Applicatie_Risicoanalyse.Controls
 
                 //Trigger update event.
                 this.hasControlBeenChanged = true;
-                if (this.riskComponentGroupAndTypeChangedEventHandler != null)
+                if (this.riskComponentGroupAndTypeChangedEventHandler != null && this.riskGroupingComboBoxComponentType.SelectedValue != null)
                 {
                     riskComponentGroupAndTypeChangedEventHandler(sender, new RiskComponentGroupAndTypeChangedEvent(this.riskGroupingComboBoxComponentGroup.SelectedValue.ToString(), this.riskGroupingComboBoxComponentType.SelectedValue.ToString()));
                 }

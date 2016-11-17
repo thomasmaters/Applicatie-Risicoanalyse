@@ -110,6 +110,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation);
 
+                //Get some data out of the database.
                 DataRow projectInfoRow = tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
                 DataView riskDataRows = new DataView(this.get_Risks_With_RiskData_In_ProjectTableAdapter.GetData(e.projectID));
                 riskDataRows.Sort = ARA_Globals.RiskSortingOptions[e.sortingKey];
@@ -170,7 +171,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             try
             {
-                //Open the template
+                //Open the template from a temporary file.
                 String tempTemplateFile = Path.GetTempFileName();
                 File.WriteAllBytes(tempTemplateFile, templateLocation);
                 Document indexPageTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
@@ -225,7 +226,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
             catch (Exception ex)
             {
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Something went wrong while generating the index page.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

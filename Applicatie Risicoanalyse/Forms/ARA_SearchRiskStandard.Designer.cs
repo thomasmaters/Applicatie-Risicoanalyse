@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenProjectDataGrid = new System.Windows.Forms.DataGridView();
-            this.searchRiskStandardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.search_Risk_StandardTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_Risk_StandardTableAdapter();
-            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VersionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hazardSituationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchRiskStandardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.search_Risk_StandardTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_Risk_StandardTableAdapter();
+            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRiskStandardBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -89,33 +89,6 @@
             this.OpenProjectDataGrid.Size = new System.Drawing.Size(728, 309);
             this.OpenProjectDataGrid.TabIndex = 6;
             this.OpenProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenProjectDataGrid_CellMouseDoubleClick_1);
-            // 
-            // searchRiskStandardBindingSource
-            // 
-            this.searchRiskStandardBindingSource.DataMember = "Search_Risk_Standard";
-            this.searchRiskStandardBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // search_Risk_StandardTableAdapter
-            // 
-            this.search_Risk_StandardTableAdapter.ClearBeforeFill = true;
-            // 
-            // OpenProjectTextBoxSearch
-            // 
-            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.OpenProjectTextBoxSearch.BorderSize = 1;
-            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 5);
-            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
-            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(728, 32);
-            this.OpenProjectTextBoxSearch.TabIndex = 5;
-            this.OpenProjectTextBoxSearch.Text = "";
-            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.OpenProjectTextBoxSearch_TextChanged);
             // 
             // riskIDDataGridViewTextBoxColumn
             // 
@@ -170,6 +143,33 @@
             this.typeNameDataGridViewTextBoxColumn.Name = "typeNameDataGridViewTextBoxColumn";
             this.typeNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // searchRiskStandardBindingSource
+            // 
+            this.searchRiskStandardBindingSource.DataMember = "Search_Risk_Standard";
+            this.searchRiskStandardBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // search_Risk_StandardTableAdapter
+            // 
+            this.search_Risk_StandardTableAdapter.ClearBeforeFill = true;
+            // 
+            // OpenProjectTextBoxSearch
+            // 
+            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.OpenProjectTextBoxSearch.BorderSize = 1;
+            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 5);
+            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
+            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(728, 32);
+            this.OpenProjectTextBoxSearch.TabIndex = 5;
+            this.OpenProjectTextBoxSearch.Text = "";
+            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.OpenProjectTextBoxSearch_TextChanged);
+            // 
             // ARA_SearchRiskStandard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -183,6 +183,7 @@
             this.MaximumSize = new System.Drawing.Size(750, 350);
             this.Name = "ARA_SearchRiskStandard";
             this.Text = "ARA_SearchRiskStandard";
+            this.VisibleChanged += new System.EventHandler(this.ARA_SearchRiskStandard_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRiskStandardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();

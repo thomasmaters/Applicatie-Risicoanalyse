@@ -192,6 +192,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     {
                         this.riskVersionID += 1;
                         this.riskDataID = (Int32)tempRow["newRiskDataID"];
+                        System.Windows.Forms.MessageBox.Show("Succesfully created a new Version of the risk!", "New version of risk created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     //Update risks in open risk projects with new risk version.
@@ -201,6 +202,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
                     this.riskDataID = (Int32)tempRow["newRiskDataID"];
+                    System.Windows.Forms.MessageBox.Show("Succesfully made this risk project specific.", "Project specific risk!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.isRiskDataProjectSpecific = true;

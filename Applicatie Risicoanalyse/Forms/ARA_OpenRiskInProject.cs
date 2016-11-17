@@ -88,5 +88,10 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
             }
         }
+
+        private void OpenRiskInProjectDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            this.OpenRiskInProjectDataGrid.ClearSelection();
+        }
     }
 }

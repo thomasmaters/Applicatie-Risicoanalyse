@@ -27,6 +27,14 @@ namespace Applicatie_Risicoanalyse.Reports
             this.app = new Microsoft.Office.Interop.Word.Application();
         }
 
+        /// <summary>
+        /// Function to fill a table with riskReducingMeasures from the database.
+        /// </summary>
+        /// <param name="document">Document instance where the table can be found.</param>
+        /// <param name="table">Table instance of the table to add values to.</param>
+        /// <param name="dataRows">A DataView representing the data to be inserted into the table.</param>
+        /// <param name="displayColumn">A Column name in the DataView representing which column to display in the table.</param>
+        /// <param name="checkBoxSelectionColumn">A Column name in the DataView representing a column to check for for adding checkboxes in the table.</param>
         public void fillTableWithRiskReducingMeasures(Document document, Microsoft.Office.Interop.Word.Table table, DataView dataRows, string displayColumn, string checkBoxSelectionColumn = "")
         {
             if (table != null)
@@ -66,6 +74,13 @@ namespace Applicatie_Risicoanalyse.Reports
             }
         }
 
+        /// <summary>
+        /// Search and replace all occurences of a string in a active document.
+        /// </summary>
+        /// <param name="app">Word application instance.</param>
+        /// <param name="find">String to search for.</param>
+        /// <param name="replaceWith">String to replace the searched value with.</param>
+        /// <param name="textColor">A color to give to the replaced text.</param>
         public void searchAndReplace(Microsoft.Office.Interop.Word.Application app, string find, string replaceWith, Color textColor = new Color())
         {
             Microsoft.Office.Interop.Word.Find findObject = app.Selection.Find;
@@ -85,20 +100,25 @@ namespace Applicatie_Risicoanalyse.Reports
                 ref replaceAll, ref missing, ref missing, ref missing, ref missing);
         }
 
+        /// <summary>
+        /// Saves a document at a specific file location.
+        /// </summary>
+        /// <param name="doc">Document to save.</param>
+        /// <param name="location">String representing a filepath where to save the document.</param>
         public void saveDocument(Document doc, string location)
         {
             object saveLocation = @location;
 
             //Save the document at a location.
             doc.SaveAs2(saveLocation);
-            /*doc.SaveAs(ref saveLocation, ref missing, ref missing,
-                ref missing, ref missing, ref missing,
-                ref missing, ref missing, ref missing,
-                ref missing, ref missing, ref missing,
-                ref missing, ref missing, ref missing,
-                ref missing);*/
         }
 
+        /// <summary>
+        /// Copies the content(no headers/footers) of a document to another document.
+        /// </summary>
+        /// <param name="documentToCopy">Doucment instance to copy its contents of.</param>
+        /// <param name="documentToPasteIn">Document to paste the contents of the other document in.</param>
+        /// <param name="addPageBreak">A bool that indicates if a pagebreak has to be inserted at the end of document.</param>
         public void copyDocumentToOtherDocument(Document documentToCopy, Document documentToPasteIn, bool addPageBreak = false)
         {
             //Select ranges.
@@ -121,6 +141,12 @@ namespace Applicatie_Risicoanalyse.Reports
             }
         }
 
+        /// <summary>
+        /// Searches a document for a table with a specific Title.
+        /// </summary>
+        /// <param name="doc">Document instance to find the table in.</param>
+        /// <param name="titleToFind">String representing the title to find in the document.</param>
+        /// <returns>Microsoft.Office.Interop.Word.Table</returns>
         public Microsoft.Office.Interop.Word.Table findTableWithTitle(Document doc, string titleToFind)
         {
             foreach (Microsoft.Office.Interop.Word.Table table in doc.Tables)
@@ -133,6 +159,10 @@ namespace Applicatie_Risicoanalyse.Reports
             return null;
         }
 
+        /// <summary>
+        /// Safely quits the Word instance.
+        /// User has to dispose WordInterface instance immidetly after.
+        /// </summary>
         public void Quit()
         {
             this.app.Quit(false);

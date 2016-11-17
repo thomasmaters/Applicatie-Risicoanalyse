@@ -32,6 +32,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
         }
 
+        /// <summary>
+        /// Executes a search query to search the risk standard when something is typed in the searchbox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenProjectTextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             int tempScrollPosition = this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex;
@@ -44,6 +49,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Open the risk edit form when a new a users clicks on a datagrid row.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenProjectDataGrid_CellMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -56,6 +66,17 @@ namespace Applicatie_Risicoanalyse.Forms
                 //Open risk with its risk data.
                 Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID, selectedRiskVersionID, selectedRiskDataID, -1, isProjectSpecificRisk));
             }
+        }
+
+        /// <summary>
+        /// Updates the risks in the datagrid when the datagrid's visability changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_SearchRiskStandard_VisibleChanged(object sender, EventArgs e)
+        {
+            this.OpenProjectDataGrid.DataSource = this.search_Risk_StandardTableAdapter.GetData(this.OpenProjectTextBoxSearch.Text);
+            this.OpenProjectDataGrid.Sort(this.OpenProjectDataGrid.Columns[0], ListSortDirection.Ascending);
         }
     }
 }

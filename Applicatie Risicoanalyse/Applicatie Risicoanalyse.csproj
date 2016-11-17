@@ -69,6 +69,9 @@
   <PropertyGroup>
     <ApplicationIcon>MooreBrabazon_with_Flying_Pig.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
@@ -410,6 +413,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="Applicatie Risicoanalyse_TemporaryKey.pfx" />
     <None Include="LG_Analysis_DatabaseDataSet.xsc">
       <DependentUpon>LG_Analysis_DatabaseDataSet.xsd</DependentUpon>
@@ -455,7 +459,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Gotham-Light.otf" />
+    <Resource Include="Resources\Gotham-Light.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Resources\Gotham-LightItalic.otf" />
     <None Include="Resources\Langen Group_Colour.png" />
   </ItemGroup>

@@ -26,33 +26,11 @@ namespace Applicatie_Risicoanalyse.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-URLHABG\\SQLEXPRESS;Initial Catalog=FLETNIX;Integrated Securit" +
-            "y=True")]
-        public string FLETNIXConnectionString {
-            get {
-                return ((string)(this["FLETNIXConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-URLHABG\\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;Integ" +
             "rated Security=True")]
         public string LG_Analysis_DatabaseConnectionString {
             get {
                 return ((string)(this["LG_Analysis_DatabaseConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WS-024\\SQLEXPRESS;Initial Catalog=test;User ID=sa;Password=Wachtwoord" +
-            "@1")]
-        public string testConnectionString {
-            get {
-                return ((string)(this["testConnectionString"]));
             }
         }
         
