@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace Applicatie_Risicoanalyse.Reports
 {
-    public partial class RemainingRiskReport : Applicatie_Risicoanalyse.Forms.BaseReportGeneratorForm
+    public partial class RiskAssessmentReport : Applicatie_Risicoanalyse.Forms.BaseReportGeneratorForm
     {
-        public RemainingRiskReport(int projectID, string sortingKey, object newDocumentLocation, byte[] remainingRiskHeaderPageTemplateLocation, byte[] remainingRiskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation)
+        public RiskAssessmentReport(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation)
         {
             // This event will be raised on the worker thread when the worker starts.
-            DoWorkEventArgs eventArgs = new GenerateRemainingRiskReportEventArgs(projectID, sortingKey, newDocumentLocation, remainingRiskHeaderPageTemplateLocation, remainingRiskPageTemplateLocation, indexPageTemplateLocation, frontPageTemplateLocation);
+            DoWorkEventArgs eventArgs = new GenerateRiskReportEventArgs(projectID, sortingKey, newDocumentLocation, riskPageTemplateLocation, indexPageTemplateLocation, frontPageTemplateLocation);
             this.runBackgroundWorker(eventArgs);
             InitializeComponent();
         }
 
         protected override void generateReport(object sender, DoWorkEventArgs args)
         {
-            GenerateRemainingRiskReportEventArgs e = args as GenerateRemainingRiskReportEventArgs;
+            GenerateRiskReportEventArgs e = args as GenerateRiskReportEventArgs;
             if (e == null)
             {
                 throw new Exception("No generate risk report event args parsed");
@@ -32,22 +32,21 @@ namespace Applicatie_Risicoanalyse.Reports
 
             Document wordDocument = null;
 
+            //Create a word interface so we can talk easylie to word.
+            WordInterface wordInterface = new WordInterface();
+
             try
             {
-                //Create a word interface so we can talk easylie to word.
-                WordInterface wordInterface = new WordInterface();
-
                 // Open a new document.
-                //wordDocument = wordInterface.app.Documents.Add(ref missing, ref missing, ref missing, ref missing);
                 FileStream newDocument = File.Create((string)e.newDocumentLocation);
                 newDocument.Close();
                 newDocument = null;
 
                 wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation);
 
-                DataRow projectInfoRow = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
-                DataView riskDataRows = new DataView(this.get_RemainingRisks_In_ProjectTableAdapter.GetData(e.projectID));
-
+                //Get some data out of the database.
+                DataRow projectInfoRow = tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
+                DataView riskDataRows = new DataView(this.get_Risks_With_RiskData_In_ProjectTableAdapter.GetData(e.projectID));
                 riskDataRows.Sort = ARA_Globals.RiskSortingOptions[e.sortingKey];
 
                 //Set generating process.
@@ -58,11 +57,11 @@ namespace Applicatie_Risicoanalyse.Reports
 
                 backgroundWorker1.ReportProgress(10, (object)"Generating page index.");
 
-                //generateIndexPage(e.indexPageTemplateLocation, wordInterface, wordDocument,riskDataRows);
+                generateIndexPage(e.indexPageTemplateLocation, wordInterface, wordDocument, riskDataRows);
 
                 backgroundWorker1.ReportProgress(15, (object)"Generating risk pages.");
 
-                generateRemainingRiskPages(e.remainingRiskHeaderPageTemplateLocation, e.remainingRiskPageTemplateLocation, wordInterface, wordDocument, riskDataRows, projectInfoRow);
+                generateRiskPages(e.riskPageTemplateLocation, wordInterface, wordDocument, riskDataRows, projectInfoRow);
 
                 backgroundWorker1.ReportProgress(70, (object)"Saving the document.");
 
@@ -79,10 +78,6 @@ namespace Applicatie_Risicoanalyse.Reports
                 {
                     args.Cancel = true;
                 }
-
-                //Clean the word interface.
-                wordInterface.Quit();
-                wordInterface = null;
             }
             catch (Exception ex)
             {
@@ -99,73 +94,11 @@ namespace Applicatie_Risicoanalyse.Reports
             // Close and release the Document object.
             if (wordDocument != null)
             {
-
                 wordDocument = null;
             }
-        }
-
-        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows)
-        {
-            try
-            {
-                //Open the template
-                String tempTemplateFile = Path.GetTempFileName();
-                File.WriteAllBytes(tempTemplateFile, templateLocation);
-                Document indexPageTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
-
-                //Copy template to main document.
-                wordInterface.copyDocumentToOtherDocument(indexPageTemplate, wordDocument, true);
-                wordDocument.Activate();
-
-                //Find index table.
-                Microsoft.Office.Interop.Word.Table indexTable = wordInterface.findTableWithTitle(wordDocument, "riskAssessmentIndex");
-                if (indexTable == null)
-                {
-                    throw new Exception("Could not find riskAssessmentIndex table. Check your template.");
-                }
-
-                DataView minimalAdditionView = new DataView(this.tbl_MinimalAddition_In_RiskTableAdapter.GetData());
-
-                //Fill index table.
-                foreach (DataRowView riskDataRow in riskDataRows)
-                {
-                    int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
-
-                    Row newTableRow = indexTable.Rows.Add(ref missing);
-                    minimalAdditionView.RowFilter = string.Format("RiskDataID = '{0}'", riskDataID);
-
-                    newTableRow.Cells[2].Range.Text = riskDataRow["HazardSituation"].ToString();
-                    newTableRow.Cells[3].Range.Text = riskDataRow["RiskID"].ToString();
-
-                    //Insert a checkmark if it has remaining risk.
-                    if (minimalAdditionView.Count > 0)
-                    {
-                        newTableRow.Cells[4].Range.Font.Name = "Wingdings";
-                        newTableRow.Cells[4].Range.Font.Size = 12;
-                        newTableRow.Cells[4].Range.Text = '\u00FC'.ToString();
-                    }
-                }
-
-                //Add page numbers to index.
-                int pageCount = wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages, false);
-                for (int i = 0; i < riskDataRows.Count; i++)
-                {
-                    indexTable.Rows[2 + i].Cells[1].Range.Text = (i + pageCount).ToString();
-                }
-
-                // Close and release the Document object.
-                if (indexPageTemplate != null)
-                {
-                    ((_Document)indexPageTemplate).Close(ref paramFalse, ref missing,
-                        ref missing);
-                    File.Delete(tempTemplateFile);
-                    indexPageTemplate = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //Clean the word interface.
+            wordInterface.Quit();
+            wordInterface = null;
         }
 
         private void generateFrontPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataRow projectInfoRow)
@@ -210,18 +143,78 @@ namespace Applicatie_Risicoanalyse.Reports
             }
         }
 
-        private void generateRemainingRiskPages(byte[] headerTemplateLocation, byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows, DataRow projectInfoRow)
+        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows)
+        {
+            try
+            {
+                //Open the template from a temporary file.
+                String tempTemplateFile = Path.GetTempFileName();
+                File.WriteAllBytes(tempTemplateFile, templateLocation);
+                Document indexPageTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
+
+                //Copy template to main document.
+                wordInterface.copyDocumentToOtherDocument(indexPageTemplate, wordDocument, true);
+                wordDocument.Activate();
+
+                //Find index table.
+                Microsoft.Office.Interop.Word.Table indexTable = wordInterface.findTableWithTitle(wordDocument, "riskAssessmentIndex");
+                if (indexTable == null)
+                {
+                    throw new Exception("Could not find riskAssessmentIndex table. Check your template.");
+                }
+
+                //Fill index table.
+                foreach (DataRowView riskDataRow in riskDataRows)
+                {
+                    int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
+
+                    Row newTableRow = indexTable.Rows.Add(ref missing);
+                    DataView minimalAdditionView = new DataView(this.tbl_MinimalAddition_In_RiskTableAdapter.GetData());
+                    minimalAdditionView.RowFilter = string.Format("RiskDataID = '{0}'", riskDataID);
+
+                    newTableRow.Cells[2].Range.Text = riskDataRow["HazardSituation"].ToString();
+                    newTableRow.Cells[3].Range.Text = riskDataRow["RiskID"].ToString();
+
+                    //Insert a checkmark if it has remaining risk.
+                    if (minimalAdditionView.Count > 0)
+                    {
+                        newTableRow.Cells[4].Range.Font.Name = "Wingdings";
+                        newTableRow.Cells[4].Range.Font.Size = 12;
+                        newTableRow.Cells[4].Range.Text = '\u00FC'.ToString();
+                    }
+                }
+
+                //Add page numbers to index.
+                int pageCount = wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages, false);
+                for (int i = 0; i < riskDataRows.Count; i++)
+                {
+                    indexTable.Rows[2 + i].Cells[1].Range.Text = (i + pageCount).ToString();
+                }
+
+                // Close and release the Document object.
+                if (indexPageTemplate != null)
+                {
+                    ((_Document)indexPageTemplate).Close(ref paramFalse, ref missing,
+                        ref missing);
+                    File.Delete(tempTemplateFile);
+                    indexPageTemplate = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Something went wrong while generating the index page.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void generateRiskPages(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows, DataRow projectInfoRow)
         {
             int currentRisk = 0;
             try
             {
-                //Open template documents.
-                String tempHeaderTemplateFile = Path.GetTempFileName();
+                //Open template document.
                 String tempTemplateFile = Path.GetTempFileName();
-                File.WriteAllBytes(tempHeaderTemplateFile, headerTemplateLocation);
                 File.WriteAllBytes(tempTemplateFile, templateLocation);
-                Document remainingRiskHeaderTemplate = wordInterface.app.Documents.Open(tempHeaderTemplateFile);
-                Document remainingRiskTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
+                Document riskTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
 
                 foreach (DataRowView riskDataRow in riskDataRows)
                 {
@@ -233,7 +226,7 @@ namespace Applicatie_Risicoanalyse.Reports
                     currentRisk++;
 
                     //Get the risk data id and set some variables.
-                    int riskDataID = (Int32)riskDataRow["RiskDataID"];
+                    int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
                     Color[] riskEstimationColors = { ARA_Colors.ARA_Green, ARA_Colors.ARA_Orange, ARA_Colors.ARA_Red };
 
                     //Get some more info about the risk.
@@ -248,22 +241,14 @@ namespace Applicatie_Risicoanalyse.Reports
                     DataView minimalAdditionMeasures = new DataView(this.get_MinimalAddition_In_RiskDataTableAdapter.GetData(riskDataID));
 
                     //Set some value's before copying document.
-                    remainingRiskTemplate.Activate();
+                    riskTemplate.Activate();
                     foreach (DataRow exposedPersonRow in this.get_ExposedPersons_In_RiskDataTableAdapter.GetData(riskDataID).Rows)
                     {
-                        remainingRiskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString())[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
+                        riskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString())[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
                     }
 
                     //Copy template.
-                    if (currentRisk % 2 == 1)
-                    {
-                        wordInterface.copyDocumentToOtherDocument(remainingRiskHeaderTemplate, wordDocument, false);
-                        wordInterface.copyDocumentToOtherDocument(remainingRiskTemplate, wordDocument, false);
-                    }
-                    else
-                    {
-                        wordInterface.copyDocumentToOtherDocument(remainingRiskTemplate, wordDocument, true);
-                    }
+                    wordInterface.copyDocumentToOtherDocument(riskTemplate, wordDocument, true);
                     wordDocument.Activate();
 
                     //Set values form newly added document.
@@ -305,10 +290,17 @@ namespace Applicatie_Risicoanalyse.Reports
                     ARA_EditRiskRiskEstimation temp = new ARA_EditRiskRiskEstimation();
                     temp.setControlData(riskEstimationBeforeView);
 
-                    //Set risk class fields.
                     riskEstimationBeforeView.RowFilter = "InProject = '1'";
                     if (riskEstimationBeforeView.Count != 4)
                         throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<SEDescriptionB>", riskEstimationBeforeView[0]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<FRDescriptionB>", riskEstimationBeforeView[1]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<PRDescriptionB>", riskEstimationBeforeView[2]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<AVDescriptionB>", riskEstimationBeforeView[3]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<AVWeightB>", riskEstimationBeforeView[3]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueB>", temp.calculateRiskEstimationClass().ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionB>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
@@ -316,10 +308,23 @@ namespace Applicatie_Risicoanalyse.Reports
                     riskEstimationAfterView.RowFilter = "InProject = '1'";
                     if (riskEstimationAfterView.Count != 4)
                         throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<SEDescriptionA>", riskEstimationAfterView[0]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<FRDescriptionA>", riskEstimationAfterView[1]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<PRDescriptionA>", riskEstimationAfterView[2]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<AVDescriptionA>", riskEstimationAfterView[3]["ItemDescription"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<SEWeightA>", riskEstimationAfterView[0]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<FRWeightA>", riskEstimationAfterView[1]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<PRWeightA>", riskEstimationAfterView[2]["ItemWeight"].ToString());
+                    wordInterface.searchAndReplace(wordInterface.app, "<AVWeightA>", riskEstimationAfterView[3]["ItemWeight"].ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueA>", temp.calculateRiskEstimationClass().ToString());
                     wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionA>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
-                    //Find minimal addition options table and fill it.
+                    //Find table and do stuff with it.
+                    Microsoft.Office.Interop.Word.Table appliedRiskReductionMeasuresTable = wordInterface.findTableWithTitle(wordDocument, "AppliedRiskReductionMeasures");
+                    appliedRiskReductionMeasures.RowFilter = "InProject = '1'";
+                    wordInterface.fillTableWithRiskReducingMeasures(wordDocument, appliedRiskReductionMeasuresTable, appliedRiskReductionMeasures, "MeasureSubGroup", "InProject");
+                    appliedRiskReductionMeasuresTable.Title = "";
+
                     Microsoft.Office.Interop.Word.Table minimalAdditionMeasuresTable = wordInterface.findTableWithTitle(wordDocument, "MinimalAdditionMeasures");
                     minimalAdditionMeasures.RowFilter = "InProject = '1'";
                     wordInterface.fillTableWithRiskReducingMeasures(wordDocument, minimalAdditionMeasuresTable, minimalAdditionMeasures, "MeasureSubGroup", "InProject");
@@ -337,25 +342,17 @@ namespace Applicatie_Risicoanalyse.Reports
                 }
 
                 //Remove template from memory.
-                if (remainingRiskTemplate != null)
+                if (riskTemplate != null)
                 {
-                    ((_Document)remainingRiskTemplate).Close(ref paramFalse, ref missing,
+                    ((_Document)riskTemplate).Close(ref paramFalse, ref missing,
                         ref missing);
                     File.Delete(tempTemplateFile);
-                    remainingRiskTemplate = null;
-                }
-                //Remove headerTemplate from memory.
-                if (remainingRiskHeaderTemplate != null)
-                {
-                    ((_Document)remainingRiskHeaderTemplate).Close(ref paramFalse, ref missing,
-                        ref missing);
-                    File.Delete(tempHeaderTemplateFile);
-                    remainingRiskHeaderTemplate = null;
+                    riskTemplate = null;
                 }
             }
             catch (Exception ex)
             {
-
+                System.Windows.Forms.MessageBox.Show(ex.ToString(), "Something went wrong while generating risk pages.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

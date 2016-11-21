@@ -1,6 +1,6 @@
 ﻿namespace Applicatie_Risicoanalyse.Reports
 {
-    partial class RemainingRiskReport
+    partial class RiskAssessmentReport
     {
         /// <summary>
         /// Required designer variable.

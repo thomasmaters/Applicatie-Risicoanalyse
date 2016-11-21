@@ -1,4 +1,5 @@
 ﻿using Applicatie_Risicoanalyse.Globals;
+using Applicatie_Risicoanalyse.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,7 @@ namespace Applicatie_Risicoanalyse.Forms
             if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-                RiskAssesmentReport report = new RiskAssesmentReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.riskAssesmentReportFileName,
+                RiskAssessmentReport report = new RiskAssessmentReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.riskAssesmentReportFileName,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentRiskPageTemplate,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
                      Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);

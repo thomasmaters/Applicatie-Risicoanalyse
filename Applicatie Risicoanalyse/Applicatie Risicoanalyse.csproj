@@ -316,17 +316,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RiskAssesmentReport\RiskAssessmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RiskAssesmentReport\RiskAssessmentReport.Designer.cs">
+      <DependentUpon>RiskAssessmentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RemainingRiskReport\RemainingRiskReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\RemainingRiskReport\RemainingRiskReport.Designer.cs">
       <DependentUpon>RemainingRiskReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.cs">
+    <Compile Include="Reports\BaseReportGeneratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\RiskAssesmentReport\RiskAssesmentReport.Designer.cs">
-      <DependentUpon>RiskAssesmentReport.cs</DependentUpon>
+    <Compile Include="Reports\BaseReportGeneratorForm.Designer.cs">
+      <DependentUpon>BaseReportGeneratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\WordInterface.cs" />
     <EmbeddedResource Include="Controls\ARA_Button.resx">
@@ -415,6 +421,7 @@
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Applicatie Risicoanalyse_TemporaryKey.pfx" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="LG_Analysis_DatabaseDataSet.xsc">
       <DependentUpon>LG_Analysis_DatabaseDataSet.xsd</DependentUpon>
     </None>
@@ -436,8 +443,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Reports\RemainingRiskReport\RemainingRiskReport.resx">
-      <DependentUpon>RemainingRiskReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\BaseReportGeneratorForm.resx">
+      <DependentUpon>BaseReportGeneratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\RiskAssessmentFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -487,9 +494,6 @@
     <None Include="Resources\NoRiskPicture.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\RiskAssesmentReport\RiskAssesmentReport.resx">
-      <DependentUpon>RiskAssesmentReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ACL.xml" />
   </ItemGroup>
   <ItemGroup>
