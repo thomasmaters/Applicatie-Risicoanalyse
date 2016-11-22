@@ -129,6 +129,26 @@ namespace Applicatie_Risicoanalyse.Forms
         }
 
         /// <summary>
+        /// Sets the topbar with project specific data.
+        /// </summary>
+        private void setProjectInfoTopForm()
+        {
+            //Construct text to display on topbar.
+            DataRow riskAnalysisData = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID);
+            string leftText = string.Format("Customer: {0}\nProject state: {1}",
+                riskAnalysisData["Customer"],
+                riskAnalysisData["StateName"]);
+            string rightText = string.Format("Draft version: {0}", 
+                riskAnalysisData["DraftVersion"]);
+
+            //Create topbar form.
+            Form topBar = new ARA_TopBar(leftText, rightText);
+
+            //Trigger event for displaying the form.
+            ARA_Events.triggerBaseFormSetTopBarEvent(topBar);
+        }
+
+        /// <summary>
         /// Handler when the button is pressed to mark the project for review.
         /// </summary>
         /// <param name="sender"></param>
@@ -184,6 +204,21 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 //Hide the button when the project state changes.
                 enableControlOnProjectState();
+            }
+        }
+
+        private void ARA_RiskProjectOverview_Shown(object sender, EventArgs e)
+        {
+            Debug.WriteLine("RiskProjectOverview shown");
+            this.setProjectInfoTopForm();
+        }
+
+        private void ARA_RiskProjectOverview_VisibleChanged(object sender, EventArgs e)
+        {
+            if(this.Visible == false)
+            {
+                Debug.WriteLine("RiskProjectOverview shown" + this.Visible.ToString());
+                this.setProjectInfoTopForm();
             }
         }
     }

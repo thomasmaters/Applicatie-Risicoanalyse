@@ -1,6 +1,6 @@
 ﻿namespace Applicatie_Risicoanalyse.Forms
 {
-    partial class ARA_EditRiskBaseTopBar
+    partial class ARA_TopBar
     {
         /// <summary>
         /// Required designer variable.

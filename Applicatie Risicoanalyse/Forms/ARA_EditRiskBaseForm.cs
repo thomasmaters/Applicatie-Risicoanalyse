@@ -251,7 +251,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void setTopBarRiskInfo()
         {
             //Set top bar info.
-            ARA_EditRiskBaseTopBar aForm = new ARA_EditRiskBaseTopBar(
+            ARA_TopBar aForm = new ARA_TopBar(
                     string.Format("RiskID: {0} -- {1} -> {2}\nVersion: {3}",this.riskID,this.riskGroupName,this.riskTypeName,this.riskVersionID),
                     string.Format("{0} {1}", this.hazardSituation,this.isRiskDataProjectSpecific && this.projectID != -1 ? "\n(Project specific)":""));
             ARA_Events.triggerBaseFormSetTopBarEvent(aForm);
@@ -279,6 +279,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_RiskReduction_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_RiskReduction_In_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Data' table. You can move, or remove it, as needed.
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
+
+            setTopBarRiskInfo();
         }
 
         /// <summary>

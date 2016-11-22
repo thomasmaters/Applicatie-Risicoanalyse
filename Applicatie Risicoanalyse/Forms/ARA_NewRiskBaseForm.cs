@@ -203,7 +203,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void setTopBarRiskInfo()
         {
             //Set top bar info.
-            ARA_EditRiskBaseTopBar aForm = new ARA_EditRiskBaseTopBar(
+            ARA_TopBar aForm = new ARA_TopBar(
                     string.Format("RiskID: {0} -- {1} -> {2}\nVersion: {3}",this.riskID,this.riskGroupName,this.riskTypeName,this.riskVersionID),
                     string.Format("{0}", this.hazardSituation));
             ARA_Events.triggerBaseFormSetTopBarEvent(aForm);

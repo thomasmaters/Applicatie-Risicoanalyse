@@ -12,9 +12,9 @@ using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
-    public partial class ARA_EditRiskBaseTopBar : Form
+    public partial class ARA_TopBar : Form
     {
-        public ARA_EditRiskBaseTopBar(string leftText = "", string rightText = "")
+        public ARA_TopBar(string leftText = "", string rightText = "")
         {
             InitializeComponent();
             //Scaling.

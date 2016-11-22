@@ -255,15 +255,15 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // riskProjectOverviewButtonMarkReview
             // 
-            this.riskProjectOverviewButtonMarkReview.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkReview.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonMarkReview.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkReview.Location = new System.Drawing.Point(0, 253);
             this.riskProjectOverviewButtonMarkReview.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkReview.Name = "riskProjectOverviewButtonMarkReview";
             this.riskProjectOverviewButtonMarkReview.Selected = false;
-            this.riskProjectOverviewButtonMarkReview.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkReview.SelectedTextColor = System.Drawing.Color.White;
             this.riskProjectOverviewButtonMarkReview.Size = new System.Drawing.Size(750, 40);
             this.riskProjectOverviewButtonMarkReview.TabIndex = 13;
@@ -274,15 +274,15 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // riskProjectOverviewButtonMarkDoneReview
             // 
-            this.riskProjectOverviewButtonMarkDoneReview.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkDoneReview.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkDoneReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonMarkDoneReview.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkDoneReview.Location = new System.Drawing.Point(0, 293);
             this.riskProjectOverviewButtonMarkDoneReview.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkDoneReview.Name = "riskProjectOverviewButtonMarkDoneReview";
             this.riskProjectOverviewButtonMarkDoneReview.Selected = false;
-            this.riskProjectOverviewButtonMarkDoneReview.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkDoneReview.SelectedTextColor = System.Drawing.Color.White;
             this.riskProjectOverviewButtonMarkDoneReview.Size = new System.Drawing.Size(750, 40);
             this.riskProjectOverviewButtonMarkDoneReview.TabIndex = 14;
@@ -293,15 +293,15 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // riskProjectOverviewButtonMarkClose
             // 
-            this.riskProjectOverviewButtonMarkClose.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkClose.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkClose.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonMarkClose.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkClose.Location = new System.Drawing.Point(0, 333);
             this.riskProjectOverviewButtonMarkClose.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkClose.Name = "riskProjectOverviewButtonMarkClose";
             this.riskProjectOverviewButtonMarkClose.Selected = false;
-            this.riskProjectOverviewButtonMarkClose.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkClose.SelectedTextColor = System.Drawing.Color.White;
             this.riskProjectOverviewButtonMarkClose.Size = new System.Drawing.Size(750, 40);
             this.riskProjectOverviewButtonMarkClose.TabIndex = 15;
@@ -395,6 +395,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Name = "ARA_RiskProjectOverview";
             this.Text = "ProjectOverview";
             this.Load += new System.EventHandler(this.onProjectOverviewLoad);
+            this.Shown += new System.EventHandler(this.ARA_RiskProjectOverview_Shown);
+            this.VisibleChanged += new System.EventHandler(this.ARA_RiskProjectOverview_VisibleChanged);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();

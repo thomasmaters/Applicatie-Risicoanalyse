@@ -81,9 +81,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
             this.addFormToPanel(this.projectOverviewPanelCreateProject, new ARA_CreateProject());
-
             this.addFormToPanel(this.projectOverviewPanelOpenProject, new ARA_OpenProject());
-
             this.addFormToPanel(this.projectOverviewPanelEditRiskStandard, new ARA_SearchRiskStandard());
         }
 

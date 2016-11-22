@@ -15,9 +15,16 @@ namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_SideBar : Form
     {
+        private ARA_MainMenu mainMenu;
+        private ARA_ProjectOverview projectOverview;
+
         public ARA_SideBar()
         {
             InitializeComponent();
+
+            this.mainMenu = new ARA_MainMenu();
+            this.projectOverview = new ARA_ProjectOverview();
+
             this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize );
             foreach (Control control in this.Controls)
             {
@@ -98,7 +105,7 @@ namespace Applicatie_Risicoanalyse.Forms
             tempButton.Click += delegate (object senderr, EventArgs ev)
             {
                 tempButton.setButtonSelected(true);
-                this.hideOtherPanels(new object(), e);
+                //this.hideOtherPanels(new object(), e);
                 Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
             };
             tempButton.DoubleClick += delegate (object senderr, EventArgs ev)
@@ -121,7 +128,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.SideBarButtonSpacer.Height -= control.Height;
             this.SideBarButtonContainer.Controls.Add(control);
             control.Click += hideOtherPanels;
-            this.hideOtherPanels(control,new EventArgs());
+            //this.hideOtherPanels(control,new EventArgs());
             control.setButtonSelected(true);
         }
 
@@ -158,7 +165,8 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.SideBarButtonMenu.setButtonSelected(true);
             this.hideOtherPanels(new object(), e);
-            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(new ARA_MainMenu());
+            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(this.mainMenu);
+            ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 
         //RiskAnalysis button click handler.
@@ -166,13 +174,13 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.SideBarButtonMenu.setButtonSelected(true);
             this.hideOtherPanels(new object(), e);
-            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(new ARA_ProjectOverview());
+            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(this.projectOverview);
+            ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 
         //Deselects all sidebar buttons except the event source.
         private void hideOtherPanels(object sender, EventArgs e)
         {
-            ARA_Events.triggerBaseFormSetTopBarEvent(null);
             foreach (var button in this.SideBarButtonContainer.Controls.OfType<Applicatie_Risicoanalyse.Controls.ARA_Button>())
             {
                 if (button != sender)

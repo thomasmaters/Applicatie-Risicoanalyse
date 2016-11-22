@@ -44,11 +44,14 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void onOpenContentFormEvent(object sender, OpenContentFormEventArgs e)
         {
-            setPanelForm(e.Form,this.contentPanel);
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            //if (this.contentPanel.Controls[0] != e.Form)
+            //{
+                setPanelForm(e.Form, this.contentPanel);
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            //}
         }
 
         private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)

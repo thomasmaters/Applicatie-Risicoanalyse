@@ -19,6 +19,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
         public static event EventHandler<SideBarRemoveNewButtonEvent> SideBarRemoveNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
+        public static event EventHandler<SideBarAddNewButtonEvent> SideBarButtonAddedEventHandler;
 
         //Static function for adding an event to the event handlers.
         public static void onOpenContentFormEvent(System.Windows.Forms.Form aForm)
@@ -28,6 +29,11 @@ namespace Applicatie_Risicoanalyse.Globals
         public static void triggerBaseFormSetTopBarEvent(System.Windows.Forms.Form aForm)
         {
             baseFormSetTopBarFormEventHandler(aForm, new BaseFormSetTopBarFormEvent(aForm));
+        }
+
+        public static void triggerSideBarButtonAddedEvent(object sender, SideBarAddNewButtonEvent e)
+        {
+            SideBarButtonAddedEventHandler(sender, e);
         }
         public static void onSetSideBarButtonSelectedEvent(string aIndex)
         {
