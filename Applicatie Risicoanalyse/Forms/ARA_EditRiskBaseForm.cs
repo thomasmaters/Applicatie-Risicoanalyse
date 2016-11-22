@@ -34,7 +34,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskDataID = riskDataID;
             this.projectID = projectID;
             this.isRiskDataProjectSpecific = isRiskDataProjectSpecific;
-            this.projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
+            //Set project state if we are not editing the risk standard.
+            if(this.projectID != -1)
+                this.projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -109,11 +111,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setRiskDataProjectSpecific();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
                     }
                 };
 
@@ -131,11 +133,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setRiskDataProjectSpecific();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
                     }
                 };
 
@@ -195,7 +197,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         private void setProjectEditable()
         {
-            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() != ARA_Constants.draft)
+            if (this.projectState != ARA_Constants.draft)
             {
                 this.arA_EditRiskExposedPersons1.Enabled = false;
                 this.arA_EditRiskHazardIndentification1.Enabled = false;
@@ -205,7 +207,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskRiskReductionMesures2.Enabled = false;
                 this.arA_Button1.Enabled = false;
             }
-            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() == ARA_Constants.forReview
+            if (this.projectState == ARA_Constants.forReview
                 && (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"] != ARA_Globals.UserID)
             {
                 this.editRiskBaseFormButtonReviewAccept.Visible = true;

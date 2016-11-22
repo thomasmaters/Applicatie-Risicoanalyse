@@ -31,19 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenProjectDataGrid = new System.Windows.Forms.DataGridView();
-            this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
-            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
+            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
+            this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.search_ProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.search_ProjectsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectsTableAdapter();
+            this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.search_ProjectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenProjectDataGrid
@@ -91,33 +95,6 @@
             this.OpenProjectDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.OpenProjectDataGrid_RowsAdded);
             this.OpenProjectDataGrid.SelectionChanged += new System.EventHandler(this.OpenProjectDataGrid_SelectionChanged);
             // 
-            // tblRiskAnalysisBindingSource
-            // 
-            this.tblRiskAnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
-            this.tblRiskAnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // lG_Analysis_DatabaseDataSet
-            // 
-            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
-            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbl_Risk_AnalysisTableAdapter
-            // 
-            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
-            // 
-            // OpenProjectTextBoxSearch
-            // 
-            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.OpenProjectTextBoxSearch.BorderSize = 1;
-            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 3);
-            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
-            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(750, 32);
-            this.OpenProjectTextBoxSearch.TabIndex = 3;
-            this.OpenProjectTextBoxSearch.Text = "";
-            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
-            // 
             // customerDataGridViewTextBoxColumn
             // 
             this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
@@ -162,10 +139,75 @@
             this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
             this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // tblRiskAnalysisBindingSource
+            // 
+            this.tblRiskAnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
+            this.tblRiskAnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // lG_Analysis_DatabaseDataSet
+            // 
+            this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
+            this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbl_Risk_AnalysisTableAdapter
+            // 
+            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
+            // 
+            // OpenProjectTextBoxSearch
+            // 
+            this.OpenProjectTextBoxSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.OpenProjectTextBoxSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.OpenProjectTextBoxSearch.BorderSize = 1;
+            this.OpenProjectTextBoxSearch.Location = new System.Drawing.Point(0, 3);
+            this.OpenProjectTextBoxSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenProjectTextBoxSearch.Name = "OpenProjectTextBoxSearch";
+            this.OpenProjectTextBoxSearch.Size = new System.Drawing.Size(750, 32);
+            this.OpenProjectTextBoxSearch.TabIndex = 3;
+            this.OpenProjectTextBoxSearch.Text = "";
+            this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
+            // 
+            // search_ProjectsBindingSource
+            // 
+            this.search_ProjectsBindingSource.DataMember = "Search_Projects";
+            this.search_ProjectsBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // search_ProjectsTableAdapter
+            // 
+            this.search_ProjectsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
+            this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_ResultTableAdapter = null;
+            this.tableAdapterManager.Tbl_Danger_SourceTableAdapter = null;
+            this.tableAdapterManager.Tbl_DangerTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersons_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ExposedPersonsTableAdapter = null;
+            this.tableAdapterManager.Tbl_LogTableAdapter = null;
+            this.tableAdapterManager.Tbl_MinimalAddition_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_AnalysisTableAdapter = this.tbl_Risk_AnalysisTableAdapter;
+            this.tableAdapterManager.Tbl_Risk_DataTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risk_Project_StateTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_AfterTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimation_In_Risk_BeforeTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskEstimationTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReduction_In_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskReductionMeasuresTableAdapter = null;
+            this.tableAdapterManager.Tbl_Risks_In_ProjectTableAdapter = null;
+            this.tableAdapterManager.Tbl_RiskTableAdapter = null;
+            this.tableAdapterManager.Tbl_User_PermissionsTableAdapter = null;
+            this.tableAdapterManager.Tbl_UserTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // ARA_OpenProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(750, 350);
             this.Controls.Add(this.OpenProjectDataGrid);
             this.Controls.Add(this.OpenProjectTextBoxSearch);
@@ -179,6 +221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.search_ProjectsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +239,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StateName;
         private System.Windows.Forms.DataGridViewTextBoxColumn machineNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource search_ProjectsBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectsTableAdapter search_ProjectsTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

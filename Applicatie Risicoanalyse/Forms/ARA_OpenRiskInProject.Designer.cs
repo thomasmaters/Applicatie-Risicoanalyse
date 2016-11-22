@@ -32,14 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenRiskInProjectDataGrid = new System.Windows.Forms.DataGridView();
-            this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.searchProjectRisksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.get_RiskDataID_From_Risks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.search_ProjectRisksTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectRisksTableAdapter();
             this.get_RiskDataID_From_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskDataID_From_Risks_In_ProjectTableAdapter();
-            this.riskIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbl_Risk_AnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
+            this.is_Risk_OldBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.is_Risk_OldTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Is_Risk_OldTableAdapter();
+            this.RiskID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HazardSituation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,10 +50,13 @@
             this.ProjectRiskDataID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VersionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReviewedByUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arA_TextBox1 = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.OpenRiskInProjectDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProjectRisksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskDataID_From_Risks_In_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.is_Risk_OldBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenRiskInProjectDataGrid
@@ -65,7 +71,7 @@
             this.OpenRiskInProjectDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.OpenRiskInProjectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OpenRiskInProjectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.riskIDDataGridViewTextBoxColumn,
+            this.RiskID,
             this.HazardSituation,
             this.GroupName,
             this.typeNameDataGridViewTextBoxColumn,
@@ -105,19 +111,6 @@
             this.OpenRiskInProjectDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.onDataGridRowAdded);
             this.OpenRiskInProjectDataGrid.SelectionChanged += new System.EventHandler(this.OpenRiskInProjectDataGrid_SelectionChanged);
             this.OpenRiskInProjectDataGrid.VisibleChanged += new System.EventHandler(this.OpenRiskInProjectDataGrid_VisabilityChanged);
-            // 
-            // arA_TextBox1
-            // 
-            this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_TextBox1.BorderSize = 1;
-            this.arA_TextBox1.Location = new System.Drawing.Point(0, 0);
-            this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_TextBox1.Name = "arA_TextBox1";
-            this.arA_TextBox1.Size = new System.Drawing.Size(750, 32);
-            this.arA_TextBox1.TabIndex = 1;
-            this.arA_TextBox1.Text = "";
-            this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
             // searchProjectRisksBindingSource
             // 
@@ -171,15 +164,33 @@
             // 
             this.get_RiskDataID_From_Risks_In_ProjectTableAdapter.ClearBeforeFill = true;
             // 
-            // riskIDDataGridViewTextBoxColumn
+            // tbl_Risk_AnalysisBindingSource
             // 
-            this.riskIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.riskIDDataGridViewTextBoxColumn.DataPropertyName = "RiskID";
-            this.riskIDDataGridViewTextBoxColumn.FillWeight = 10F;
-            this.riskIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.riskIDDataGridViewTextBoxColumn.Name = "riskIDDataGridViewTextBoxColumn";
-            this.riskIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.riskIDDataGridViewTextBoxColumn.Width = 56;
+            this.tbl_Risk_AnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
+            this.tbl_Risk_AnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_Risk_AnalysisTableAdapter
+            // 
+            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
+            // 
+            // is_Risk_OldBindingSource
+            // 
+            this.is_Risk_OldBindingSource.DataMember = "Is_Risk_Old";
+            this.is_Risk_OldBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // is_Risk_OldTableAdapter
+            // 
+            this.is_Risk_OldTableAdapter.ClearBeforeFill = true;
+            // 
+            // RiskID
+            // 
+            this.RiskID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RiskID.DataPropertyName = "RiskID";
+            this.RiskID.FillWeight = 10F;
+            this.RiskID.HeaderText = "ID";
+            this.RiskID.Name = "RiskID";
+            this.RiskID.ReadOnly = true;
+            this.RiskID.Width = 56;
             // 
             // HazardSituation
             // 
@@ -239,10 +250,24 @@
             this.ReviewedByUser.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ReviewedByUser.Visible = false;
             // 
+            // arA_TextBox1
+            // 
+            this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.arA_TextBox1.BorderSize = 1;
+            this.arA_TextBox1.Location = new System.Drawing.Point(0, 0);
+            this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.arA_TextBox1.Name = "arA_TextBox1";
+            this.arA_TextBox1.Size = new System.Drawing.Size(750, 32);
+            this.arA_TextBox1.TabIndex = 1;
+            this.arA_TextBox1.Text = "";
+            this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
+            // 
             // ARA_OpenRiskInProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(750, 350);
             this.Controls.Add(this.OpenRiskInProjectDataGrid);
             this.Controls.Add(this.arA_TextBox1);
@@ -252,10 +277,13 @@
             this.MaximumSize = new System.Drawing.Size(750, 350);
             this.Name = "ARA_OpenRiskInProject";
             this.Text = "ARA_OpenRiskInProject";
+            this.Load += new System.EventHandler(this.ARA_OpenRiskInProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OpenRiskInProjectDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProjectRisksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskDataID_From_Risks_In_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.is_Risk_OldBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,7 +297,11 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskDataID_From_Risks_In_ProjectTableAdapter get_RiskDataID_From_Risks_In_ProjectTableAdapter;
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView OpenRiskInProjectDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn riskIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource tbl_Risk_AnalysisBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
+        private System.Windows.Forms.BindingSource is_Risk_OldBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Is_Risk_OldTableAdapter is_Risk_OldTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RiskID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HazardSituation;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeNameDataGridViewTextBoxColumn;

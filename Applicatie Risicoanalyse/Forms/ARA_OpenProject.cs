@@ -40,12 +40,20 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             int tempScrollPosition = this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex;
 
-            (this.OpenProjectDataGrid.DataSource as DataView).RowFilter = 
-                string.Format("Customer LIKE '%{0}%' OR MachineType LIKE '%{0}%' OR MachineNumber LIKE '%{0}%' OR OrderNumber LIKE '%{0}%'", this.OpenProjectTextBoxSearch.Text);
-
-            if (tempScrollPosition != -1 && tempScrollPosition < this.OpenProjectDataGrid.Rows.Count)
+            try
             {
-                this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
+                this.OpenProjectDataGrid.DataSource = this.search_ProjectsTableAdapter.GetData("" + this.OpenProjectTextBoxSearch.Text);
+                this.OpenProjectDataGrid.Refresh();
+
+                if (tempScrollPosition != -1 && tempScrollPosition < this.OpenProjectDataGrid.Rows.Count)
+                {
+                    this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -89,8 +97,6 @@ namespace Applicatie_Risicoanalyse.Forms
                     row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Gray2;
                 }
             }
-
-
         }
 
         private void OpenProjectDataGrid_SelectionChanged(object sender, EventArgs e)
