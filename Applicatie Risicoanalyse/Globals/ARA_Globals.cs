@@ -16,7 +16,7 @@ namespace Applicatie_Risicoanalyse.Globals
         private static String aRa_Date              = DateTime.Now.ToString("dd-MM-yyyy");
 
         private static string userPermissionGroup   = "Admin";
-        private static int userID                   = 2;
+        private static int userID                   = 1;
 
         private static string[] riskClassDescription = 
         {

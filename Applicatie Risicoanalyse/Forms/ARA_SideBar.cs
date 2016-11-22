@@ -101,6 +101,11 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.hideOtherPanels(new object(), e);
                 Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
             };
+            tempButton.DoubleClick += delegate (object senderr, EventArgs ev)
+            {
+                ARA_Events.onSideBarRemoveButtonEvent(tempButton.Text);
+                onRiskAnalysisButtonClick(senderr, ev);
+            };
 
             //Add the button to the sidebar.
             this.addButtonToSideBar(tempButton);

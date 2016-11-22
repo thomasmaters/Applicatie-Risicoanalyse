@@ -114,7 +114,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.riskProjectOverviewButtonAddRiskToProject.Enabled = false;
                 this.riskProjectOverviewButtonEditProjectDetails.Enabled = false;
                 this.riskProjectOverviewButtonGenerateReports.Enabled = true;
-                this.riskProjectOverviewButtonOpenRisk.Enabled = ARA_Globals.UserID != userID;
+                this.riskProjectOverviewButtonOpenRisk.Enabled = true;
+            }
+            else
+            {
+                this.riskProjectOverviewButtonAddRiskToProject.Enabled = true;
+                this.riskProjectOverviewButtonEditProjectDetails.Enabled = true;
             }
 
             //Enable or disable buttons to change project state.

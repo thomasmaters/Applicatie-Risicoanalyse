@@ -205,7 +205,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskRiskReductionMesures2.Enabled = false;
                 this.arA_Button1.Enabled = false;
             }
-            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() == ARA_Constants.forReview)
+            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() == ARA_Constants.forReview
+                && (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"] != ARA_Globals.UserID)
             {
                 this.editRiskBaseFormButtonReviewAccept.Visible = true;
                 this.editRiskBaseFormButtonReviewDecline.Visible = true;
@@ -258,6 +259,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Project' table. You can move, or remove it, as needed.
+            this.tbl_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Project);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk' table. You can move, or remove it, as needed.
@@ -392,9 +395,6 @@ namespace Applicatie_Risicoanalyse.Forms
                 currentRiskRowIndex += direction;
             }
 
-            //Set next or previous buttons enabled/disabled.
-            toggleNextPreviousButtons(risksInGroupAndTypeCount, currentRiskRowIndex);
-
             //Set class variables.
             this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
             this.riskVersionID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["VersionID"];
@@ -423,6 +423,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Set previous and next button texts.
             setPreviousAndNextButtonTexts();
+            //Set next or previous buttons enabled/disabled.
+            toggleNextPreviousButtons(risksInGroupAndTypeCount, currentRiskRowIndex);
         }
 
         /// <summary>
@@ -433,11 +435,13 @@ namespace Applicatie_Risicoanalyse.Forms
         private void toggleNextPreviousButtons(int riskCount, int riskIndex)
         {
             //Determin wich button the user can press.
-            if (this.projectState == ARA_Constants.forReview)
+            if (this.projectState == ARA_Constants.forReview 
+                && (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"] != ARA_Globals.UserID)
             {
-                this.EditRiskButtonNextRisk.Visible = false;
-                //this.EditRiskTextAmountOfRisksInType.Visible = false;
-                this.EditRiskButtonPreviousRisk.Visible = false;
+                this.EditRiskButtonNextRisk.Text = "";
+                this.EditRiskButtonPreviousRisk.Text = "";
+                this.EditRiskButtonNextRisk.Enabled = false;
+                this.EditRiskButtonPreviousRisk.Enabled = false;
             }
             else if (riskCount == 1)
             {

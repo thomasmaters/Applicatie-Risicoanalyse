@@ -46,6 +46,9 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             setPanelForm(e.Form,this.contentPanel);
             GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)
