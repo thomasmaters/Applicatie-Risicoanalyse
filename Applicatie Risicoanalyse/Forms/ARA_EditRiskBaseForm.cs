@@ -436,7 +436,7 @@ namespace Applicatie_Risicoanalyse.Forms
             if (this.projectState == ARA_Constants.forReview)
             {
                 this.EditRiskButtonNextRisk.Visible = false;
-                this.EditRiskTextAmountOfRisksInType.Visible = false;
+                //this.EditRiskTextAmountOfRisksInType.Visible = false;
                 this.EditRiskButtonPreviousRisk.Visible = false;
             }
             else if (riskCount == 1)

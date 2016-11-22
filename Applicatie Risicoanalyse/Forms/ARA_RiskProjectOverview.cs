@@ -34,6 +34,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonGenerateReports.Click += hideOtherPanels;
         }
 
+        /// <summary>
+        /// Loads the users permissions to see and use form elements.
+        /// </summary>
         private void loadPermissions()
         {
             this.riskProjectOverviewButtonAddRiskToProject.Visible      = ARA_ACL.getPermissionLevel("General.ButtonAddRiskToProject") >= ARA_Globals.PermissionLevel.ReadOnly;
@@ -49,6 +52,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewPanelOpenRisk.Enabled               = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") == ARA_Globals.PermissionLevel.All;
         }
 
+        /// <summary>
+        /// Adds a subform to a panel and shows it.
+        /// </summary>
+        /// <param name="panel">Panel to connect the form to.</param>
+        /// <param name="form">Form to connect to the panel.</param>
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
         {
             form.TopLevel = false;
@@ -56,6 +64,11 @@ namespace Applicatie_Risicoanalyse.Forms
             form.Show();
         }
 
+        /// <summary>
+        /// Hides all ARA_DropDownButtons in the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hideOtherPanels(object sender, EventArgs e)
         {
             foreach (var button in this.flowLayoutPanel1.Controls.OfType<Applicatie_Risicoanalyse.Controls.ARA_DropDownButton>())
@@ -67,6 +80,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Fill dataAdapters and add forms to panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onProjectOverviewLoad(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Project' table. You can move, or remove it, as needed.
@@ -84,9 +102,11 @@ namespace Applicatie_Risicoanalyse.Forms
             enableControlOnProjectState();
         }
 
+        /// <summary>
+        /// Changes the availabilty of controls based on the project state. Call this function after loading the permissions.
+        /// </summary>
         private void enableControlOnProjectState()
         {
-
             string projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
             int userID = (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"];
             if (projectState != ARA_Constants.draft)
@@ -103,6 +123,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonMarkReview.Visible = projectState == ARA_Constants.draft && ARA_Globals.UserID == userID;
         }
 
+        /// <summary>
+        /// Handler when the button is pressed to mark the project for review.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void riskProjectOverviewButtonMarkReview_Click(object sender, EventArgs e)
         {
             if (System.Windows.Forms.MessageBox.Show("Are you sure to mark this project for review? You can't change any risks until another user has reviewed this project!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
@@ -114,25 +139,38 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Handler when te button is pressed to mark the project as DRAFT if there need to be changes made or FINALDRAFT afterwards.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void riskProjectOverviewButtonMarkDoneReview_Click(object sender, EventArgs e)
         {
-            if(System.Windows.Forms.MessageBox.Show("Are you sure to end the review sessie?", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if(this.is_ProjectReview_AcceptedTableAdapter.GetData(this.projectID).Rows[0]["IsProjectReviewAccepted"].ToString() == "1")
             {
-                if(this.is_ProjectReview_AcceptedTableAdapter.GetData(this.projectID).Rows[0]["IsProjectReviewAccepted"].ToString() == "1")
+                if (System.Windows.Forms.MessageBox.Show("Are you sure to end the review sessie? The project will be marked as FINALDRAFT and can't be changed afterwards!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.finalDraft);
                 }
-                else
+            }
+            else
+            {
+                if (System.Windows.Forms.MessageBox.Show("Are you sure to end the review sessie? The project will be marked as a new DRAFT!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.draft);
                     this.queriesTableAdapter1.Increase_Project_DraftVersion(this.projectID);
                 }
-
-                //Hide the button when the project state changes.
-                enableControlOnProjectState();
             }
+
+            //Hide the button when the project state changes.
+            enableControlOnProjectState();
         }
 
+        /// <summary>
+        /// Handler when the user wants to close the project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void riskProjectOverviewButtonMarkClose_Click(object sender, EventArgs e)
         {
             if (System.Windows.Forms.MessageBox.Show("Are you sure you want to close the project? It can't be changed afterwards!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
