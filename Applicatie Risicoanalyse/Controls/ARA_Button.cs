@@ -21,6 +21,7 @@ namespace Applicatie_Risicoanalyse.Controls
         private Color selectedTextColor = Color.White;
         private StringAlignment horizontalAlignment = StringAlignment.Near;
         private StringAlignment verticalAlignment = StringAlignment.Center;
+        private bool canButtonBeToggled = true;
         public bool selected = false;
         protected bool hovering           = false;
 
@@ -135,6 +136,20 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        [Description("Bool to enabled button toggleing."), Category("Appearance")]
+        public bool CanButtonBeToggled
+        {
+            get
+            {
+                return canButtonBeToggled;
+            }
+
+            set
+            {
+                canButtonBeToggled = value;
+            }
+        }
+
         public ARA_Button()
         {
             InitializeComponent();
@@ -210,14 +225,16 @@ namespace Applicatie_Risicoanalyse.Controls
             }
             if(e.Clicks == 1)
             {
-                this.Selected = !this.Selected;
-                this.Invalidate();
+                setButtonSelected(!selected);
             }
         }
 
         public void setButtonSelected(bool e)
         {
-            this.selected = e;
+            if(canButtonBeToggled == true)
+            {
+                this.selected = e;
+            }
             this.Invalidate();
         }
     }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Applicatie_Risicoanalyse.Globals;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -22,10 +23,6 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 control.Font = this.Font;
             }
-
-            //Load datagrid with values.
-            this.OpenProjectDataGrid.DataSource = this.search_Risk_StandardTableAdapter.GetData(this.OpenProjectTextBoxSearch.Text);
-            this.OpenProjectDataGrid.Sort(this.OpenProjectDataGrid.Columns[0],ListSortDirection.Ascending);
             
             //Special scaling for datagrid.
             this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);

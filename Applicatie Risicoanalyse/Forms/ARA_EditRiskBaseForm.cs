@@ -18,6 +18,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private int riskVersionID = 1;
         private int riskDataID = 1;
         private int projectID = 1;
+        private string projectState = ARA_Constants.draft;
         private string riskGroupName = "";
         private string riskTypeName = "";
         private string hazardSituation = "";
@@ -33,6 +34,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskDataID = riskDataID;
             this.projectID = projectID;
             this.isRiskDataProjectSpecific = isRiskDataProjectSpecific;
+            this.projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -47,8 +49,13 @@ namespace Applicatie_Risicoanalyse.Forms
             setNextRisk(0);
 
             loadPermissions();
+
+            setProjectEditable();
         }
 
+        /// <summary>
+        /// Loads the users permissions.
+        /// </summary>
         private void loadPermissions()
         {
             this.arA_EditRiskExposedPersons1.Enabled        = ARA_ACL.getPermissionLevel("Function.EditExposedPersons") == ARA_Globals.PermissionLevel.All;
@@ -60,6 +67,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_Button1.Enabled                        = ARA_ACL.getPermissionLevel("Function.EditRiskImage") == ARA_Globals.PermissionLevel.All;
         }
 
+        /// <summary>
+        /// Sets the data for the controls and insert handles to update changes to database.
+        /// </summary>
         private void setFormData()
         {
             try
@@ -180,7 +190,31 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        //Signals the form and the database to make a project specific risk.
+        /// <summary>
+        /// Makes project editable on specific project state.
+        /// </summary>
+        private void setProjectEditable()
+        {
+            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() != ARA_Constants.draft)
+            {
+                this.arA_EditRiskExposedPersons1.Enabled = false;
+                this.arA_EditRiskHazardIndentification1.Enabled = false;
+                this.arA_EditRiskRiskEstimation1.Enabled = false;
+                this.arA_EditRiskRiskEstimation2.Enabled = false;
+                this.arA_EditRiskRiskReductionMesures1.Enabled = false;
+                this.arA_EditRiskRiskReductionMesures2.Enabled = false;
+                this.arA_Button1.Enabled = false;
+            }
+            if (this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString() == ARA_Constants.forReview)
+            {
+                this.editRiskBaseFormButtonReviewAccept.Visible = true;
+                this.editRiskBaseFormButtonReviewDecline.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Signals the form and the database to make a project specific risk.
+        /// </summary>
         private void setRiskDataProjectSpecific()
         {
             if(this.isRiskDataProjectSpecific == false)
@@ -210,6 +244,9 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Sets risk info in the topbar of the application.
+        /// </summary>
         private void setTopBarRiskInfo()
         {
             //Set top bar info.
@@ -221,6 +258,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
+            this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk' table. You can move, or remove it, as needed.
             this.tbl_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_ExposedPersons_In_Risk' table. You can move, or remove it, as needed.
@@ -239,7 +278,10 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
         }
 
-        //Loads image from database if we have a fileid.
+        /// <summary>
+        /// Loads image from database if we have a fileID.
+        /// </summary>
+        /// <param name="fileID">File id of the file in the database.</param>
         private void loadRiskImage(int fileID)
         {
             if (fileID != -1)
@@ -250,13 +292,21 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        //Button clicked for uploading a new image.
+        /// <summary>
+        /// Show file selecter when button for uploading a new image is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void arA_Button1_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.ShowDialog();
         }
 
-        //New image file chosen.
+        /// <summary>
+        /// Event when the user selects an image file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (e.Cancel == false)
@@ -272,19 +322,31 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// When the next button is clicked, handle it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditRiskButtonNextRisk_Click(object sender, EventArgs e)
         {
             setNextRisk(1);
             setFormData();
         }
 
+        /// <summary>
+        /// When the previous button is clicked, handle it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditRiskButtonPreviousRisk_Click(object sender, EventArgs e)
         {
             setNextRisk(-1);
             setFormData();
         }
 
-        //Sets button texts.
+        /// <summary>
+        /// Sets the button text for the privious en next buttons.
+        /// </summary>
         private void setPreviousAndNextButtonTexts()
         {
             //Set previous and next button texts.
@@ -294,13 +356,20 @@ namespace Applicatie_Risicoanalyse.Forms
             this.EditRiskButtonNextRisk.setButtonSelected(false);
         }
 
-        //Sets the forms current displayed risk to the next risk in the group.
+        /// <summary>
+        /// Sets the forms current displayed risk to the next risk in the dataset.
+        /// </summary>
+        /// <param name="direction">Direction to go from current selected risk.</param>
         private void setNextRisk(int direction)
         {
             DataTable risksInGroupAndTypeView;
             if (this.projectID == -1)
             {
                 risksInGroupAndTypeView = this.get_Risks_In_Group_And_TypeTableAdapter.GetData(this.riskGroupName, this.riskTypeName);
+            }
+            else if(this.projectState == ARA_Constants.forReview)
+            {
+                risksInGroupAndTypeView = this.get_Risks_In_ProjectTableAdapter.GetData(this.projectID);
             }
             else
             {
@@ -323,27 +392,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 currentRiskRowIndex += direction;
             }
 
-            //Determin wich button the user can press.
-            if (risksInGroupAndTypeCount == 1)
-            {
-                this.EditRiskButtonNextRisk.Enabled = false;
-                this.EditRiskButtonPreviousRisk.Enabled = false;
-            }
-            else if (currentRiskRowIndex == 0)
-            {
-                this.EditRiskButtonNextRisk.Enabled = true;
-                this.EditRiskButtonPreviousRisk.Enabled = false;
-            }
-            else if (risksInGroupAndTypeCount == 2 || currentRiskRowIndex == risksInGroupAndTypeCount - 1)
-            {
-                this.EditRiskButtonNextRisk.Enabled = false;
-                this.EditRiskButtonPreviousRisk.Enabled = true;
-            }
-            else
-            {
-                this.EditRiskButtonNextRisk.Enabled = true;
-                this.EditRiskButtonPreviousRisk.Enabled = true;
-            }
+            //Set next or previous buttons enabled/disabled.
+            toggleNextPreviousButtons(risksInGroupAndTypeCount, currentRiskRowIndex);
 
             //Set class variables.
             this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
@@ -373,6 +423,66 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Set previous and next button texts.
             setPreviousAndNextButtonTexts();
+        }
+
+        /// <summary>
+        /// Enables buttons for going to next or previous risk if some critics are met.
+        /// </summary>
+        /// <param name="riskCount">Total amount of risks.</param>
+        /// <param name="riskIndex">The current risk being shown.</param>
+        private void toggleNextPreviousButtons(int riskCount, int riskIndex)
+        {
+            //Determin wich button the user can press.
+            if (this.projectState == ARA_Constants.forReview)
+            {
+                this.EditRiskButtonNextRisk.Visible = false;
+                this.EditRiskTextAmountOfRisksInType.Visible = false;
+                this.EditRiskButtonPreviousRisk.Visible = false;
+            }
+            else if (riskCount == 1)
+            {
+                this.EditRiskButtonNextRisk.Enabled = false;
+                this.EditRiskButtonPreviousRisk.Enabled = false;
+            }
+            else if (riskIndex == 0)
+            {
+                this.EditRiskButtonNextRisk.Enabled = true;
+                this.EditRiskButtonPreviousRisk.Enabled = false;
+            }
+            else if (riskCount == 2 || riskIndex == riskCount - 1)
+            {
+                this.EditRiskButtonNextRisk.Enabled = false;
+                this.EditRiskButtonPreviousRisk.Enabled = true;
+            }
+            else
+            {
+                this.EditRiskButtonNextRisk.Enabled = true;
+                this.EditRiskButtonPreviousRisk.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// When the button is pressed go to the next risk and mark the risk as accepted by the reviewer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editRiskBaseFormButtonReviewAccept_Click(object sender, EventArgs e)
+        {
+            this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, ARA_Globals.UserID);
+            setNextRisk(1);
+            setFormData();
+        }
+
+        /// <summary>
+        /// When this button is pressed go to the next risk and mark the risk as declined.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editRiskBaseFormButtonReviewDecline_Click(object sender, EventArgs e)
+        {
+            this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, -1);
+            setNextRisk(1);
+            setFormData();
         }
     }
 }

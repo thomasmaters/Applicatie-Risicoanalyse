@@ -83,7 +83,7 @@ namespace Applicatie_Risicoanalyse.Controls
             //Draw button base.
             base.OnPaint(pe);
 
-            if(this.connectedPanel != null)
+            if(this.connectedPanel != null && connectedPanel.Visible != this.selected)
             {
                 connectedPanel.Visible = this.selected;
             }

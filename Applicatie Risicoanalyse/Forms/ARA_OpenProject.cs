@@ -34,8 +34,6 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
-            this.OpenProjectDataGrid.DataSource = new DataView(this.tbl_Risk_AnalysisTableAdapter.GetData());
-            this.OpenProjectDataGrid.Sort(StateID, ListSortDirection.Ascending);
         }
 
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
@@ -69,5 +67,35 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        private void OpenProjectDataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.OpenProjectDataGrid.Rows)
+            {
+                string tempStateName = row.Cells["StateName"].Value.ToString();
+                if (tempStateName == ARA_Constants.draft)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+                else if (tempStateName == ARA_Constants.forReview)
+                {
+                    row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Orange;
+                }
+                else if (tempStateName == ARA_Constants.finalDraft)
+                {
+                    row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Green;
+                }
+                else if (tempStateName == ARA_Constants.closed)
+                {
+                    row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Gray2;
+                }
+            }
+
+
+        }
+
+        private void OpenProjectDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            this.OpenProjectDataGrid.ClearSelection();
+        }
     }
 }

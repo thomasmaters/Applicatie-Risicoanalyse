@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OpenProjectDataGrid = new System.Windows.Forms.DataGridView();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
             this.OpenProjectTextBoxSearch = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OpenProjectDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -60,8 +60,8 @@
             this.OpenProjectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerDataGridViewTextBoxColumn,
             this.ProjectID,
-            this.StateID,
             this.machineTypeDataGridViewTextBoxColumn,
+            this.StateName,
             this.machineNumberDataGridViewTextBoxColumn,
             this.orderNumberDataGridViewTextBoxColumn});
             this.OpenProjectDataGrid.DataSource = this.tblRiskAnalysisBindingSource;
@@ -88,50 +88,8 @@
             this.OpenProjectDataGrid.Size = new System.Drawing.Size(750, 309);
             this.OpenProjectDataGrid.TabIndex = 4;
             this.OpenProjectDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OpenProjectDataGrid_CellMouseDoubleClick);
-            // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ProjectID
-            // 
-            this.ProjectID.DataPropertyName = "ProjectID";
-            this.ProjectID.HeaderText = "ProjectID";
-            this.ProjectID.Name = "ProjectID";
-            this.ProjectID.ReadOnly = true;
-            this.ProjectID.Visible = false;
-            // 
-            // StateID
-            // 
-            this.StateID.DataPropertyName = "StateID";
-            this.StateID.HeaderText = "StateID";
-            this.StateID.Name = "StateID";
-            this.StateID.ReadOnly = true;
-            this.StateID.Visible = false;
-            // 
-            // machineTypeDataGridViewTextBoxColumn
-            // 
-            this.machineTypeDataGridViewTextBoxColumn.DataPropertyName = "MachineType";
-            this.machineTypeDataGridViewTextBoxColumn.HeaderText = "MachineType";
-            this.machineTypeDataGridViewTextBoxColumn.Name = "machineTypeDataGridViewTextBoxColumn";
-            this.machineTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // machineNumberDataGridViewTextBoxColumn
-            // 
-            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
-            this.machineNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // orderNumberDataGridViewTextBoxColumn
-            // 
-            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
-            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "OrderNumber";
-            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
-            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.OpenProjectDataGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.OpenProjectDataGrid_RowsAdded);
+            this.OpenProjectDataGrid.SelectionChanged += new System.EventHandler(this.OpenProjectDataGrid_SelectionChanged);
             // 
             // tblRiskAnalysisBindingSource
             // 
@@ -159,6 +117,50 @@
             this.OpenProjectTextBoxSearch.TabIndex = 3;
             this.OpenProjectTextBoxSearch.Text = "";
             this.OpenProjectTextBoxSearch.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
+            // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ProjectID
+            // 
+            this.ProjectID.DataPropertyName = "ProjectID";
+            this.ProjectID.HeaderText = "ProjectID";
+            this.ProjectID.Name = "ProjectID";
+            this.ProjectID.ReadOnly = true;
+            this.ProjectID.Visible = false;
+            // 
+            // machineTypeDataGridViewTextBoxColumn
+            // 
+            this.machineTypeDataGridViewTextBoxColumn.DataPropertyName = "MachineType";
+            this.machineTypeDataGridViewTextBoxColumn.HeaderText = "MachineType";
+            this.machineTypeDataGridViewTextBoxColumn.Name = "machineTypeDataGridViewTextBoxColumn";
+            this.machineTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // StateName
+            // 
+            this.StateName.DataPropertyName = "StateName";
+            this.StateName.HeaderText = "StateName";
+            this.StateName.Name = "StateName";
+            this.StateName.ReadOnly = true;
+            this.StateName.Visible = false;
+            // 
+            // machineNumberDataGridViewTextBoxColumn
+            // 
+            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
+            this.machineNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orderNumberDataGridViewTextBoxColumn
+            // 
+            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
+            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ARA_OpenProject
             // 
@@ -190,8 +192,8 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StateID;
         private System.Windows.Forms.DataGridViewTextBoxColumn machineTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StateName;
         private System.Windows.Forms.DataGridViewTextBoxColumn machineNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
     }

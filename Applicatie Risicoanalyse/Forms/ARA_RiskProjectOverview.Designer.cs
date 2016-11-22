@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_RiskProjectOverview
     {
@@ -30,25 +32,38 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.riskProjectOverviewButtonEditProjectDetails = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewPanelEditProjectDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.ProjectOverviewButtonSpacer1 = new System.Windows.Forms.Panel();
+            this.riskProjectOverviewButtonAddRiskToProject = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewPanelAddRiskToProject = new System.Windows.Forms.FlowLayoutPanel();
             this.projectOverviewButtonSpacer2 = new System.Windows.Forms.Panel();
+            this.riskProjectOverviewButtonOpenRisk = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewPanelOpenRisk = new System.Windows.Forms.FlowLayoutPanel();
             this.projectOverviewButtonSpacer3 = new System.Windows.Forms.Panel();
+            this.riskProjectOverviewButtonGenerateReports = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.riskProjectOverviewPanelGenerateReports = new System.Windows.Forms.FlowLayoutPanel();
             this.panel = new System.Windows.Forms.Panel();
+            this.riskProjectOverviewButtonMarkReview = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.riskProjectOverviewButtonMarkDoneReview = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.riskProjectOverviewButtonMarkClose = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.get_Newest_Added_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_Newest_Added_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.riskProjectOverviewPanelGenerateReports = new System.Windows.Forms.FlowLayoutPanel();
-            this.riskProjectOverviewButtonEditProjectDetails = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
-            this.riskProjectOverviewButtonAddRiskToProject = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
-            this.riskProjectOverviewButtonOpenRisk = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
-            this.riskProjectOverviewButtonGenerateReports = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.tbl_Risk_AnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
+            this.queriesTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
+            this.is_ProjectReview_AcceptedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.is_ProjectReview_AcceptedTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Is_ProjectReview_AcceptedTableAdapter();
+            this.tbl_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.is_ProjectReview_AcceptedBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -65,12 +80,37 @@
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonGenerateReports);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelGenerateReports);
             this.flowLayoutPanel1.Controls.Add(this.panel);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkReview);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkDoneReview);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkClose);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 488);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // riskProjectOverviewButtonEditProjectDetails
+            // 
+            this.riskProjectOverviewButtonEditProjectDetails.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonEditProjectDetails.CanButtonBeToggled = true;
+            this.riskProjectOverviewButtonEditProjectDetails.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonEditProjectDetails.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonEditProjectDetails.Location = new System.Drawing.Point(0, 0);
+            this.riskProjectOverviewButtonEditProjectDetails.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonEditProjectDetails.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonEditProjectDetails.Name = "riskProjectOverviewButtonEditProjectDetails";
+            this.riskProjectOverviewButtonEditProjectDetails.PaddingFirstTriangle = 250;
+            this.riskProjectOverviewButtonEditProjectDetails.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonEditProjectDetails.Selected = false;
+            this.riskProjectOverviewButtonEditProjectDetails.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonEditProjectDetails.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonEditProjectDetails.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonEditProjectDetails.TabIndex = 0;
+            this.riskProjectOverviewButtonEditProjectDetails.Text = "Edit project details";
+            this.riskProjectOverviewButtonEditProjectDetails.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonEditProjectDetails.TriangleSize = 20;
+            this.riskProjectOverviewButtonEditProjectDetails.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // riskProjectOverviewPanelEditProjectDetails
             // 
@@ -90,6 +130,28 @@
             this.ProjectOverviewButtonSpacer1.Size = new System.Drawing.Size(750, 12);
             this.ProjectOverviewButtonSpacer1.TabIndex = 7;
             // 
+            // riskProjectOverviewButtonAddRiskToProject
+            // 
+            this.riskProjectOverviewButtonAddRiskToProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonAddRiskToProject.CanButtonBeToggled = true;
+            this.riskProjectOverviewButtonAddRiskToProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonAddRiskToProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonAddRiskToProject.Location = new System.Drawing.Point(0, 95);
+            this.riskProjectOverviewButtonAddRiskToProject.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonAddRiskToProject.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonAddRiskToProject.Name = "riskProjectOverviewButtonAddRiskToProject";
+            this.riskProjectOverviewButtonAddRiskToProject.PaddingFirstTriangle = 250;
+            this.riskProjectOverviewButtonAddRiskToProject.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonAddRiskToProject.Selected = false;
+            this.riskProjectOverviewButtonAddRiskToProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonAddRiskToProject.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonAddRiskToProject.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonAddRiskToProject.TabIndex = 2;
+            this.riskProjectOverviewButtonAddRiskToProject.Text = "Add risks to project";
+            this.riskProjectOverviewButtonAddRiskToProject.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonAddRiskToProject.TriangleSize = 20;
+            this.riskProjectOverviewButtonAddRiskToProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // riskProjectOverviewPanelAddRiskToProject
             // 
             this.riskProjectOverviewPanelAddRiskToProject.AutoSize = true;
@@ -107,6 +169,28 @@
             this.projectOverviewButtonSpacer2.Name = "projectOverviewButtonSpacer2";
             this.projectOverviewButtonSpacer2.Size = new System.Drawing.Size(750, 12);
             this.projectOverviewButtonSpacer2.TabIndex = 8;
+            // 
+            // riskProjectOverviewButtonOpenRisk
+            // 
+            this.riskProjectOverviewButtonOpenRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonOpenRisk.CanButtonBeToggled = true;
+            this.riskProjectOverviewButtonOpenRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonOpenRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonOpenRisk.Location = new System.Drawing.Point(0, 147);
+            this.riskProjectOverviewButtonOpenRisk.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonOpenRisk.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonOpenRisk.Name = "riskProjectOverviewButtonOpenRisk";
+            this.riskProjectOverviewButtonOpenRisk.PaddingFirstTriangle = 250;
+            this.riskProjectOverviewButtonOpenRisk.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonOpenRisk.Selected = false;
+            this.riskProjectOverviewButtonOpenRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonOpenRisk.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonOpenRisk.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonOpenRisk.TabIndex = 3;
+            this.riskProjectOverviewButtonOpenRisk.Text = "Edit risks";
+            this.riskProjectOverviewButtonOpenRisk.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonOpenRisk.TriangleSize = 20;
+            this.riskProjectOverviewButtonOpenRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // riskProjectOverviewPanelOpenRisk
             // 
@@ -127,14 +211,104 @@
             this.projectOverviewButtonSpacer3.Size = new System.Drawing.Size(750, 12);
             this.projectOverviewButtonSpacer3.TabIndex = 9;
             // 
+            // riskProjectOverviewButtonGenerateReports
+            // 
+            this.riskProjectOverviewButtonGenerateReports.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonGenerateReports.CanButtonBeToggled = true;
+            this.riskProjectOverviewButtonGenerateReports.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonGenerateReports.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonGenerateReports.Location = new System.Drawing.Point(0, 199);
+            this.riskProjectOverviewButtonGenerateReports.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonGenerateReports.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonGenerateReports.Name = "riskProjectOverviewButtonGenerateReports";
+            this.riskProjectOverviewButtonGenerateReports.PaddingFirstTriangle = 250;
+            this.riskProjectOverviewButtonGenerateReports.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonGenerateReports.Selected = false;
+            this.riskProjectOverviewButtonGenerateReports.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonGenerateReports.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonGenerateReports.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonGenerateReports.TabIndex = 10;
+            this.riskProjectOverviewButtonGenerateReports.Text = "Generate Reports";
+            this.riskProjectOverviewButtonGenerateReports.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonGenerateReports.TriangleSize = 20;
+            this.riskProjectOverviewButtonGenerateReports.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // riskProjectOverviewPanelGenerateReports
+            // 
+            this.riskProjectOverviewPanelGenerateReports.AutoSize = true;
+            this.riskProjectOverviewPanelGenerateReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.riskProjectOverviewPanelGenerateReports.Location = new System.Drawing.Point(0, 239);
+            this.riskProjectOverviewPanelGenerateReports.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewPanelGenerateReports.Name = "riskProjectOverviewPanelGenerateReports";
+            this.riskProjectOverviewPanelGenerateReports.Size = new System.Drawing.Size(2, 2);
+            this.riskProjectOverviewPanelGenerateReports.TabIndex = 12;
+            this.riskProjectOverviewPanelGenerateReports.Visible = false;
+            // 
             // panel
             // 
-            this.panel.Location = new System.Drawing.Point(0, 239);
+            this.panel.Location = new System.Drawing.Point(0, 241);
             this.panel.Margin = new System.Windows.Forms.Padding(0);
             this.panel.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(750, 12);
             this.panel.TabIndex = 11;
+            // 
+            // riskProjectOverviewButtonMarkReview
+            // 
+            this.riskProjectOverviewButtonMarkReview.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.CanButtonBeToggled = false;
+            this.riskProjectOverviewButtonMarkReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonMarkReview.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.Location = new System.Drawing.Point(0, 253);
+            this.riskProjectOverviewButtonMarkReview.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonMarkReview.Name = "riskProjectOverviewButtonMarkReview";
+            this.riskProjectOverviewButtonMarkReview.Selected = false;
+            this.riskProjectOverviewButtonMarkReview.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkReview.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkReview.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonMarkReview.TabIndex = 13;
+            this.riskProjectOverviewButtonMarkReview.Text = "Mark project for review.";
+            this.riskProjectOverviewButtonMarkReview.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkReview.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.riskProjectOverviewButtonMarkReview.Click += new System.EventHandler(this.riskProjectOverviewButtonMarkReview_Click);
+            // 
+            // riskProjectOverviewButtonMarkDoneReview
+            // 
+            this.riskProjectOverviewButtonMarkDoneReview.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.CanButtonBeToggled = false;
+            this.riskProjectOverviewButtonMarkDoneReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonMarkDoneReview.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.Location = new System.Drawing.Point(0, 293);
+            this.riskProjectOverviewButtonMarkDoneReview.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonMarkDoneReview.Name = "riskProjectOverviewButtonMarkDoneReview";
+            this.riskProjectOverviewButtonMarkDoneReview.Selected = false;
+            this.riskProjectOverviewButtonMarkDoneReview.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkDoneReview.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkDoneReview.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonMarkDoneReview.TabIndex = 14;
+            this.riskProjectOverviewButtonMarkDoneReview.Text = "I\'m done reviewing this project.";
+            this.riskProjectOverviewButtonMarkDoneReview.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkDoneReview.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.riskProjectOverviewButtonMarkDoneReview.Click += new System.EventHandler(this.riskProjectOverviewButtonMarkDoneReview_Click);
+            // 
+            // riskProjectOverviewButtonMarkClose
+            // 
+            this.riskProjectOverviewButtonMarkClose.BaseColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.CanButtonBeToggled = false;
+            this.riskProjectOverviewButtonMarkClose.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonMarkClose.HoverColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.Location = new System.Drawing.Point(0, 333);
+            this.riskProjectOverviewButtonMarkClose.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonMarkClose.Name = "riskProjectOverviewButtonMarkClose";
+            this.riskProjectOverviewButtonMarkClose.Selected = false;
+            this.riskProjectOverviewButtonMarkClose.SelectedColor = ARA_Colors.ARA_Blue5;
+            this.riskProjectOverviewButtonMarkClose.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkClose.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonMarkClose.TabIndex = 15;
+            this.riskProjectOverviewButtonMarkClose.Text = "Close Project";
+            this.riskProjectOverviewButtonMarkClose.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonMarkClose.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.riskProjectOverviewButtonMarkClose.Click += new System.EventHandler(this.riskProjectOverviewButtonMarkClose_Click);
             // 
             // lG_Analysis_DatabaseDataSet
             // 
@@ -179,100 +353,32 @@
             this.tableAdapterManager.Tbl_UserTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // riskProjectOverviewPanelGenerateReports
+            // tbl_Risk_AnalysisBindingSource
             // 
-            this.riskProjectOverviewPanelGenerateReports.AutoSize = true;
-            this.riskProjectOverviewPanelGenerateReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.riskProjectOverviewPanelGenerateReports.Location = new System.Drawing.Point(750, 199);
-            this.riskProjectOverviewPanelGenerateReports.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewPanelGenerateReports.Name = "riskProjectOverviewPanelGenerateReports";
-            this.riskProjectOverviewPanelGenerateReports.Size = new System.Drawing.Size(0, 0);
-            this.riskProjectOverviewPanelGenerateReports.TabIndex = 12;
-            this.riskProjectOverviewPanelGenerateReports.Visible = false;
+            this.tbl_Risk_AnalysisBindingSource.DataMember = "Tbl_Risk_Analysis";
+            this.tbl_Risk_AnalysisBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
-            // riskProjectOverviewButtonEditProjectDetails
+            // tbl_Risk_AnalysisTableAdapter
             // 
-            this.riskProjectOverviewButtonEditProjectDetails.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.riskProjectOverviewButtonEditProjectDetails.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonEditProjectDetails.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.riskProjectOverviewButtonEditProjectDetails.Location = new System.Drawing.Point(0, 0);
-            this.riskProjectOverviewButtonEditProjectDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewButtonEditProjectDetails.MaximumSize = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonEditProjectDetails.Name = "riskProjectOverviewButtonEditProjectDetails";
-            this.riskProjectOverviewButtonEditProjectDetails.PaddingFirstTriangle = 250;
-            this.riskProjectOverviewButtonEditProjectDetails.PaddingSecondTriangle = 700;
-            this.riskProjectOverviewButtonEditProjectDetails.Selected = false;
-            this.riskProjectOverviewButtonEditProjectDetails.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.riskProjectOverviewButtonEditProjectDetails.SelectedTextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonEditProjectDetails.Size = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonEditProjectDetails.TabIndex = 0;
-            this.riskProjectOverviewButtonEditProjectDetails.Text = "Edit project details";
-            this.riskProjectOverviewButtonEditProjectDetails.TextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonEditProjectDetails.TriangleSize = 20;
-            this.riskProjectOverviewButtonEditProjectDetails.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
             // 
-            // riskProjectOverviewButtonAddRiskToProject
+            // is_ProjectReview_AcceptedBindingSource
             // 
-            this.riskProjectOverviewButtonAddRiskToProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.riskProjectOverviewButtonAddRiskToProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonAddRiskToProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.riskProjectOverviewButtonAddRiskToProject.Location = new System.Drawing.Point(0, 95);
-            this.riskProjectOverviewButtonAddRiskToProject.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewButtonAddRiskToProject.MaximumSize = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonAddRiskToProject.Name = "riskProjectOverviewButtonAddRiskToProject";
-            this.riskProjectOverviewButtonAddRiskToProject.PaddingFirstTriangle = 250;
-            this.riskProjectOverviewButtonAddRiskToProject.PaddingSecondTriangle = 700;
-            this.riskProjectOverviewButtonAddRiskToProject.Selected = false;
-            this.riskProjectOverviewButtonAddRiskToProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.riskProjectOverviewButtonAddRiskToProject.SelectedTextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonAddRiskToProject.Size = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonAddRiskToProject.TabIndex = 2;
-            this.riskProjectOverviewButtonAddRiskToProject.Text = "Add risks to project";
-            this.riskProjectOverviewButtonAddRiskToProject.TextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonAddRiskToProject.TriangleSize = 20;
-            this.riskProjectOverviewButtonAddRiskToProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.is_ProjectReview_AcceptedBindingSource.DataMember = "Is_ProjectReview_Accepted";
+            this.is_ProjectReview_AcceptedBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
-            // riskProjectOverviewButtonOpenRisk
+            // is_ProjectReview_AcceptedTableAdapter
             // 
-            this.riskProjectOverviewButtonOpenRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.riskProjectOverviewButtonOpenRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonOpenRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.riskProjectOverviewButtonOpenRisk.Location = new System.Drawing.Point(0, 147);
-            this.riskProjectOverviewButtonOpenRisk.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewButtonOpenRisk.MaximumSize = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonOpenRisk.Name = "riskProjectOverviewButtonOpenRisk";
-            this.riskProjectOverviewButtonOpenRisk.PaddingFirstTriangle = 250;
-            this.riskProjectOverviewButtonOpenRisk.PaddingSecondTriangle = 700;
-            this.riskProjectOverviewButtonOpenRisk.Selected = false;
-            this.riskProjectOverviewButtonOpenRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.riskProjectOverviewButtonOpenRisk.SelectedTextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonOpenRisk.Size = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonOpenRisk.TabIndex = 3;
-            this.riskProjectOverviewButtonOpenRisk.Text = "Edit risks";
-            this.riskProjectOverviewButtonOpenRisk.TextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonOpenRisk.TriangleSize = 20;
-            this.riskProjectOverviewButtonOpenRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.is_ProjectReview_AcceptedTableAdapter.ClearBeforeFill = true;
             // 
-            // riskProjectOverviewButtonGenerateReports
+            // tbl_ProjectBindingSource
             // 
-            this.riskProjectOverviewButtonGenerateReports.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.riskProjectOverviewButtonGenerateReports.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.riskProjectOverviewButtonGenerateReports.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.riskProjectOverviewButtonGenerateReports.Location = new System.Drawing.Point(0, 199);
-            this.riskProjectOverviewButtonGenerateReports.Margin = new System.Windows.Forms.Padding(0);
-            this.riskProjectOverviewButtonGenerateReports.MaximumSize = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonGenerateReports.Name = "riskProjectOverviewButtonGenerateReports";
-            this.riskProjectOverviewButtonGenerateReports.PaddingFirstTriangle = 250;
-            this.riskProjectOverviewButtonGenerateReports.PaddingSecondTriangle = 700;
-            this.riskProjectOverviewButtonGenerateReports.Selected = false;
-            this.riskProjectOverviewButtonGenerateReports.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.riskProjectOverviewButtonGenerateReports.SelectedTextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonGenerateReports.Size = new System.Drawing.Size(750, 40);
-            this.riskProjectOverviewButtonGenerateReports.TabIndex = 10;
-            this.riskProjectOverviewButtonGenerateReports.Text = "Generate Reports";
-            this.riskProjectOverviewButtonGenerateReports.TextColor = System.Drawing.Color.White;
-            this.riskProjectOverviewButtonGenerateReports.TriangleSize = 20;
-            this.riskProjectOverviewButtonGenerateReports.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.tbl_ProjectBindingSource.DataMember = "Tbl_Project";
+            this.tbl_ProjectBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_ProjectTableAdapter
+            // 
+            this.tbl_ProjectTableAdapter.ClearBeforeFill = true;
             // 
             // ARA_RiskProjectOverview
             // 
@@ -293,6 +399,9 @@
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.is_ProjectReview_AcceptedBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,5 +425,15 @@
         private Controls.ARA_DropDownButton riskProjectOverviewButtonGenerateReports;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelGenerateReports;
+        private System.Windows.Forms.BindingSource tbl_Risk_AnalysisBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
+        private Controls.ARA_Button riskProjectOverviewButtonMarkReview;
+        private Controls.ARA_Button riskProjectOverviewButtonMarkDoneReview;
+        private Controls.ARA_Button riskProjectOverviewButtonMarkClose;
+        private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
+        private System.Windows.Forms.BindingSource is_ProjectReview_AcceptedBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Is_ProjectReview_AcceptedTableAdapter is_ProjectReview_AcceptedTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_ProjectBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter tbl_ProjectTableAdapter;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Applicatie_Risicoanalyse.Controls;
+using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -43,7 +44,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Executes procedure for adding an riskproject to the database.
             this.createProjectDatabaseAdapter.Create_RiskProject
                 (
-                    1,//TODO USERID
+                    ARA_Globals.UserID,
                     this.createProjectInputCustomer.Text,
                     this.createProjectInputMachineType.Text,
                     this.createProjectInputMachineNumber.Text,

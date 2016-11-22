@@ -30,6 +30,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Add events.
             Applicatie_Risicoanalyse.Globals.ARA_Events.SetSideBarButtonSelectedEventHandler += onSetSideBarButtonSelectedEvent;
             Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarAddNewButtonEventHandler += onAddNewButtonToSideBar;
+            Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarRemoveNewButtonEventHandler += onRemoveSideBarButtonEvent;
 
             //Set application version form globals.
             this.SideBarApplicationVersion.Text = Applicatie_Risicoanalyse.Globals.ARA_Constants.applicationVersion;
@@ -80,6 +81,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 throw;
             }
 
+            //Are there to much buttons in the sidebar? If so, remove one.
+            if (this.SideBarButtonContainer.Controls.Count > 3)
+            {
+                ARA_Events.onSideBarRemoveButtonEvent(this.SideBarButtonContainer.Controls.OfType<ARA_Button>().First<ARA_Button>().Text);
+            }
+
             //Add some style to the button.
             ARA_Button tempButton = e.Button;
             tempButton.Margin = new System.Windows.Forms.Padding(0);
@@ -111,6 +118,27 @@ namespace Applicatie_Risicoanalyse.Forms
             control.Click += hideOtherPanels;
             this.hideOtherPanels(control,new EventArgs());
             control.setButtonSelected(true);
+        }
+
+        public void onRemoveSideBarButtonEvent(object sender, SideBarRemoveNewButtonEvent e)
+        {
+            Control button = getButtonFromText(e.buttonText);
+            if (button != null)
+            {
+                removeButtonFromSideBar(button);
+            }
+        }
+
+        public Control getButtonFromText(string buttonText)
+        {
+            foreach(ARA_Button control in this.SideBarButtonContainer.Controls.OfType<ARA_Button>())
+            {
+                if(control.Text == buttonText)
+                {
+                    return control;
+                }
+            }
+            return null;
         }
 
         //Dynamicly remove button from sidebar.

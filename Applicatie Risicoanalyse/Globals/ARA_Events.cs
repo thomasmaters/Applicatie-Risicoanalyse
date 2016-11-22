@@ -17,6 +17,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<BaseFormSetTopBarFormEvent> baseFormSetTopBarFormEventHandler;
         public static event EventHandler<SetSideBarButtonSelectedEventArgs> SetSideBarButtonSelectedEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
+        public static event EventHandler<SideBarRemoveNewButtonEvent> SideBarRemoveNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
 
         //Static function for adding an event to the event handlers.
@@ -42,6 +43,26 @@ namespace Applicatie_Risicoanalyse.Globals
             {
                 AddRiskToProjectEventHandler(sender, new AddRiskToProjectEvent(aProjectID, aRiskID));
             }
+        }
+
+        public static void onSideBarRemoveButtonEvent(string buttonText)
+        {
+            if(SideBarRemoveNewButtonEventHandler != null)
+            {
+                SideBarRemoveNewButtonEventHandler(new object(), new SideBarRemoveNewButtonEvent(buttonText));
+            }
+        }
+    }
+
+    public class SideBarRemoveNewButtonEvent
+    {
+        public string buttonText { get; private set; }
+
+        private SideBarRemoveNewButtonEvent() { }
+
+        public SideBarRemoveNewButtonEvent(string buttonText)
+        {
+            this.buttonText = buttonText;
         }
     }
 

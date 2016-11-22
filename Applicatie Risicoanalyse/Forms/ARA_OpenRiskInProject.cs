@@ -78,6 +78,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             foreach (DataGridViewRow row in this.OpenRiskInProjectDataGrid.Rows)
             {
+                //Mark the cells blue if its a project specific risk.
                 if (row.Cells["ProjectRiskDataID"].Value.ToString() != "")
                 {
                     row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Blue1;
@@ -85,6 +86,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 else
                 {
                     row.DefaultCellStyle.BackColor = Color.White;
+                }
+
+                //Mark the first column red if its not reviewed by a user.
+                if (row.Cells["ReviewedByUser"].Value == DBNull.Value)
+                {
+                    row.Cells[0].Style.BackColor = ARA_Colors.ARA_Red;
                 }
             }
         }

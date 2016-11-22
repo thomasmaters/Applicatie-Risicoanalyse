@@ -31,6 +31,12 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 arA_Text2.Font = new Font(arA_Text2.Font.FontFamily, arA_Text2.Font.Size - 0.5f, arA_Text2.Font.Style);
             }
+
+            while (arA_Text1.Width < System.Windows.Forms.TextRenderer.MeasureText(arA_Text1.Text,
+                new Font(arA_Text1.Font.FontFamily, arA_Text1.Font.Size, arA_Text1.Font.Style)).Width && arA_Text1.Font.Size > 8F)
+            {
+                arA_Text1.Font = new Font(arA_Text1.Font.FontFamily, arA_Text1.Font.Size - 0.5f, arA_Text1.Font.Style);
+            }
         }
     }
 }

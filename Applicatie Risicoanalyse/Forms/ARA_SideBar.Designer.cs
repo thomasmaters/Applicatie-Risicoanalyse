@@ -30,10 +30,10 @@
         {
             this.SideBarContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SideBarCopanyLogo = new System.Windows.Forms.PictureBox();
-            this.SideBarButtonContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SideBarRectangle2 = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
-            this.SideBarButtonRiskAnalysis = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.SideBarButtonMenu = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.SideBarButtonRiskAnalysis = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.SideBarButtonContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.SideBarButtonSpacer = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
             this.SideBarSearch = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.SideBarDefiderLine = new Applicatie_Risicoanalyse.Controls.ARA_Rectangle();
@@ -43,7 +43,6 @@
             this.SideBarApplicationVersion = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.SideBarContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SideBarCopanyLogo)).BeginInit();
-            this.SideBarButtonContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // SideBarContainer
@@ -51,6 +50,9 @@
             this.SideBarContainer.AutoSize = true;
             this.SideBarContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SideBarContainer.Controls.Add(this.SideBarCopanyLogo);
+            this.SideBarContainer.Controls.Add(this.SideBarRectangle2);
+            this.SideBarContainer.Controls.Add(this.SideBarButtonMenu);
+            this.SideBarContainer.Controls.Add(this.SideBarButtonRiskAnalysis);
             this.SideBarContainer.Controls.Add(this.SideBarButtonContainer);
             this.SideBarContainer.Controls.Add(this.SideBarButtonSpacer);
             this.SideBarContainer.Controls.Add(this.SideBarSearch);
@@ -80,25 +82,10 @@
             this.SideBarCopanyLogo.TabIndex = 7;
             this.SideBarCopanyLogo.TabStop = false;
             // 
-            // SideBarButtonContainer
-            // 
-            this.SideBarButtonContainer.AutoSize = true;
-            this.SideBarButtonContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SideBarButtonContainer.Controls.Add(this.SideBarRectangle2);
-            this.SideBarButtonContainer.Controls.Add(this.SideBarButtonMenu);
-            this.SideBarButtonContainer.Controls.Add(this.SideBarButtonRiskAnalysis);
-            this.SideBarButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SideBarButtonContainer.Location = new System.Drawing.Point(0, 52);
-            this.SideBarButtonContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.SideBarButtonContainer.MaximumSize = new System.Drawing.Size(160, 540);
-            this.SideBarButtonContainer.Name = "SideBarButtonContainer";
-            this.SideBarButtonContainer.Size = new System.Drawing.Size(160, 196);
-            this.SideBarButtonContainer.TabIndex = 7;
-            // 
             // SideBarRectangle2
             // 
             this.SideBarRectangle2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.SideBarRectangle2.Location = new System.Drawing.Point(0, 0);
+            this.SideBarRectangle2.Location = new System.Drawing.Point(0, 52);
             this.SideBarRectangle2.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarRectangle2.MaximumSize = new System.Drawing.Size(160, 540);
             this.SideBarRectangle2.Name = "SideBarRectangle2";
@@ -106,29 +93,59 @@
             this.SideBarRectangle2.TabIndex = 8;
             this.SideBarRectangle2.Text = "arA_Rectangle1";
             // 
-            // SideBarButtonRiskAnalysis
-            // 
-            this.SideBarButtonRiskAnalysis.Location = new System.Drawing.Point(0, 164);
-            this.SideBarButtonRiskAnalysis.Margin = new System.Windows.Forms.Padding(0);
-            this.SideBarButtonRiskAnalysis.MaximumSize = new System.Drawing.Size(160, 32);
-            this.SideBarButtonRiskAnalysis.Name = "SideBarButtonRiskAnalysis";
-            this.SideBarButtonRiskAnalysis.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.SideBarButtonRiskAnalysis.Size = new System.Drawing.Size(160, 32);
-            this.SideBarButtonRiskAnalysis.TabIndex = 6;
-            this.SideBarButtonRiskAnalysis.Text = "Risk Analysis";
-            this.SideBarButtonRiskAnalysis.Click += new System.EventHandler(this.onRiskAnalysisButtonClick);
-            // 
             // SideBarButtonMenu
             // 
-            this.SideBarButtonMenu.Location = new System.Drawing.Point(0, 132);
+            this.SideBarButtonMenu.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.SideBarButtonMenu.CanButtonBeToggled = false;
+            this.SideBarButtonMenu.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.SideBarButtonMenu.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.SideBarButtonMenu.Location = new System.Drawing.Point(0, 184);
             this.SideBarButtonMenu.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarButtonMenu.MaximumSize = new System.Drawing.Size(160, 32);
             this.SideBarButtonMenu.Name = "SideBarButtonMenu";
             this.SideBarButtonMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.SideBarButtonMenu.Selected = false;
+            this.SideBarButtonMenu.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.SideBarButtonMenu.SelectedTextColor = System.Drawing.Color.White;
             this.SideBarButtonMenu.Size = new System.Drawing.Size(160, 32);
             this.SideBarButtonMenu.TabIndex = 4;
             this.SideBarButtonMenu.Text = "Menu";
+            this.SideBarButtonMenu.TextColor = System.Drawing.Color.White;
+            this.SideBarButtonMenu.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.SideBarButtonMenu.Click += new System.EventHandler(this.onMenuButtonClick);
+            // 
+            // SideBarButtonRiskAnalysis
+            // 
+            this.SideBarButtonRiskAnalysis.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.SideBarButtonRiskAnalysis.CanButtonBeToggled = false;
+            this.SideBarButtonRiskAnalysis.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.SideBarButtonRiskAnalysis.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.SideBarButtonRiskAnalysis.Location = new System.Drawing.Point(0, 216);
+            this.SideBarButtonRiskAnalysis.Margin = new System.Windows.Forms.Padding(0);
+            this.SideBarButtonRiskAnalysis.MaximumSize = new System.Drawing.Size(160, 32);
+            this.SideBarButtonRiskAnalysis.Name = "SideBarButtonRiskAnalysis";
+            this.SideBarButtonRiskAnalysis.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.SideBarButtonRiskAnalysis.Selected = false;
+            this.SideBarButtonRiskAnalysis.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.SideBarButtonRiskAnalysis.SelectedTextColor = System.Drawing.Color.White;
+            this.SideBarButtonRiskAnalysis.Size = new System.Drawing.Size(160, 32);
+            this.SideBarButtonRiskAnalysis.TabIndex = 6;
+            this.SideBarButtonRiskAnalysis.Text = "Risk Analysis";
+            this.SideBarButtonRiskAnalysis.TextColor = System.Drawing.Color.White;
+            this.SideBarButtonRiskAnalysis.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.SideBarButtonRiskAnalysis.Click += new System.EventHandler(this.onRiskAnalysisButtonClick);
+            // 
+            // SideBarButtonContainer
+            // 
+            this.SideBarButtonContainer.AutoSize = true;
+            this.SideBarButtonContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SideBarButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SideBarButtonContainer.Location = new System.Drawing.Point(160, 216);
+            this.SideBarButtonContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.SideBarButtonContainer.MaximumSize = new System.Drawing.Size(160, 540);
+            this.SideBarButtonContainer.Name = "SideBarButtonContainer";
+            this.SideBarButtonContainer.Size = new System.Drawing.Size(0, 32);
+            this.SideBarButtonContainer.TabIndex = 7;
             // 
             // SideBarButtonSpacer
             // 
@@ -146,6 +163,7 @@
             this.SideBarSearch.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.SideBarSearch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.SideBarSearch.ForeColor = System.Drawing.Color.White;
+            this.SideBarSearch.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarSearch.Location = new System.Drawing.Point(0, 407);
             this.SideBarSearch.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarSearch.MaximumSize = new System.Drawing.Size(160, 40);
@@ -154,6 +172,7 @@
             this.SideBarSearch.Size = new System.Drawing.Size(160, 35);
             this.SideBarSearch.TabIndex = 6;
             this.SideBarSearch.Text = "Search";
+            this.SideBarSearch.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // SideBarDefiderLine
             // 
@@ -182,6 +201,7 @@
             this.SideBarUserName.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.SideBarUserName.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.SideBarUserName.ForeColor = System.Drawing.Color.White;
+            this.SideBarUserName.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarUserName.Location = new System.Drawing.Point(0, 470);
             this.SideBarUserName.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarUserName.MaximumSize = new System.Drawing.Size(160, 20);
@@ -190,12 +210,14 @@
             this.SideBarUserName.Size = new System.Drawing.Size(160, 20);
             this.SideBarUserName.TabIndex = 13;
             this.SideBarUserName.Text = "T.G. Maters";
+            this.SideBarUserName.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // SideBarDate
             // 
             this.SideBarDate.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.SideBarDate.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.SideBarDate.ForeColor = System.Drawing.Color.White;
+            this.SideBarDate.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarDate.Location = new System.Drawing.Point(0, 490);
             this.SideBarDate.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarDate.MaximumSize = new System.Drawing.Size(160, 20);
@@ -204,6 +226,7 @@
             this.SideBarDate.Size = new System.Drawing.Size(160, 20);
             this.SideBarDate.TabIndex = 12;
             this.SideBarDate.Text = "04-10-2016";
+            this.SideBarDate.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // SideBarApplicationVersion
             // 
@@ -211,6 +234,7 @@
             this.SideBarApplicationVersion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.SideBarApplicationVersion.Font = new System.Drawing.Font("Gotham Light", 8F);
             this.SideBarApplicationVersion.ForeColor = System.Drawing.Color.White;
+            this.SideBarApplicationVersion.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarApplicationVersion.Location = new System.Drawing.Point(0, 510);
             this.SideBarApplicationVersion.Margin = new System.Windows.Forms.Padding(0);
             this.SideBarApplicationVersion.MaximumSize = new System.Drawing.Size(160, 30);
@@ -219,6 +243,7 @@
             this.SideBarApplicationVersion.Size = new System.Drawing.Size(160, 30);
             this.SideBarApplicationVersion.TabIndex = 11;
             this.SideBarApplicationVersion.Text = "V1.";
+            this.SideBarApplicationVersion.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_SideBar
             // 
@@ -239,13 +264,9 @@
             this.SideBarContainer.ResumeLayout(false);
             this.SideBarContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SideBarCopanyLogo)).EndInit();
-            this.SideBarButtonContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-
-            this.SideBarButtonMenu.Click += hideOtherPanels;
-            this.SideBarButtonRiskAnalysis.Click += hideOtherPanels;
         }
 
         #endregion
