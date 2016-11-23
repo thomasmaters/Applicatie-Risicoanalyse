@@ -446,6 +446,9 @@
     <EmbeddedResource Include="Reports\BaseReportGeneratorForm.resx">
       <DependentUpon>BaseReportGeneratorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RiskAssesmentReport\RiskAssessmentReport.resx">
+      <DependentUpon>RiskAssessmentReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\RiskAssessmentFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

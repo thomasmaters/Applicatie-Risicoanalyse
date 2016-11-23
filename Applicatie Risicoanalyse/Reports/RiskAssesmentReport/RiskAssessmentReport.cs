@@ -57,7 +57,7 @@ namespace Applicatie_Risicoanalyse.Reports
 
                 backgroundWorker1.ReportProgress(10, (object)"Generating page index.");
 
-                generateIndexPage(e.indexPageTemplateLocation, wordInterface, wordDocument, riskDataRows);
+                generateIndexPage(e.indexPageTemplateLocation, wordInterface, wordDocument, e.projectID);
 
                 backgroundWorker1.ReportProgress(15, (object)"Generating risk pages.");
 
@@ -143,7 +143,7 @@ namespace Applicatie_Risicoanalyse.Reports
             }
         }
 
-        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, DataView riskDataRows)
+        private void generateIndexPage(byte[] templateLocation, WordInterface wordInterface, Document wordDocument, int projectID)
         {
             try
             {
@@ -163,8 +163,44 @@ namespace Applicatie_Risicoanalyse.Reports
                     throw new Exception("Could not find riskAssessmentIndex table. Check your template.");
                 }
 
+                indexTable.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitFixed);
+                DataView dangersView = new DataView(this.tbl_DangerTableAdapter.GetData());
+
+                foreach(DataRowView dangerRow in dangersView)
+                {
+                    string lastDangerSourceName = "";
+                    DataView dangerSourceView = new DataView(this.get_RiskAssessment_Index_DataTableAdapter.GetData(projectID,(Int32)dangerRow["DangerID"]));
+
+                    foreach(DataRowView dangerSourceRow in dangerSourceView)
+                    {
+                        Row newTableRow;
+                        if(lastDangerSourceName != dangerSourceRow["DangerSourceName"].ToString())
+                        {
+                            lastDangerSourceName = dangerSourceRow["DangerSourceName"].ToString();
+                            newTableRow = indexTable.Rows.Add(ref missing);
+                            //newTableRow.Cells[3].Range.Text = "";
+                            //newTableRow.Cells[4].Range.Text = "";
+                        }
+                        else
+                        {
+                            newTableRow = indexTable.Rows.Last;
+                        }
+                        //TODO fix trailing enters in table row.
+                        newTableRow.Cells[1].Range.Text = lastDangerSourceName;
+                        if(dangerSourceRow["RiskID"] != DBNull.Value)
+                        {
+                            newTableRow.Cells[2].Range.Text = "YES";
+                            newTableRow.Cells[3].Range.Text = newTableRow.Cells[3].Range.Text + ", " + dangerSourceRow["RiskID"].ToString();
+                        }
+                        if (dangerSourceRow["HasRemainingRisk"] != DBNull.Value)
+                        {
+                            newTableRow.Cells[4].Range.Text = newTableRow.Cells[4].Range.Text + ", " + dangerSourceRow["HasRemainingRisk"].ToString();
+                        }
+                    }
+                }
+
                 //Fill index table.
-                foreach (DataRowView riskDataRow in riskDataRows)
+                /*foreach (DataRowView riskDataRow in riskDataRows)
                 {
                     int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
 
@@ -189,7 +225,7 @@ namespace Applicatie_Risicoanalyse.Reports
                 for (int i = 0; i < riskDataRows.Count; i++)
                 {
                     indexTable.Rows[2 + i].Cells[1].Range.Text = (i + pageCount).ToString();
-                }
+                }*/
 
                 // Close and release the Document object.
                 if (indexPageTemplate != null)
