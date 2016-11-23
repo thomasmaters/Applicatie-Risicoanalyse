@@ -125,11 +125,11 @@
     <Compile Include="Controls\ARA_EditRiskHazardIndentification.Designer.cs">
       <DependentUpon>ARA_EditRiskHazardIndentification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ARA_EditRiskRiskReductionMesuresItem.cs">
+    <Compile Include="Controls\ARA_EditRiskRiskReductionMeasuresItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ARA_EditRiskRiskReductionMesuresItem.Designer.cs">
-      <DependentUpon>ARA_EditRiskRiskReductionMesuresItem.cs</DependentUpon>
+    <Compile Include="Controls\ARA_EditRiskRiskReductionMeasuresItem.Designer.cs">
+      <DependentUpon>ARA_EditRiskRiskReductionMeasuresItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ARA_EditRiskRiskEstimation.cs">
       <SubType>UserControl</SubType>
@@ -143,11 +143,11 @@
     <Compile Include="Controls\ARA_EditRiskRiskEstimationItem.Designer.cs">
       <DependentUpon>ARA_EditRiskRiskEstimationItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ARA_EditRiskRiskReductionMesures.cs">
+    <Compile Include="Controls\ARA_EditRiskRiskReductionMeasures.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ARA_EditRiskRiskReductionMesures.Designer.cs">
-      <DependentUpon>ARA_EditRiskRiskReductionMesures.cs</DependentUpon>
+    <Compile Include="Controls\ARA_EditRiskRiskReductionMeasures.Designer.cs">
+      <DependentUpon>ARA_EditRiskRiskReductionMeasures.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ARA_ImageTooltip.cs">
       <SubType>Component</SubType>
@@ -344,8 +344,8 @@
     <EmbeddedResource Include="Controls\ARA_EditRiskHazardIndentification.resx">
       <DependentUpon>ARA_EditRiskHazardIndentification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ARA_EditRiskRiskReductionMesuresItem.resx">
-      <DependentUpon>ARA_EditRiskRiskReductionMesuresItem.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ARA_EditRiskRiskReductionMeasuresItem.resx">
+      <DependentUpon>ARA_EditRiskRiskReductionMeasuresItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_EditRiskRiskEstimation.resx">
       <DependentUpon>ARA_EditRiskRiskEstimation.cs</DependentUpon>
@@ -353,8 +353,8 @@
     <EmbeddedResource Include="Controls\ARA_EditRiskRiskEstimationItem.resx">
       <DependentUpon>ARA_EditRiskRiskEstimationItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ARA_EditRiskRiskReductionMesures.resx">
-      <DependentUpon>ARA_EditRiskRiskReductionMesures.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ARA_EditRiskRiskReductionMeasures.resx">
+      <DependentUpon>ARA_EditRiskRiskReductionMeasures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ARA_ListGroup.resx">
       <DependentUpon>ARA_ListGroup.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Applicatie_Risicoanalyse.Controls
 {
-    partial class ARA_EditRiskRiskReductionMesures
+    partial class ARA_EditRiskRiskReductionMeasures
     {
         /// <summary> 
         /// Required designer variable.
@@ -92,12 +92,12 @@
             this.arA_TextBox1.Text = "";
             this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
-            // arA_Rectangle2
+            // riskReductionRectangleIndicator
             // 
             this.riskReductionRectangleIndicator.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.riskReductionRectangleIndicator.Location = new System.Drawing.Point(11, 23);
             this.riskReductionRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
-            this.riskReductionRectangleIndicator.Name = "arA_Rectangle2";
+            this.riskReductionRectangleIndicator.Name = "riskReductionRectangleIndicator";
             this.riskReductionRectangleIndicator.Size = new System.Drawing.Size(4, 50);
             this.riskReductionRectangleIndicator.TabIndex = 34;
             this.riskReductionRectangleIndicator.Text = "arA_Rectangle2";
@@ -114,7 +114,7 @@
             this.HarzardTextTitle.Text = "Risk reduction";
             this.HarzardTextTitle.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // ARA_EditRiskRiskReductionMesures
+            // ARA_EditRiskRiskReductionMeasures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,7 +125,7 @@
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(725, 2000);
-            this.Name = "ARA_EditRiskRiskReductionMesures";
+            this.Name = "ARA_EditRiskRiskReductionMeasures";
             this.Size = new System.Drawing.Size(725, 178);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

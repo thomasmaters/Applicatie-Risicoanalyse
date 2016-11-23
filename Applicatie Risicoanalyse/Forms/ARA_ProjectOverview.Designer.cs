@@ -80,6 +80,7 @@
             // ProjectOverviewButtonRecentProjects
             // 
             this.ProjectOverviewButtonRecentProjects.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.ProjectOverviewButtonRecentProjects.CanButtonBeToggled = true;
             this.ProjectOverviewButtonRecentProjects.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.ProjectOverviewButtonRecentProjects.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.ProjectOverviewButtonRecentProjects.Location = new System.Drawing.Point(0, 0);
@@ -119,6 +120,7 @@
             // projectOverviewButtonOpenProject
             // 
             this.projectOverviewButtonOpenProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonOpenProject.CanButtonBeToggled = true;
             this.projectOverviewButtonOpenProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonOpenProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.projectOverviewButtonOpenProject.Location = new System.Drawing.Point(0, 95);
@@ -159,6 +161,7 @@
             // projectOverviewButtonCreateProject
             // 
             this.projectOverviewButtonCreateProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonCreateProject.CanButtonBeToggled = true;
             this.projectOverviewButtonCreateProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.projectOverviewButtonCreateProject.Location = new System.Drawing.Point(0, 147);
@@ -200,6 +203,7 @@
             // projectOverviewButtonCreateProjectRevision
             // 
             this.projectOverviewButtonCreateProjectRevision.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonCreateProjectRevision.CanButtonBeToggled = true;
             this.projectOverviewButtonCreateProjectRevision.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateProjectRevision.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.projectOverviewButtonCreateProjectRevision.Location = new System.Drawing.Point(0, 199);
@@ -239,6 +243,7 @@
             // projectOverviewButtonEditRiskStandard
             // 
             this.projectOverviewButtonEditRiskStandard.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonEditRiskStandard.CanButtonBeToggled = true;
             this.projectOverviewButtonEditRiskStandard.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonEditRiskStandard.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.projectOverviewButtonEditRiskStandard.Location = new System.Drawing.Point(0, 294);
@@ -279,6 +284,7 @@
             // projectOverviewButtonCreateNewRisk
             // 
             this.projectOverviewButtonCreateNewRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonCreateNewRisk.CanButtonBeToggled = false;
             this.projectOverviewButtonCreateNewRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateNewRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.projectOverviewButtonCreateNewRisk.Location = new System.Drawing.Point(0, 346);

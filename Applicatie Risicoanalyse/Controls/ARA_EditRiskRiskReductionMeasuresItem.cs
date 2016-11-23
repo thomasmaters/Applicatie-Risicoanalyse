@@ -12,7 +12,7 @@ using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Controls
 {
-    public partial class ARA_EditRiskRiskReductionMesuresItem : UserControl
+    public partial class ARA_EditRiskRiskReductionMeasuresItem : UserControl
     {
         private bool hasControlBeenChanged = false;
         public EventHandler<MeasureItemChangedEvent> itemCheckEventHandler;
@@ -30,7 +30,7 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        public ARA_EditRiskRiskReductionMesuresItem()
+        public ARA_EditRiskRiskReductionMeasuresItem()
         {
             InitializeComponent();
         }
@@ -43,7 +43,6 @@ namespace Applicatie_Risicoanalyse.Controls
 
             this.checkBox1.Text = controlData[0]["MeasureGroup"].ToString();
 
-            this.checkedListBox1.Items.Clear();
             //Fill checklistbox with items.
             foreach(DataRowView row in controlData)
             {
@@ -76,7 +75,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 }
             };
 
-            //Delegtate for adding/removing reduction mesure from riskdata.
+            //Delegtate for adding/removing reduction measure from riskdata.
             this.checkBox1.CheckStateChanged += delegate (object sender, EventArgs e)
             {
                 for (int i = 0; i < checkedListBox1.Items.Count; i++)

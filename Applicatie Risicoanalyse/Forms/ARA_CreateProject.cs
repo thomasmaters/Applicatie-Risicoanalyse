@@ -51,10 +51,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     this.createProjectInputOrderNumber.Text,
                     this.createProjectInputExtraInfo.Text
                 );
-            this.createProjectButtonCreateProject.setButtonSelected(false);
 
-            //Trigger events to open form and set sidebarbutton selected.
-            //TODO Create button markup.
             int newestAddedProject = (Int32)this.get_Newest_Added_ProjectTableAdapter.GetData().Rows[0]["NewestProject"];
             this.projectSideBarButton = new ARA_Button();
             this.projectSideBarButton.Text = this.createProjectInputMachineNumber.Text;
@@ -63,6 +60,13 @@ namespace Applicatie_Risicoanalyse.Forms
             Applicatie_Risicoanalyse.Globals.ARA_Events.onSideBarAddNewButtonEvent(
                 this.projectSideBarButton, 
                 Activator.CreateInstance(typeof(ARA_RiskProjectOverview),newestAddedProject));
+
+            //Clear fields for next use.
+            this.createProjectInputCustomer.Text = "";
+            this.createProjectInputMachineType.Text = "";
+            this.createProjectInputMachineNumber.Text = "";
+            this.createProjectInputOrderNumber.Text = "";
+            this.createProjectInputExtraInfo.Text = "";
         }
 
 

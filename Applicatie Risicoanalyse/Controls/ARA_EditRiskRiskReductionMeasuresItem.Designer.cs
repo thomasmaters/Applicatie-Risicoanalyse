@@ -1,6 +1,6 @@
 ﻿namespace Applicatie_Risicoanalyse.Controls
 {
-    partial class ARA_EditRiskRiskReductionMesuresItem
+    partial class ARA_EditRiskRiskReductionMeasuresItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -59,7 +59,7 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // ARA_EditRiskRiskReductionMesuresItem
+            // ARA_EditRiskRiskReductionMeasuresItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,7 +69,7 @@
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(560, 500);
-            this.Name = "ARA_EditRiskRiskReductionMesuresItem";
+            this.Name = "ARA_EditRiskRiskReductionMeasuresItem";
             this.Size = new System.Drawing.Size(560, 32);
             this.ResumeLayout(false);
             this.PerformLayout();

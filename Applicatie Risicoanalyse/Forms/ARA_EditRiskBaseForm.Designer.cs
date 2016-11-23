@@ -37,9 +37,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
             this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
             this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
-            this.arA_EditRiskRiskReductionMesures1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
+            this.arA_EditRiskRiskReductionMesures1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMeasures();
             this.arA_EditRiskRiskEstimation2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
-            this.arA_EditRiskRiskReductionMesures2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMesures();
+            this.arA_EditRiskRiskReductionMesures2 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskReductionMeasures();
             this.editRiskBaseFormButtonReviewAccept = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.editRiskBaseFormButtonReviewDecline = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.EditRiskButtonPreviousRisk = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -203,6 +203,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskRiskReductionMesures1.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures1.IncludeMeasuresWithNoGroup = true;
             this.arA_EditRiskRiskReductionMesures1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskReductionMesures1.Location = new System.Drawing.Point(0, 885);
             this.arA_EditRiskRiskReductionMesures1.Margin = new System.Windows.Forms.Padding(0);
@@ -229,6 +230,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskRiskReductionMesures2.AutoSize = true;
             this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures2.HasControlBeenChanged = false;
+            this.arA_EditRiskRiskReductionMesures2.IncludeMeasuresWithNoGroup = false;
             this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskReductionMesures2.Location = new System.Drawing.Point(0, 1322);
             this.arA_EditRiskRiskReductionMesures2.Margin = new System.Windows.Forms.Padding(0);
@@ -590,12 +592,12 @@ namespace Applicatie_Risicoanalyse.Forms
         private System.Windows.Forms.BindingSource get_RiskEstimation_In_RiskData_AfterBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskEstimation_In_RiskData_AfterTableAdapter get_RiskEstimation_In_RiskData_AfterTableAdapter;
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private Controls.ARA_EditRiskRiskReductionMesures arA_EditRiskRiskReductionMesures1;
+        private Controls.ARA_EditRiskRiskReductionMeasures arA_EditRiskRiskReductionMesures1;
         private System.Windows.Forms.BindingSource get_RiskReduction_In_RiskDataBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskReduction_In_RiskDataTableAdapter get_RiskReduction_In_RiskDataTableAdapter;
         private Controls.ARA_EditRiskRiskEstimation arA_EditRiskRiskEstimation2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Controls.ARA_EditRiskRiskReductionMesures arA_EditRiskRiskReductionMesures2;
+        private Controls.ARA_EditRiskRiskReductionMeasures arA_EditRiskRiskReductionMesures2;
         private System.Windows.Forms.BindingSource get_MinimalAddition_In_RiskDataBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_MinimalAddition_In_RiskDataTableAdapter get_MinimalAddition_In_RiskDataTableAdapter;
         private System.Windows.Forms.BindingSource get_RiskEstimation_In_RiskData_BeforeBindingSource;

@@ -70,7 +70,7 @@ namespace Applicatie_Risicoanalyse.Forms
             if (e.RowIndex != -1)
             {
                 //Get some data before editing the risk.
-                int selectedRiskID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["riskIDDataGridViewTextBoxColumn"].Value;
+                int selectedRiskID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["RiskID"].Value;
                 int selectedRiskDataID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["DefaultRiskDataID"].Value;
                 int selectedRiskVersionID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["VersionID"].Value;
                 bool isProjectSpecificRisk = false;

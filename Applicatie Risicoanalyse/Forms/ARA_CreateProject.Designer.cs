@@ -316,6 +316,7 @@
             // createProjectButtonCreateProject
             // 
             this.createProjectButtonCreateProject.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
+            this.createProjectButtonCreateProject.CanButtonBeToggled = false;
             this.createProjectButtonCreateProject.Enabled = false;
             this.createProjectButtonCreateProject.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.createProjectButtonCreateProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));

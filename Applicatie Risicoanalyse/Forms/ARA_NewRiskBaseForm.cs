@@ -99,11 +99,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
+                        this.tbl_RiskReduction_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
                     }
                 };
 
@@ -121,11 +121,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     setControlsEnabled();
                     if (e.checkState == CheckState.Checked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(riskDataID, e.measureID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Insert(e.measureID, riskDataID);
                     }
                     else if (e.checkState == CheckState.Unchecked)
                     {
-                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(riskDataID, e.measureID);
+                        this.tbl_MinimalAddition_In_RiskTableAdapter.Delete(e.measureID, riskDataID);
                     }
                 };
 
@@ -174,9 +174,9 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 setTopBarRiskInfo();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

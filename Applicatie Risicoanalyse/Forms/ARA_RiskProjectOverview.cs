@@ -126,6 +126,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonMarkClose.Visible = projectState == ARA_Constants.finalDraft;
             this.riskProjectOverviewButtonMarkDoneReview.Visible = projectState == ARA_Constants.forReview && ARA_Globals.UserID != userID;
             this.riskProjectOverviewButtonMarkReview.Visible = projectState == ARA_Constants.draft && ARA_Globals.UserID == userID;
+
+            //Update the topbar form.
+            setProjectInfoTopForm();
         }
 
         /// <summary>
