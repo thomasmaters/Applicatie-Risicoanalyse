@@ -38,7 +38,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectTextOrderNumber.Font = textFont;
         }
 
-        //Click handler when the user clicks the create project button.
+        /// <summary>
+        /// //Click handler when the user clicks the create project button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onCreateProjectButtonClick(object sender, EventArgs e)
         {
             //Executes procedure for adding an riskproject to the database.
@@ -61,6 +65,14 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.projectSideBarButton, 
                 Activator.CreateInstance(typeof(ARA_RiskProjectOverview),newestAddedProject));
 
+            clearInputFields();
+        }
+
+        /// <summary>
+        /// Clears all the input fields, so when a new project is created the old text doenst stay.
+        /// </summary>
+        private void clearInputFields()
+        {
             //Clear fields for next use.
             this.createProjectInputCustomer.Text = "";
             this.createProjectInputMachineType.Text = "";
@@ -69,8 +81,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputExtraInfo.Text = "";
         }
 
-
-        //Checks if all requirements are met, so the user can make a project.
+        /// <summary>
+        /// //Checks if all requirements are met, so the user can make a project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void canProjectBeCreated(object sender, EventArgs e)
         {
             this.createProjectButtonCreateProject.Enabled = 

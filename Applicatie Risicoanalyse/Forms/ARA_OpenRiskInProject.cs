@@ -106,6 +106,14 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void onDataGridRowAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            addStyleToCells();
+        }
+
+        /// <summary>
+        /// Styles the cells in the datagrid according to row values.
+        /// </summary>
+        private void addStyleToCells()
+        {
             //Style the rows on datagrid values.
             foreach (DataGridViewRow row in this.OpenRiskInProjectDataGrid.Rows)
             {
@@ -123,6 +131,10 @@ namespace Applicatie_Risicoanalyse.Forms
                 if (row.Cells["ReviewedByUser"].Value == DBNull.Value)
                 {
                     row.Cells[0].Style.BackColor = ARA_Colors.ARA_Red;
+                }
+                else
+                {
+                    row.Cells[0].Style.BackColor = Color.White;
                 }
             }
 
@@ -145,6 +157,10 @@ namespace Applicatie_Risicoanalyse.Forms
                     {
                         row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Blue5;
                     }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
                 }
             }
         }
@@ -166,6 +182,17 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void ARA_OpenRiskInProject_Load(object sender, EventArgs e)
         {
+        }
+
+        /// <summary>
+        /// Handler when the users resorts the datagrid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenRiskInProjectDataGrid_Sorted(object sender, EventArgs e)
+        {
+            Debug.WriteLine("sorted");
+            addStyleToCells();
         }
     }
 }

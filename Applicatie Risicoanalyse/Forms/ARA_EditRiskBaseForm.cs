@@ -36,7 +36,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.isRiskDataProjectSpecific = isRiskDataProjectSpecific;
             //Set project state if we are not editing the risk standard.
             if(this.projectID != -1)
+            {
                 this.projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
+            }
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -185,6 +187,16 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
 
                 setTopBarRiskInfo();
+
+                //Show popup box with reviewer comment on risk open.
+                if (projectState == ARA_Constants.draft)
+                {
+                    string reviewerComment = this.tbl_Risks_In_ProjectTableAdapter.GetData().FindByProjectIDVersionIDRiskID(this.projectID, this.riskVersionID, this.riskID)["ReviewerComment"] as string;
+                    if (reviewerComment != null && reviewerComment != string.Empty)
+                    {
+                        System.Windows.Forms.MessageBox.Show("The reviewer of this risk gave the following comment:\n" + reviewerComment, "Reviewer comment.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
             catch (Exception)
             {
@@ -476,7 +488,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void editRiskBaseFormButtonReviewAccept_Click(object sender, EventArgs e)
         {
-            this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, ARA_Globals.UserID);
+            this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, ARA_Globals.UserID,string.Empty);
             setNextRisk(1);
             setFormData();
         }
@@ -488,9 +500,21 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void editRiskBaseFormButtonReviewDecline_Click(object sender, EventArgs e)
         {
-            this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, -1);
-            setNextRisk(1);
-            setFormData();
+            ARA_InputDialogPopupForm testDialog = new ARA_InputDialogPopupForm("Give comment", "Leave a comment why this risk is declined.");
+
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (testDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, -1, "" + testDialog.inputDialogTextboxInput.Text);
+                setNextRisk(1);
+                setFormData();
+            }
+            else
+            {
+
+            }
+            testDialog.Dispose();
         }
     }
 }

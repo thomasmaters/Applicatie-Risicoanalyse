@@ -227,6 +227,12 @@
     <Compile Include="Forms\ARA_GenerateReportsForm.Designer.cs">
       <DependentUpon>ARA_GenerateReportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_InputDialogPopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_InputDialogPopupForm.Designer.cs">
+      <DependentUpon>ARA_InputDialogPopupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_NewRiskBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_GenerateReportsForm.resx">
       <DependentUpon>ARA_GenerateReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_InputDialogPopupForm.resx">
+      <DependentUpon>ARA_InputDialogPopupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_NewRiskBaseForm.resx">
       <DependentUpon>ARA_NewRiskBaseForm.cs</DependentUpon>

@@ -76,7 +76,7 @@
             this.createProjectContentBox.MaximumSize = new System.Drawing.Size(750, 190);
             this.createProjectContentBox.Name = "createProjectContentBox";
             this.createProjectContentBox.Size = new System.Drawing.Size(750, 190);
-            this.createProjectContentBox.TabIndex = 0;
+            this.createProjectContentBox.TabIndex = 100;
             // 
             // createProjectSpacer1
             // 
@@ -86,7 +86,7 @@
             this.createProjectSpacer1.MaximumSize = new System.Drawing.Size(20, 189);
             this.createProjectSpacer1.Name = "createProjectSpacer1";
             this.createProjectSpacer1.Size = new System.Drawing.Size(20, 189);
-            this.createProjectSpacer1.TabIndex = 1;
+            this.createProjectSpacer1.TabIndex = 100;
             // 
             // createProjectControlBoxLeft
             // 
@@ -104,7 +104,7 @@
             this.createProjectControlBoxLeft.MaximumSize = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxLeft.Name = "createProjectControlBoxLeft";
             this.createProjectControlBoxLeft.Size = new System.Drawing.Size(345, 190);
-            this.createProjectControlBoxLeft.TabIndex = 4;
+            this.createProjectControlBoxLeft.TabIndex = 100;
             // 
             // createProjectTextCustomer
             // 
@@ -115,7 +115,7 @@
             this.createProjectTextCustomer.MaximumSize = new System.Drawing.Size(344, 27);
             this.createProjectTextCustomer.Name = "createProjectTextCustomer";
             this.createProjectTextCustomer.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextCustomer.TabIndex = 2;
+            this.createProjectTextCustomer.TabIndex = 100;
             this.createProjectTextCustomer.Text = "Customer";
             this.createProjectTextCustomer.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
@@ -142,7 +142,7 @@
             this.createProjectSpacer4.MaximumSize = new System.Drawing.Size(344, 3);
             this.createProjectSpacer4.Name = "createProjectSpacer4";
             this.createProjectSpacer4.Size = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer4.TabIndex = 9;
+            this.createProjectSpacer4.TabIndex = 100;
             // 
             // createProjectTextMachineType
             // 
@@ -153,7 +153,7 @@
             this.createProjectTextMachineType.MaximumSize = new System.Drawing.Size(344, 27);
             this.createProjectTextMachineType.Name = "createProjectTextMachineType";
             this.createProjectTextMachineType.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextMachineType.TabIndex = 4;
+            this.createProjectTextMachineType.TabIndex = 100;
             this.createProjectTextMachineType.Text = "Machine type";
             this.createProjectTextMachineType.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
@@ -164,7 +164,7 @@
             this.createProjectSpacer5.MaximumSize = new System.Drawing.Size(344, 3);
             this.createProjectSpacer5.Name = "createProjectSpacer5";
             this.createProjectSpacer5.Size = new System.Drawing.Size(344, 3);
-            this.createProjectSpacer5.TabIndex = 10;
+            this.createProjectSpacer5.TabIndex = 100;
             // 
             // createProjectInputMachineType
             // 
@@ -178,7 +178,7 @@
             this.createProjectInputMachineType.Name = "createProjectInputMachineType";
             this.createProjectInputMachineType.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.createProjectInputMachineType.Size = new System.Drawing.Size(345, 28);
-            this.createProjectInputMachineType.TabIndex = 11;
+            this.createProjectInputMachineType.TabIndex = 1;
             this.createProjectInputMachineType.Text = "";
             this.createProjectInputMachineType.TextChanged += new System.EventHandler(this.canProjectBeCreated);
             // 
@@ -191,7 +191,7 @@
             this.createProjectTextMachineNumber.MaximumSize = new System.Drawing.Size(344, 27);
             this.createProjectTextMachineNumber.Name = "createProjectTextMachineNumber";
             this.createProjectTextMachineNumber.Size = new System.Drawing.Size(181, 27);
-            this.createProjectTextMachineNumber.TabIndex = 5;
+            this.createProjectTextMachineNumber.TabIndex = 100;
             this.createProjectTextMachineNumber.Text = "Machine number";
             this.createProjectTextMachineNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
@@ -204,7 +204,7 @@
             this.createProjectTextOrderNumber.MaximumSize = new System.Drawing.Size(344, 27);
             this.createProjectTextOrderNumber.Name = "createProjectTextOrderNumber";
             this.createProjectTextOrderNumber.Size = new System.Drawing.Size(164, 27);
-            this.createProjectTextOrderNumber.TabIndex = 6;
+            this.createProjectTextOrderNumber.TabIndex = 100;
             this.createProjectTextOrderNumber.Text = "Order number";
             this.createProjectTextOrderNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
@@ -217,7 +217,7 @@
             this.panel1.MaximumSize = new System.Drawing.Size(345, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(345, 28);
-            this.panel1.TabIndex = 10;
+            this.panel1.TabIndex = 100;
             // 
             // createProjectInputOrderNumber
             // 
@@ -233,7 +233,7 @@
             this.createProjectInputOrderNumber.Name = "createProjectInputOrderNumber";
             this.createProjectInputOrderNumber.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.createProjectInputOrderNumber.Size = new System.Drawing.Size(161, 28);
-            this.createProjectInputOrderNumber.TabIndex = 8;
+            this.createProjectInputOrderNumber.TabIndex = 3;
             this.createProjectInputOrderNumber.Text = "";
             this.createProjectInputOrderNumber.TextChanged += new System.EventHandler(this.canProjectBeCreated);
             // 
@@ -250,7 +250,7 @@
             this.createProjectInputMachineNumber.Name = "createProjectInputMachineNumber";
             this.createProjectInputMachineNumber.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.createProjectInputMachineNumber.Size = new System.Drawing.Size(162, 28);
-            this.createProjectInputMachineNumber.TabIndex = 7;
+            this.createProjectInputMachineNumber.TabIndex = 2;
             this.createProjectInputMachineNumber.Text = "";
             this.createProjectInputMachineNumber.TextChanged += new System.EventHandler(this.canProjectBeCreated);
             // 
@@ -262,7 +262,7 @@
             this.createProjectSpacer2.MaximumSize = new System.Drawing.Size(20, 189);
             this.createProjectSpacer2.Name = "createProjectSpacer2";
             this.createProjectSpacer2.Size = new System.Drawing.Size(20, 189);
-            this.createProjectSpacer2.TabIndex = 2;
+            this.createProjectSpacer2.TabIndex = 100;
             // 
             // createProjectControlBoxRight
             // 
@@ -275,7 +275,7 @@
             this.createProjectControlBoxRight.MaximumSize = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxRight.Name = "createProjectControlBoxRight";
             this.createProjectControlBoxRight.Size = new System.Drawing.Size(345, 190);
-            this.createProjectControlBoxRight.TabIndex = 5;
+            this.createProjectControlBoxRight.TabIndex = 100;
             // 
             // createProjectTextExtraInfo
             // 
@@ -286,7 +286,7 @@
             this.createProjectTextExtraInfo.MaximumSize = new System.Drawing.Size(344, 27);
             this.createProjectTextExtraInfo.Name = "createProjectTextExtraInfo";
             this.createProjectTextExtraInfo.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextExtraInfo.TabIndex = 12;
+            this.createProjectTextExtraInfo.TabIndex = 100;
             this.createProjectTextExtraInfo.Text = "Extra information";
             this.createProjectTextExtraInfo.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
@@ -302,7 +302,7 @@
             this.createProjectInputExtraInfo.Name = "createProjectInputExtraInfo";
             this.createProjectInputExtraInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.createProjectInputExtraInfo.Size = new System.Drawing.Size(345, 89);
-            this.createProjectInputExtraInfo.TabIndex = 12;
+            this.createProjectInputExtraInfo.TabIndex = 4;
             this.createProjectInputExtraInfo.Text = "";
             // 
             // createProjectSpacer3
@@ -311,7 +311,7 @@
             this.createProjectSpacer3.Margin = new System.Windows.Forms.Padding(0);
             this.createProjectSpacer3.Name = "createProjectSpacer3";
             this.createProjectSpacer3.Size = new System.Drawing.Size(344, 27);
-            this.createProjectSpacer3.TabIndex = 13;
+            this.createProjectSpacer3.TabIndex = 100;
             // 
             // createProjectButtonCreateProject
             // 
@@ -328,7 +328,7 @@
             this.createProjectButtonCreateProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.createProjectButtonCreateProject.SelectedTextColor = System.Drawing.Color.White;
             this.createProjectButtonCreateProject.Size = new System.Drawing.Size(345, 27);
-            this.createProjectButtonCreateProject.TabIndex = 14;
+            this.createProjectButtonCreateProject.TabIndex = 5;
             this.createProjectButtonCreateProject.Text = "Create project";
             this.createProjectButtonCreateProject.TextColor = System.Drawing.Color.White;
             this.createProjectButtonCreateProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
