@@ -120,6 +120,16 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PerformanceLevelFrontPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("PerformanceLevelFrontPageTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap PerformanceLevelReportIcon {

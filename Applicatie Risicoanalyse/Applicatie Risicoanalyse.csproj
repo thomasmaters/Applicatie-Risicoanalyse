@@ -328,6 +328,7 @@
     <Compile Include="Reports\PerformanceLevelReport\PerformanceLevelReport.Designer.cs">
       <DependentUpon>PerformanceLevelReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\PerformanceLevelReport\PLCalculator.cs" />
     <Compile Include="Reports\RiskAssesmentReport\RiskAssessmentReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -519,13 +520,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MooreBrabazon_with_Flying_Pig.ico" />
+    <EmbeddedResource Include="Resources\PerformanceLevelFrontPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\PerformanceLevelReportIcon.png" />
     <EmbeddedResource Include="Resources\PerformanceLevelRiskPageTemplate.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="Resources\RemainingRiskFrontPageTemplate.docx" />
-    <None Include="Resources\RemainingRiskRiskPageHeaderTemplate.docx" />
-    <None Include="Resources\RemainingRiskRiskPageTemplate.docx" />
+    <EmbeddedResource Include="Resources\RemainingRiskFrontPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RemainingRiskRiskPageHeaderTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\RemainingRiskRiskPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\RiskAssessmentReportIcon.png" />
     <None Include="Resources\RemainingRiskReportIcon.png" />
   </ItemGroup>

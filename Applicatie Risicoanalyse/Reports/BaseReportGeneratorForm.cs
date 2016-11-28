@@ -22,7 +22,7 @@ namespace Applicatie_Risicoanalyse.Forms
     {
         protected object missing = Type.Missing;
         protected object paramFalse = false;
-
+        protected Object threadLock = new object();
         public BaseReportGeneratorForm()
         {
             InitializeComponent();

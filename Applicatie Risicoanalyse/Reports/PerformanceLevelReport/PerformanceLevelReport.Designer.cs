@@ -1,4 +1,4 @@
-﻿namespace Applicatie_Risicoanalyse.Reports
+﻿namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
 {
     partial class PerformanceLevelReport
     {
@@ -104,6 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.ClientSize = new System.Drawing.Size(412, 133);
             this.Name = "PerformanceLevelReport";
+            this.Text = "Performance Level Report";
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskAssessment_Index_DataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_DangerBindingSource)).EndInit();

@@ -142,16 +142,16 @@
     <value>232, 134</value>
   </metadata>
   <metadata name="get_ExposedPersons_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>437, 56</value>
+    <value>398, 56</value>
   </metadata>
   <metadata name="tbl_Risk_DataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 56</value>
+    <value>201, 56</value>
   </metadata>
   <metadata name="tbl_DangerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>740, 56</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="tbl_Danger_ResultTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>701, 56</value>
   </metadata>
   <metadata name="tbl_Danger_SourceTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>916, 17</value>

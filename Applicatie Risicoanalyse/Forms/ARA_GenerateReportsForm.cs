@@ -1,5 +1,6 @@
 ﻿using Applicatie_Risicoanalyse.Globals;
 using Applicatie_Risicoanalyse.Reports;
+using Applicatie_Risicoanalyse.Reports.PerformanceLevelReport;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,7 +102,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.generateReportsComboBoxSort.SelectedItem.ToString(),
                 filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
                 Applicatie_Risicoanalyse.Properties.Resources.PerformanceLevelRiskPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
+                Applicatie_Risicoanalyse.Properties.Resources.PerformanceLevelFrontPageTemplate);
             report.Show();
         }
 
