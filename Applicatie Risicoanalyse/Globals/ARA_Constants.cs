@@ -19,6 +19,7 @@ namespace Applicatie_Risicoanalyse.Globals
         //Document generation constants.
         public const string riskAssesmentReportFileName = "Risk Assessment Report.docx";
         public const string remainingRiskReportFileName = "Remaining Rest-Risk Report.docx";
+        public const string performanceLevelReportFileName = "Performance Level Report.docx";
 
         //Project states
         public const string draft = "DRAFT";

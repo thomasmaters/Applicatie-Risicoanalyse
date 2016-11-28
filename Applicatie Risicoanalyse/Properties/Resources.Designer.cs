@@ -132,6 +132,16 @@ namespace Applicatie_Risicoanalyse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] PerformanceLevelRiskPageTemplate {
+            get {
+                object obj = ResourceManager.GetObject("PerformanceLevelRiskPageTemplate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] RemainingRiskFrontPageTemplate {
             get {
                 object obj = ResourceManager.GetObject("RemainingRiskFrontPageTemplate", resourceCulture);

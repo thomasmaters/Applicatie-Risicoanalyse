@@ -279,4 +279,27 @@ namespace Applicatie_Risicoanalyse.Globals
             this.frontPageTemplateLocation = frontPageTemplateLocation;
         }
     }
+
+    public class GeneratePerformanceLevelReportEventArgs : DoWorkEventArgs
+    {
+        public int projectID { get; private set; }
+        public string sortingKey { get; private set; }
+        public object newDocumentLocation { get; private set; }
+        public byte[] riskPageTemplateLocation { get; private set; }
+        public byte[] frontPageTemplateLocation { get; private set; }
+
+        private GeneratePerformanceLevelReportEventArgs() : base(new object())
+        {
+
+        }
+
+        public GeneratePerformanceLevelReportEventArgs(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
+        {
+            this.projectID = projectID;
+            this.sortingKey = sortingKey;
+            this.newDocumentLocation = newDocumentLocation;
+            this.riskPageTemplateLocation = riskPageTemplateLocation;
+            this.frontPageTemplateLocation = frontPageTemplateLocation;
+        }
+    }
 }

@@ -95,6 +95,7 @@
             // arA_Button4
             // 
             this.arA_Button4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button4.CanButtonBeToggled = true;
             this.arA_Button4.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button4.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
@@ -109,10 +110,12 @@
             this.arA_Button4.Text = "Generate Report";
             this.arA_Button4.TextColor = System.Drawing.Color.White;
             this.arA_Button4.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_Button4.Click += new System.EventHandler(this.arA_Button4_Click);
             // 
             // arA_Button3
             // 
             this.arA_Button3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button3.CanButtonBeToggled = true;
             this.arA_Button3.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button3.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
@@ -132,6 +135,7 @@
             // arA_Button2
             // 
             this.arA_Button2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button2.CanButtonBeToggled = true;
             this.arA_Button2.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
@@ -177,6 +181,7 @@
             // arA_Button1
             // 
             this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.arA_Button1.CanButtonBeToggled = true;
             this.arA_Button1.Font = new System.Drawing.Font("Gotham Book", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
@@ -191,6 +196,7 @@
             this.arA_Button1.Text = "Generate All Reports";
             this.arA_Button1.TextColor = System.Drawing.Color.White;
             this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
             // 
             // arA_Text1
             // 

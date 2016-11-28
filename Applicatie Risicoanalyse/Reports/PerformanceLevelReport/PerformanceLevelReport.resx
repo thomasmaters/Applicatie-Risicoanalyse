@@ -117,50 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ACL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ACL.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Gotham_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gotham-Light.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Gotham_LightItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gotham-LightItalic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Langen Group_Colour" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Langen Group_Colour.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NoRiskPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoRiskPicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PerformanceLevelReportIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PerformanceLevelReportIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PerformanceLevelRiskPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PerformanceLevelRiskPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RemainingRiskFrontPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemainingRiskFrontPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RemainingRiskReportIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemainingRiskReportIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RemainingRiskRiskPageHeaderTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemainingRiskRiskPageHeaderTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RemainingRiskRiskPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RemainingRiskRiskPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RiskAssessmentFrontPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RiskAssessmentFrontPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RiskAssessmentIndexPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RiskAssessmentIndexPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RiskAssessmentReportIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RiskAssessmentReportIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RiskAssessmentRiskPageTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RiskAssessmentRiskPageTemplate.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="tbl_RiskTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="tbl_Risk_AnalysisTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <metadata name="tbl_Risks_In_ProjectTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>932, 95</value>
+  </metadata>
+  <metadata name="get_Risks_With_RiskData_In_ProjectTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>616, 95</value>
+  </metadata>
+  <metadata name="get_RiskReduction_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>323, 95</value>
+  </metadata>
+  <metadata name="get_MinimalAddition_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="get_RiskEstimation_In_RiskData_AfterTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>924, 56</value>
+  </metadata>
+  <metadata name="get_RiskEstimation_In_RiskData_BeforeTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>232, 134</value>
+  </metadata>
+  <metadata name="get_ExposedPersons_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>437, 56</value>
+  </metadata>
+  <metadata name="tbl_Risk_DataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>240, 56</value>
+  </metadata>
+  <metadata name="tbl_DangerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>740, 56</value>
+  </metadata>
+  <metadata name="tbl_Danger_ResultTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="tbl_Danger_SourceTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>916, 17</value>
+  </metadata>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>752, 17</value>
+  </metadata>
+  <metadata name="tbl_MinimalAddition_In_RiskTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>474, 17</value>
+  </metadata>
+  <metadata name="get_RemainingRisks_In_ProjectTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>183, 17</value>
+  </metadata>
+  <metadata name="lG_Analysis_DatabaseDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>567, 134</value>
+  </metadata>
+  <metadata name="get_RiskAssessment_Index_DataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>777, 134</value>
+  </metadata>
+  <metadata name="get_RiskAssessment_Index_DataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 173</value>
+  </metadata>
+  <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>316, 173</value>
+  </metadata>
+  <metadata name="tbl_DangerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>487, 173</value>
+  </metadata>
+  <metadata name="get_Risks_With_PL_In_ProjectBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>677, 173</value>
+  </metadata>
+  <metadata name="get_Risks_With_PL_In_ProjectTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>965, 173</value>
+  </metadata>
 </root>

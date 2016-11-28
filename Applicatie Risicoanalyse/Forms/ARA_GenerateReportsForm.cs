@@ -33,40 +33,144 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
         }
 
+        /// <summary>
+        /// Click handler when the user wants to generate a RiskAssessmentReport.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void arA_Button2_Click(object sender, EventArgs e)
         {
-            if(this.generateReportsComboBoxSort.SelectedItem == null)
+            //Did the user select a sorting option?
+            if (!isSortingOptionSet())
             {
-                System.Windows.Forms.MessageBox.Show("Select a sorting option before generating any report!", "Sorting option missing.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Did the user select a location to store the file.
+            if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                generateRiskAssessmentReport(this.folderBrowserDialog1.SelectedPath.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Click handler when the user wants to generate a RemainingRiskReport.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void arA_Button3_Click(object sender, EventArgs e)
+        {
+            //Did the user select a sorting option?
+            if (!isSortingOptionSet())
+            {
                 return;
             }
             if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-                RiskAssessmentReport report = new RiskAssessmentReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.riskAssesmentReportFileName,
-                     Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentRiskPageTemplate,
-                     Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
-                     Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
-                 report.Show();
+                generateRemainingRiskReport(this.folderBrowserDialog1.SelectedPath.ToString());
             }
         }
 
-        private void arA_Button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Click handler when the user wants to generate a PerformanceLevelReport.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void arA_Button4_Click(object sender, EventArgs e)
+        {
+            //Did the user select a sorting option?
+            if (!isSortingOptionSet())
+            {
+                return;
+            }
+            //Did the user select a location to store the file.
+            if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                generatePerformanceLevelReport(this.folderBrowserDialog1.SelectedPath.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Starts generation of a performanceLevelReport.
+        /// </summary>
+        /// <param name="filePath">Where to save the report.</param>
+        private void generatePerformanceLevelReport(string filePath)
+        {
+            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+            PerformanceLevelReport report = new PerformanceLevelReport(
+                this.projectID,
+                this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
+                Applicatie_Risicoanalyse.Properties.Resources.PerformanceLevelRiskPageTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
+            report.Show();
+        }
+
+        /// <summary>
+        /// Starts generation of a remainingRiskReport.
+        /// </summary>
+        /// <param name="filePath">Where to save the report.</param>
+        private void generateRemainingRiskReport(string filePath)
+        {
+            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+            RemainingRiskReport report = new RemainingRiskReport(
+                this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                filePath + "\\" + ARA_Constants.remainingRiskReportFileName,
+                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageHeaderTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskFrontPageTemplate);
+            report.Show();
+        }
+
+        /// <summary>
+        /// Starts generation of a riskAssessmentReport.
+        /// </summary>
+        /// <param name="filePath">Where to save the report.</param>
+        private void generateRiskAssessmentReport(string filePath)
+        {
+            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+            RiskAssessmentReport report = new RiskAssessmentReport(
+                this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), 
+                filePath + "\\" + ARA_Constants.riskAssesmentReportFileName,
+                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentRiskPageTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
+                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
+            report.Show();
+        }
+
+        /// <summary>
+        /// Checks if the user selected a sorting option, show a popup box when false.
+        /// </summary>
+        /// <returns></returns>
+        private bool isSortingOptionSet()
         {
             if (this.generateReportsComboBoxSort.SelectedItem == null)
             {
                 System.Windows.Forms.MessageBox.Show("Select a sorting option before generating any report!", "Sorting option missing.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// The user wants to generate all the reports at once.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void arA_Button1_Click(object sender, EventArgs e)
+        {
+            //Did the user select a sorting option?
+            if (!isSortingOptionSet())
+            {
                 return;
             }
+
             if (this.folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-                RemainingRiskReport report = new RemainingRiskReport(this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), this.folderBrowserDialog1.SelectedPath.ToString() + "\\" + ARA_Constants.remainingRiskReportFileName,
-                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageHeaderTemplate,
-                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageTemplate,
-                     Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
-                     Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskFrontPageTemplate);
-                report.Show();
+                string filePath = this.folderBrowserDialog1.SelectedPath.ToString();
+                generateRiskAssessmentReport(filePath);
+                generateRemainingRiskReport(filePath);
+                generatePerformanceLevelReport(filePath);
             }
         }
     }
