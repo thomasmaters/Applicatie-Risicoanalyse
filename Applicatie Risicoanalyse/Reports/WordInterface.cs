@@ -159,6 +159,122 @@ namespace Applicatie_Risicoanalyse.Reports
             return null;
         }
 
+        public void addTextToTableCell(Range cellRange, string textToAdd, bool addComma = false)
+        {
+            string temp;
+            if (cellRange.Text.Length < 3)
+            {
+                temp = cellRange.Text.Substring(0, cellRange.Text.Length - 2) + textToAdd;
+            }
+            else if (cellRange.Text.Length > 2 && addComma == true)
+            {
+                temp = cellRange.Text.Substring(0, cellRange.Text.Length - 2) + ", " +  textToAdd;
+            }
+            else
+            {
+                temp = cellRange.Text.Substring(0, cellRange.Text.Length - 2) + textToAdd;
+            }
+            cellRange.Text = temp;
+        }
+
+        /// <summary>
+        /// Sets the background color of all even rows in a table.
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="color"></param>
+        public void setAlternatingTableRowStyle(Table table, Color backgroundColor, int indexToStartAt = 2)
+        {
+            WdColor newBackgroundColor = (Microsoft.Office.Interop.Word.WdColor)(backgroundColor.R + 0x100 * backgroundColor.G + 0x10000 * backgroundColor.B);
+            for (int i = indexToStartAt; i <= table.Rows.Count; i = i + 2)
+            {
+                table.Rows[i].Shading.BackgroundPatternColor = newBackgroundColor;
+            }
+        }
+
+        /// <summary>
+        /// Sets the background color of specific table row.
+        /// </summary>
+        /// <param name="tableRow"></param>
+        /// <param name="color"></param>
+        public void setTableRowBackgroundColor(Row tableRow, Color color)
+        {
+            tableRow.Shading.BackgroundPatternColor = (Microsoft.Office.Interop.Word.WdColor)(color.R + 0x100 * color.G + 0x10000 * color.B);
+        }
+
+        /// <summary>
+        /// Merges all the cells in a row into 1.
+        /// </summary>
+        /// <param name="tableRow">Row to merge the cells of.</param>
+        public void mergeTableRowCells(Row tableRow)
+        {
+            for (int i = 0; i < tableRow.Cells.Count + 1; i++)
+            {
+                tableRow.Cells[2].Merge(tableRow.Cells[1]);
+                Debug.WriteLine(tableRow.Cells.Count);
+            }
+        }
+
+        /// <summary>
+        /// Sets the table row style of rows with a specific table row count.
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="cellCount"></param>
+        /// <param name="color"></param>
+        public void setStyleOfTableRowsWithCellCount(Table table, int cellCount, Color color)
+        {
+            WdColor newBackgroundColor = (Microsoft.Office.Interop.Word.WdColor)(color.R + 0x100 * color.G + 0x10000 * color.B);
+            foreach (Row row in table.Rows)
+            {
+                if (row.Cells.Count == cellCount)
+                {
+                    row.Shading.BackgroundPatternColor = newBackgroundColor;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Copies a table and paste it at the end of the document.
+        /// </summary>
+        /// <param name="document">Document to paste table in.</param>
+        /// <param name="tableRange">Table range to copy.</param>
+        /// <returns></returns>
+        public Table copyTable(Document document, Range tableRange)
+        {
+            //Copy old table.
+            tableRange.Copy();
+
+            //Get the end of the document.
+            Range rng = tableRange;
+            rng.SetRange(document.Content.End, document.Content.End);
+
+            //Insert linebreak.
+            this.insertLineBreakAtRange(rng);
+            rng.SetRange(document.Content.End, document.Content.End);
+
+            //Paste the new table, 
+            rng.Paste();
+
+            return document.Tables[document.Tables.Count];
+        }
+
+        /// <summary>
+        /// Inserts linebreak at specific range.
+        /// </summary>
+        /// <param name="range"></param>
+        public void insertLineBreakAtRange(Range range)
+        {
+            range.Text += "\u2028\n";
+        }
+
+        /// <summary>
+        /// Inserts pagebreak at specific range.
+        /// </summary>
+        /// <param name="range"></param>
+        public void insertPageBreakAtRange(Range range)
+        {
+            range.InsertBreak(Microsoft.Office.Interop.Word.WdBreakType.wdPageBreak);
+        }
+
         /// <summary>
         /// Safely quits the Word instance.
         /// User has to dispose WordInterface instance immidetly after.

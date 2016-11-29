@@ -55,7 +55,7 @@ namespace Applicatie_Risicoanalyse.Reports
 
                 generateFrontPage(e.frontPageTemplateLocation, wordInterface, wordDocument, projectInfoRow);
 
-                backgroundWorker1.ReportProgress(10, (object)"Generating page index.");
+                backgroundWorker1.ReportProgress(10, (object)"Generating index page.");
 
                 generateIndexPage(e.indexPageTemplateLocation, wordInterface, wordDocument, e.projectID);
 
@@ -158,79 +158,87 @@ namespace Applicatie_Risicoanalyse.Reports
                     Document indexPageTemplate = wordInterface.app.Documents.Open(tempTemplateFile);
 
                     //Copy template to main document.
-                    wordInterface.copyDocumentToOtherDocument(indexPageTemplate, wordDocument, true);
+                    wordInterface.copyDocumentToOtherDocument(indexPageTemplate, wordDocument, false);
                     wordDocument.Activate();
 
-                    //Find index table.
-                    Microsoft.Office.Interop.Word.Table indexTable = wordInterface.findTableWithTitle(wordDocument, "riskAssessmentIndex");
-                    if (indexTable == null)
+                    //Find index table template.
+                    Microsoft.Office.Interop.Word.Table tableTemplate = wordInterface.findTableWithTitle(wordDocument, "riskAssessmentIndex");
+                    if (tableTemplate == null)
                     {
                         throw new Exception("Could not find riskAssessmentIndex table. Check your template.");
                     }
 
-                    indexTable.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitFixed);
+                    //Do not allow the column size to change.
+                    tableTemplate.AutoFitBehavior(WdAutoFitBehavior.wdAutoFitFixed);
+
+                    //Get all dagners from the database.
                     DataView dangersView = new DataView(this.tbl_DangerTableAdapter.GetData());
 
+                    //Loop throug the dangers.
                     foreach (DataRowView dangerRow in dangersView)
                     {
+                        //Get some dangersource data from the database.
+                        int oldPageCount = wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages);
                         string lastDangerSourceName = "";
                         DataView dangerSourceView = new DataView(this.get_RiskAssessment_Index_DataTableAdapter.GetData(projectID, (Int32)dangerRow["DangerID"]));
 
+                        //Copy table and set the header.
+                        Table indexTable = wordInterface.copyTable(wordDocument, tableTemplate.Range);
+                        indexTable.Rows[1].Range.Text = dangerRow["DangerGroupName"].ToString();
+
+                        //Add danger sources to the danger group.
                         foreach (DataRowView dangerSourceRow in dangerSourceView)
                         {
                             Row newTableRow;
+                            //Create new row when we get a different dangersource then the previous.
                             if (lastDangerSourceName != dangerSourceRow["DangerSourceName"].ToString())
                             {
                                 lastDangerSourceName = dangerSourceRow["DangerSourceName"].ToString();
                                 newTableRow = indexTable.Rows.Add(ref missing);
-                                //newTableRow.Cells[3].Range.Text = "";
-                                //newTableRow.Cells[4].Range.Text = "";
                             }
                             else
                             {
                                 newTableRow = indexTable.Rows.Last;
                             }
-                            //TODO fix trailing enters in table row.
+
                             newTableRow.Cells[1].Range.Text = lastDangerSourceName;
+                            //Does this dangersource has an risk associated with it?
                             if (dangerSourceRow["RiskID"] != DBNull.Value)
                             {
                                 newTableRow.Cells[2].Range.Text = "YES";
-                                newTableRow.Cells[3].Range.Text = newTableRow.Cells[3].Range.Text + ", " + dangerSourceRow["RiskID"].ToString();
+                                wordInterface.addTextToTableCell(newTableRow.Cells[3].Range, dangerSourceRow["RiskID"].ToString(), true);
                             }
+                            else
+                            {
+                                newTableRow.Cells[2].Range.Text = "NO";
+                            }
+
+                            //Does this dangersource has risks with remaining risk?
                             if (dangerSourceRow["HasRemainingRisk"] != DBNull.Value)
                             {
-                                newTableRow.Cells[4].Range.Text = newTableRow.Cells[4].Range.Text + ", " + dangerSourceRow["HasRemainingRisk"].ToString();
+                                wordInterface.addTextToTableCell(newTableRow.Cells[4].Range, dangerSourceRow["HasRemainingRisk"].ToString(), true);
                             }
                         }
-                    }
+                        //Delete our row template.
+                        indexTable.Rows[3].Delete();
+                        wordInterface.setAlternatingTableRowStyle(indexTable, ARA_Colors.ARA_Blue1,4);
 
-                    //Fill index table.
-                    /*foreach (DataRowView riskDataRow in riskDataRows)
-                    {
-                        int riskDataID = riskDataRow["ProjectRiskDataID"] != DBNull.Value ? (Int32)riskDataRow["ProjectRiskDataID"] : (Int32)riskDataRow["DefaultRiskDataID"];
-
-                        Row newTableRow = indexTable.Rows.Add(ref missing);
-                        DataView minimalAdditionView = new DataView(this.tbl_MinimalAddition_In_RiskTableAdapter.GetData());
-                        minimalAdditionView.RowFilter = string.Format("RiskDataID = '{0}'", riskDataID);
-
-                        newTableRow.Cells[2].Range.Text = riskDataRow["HazardSituation"].ToString();
-                        newTableRow.Cells[3].Range.Text = riskDataRow["RiskID"].ToString();
-
-                        //Insert a checkmark if it has remaining risk.
-                        if (minimalAdditionView.Count > 0)
+                        if(oldPageCount < wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages))
                         {
-                            newTableRow.Cells[4].Range.Font.Name = "Wingdings";
-                            newTableRow.Cells[4].Range.Font.Size = 12;
-                            newTableRow.Cells[4].Range.Text = '\u00FC'.ToString();
+                            Range tableRange = indexTable.Range;
+                            tableRange.SetRange(indexTable.Range.Start - 2, indexTable.Range.Start);
+                            wordInterface.insertPageBreakAtRange(indexTable.Range);
                         }
                     }
 
-                    //Add page numbers to index.
-                    int pageCount = wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages, false);
-                    for (int i = 0; i < riskDataRows.Count; i++)
-                    {
-                        indexTable.Rows[2 + i].Cells[1].Range.Text = (i + pageCount).ToString();
-                    }*/
+                    //Delete a trailing enter after our template table.
+                    Range rng = tableTemplate.Range;
+                    rng.SetRange(rng.End, rng.End + 2);
+                    rng.Delete();
+
+                    //Delete our template table and insert a pagebreak.
+                    tableTemplate.Delete();
+                    wordInterface.insertPageBreakAtRange(wordDocument.Words.Last);
 
                     // Close and release the Document object.
                     if (indexPageTemplate != null)
