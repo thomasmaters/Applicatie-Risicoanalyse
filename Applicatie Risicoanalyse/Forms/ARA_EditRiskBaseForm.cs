@@ -197,7 +197,7 @@ namespace Applicatie_Risicoanalyse.Forms
                         string reviewerComment = riskInProjectRow["ReviewerComment"].ToString();
                         if (reviewerComment != null && reviewerComment != string.Empty)
                         {
-                            System.Windows.Forms.MessageBox.Show("The reviewer of this risk gave the following comment:\n" + reviewerComment, "Reviewer comment.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            System.Windows.Forms.MessageBox.Show( ARA_Constants.messageBoxReviewerComment + reviewerComment, ARA_Constants.messageBoxReviewerCommentHeader , MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
@@ -245,7 +245,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     {
                         this.riskVersionID += 1;
                         this.riskDataID = (Int32)tempRow["newRiskDataID"];
-                        System.Windows.Forms.MessageBox.Show("Succesfully created a new Version of the risk!", "New version of risk created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxNewRiskVersion, ARA_Constants.messageBoxNewRiskVersionHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     //Update risks in open risk projects with new risk version.
@@ -255,7 +255,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
                     this.riskDataID = (Int32)tempRow["newRiskDataID"];
-                    System.Windows.Forms.MessageBox.Show("Succesfully made this risk project specific.", "Project specific risk!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxRiskProjectSpecific, ARA_Constants.messageBoxRiskProjectSpecificHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.isRiskDataProjectSpecific = true;

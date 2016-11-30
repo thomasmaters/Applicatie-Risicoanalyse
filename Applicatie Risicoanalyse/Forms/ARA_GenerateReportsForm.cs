@@ -147,7 +147,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if (this.generateReportsComboBoxSort.SelectedItem == null)
             {
-                System.Windows.Forms.MessageBox.Show("Select a sorting option before generating any report!", "Sorting option missing.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSortingOptionNeeded, ARA_Constants.messageBoxSortingOptionNeededHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

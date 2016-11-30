@@ -162,7 +162,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void riskProjectOverviewButtonMarkReview_Click(object sender, EventArgs e)
         {
-            if (System.Windows.Forms.MessageBox.Show("Are you sure to mark this project for review? You can't change any risks until another user has reviewed this project!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmProjectReview, ARA_Constants.messageBoxConfirmProjectReviewHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.forReview);
 
@@ -180,14 +180,14 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if(this.is_ProjectReview_AcceptedTableAdapter.GetData(this.projectID).Rows[0]["IsProjectReviewAccepted"].ToString() == "1")
             {
-                if (System.Windows.Forms.MessageBox.Show("Are you sure to end the review sessie? The project will be marked as FINALDRAFT and can't be changed afterwards!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmFinalDraft, ARA_Constants.messageBoxConfirmFinalDraftHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.finalDraft);
                 }
             }
             else
             {
-                if (System.Windows.Forms.MessageBox.Show("Are you sure to end the review sessie? The project will be marked as a new DRAFT!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmDraft, ARA_Constants.messageBoxConfirmDraftHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.draft);
                     this.queriesTableAdapter1.Increase_Project_DraftVersion(this.projectID);
@@ -205,7 +205,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void riskProjectOverviewButtonMarkClose_Click(object sender, EventArgs e)
         {
-            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to close the project? It can't be changed afterwards!", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmCloseProject, ARA_Constants.messageBoxConfirmCloseProjectHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.closed);
 

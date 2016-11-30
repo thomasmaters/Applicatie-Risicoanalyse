@@ -73,7 +73,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 if (button.Text.ToString().Equals(e.Button.Text.ToString()))
                 {
-                    System.Windows.Forms.MessageBox.Show("This project is already opend!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxProjectAlreadyOpen, ARA_Constants.messageBoxProjectAlreadyOpenHeader,MessageBoxButtons.OK,MessageBoxIcon.Information);
                     return;
                 }
             }

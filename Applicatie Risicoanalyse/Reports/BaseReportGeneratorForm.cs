@@ -46,7 +46,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if (!e.Cancelled)
             {
-                System.Windows.Forms.MessageBox.Show("Document generated!", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxDocumentsGenerated, ARA_Constants.messageBoxDocumentsGeneratedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             this.Close();
         }

@@ -70,6 +70,9 @@ namespace Applicatie_Risicoanalyse.Forms
                     //Execute procedure to copy risks to another project.
                     this.queriesTableAdapter1.Copy_Risk_From_Project_Into_Project((Int32)row.Cells["riskIDDataGridViewTextBoxColumn"].Value, (Int32)this.copyRisksComboBoxProjects.SelectedValue, this.projectID);
                 }
+
+                //Let the user know the added some risks to the current opend project.
+                System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSuccesCopiedRisks, ARA_Constants.messageBoxSuccesCopiedRisksHead, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
