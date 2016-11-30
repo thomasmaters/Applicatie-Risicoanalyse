@@ -189,18 +189,22 @@ namespace Applicatie_Risicoanalyse.Forms
                 setTopBarRiskInfo();
 
                 //Show popup box with reviewer comment on risk open.
-                if (projectState == ARA_Constants.draft)
+                if (projectState == ARA_Constants.draft && this.projectID != -1)
                 {
-                    string reviewerComment = this.tbl_Risks_In_ProjectTableAdapter.GetData().FindByProjectIDVersionIDRiskID(this.projectID, this.riskVersionID, this.riskID)["ReviewerComment"] as string;
-                    if (reviewerComment != null && reviewerComment != string.Empty)
+                    DataRow riskInProjectRow = this.tbl_Risks_In_ProjectTableAdapter.GetData().FindByProjectIDVersionIDRiskID(this.projectID, this.riskVersionID, this.riskID);
+                    if (riskInProjectRow != null)
                     {
-                        System.Windows.Forms.MessageBox.Show("The reviewer of this risk gave the following comment:\n" + reviewerComment, "Reviewer comment.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string reviewerComment = riskInProjectRow["ReviewerComment"].ToString();
+                        if (reviewerComment != null && reviewerComment != string.Empty)
+                        {
+                            System.Windows.Forms.MessageBox.Show("The reviewer of this risk gave the following comment:\n" + reviewerComment, "Reviewer comment.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -381,12 +385,13 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="direction">Direction to go from current selected risk.</param>
         private void setNextRisk(int direction)
         {
+            //Get project data when some conditions are met.
             DataTable risksInGroupAndTypeView;
             if (this.projectID == -1)
             {
                 risksInGroupAndTypeView = this.get_Risks_In_Group_And_TypeTableAdapter.GetData(this.riskGroupName, this.riskTypeName);
             }
-            else if(this.projectState == ARA_Constants.forReview)
+            else if (this.projectState == ARA_Constants.forReview)
             {
                 risksInGroupAndTypeView = this.get_Risks_In_ProjectTableAdapter.GetData(this.projectID);
             }
@@ -394,6 +399,14 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 risksInGroupAndTypeView = this.get_Risks_With_Type_And_Group_In_ProjectTableAdapter.GetData(this.projectID, this.riskGroupName, this.riskTypeName);
             }
+
+            //Did we get any rows from the database.
+            if(risksInGroupAndTypeView.Rows.Count == 0)
+            {
+                throw new Exception();
+            }
+
+            //What is our current index in the component typen list?
             int currentRiskRowIndex = risksInGroupAndTypeView.Rows.IndexOf(risksInGroupAndTypeView.Select("RiskID = " + this.riskID.ToString())[0]);
             int risksInGroupAndTypeCount = risksInGroupAndTypeView.Rows.Count;
 

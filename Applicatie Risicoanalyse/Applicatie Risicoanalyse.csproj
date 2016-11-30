@@ -299,11 +299,11 @@
     <Compile Include="Forms\ARA_ProjectOverview.Designer.cs">
       <DependentUpon>ARA_ProjectOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\testForm.cs">
+    <Compile Include="Forms\ARA_CopyRisksToProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\testForm.Designer.cs">
-      <DependentUpon>testForm.cs</DependentUpon>
+    <Compile Include="Forms\ARA_CopyRisksToProject.Designer.cs">
+      <DependentUpon>ARA_CopyRisksToProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals\ARA_Colors.cs" />
     <Compile Include="Globals\ARA_Constants.cs" />
@@ -427,8 +427,8 @@
     <EmbeddedResource Include="Forms\ARA_ProjectOverview.resx">
       <DependentUpon>ARA_ProjectOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\testForm.resx">
-      <DependentUpon>testForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ARA_CopyRisksToProject.resx">
+      <DependentUpon>ARA_CopyRisksToProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

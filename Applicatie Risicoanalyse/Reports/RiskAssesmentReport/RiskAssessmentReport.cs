@@ -223,6 +223,7 @@ namespace Applicatie_Risicoanalyse.Reports
                         indexTable.Rows[3].Delete();
                         wordInterface.setAlternatingTableRowStyle(indexTable, ARA_Colors.ARA_Blue1,4);
 
+                        //Set table on a new pages when it stretches over 2 pages.
                         if(oldPageCount < wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages))
                         {
                             Range tableRange = indexTable.Range;

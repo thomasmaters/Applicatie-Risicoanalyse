@@ -44,6 +44,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonGenerateReports = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.riskProjectOverviewPanelGenerateReports = new System.Windows.Forms.FlowLayoutPanel();
             this.panel = new System.Windows.Forms.Panel();
+            this.riskProjectOverviewButtonCopyRisk = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.riskProjectOverviewPanelCopyRisk = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.riskProjectOverviewButtonMarkReview = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.riskProjectOverviewButtonMarkDoneReview = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.riskProjectOverviewButtonMarkClose = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -68,6 +71,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonEditProjectDetails);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelEditProjectDetails);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonSpacer1);
@@ -80,6 +84,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonGenerateReports);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelGenerateReports);
             this.flowLayoutPanel1.Controls.Add(this.panel);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonCopyRisk);
+            this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewPanelCopyRisk);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkReview);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkDoneReview);
             this.flowLayoutPanel1.Controls.Add(this.riskProjectOverviewButtonMarkClose);
@@ -253,13 +260,55 @@ namespace Applicatie_Risicoanalyse.Forms
             this.panel.Size = new System.Drawing.Size(750, 12);
             this.panel.TabIndex = 11;
             // 
+            // riskProjectOverviewButtonCopyRisk
+            // 
+            this.riskProjectOverviewButtonCopyRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.riskProjectOverviewButtonCopyRisk.CanButtonBeToggled = true;
+            this.riskProjectOverviewButtonCopyRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.riskProjectOverviewButtonCopyRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.riskProjectOverviewButtonCopyRisk.Location = new System.Drawing.Point(0, 253);
+            this.riskProjectOverviewButtonCopyRisk.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewButtonCopyRisk.MaximumSize = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonCopyRisk.Name = "riskProjectOverviewButtonCopyRisk";
+            this.riskProjectOverviewButtonCopyRisk.PaddingFirstTriangle = 300;
+            this.riskProjectOverviewButtonCopyRisk.PaddingSecondTriangle = 700;
+            this.riskProjectOverviewButtonCopyRisk.Selected = false;
+            this.riskProjectOverviewButtonCopyRisk.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.riskProjectOverviewButtonCopyRisk.SelectedTextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonCopyRisk.Size = new System.Drawing.Size(750, 40);
+            this.riskProjectOverviewButtonCopyRisk.TabIndex = 16;
+            this.riskProjectOverviewButtonCopyRisk.Text = "Add risks from other project";
+            this.riskProjectOverviewButtonCopyRisk.TextColor = System.Drawing.Color.White;
+            this.riskProjectOverviewButtonCopyRisk.TriangleSize = 20;
+            this.riskProjectOverviewButtonCopyRisk.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // riskProjectOverviewPanelCopyRisk
+            // 
+            this.riskProjectOverviewPanelCopyRisk.AutoSize = true;
+            this.riskProjectOverviewPanelCopyRisk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.riskProjectOverviewPanelCopyRisk.Location = new System.Drawing.Point(0, 293);
+            this.riskProjectOverviewPanelCopyRisk.Margin = new System.Windows.Forms.Padding(0);
+            this.riskProjectOverviewPanelCopyRisk.Name = "riskProjectOverviewPanelCopyRisk";
+            this.riskProjectOverviewPanelCopyRisk.Size = new System.Drawing.Size(2, 2);
+            this.riskProjectOverviewPanelCopyRisk.TabIndex = 17;
+            this.riskProjectOverviewPanelCopyRisk.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(0, 295);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.MaximumSize = new System.Drawing.Size(800, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(750, 12);
+            this.panel1.TabIndex = 18;
+            // 
             // riskProjectOverviewButtonMarkReview
             // 
             this.riskProjectOverviewButtonMarkReview.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.riskProjectOverviewButtonMarkReview.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.riskProjectOverviewButtonMarkReview.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
-            this.riskProjectOverviewButtonMarkReview.Location = new System.Drawing.Point(0, 253);
+            this.riskProjectOverviewButtonMarkReview.Location = new System.Drawing.Point(0, 307);
             this.riskProjectOverviewButtonMarkReview.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkReview.Name = "riskProjectOverviewButtonMarkReview";
             this.riskProjectOverviewButtonMarkReview.Selected = false;
@@ -278,7 +327,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonMarkDoneReview.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkDoneReview.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.riskProjectOverviewButtonMarkDoneReview.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
-            this.riskProjectOverviewButtonMarkDoneReview.Location = new System.Drawing.Point(0, 293);
+            this.riskProjectOverviewButtonMarkDoneReview.Location = new System.Drawing.Point(0, 347);
             this.riskProjectOverviewButtonMarkDoneReview.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkDoneReview.Name = "riskProjectOverviewButtonMarkDoneReview";
             this.riskProjectOverviewButtonMarkDoneReview.Selected = false;
@@ -297,7 +346,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonMarkClose.CanButtonBeToggled = false;
             this.riskProjectOverviewButtonMarkClose.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.riskProjectOverviewButtonMarkClose.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
-            this.riskProjectOverviewButtonMarkClose.Location = new System.Drawing.Point(0, 333);
+            this.riskProjectOverviewButtonMarkClose.Location = new System.Drawing.Point(0, 387);
             this.riskProjectOverviewButtonMarkClose.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewButtonMarkClose.Name = "riskProjectOverviewButtonMarkClose";
             this.riskProjectOverviewButtonMarkClose.Selected = false;
@@ -437,5 +486,8 @@ namespace Applicatie_Risicoanalyse.Forms
         private LG_Analysis_DatabaseDataSetTableAdapters.Is_ProjectReview_AcceptedTableAdapter is_ProjectReview_AcceptedTableAdapter;
         private System.Windows.Forms.BindingSource tbl_ProjectBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter tbl_ProjectTableAdapter;
+        private Controls.ARA_DropDownButton riskProjectOverviewButtonCopyRisk;
+        private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelCopyRisk;
+        private System.Windows.Forms.Panel panel1;
     }
 }

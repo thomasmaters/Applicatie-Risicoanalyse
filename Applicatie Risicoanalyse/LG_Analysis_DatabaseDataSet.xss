@@ -60,8 +60,8 @@
     <Shape ID="DesignTable:Get_Latest_Versions_Of_Risks" ZOrder="34" X="11570" Y="70" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Select_Add_Risk_To_Project_Data" ZOrder="33" X="11940" Y="70" Height="153" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:Get_RiskAssessment_Index_Data" ZOrder="2" X="12680" Y="70" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="12310" Y="70" Height="257" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="253" />
     <Shape ID="DesignTable:Get_Risks_With_PL_In_Project" ZOrder="1" X="13050" Y="70" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="12310" Y="70" Height="257" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="253" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_ComponentType_ComponentGroup" ZOrder="32" LineWidth="11">

@@ -191,7 +191,6 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void OpenRiskInProjectDataGrid_Sorted(object sender, EventArgs e)
         {
-            Debug.WriteLine("sorted");
             addStyleToCells();
         }
     }

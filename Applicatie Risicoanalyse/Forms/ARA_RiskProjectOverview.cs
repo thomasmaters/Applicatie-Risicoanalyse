@@ -27,11 +27,13 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonAddRiskToProject.setConnectedPanel(this.riskProjectOverviewPanelAddRiskToProject);
             this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             this.riskProjectOverviewButtonGenerateReports.setConnectedPanel(this.riskProjectOverviewPanelGenerateReports);
+            this.riskProjectOverviewButtonCopyRisk.setConnectedPanel(this.riskProjectOverviewPanelCopyRisk);
             //Add Click event to hide all other buttons/panels when one opens.
             this.riskProjectOverviewButtonOpenRisk.Click += hideOtherPanels;
             this.riskProjectOverviewButtonAddRiskToProject.Click += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
             this.riskProjectOverviewButtonGenerateReports.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonCopyRisk.Click += hideOtherPanels;
         }
 
         /// <summary>
@@ -96,6 +98,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelGenerateReports, new ARA_GenerateReportsForm(projectID));
+            this.addFormToPanel(this.riskProjectOverviewPanelCopyRisk, new ARA_CopyRisksToProject(projectID));
 
             loadPermissions();
 
@@ -113,6 +116,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 this.riskProjectOverviewButtonAddRiskToProject.Enabled = false;
                 this.riskProjectOverviewButtonEditProjectDetails.Enabled = false;
+                this.riskProjectOverviewButtonCopyRisk.Enabled = false;
                 this.riskProjectOverviewButtonGenerateReports.Enabled = true;
                 this.riskProjectOverviewButtonOpenRisk.Enabled = true;
             }
