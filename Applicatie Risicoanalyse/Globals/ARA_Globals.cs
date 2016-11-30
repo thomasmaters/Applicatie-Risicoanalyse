@@ -12,10 +12,10 @@ namespace Applicatie_Risicoanalyse.Globals
 {
     public static class ARA_Globals
     {
-        private static float aRA_BaseFontSize       = 19F;
+        private static float aRA_BaseFontSize       = 15F;
         private static String aRa_Date              = DateTime.Now.ToString("dd-MM-yyyy");
 
-        private static string userPermissionGroup   = "Admin";
+        private static string userPermissionGroup   = "Default";
         private static int userID                   = 1;
 
         private static string[] riskClassDescription = 
@@ -69,7 +69,7 @@ namespace Applicatie_Risicoanalyse.Globals
 
             set
             {
-                userPermissionGroup = value;
+                userPermissionGroup = value.ToLower();
             }
         }
 

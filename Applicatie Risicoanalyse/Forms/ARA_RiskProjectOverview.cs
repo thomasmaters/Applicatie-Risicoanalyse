@@ -15,7 +15,7 @@ namespace Applicatie_Risicoanalyse.Forms
 {
     public partial class ARA_RiskProjectOverview : Form
     {
-        private int projectID = 1;
+        private int projectID = -1;
 
         public ARA_RiskProjectOverview(int projectID)
         {
@@ -29,11 +29,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonGenerateReports.setConnectedPanel(this.riskProjectOverviewPanelGenerateReports);
             this.riskProjectOverviewButtonCopyRisk.setConnectedPanel(this.riskProjectOverviewPanelCopyRisk);
             //Add Click event to hide all other buttons/panels when one opens.
-            this.riskProjectOverviewButtonOpenRisk.Click += hideOtherPanels;
-            this.riskProjectOverviewButtonAddRiskToProject.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonOpenRisk.Click           += hideOtherPanels;
+            this.riskProjectOverviewButtonAddRiskToProject.Click   += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
-            this.riskProjectOverviewButtonGenerateReports.Click += hideOtherPanels;
-            this.riskProjectOverviewButtonCopyRisk.Click += hideOtherPanels;
+            this.riskProjectOverviewButtonGenerateReports.Click    += hideOtherPanels;
+            this.riskProjectOverviewButtonCopyRisk.Click           += hideOtherPanels;
         }
 
         /// <summary>
@@ -52,6 +52,18 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonOpenRisk.Visible              = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.riskProjectOverviewPanelOpenRisk.Visible               = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.riskProjectOverviewPanelOpenRisk.Enabled               = ARA_ACL.getPermissionLevel("General.ButtonOpenRisk") == ARA_Globals.PermissionLevel.All;
+
+            this.riskProjectOverviewButtonCopyRisk.Visible              = ARA_ACL.getPermissionLevel("General.ButtonCopyRisksToProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelCopyRisk.Visible               = ARA_ACL.getPermissionLevel("General.ButtonCopyRisksToProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelCopyRisk.Enabled               = ARA_ACL.getPermissionLevel("General.ButtonCopyRisksToProject") == ARA_Globals.PermissionLevel.All;
+
+            this.riskProjectOverviewButtonGenerateReports.Visible       = ARA_ACL.getPermissionLevel("General.ButtonGenerateReports") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelGenerateReports.Visible        = ARA_ACL.getPermissionLevel("General.ButtonGenerateReports") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.riskProjectOverviewPanelGenerateReports.Enabled        = ARA_ACL.getPermissionLevel("General.ButtonGenerateReports") == ARA_Globals.PermissionLevel.All;
+
+            this.riskProjectOverviewButtonMarkClose.Visible             = this.riskProjectOverviewButtonMarkClose.Visible && ARA_ACL.getPermissionLevel("General.ButtonMarkProjectClosed") == ARA_Globals.PermissionLevel.All;
+            this.riskProjectOverviewButtonMarkReview.Visible            = this.riskProjectOverviewButtonMarkReview.Visible && ARA_ACL.getPermissionLevel("General.ButtonMarkProjectForReview") == ARA_Globals.PermissionLevel.All;
+            this.riskProjectOverviewButtonMarkDoneReview.Visible        = this.riskProjectOverviewButtonMarkDoneReview.Visible && ARA_ACL.getPermissionLevel("General.ButtonMarkProjectDoneReviewing") == ARA_Globals.PermissionLevel.All;
         }
 
         /// <summary>
@@ -100,8 +112,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addFormToPanel(this.riskProjectOverviewPanelGenerateReports, new ARA_GenerateReportsForm(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelCopyRisk, new ARA_CopyRisksToProject(projectID));
 
-            loadPermissions();
-
+            //Enable controls and reload permissions.
             enableControlOnProjectState();
         }
 
@@ -114,25 +125,29 @@ namespace Applicatie_Risicoanalyse.Forms
             int userID = (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"];
             if (projectState != ARA_Constants.draft)
             {
-                this.riskProjectOverviewButtonAddRiskToProject.Enabled = false;
+                this.riskProjectOverviewButtonAddRiskToProject.Enabled   = false;
                 this.riskProjectOverviewButtonEditProjectDetails.Enabled = false;
-                this.riskProjectOverviewButtonCopyRisk.Enabled = false;
-                this.riskProjectOverviewButtonGenerateReports.Enabled = true;
-                this.riskProjectOverviewButtonOpenRisk.Enabled = true;
+                this.riskProjectOverviewButtonCopyRisk.Enabled           = false;
+                this.riskProjectOverviewButtonGenerateReports.Enabled    = true;
+                this.riskProjectOverviewButtonOpenRisk.Enabled           = true;
             }
             else
             {
-                this.riskProjectOverviewButtonAddRiskToProject.Enabled = true;
+                this.riskProjectOverviewButtonAddRiskToProject.Enabled   = true;
                 this.riskProjectOverviewButtonEditProjectDetails.Enabled = true;
+                this.riskProjectOverviewButtonCopyRisk.Enabled           = true;
             }
 
             //Enable or disable buttons to change project state.
-            this.riskProjectOverviewButtonMarkClose.Visible = projectState == ARA_Constants.finalDraft;
+            this.riskProjectOverviewButtonMarkClose.Visible      = projectState == ARA_Constants.finalDraft;
             this.riskProjectOverviewButtonMarkDoneReview.Visible = projectState == ARA_Constants.forReview && ARA_Globals.UserID != userID;
-            this.riskProjectOverviewButtonMarkReview.Visible = projectState == ARA_Constants.draft && ARA_Globals.UserID == userID;
+            this.riskProjectOverviewButtonMarkReview.Visible     = projectState == ARA_Constants.draft && ARA_Globals.UserID == userID;
 
             //Update the topbar form.
             setProjectInfoTopForm();
+
+            //Reload permissions.
+            loadPermissions();
         }
 
         /// <summary>
@@ -216,7 +231,6 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_RiskProjectOverview_Shown(object sender, EventArgs e)
         {
-            Debug.WriteLine("RiskProjectOverview shown");
             this.setProjectInfoTopForm();
         }
 
@@ -224,7 +238,6 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             if(this.Visible == false)
             {
-                Debug.WriteLine("RiskProjectOverview shown" + this.Visible.ToString());
                 this.setProjectInfoTopForm();
             }
         }

@@ -17,7 +17,11 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_CopyRisksToProject(int projectID)
         {
             this.projectID = projectID;
+
             InitializeComponent();
+
+            //Load combobox data from database.
+            this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
 
             //Scale form.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -27,10 +31,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.copyRisksDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
         }
 
-        private void testForm_Load(object sender, EventArgs e)
+        private void copyRisksForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
-            this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
         }
 
         /// <summary>
@@ -107,13 +109,19 @@ namespace Applicatie_Risicoanalyse.Forms
                     (Int32)row.Cells["riskIDDataGridViewTextBoxColumn"].Value,
                     (Int32)row.Cells["versionIDDataGridViewTextBoxColumn1"].Value)[0]["IsRiskOld"].ToString() == "1")
                 {
-                    row.Cells[0].Style.BackColor = ARA_Colors.ARA_Blue5;
+                    row.Cells["riskIDDataGridViewTextBoxColumn"].Style.BackColor = ARA_Colors.ARA_Blue5;
                 }
                 else
                 {
                     row.Cells[0].Style.BackColor = Color.White;
                 }
             }
+        }
+
+        //readd style to datagrid when the user sorts the datagrid.
+        private void copyRisksDataGrid_Sorted(object sender, EventArgs e)
+        {
+            this.addStyleToDataGrid();
         }
     }
 }

@@ -163,6 +163,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.copyRisksDataGrid.ShowEditingIcon = false;
             this.copyRisksDataGrid.Size = new System.Drawing.Size(721, 195);
             this.copyRisksDataGrid.TabIndex = 4;
+            this.copyRisksDataGrid.Sorted += new System.EventHandler(this.copyRisksDataGrid_Sorted);
             // 
             // projectIDDataGridViewTextBoxColumn3
             // 
@@ -229,7 +230,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_Button1
             // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
+            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
             this.arA_Button1.CanButtonBeToggled = false;
             this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
@@ -312,7 +313,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.MaximumSize = new System.Drawing.Size(750, 265);
             this.Name = "ARA_CopyRisksToProject";
             this.Text = "testForm";
-            this.Load += new System.EventHandler(this.testForm_Load);
+            this.Load += new System.EventHandler(this.copyRisksForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getRisksWithRiskDataInProjectBindingSource)).EndInit();

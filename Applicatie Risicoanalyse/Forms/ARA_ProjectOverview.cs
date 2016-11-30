@@ -50,9 +50,6 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonEditRiskStandard.Visible      = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelEditRiskStandard.Enabled       = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") == ARA_Globals.PermissionLevel.All;
 
-            this.projectOverviewButtonEditRiskStandard.Visible      = ARA_ACL.getPermissionLevel("General.ButtonEditRiskStandard") == ARA_Globals.PermissionLevel.All;
-            this.projectOverviewPanelEditRiskStandard.Visible       = ARA_ACL.getPermissionLevel("General.ButtonEditRiskStandard") == ARA_Globals.PermissionLevel.All;
-
             this.projectOverviewButtonCreateNewRisk.Visible         = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
             this.projectOverviewButtonCreateNewRisk.Enabled         = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
         }

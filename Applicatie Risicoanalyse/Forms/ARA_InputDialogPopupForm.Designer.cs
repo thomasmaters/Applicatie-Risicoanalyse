@@ -30,6 +30,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ARA_InputDialogPopupForm));
             this.inputDialogCancel = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.inputDialogOK = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.inputDialogTextboxInput = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
@@ -110,6 +111,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Controls.Add(this.inputDialogText);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.MaximumSize = new System.Drawing.Size(400, 200);
             this.Name = "ARA_InputDialogPopupForm";

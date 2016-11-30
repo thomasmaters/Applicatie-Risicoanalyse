@@ -8715,11 +8715,11 @@ namespace Applicatie_Risicoanalyse {
             
             private global::System.Data.DataColumn columnUserID;
             
-            private global::System.Data.DataColumn columnFirstName;
-            
-            private global::System.Data.DataColumn columnLastName;
-            
             private global::System.Data.DataColumn columnPermissionID;
+            
+            private global::System.Data.DataColumn columnUsername;
+            
+            private global::System.Data.DataColumn columnPasswordHash;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -8764,25 +8764,25 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FirstNameColumn {
-                get {
-                    return this.columnFirstName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastNameColumn {
-                get {
-                    return this.columnLastName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn PermissionIDColumn {
                 get {
                     return this.columnPermissionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UsernameColumn {
+                get {
+                    return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PasswordHashColumn {
+                get {
+                    return this.columnPasswordHash;
                 }
             }
             
@@ -8823,15 +8823,15 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Tbl_UserRow AddTbl_UserRow(string FirstName, string LastName, Tbl_User_PermissionsRow parentTbl_User_PermissionsRowByFK_User_UserPermissions) {
+            public Tbl_UserRow AddTbl_UserRow(Tbl_User_PermissionsRow parentTbl_User_PermissionsRowByFK_User_UserPermissions, string Username, byte[] PasswordHash) {
                 Tbl_UserRow rowTbl_UserRow = ((Tbl_UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        FirstName,
-                        LastName,
-                        null};
+                        null,
+                        Username,
+                        PasswordHash};
                 if ((parentTbl_User_PermissionsRowByFK_User_UserPermissions != null)) {
-                    columnValuesArray[3] = parentTbl_User_PermissionsRowByFK_User_UserPermissions[0];
+                    columnValuesArray[1] = parentTbl_User_PermissionsRowByFK_User_UserPermissions[0];
                 }
                 rowTbl_UserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTbl_UserRow);
@@ -8863,9 +8863,9 @@ namespace Applicatie_Risicoanalyse {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnUserID = base.Columns["UserID"];
-                this.columnFirstName = base.Columns["FirstName"];
-                this.columnLastName = base.Columns["LastName"];
                 this.columnPermissionID = base.Columns["PermissionID"];
+                this.columnUsername = base.Columns["Username"];
+                this.columnPasswordHash = base.Columns["PasswordHash"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8873,12 +8873,12 @@ namespace Applicatie_Risicoanalyse {
             private void InitClass() {
                 this.columnUserID = new global::System.Data.DataColumn("UserID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserID);
-                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFirstName);
-                this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastName);
                 this.columnPermissionID = new global::System.Data.DataColumn("PermissionID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPermissionID);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
+                this.columnPasswordHash = new global::System.Data.DataColumn("PasswordHash", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPasswordHash);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUserID}, true));
                 this.columnUserID.AutoIncrement = true;
@@ -8887,11 +8887,10 @@ namespace Applicatie_Risicoanalyse {
                 this.columnUserID.AllowDBNull = false;
                 this.columnUserID.ReadOnly = true;
                 this.columnUserID.Unique = true;
-                this.columnFirstName.AllowDBNull = false;
-                this.columnFirstName.MaxLength = 64;
-                this.columnLastName.AllowDBNull = false;
-                this.columnLastName.MaxLength = 64;
                 this.columnPermissionID.AllowDBNull = false;
+                this.columnUsername.AllowDBNull = false;
+                this.columnUsername.MaxLength = 64;
+                this.columnPasswordHash.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21064,34 +21063,34 @@ namespace Applicatie_Risicoanalyse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FirstName {
-                get {
-                    return ((string)(this[this.tableTbl_User.FirstNameColumn]));
-                }
-                set {
-                    this[this.tableTbl_User.FirstNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LastName {
-                get {
-                    return ((string)(this[this.tableTbl_User.LastNameColumn]));
-                }
-                set {
-                    this[this.tableTbl_User.LastNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int PermissionID {
                 get {
                     return ((int)(this[this.tableTbl_User.PermissionIDColumn]));
                 }
                 set {
                     this[this.tableTbl_User.PermissionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Username {
+                get {
+                    return ((string)(this[this.tableTbl_User.UsernameColumn]));
+                }
+                set {
+                    this[this.tableTbl_User.UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] PasswordHash {
+                get {
+                    return ((byte[])(this[this.tableTbl_User.PasswordHashColumn]));
+                }
+                set {
+                    this[this.tableTbl_User.PasswordHashColumn] = value;
                 }
             }
             
@@ -34254,41 +34253,41 @@ SELECT ProjectID, VersionID, RiskID, RiskDataID, ReviewedByUser, ReviewerComment
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Tbl_User";
             tableMapping.ColumnMappings.Add("UserID", "UserID");
-            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
-            tableMapping.ColumnMappings.Add("LastName", "LastName");
             tableMapping.ColumnMappings.Add("PermissionID", "PermissionID");
+            tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.ColumnMappings.Add("PasswordHash", "PasswordHash");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tbl_User] WHERE (([UserID] = @Original_UserID) AND ([FirstName" +
-                "] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([PermissionI" +
-                "D] = @Original_PermissionID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Tbl_User] WHERE (([UserID] = @Original_UserID) AND ([PermissionID] =" +
+                " @Original_PermissionID) AND ([PasswordHash] = @Original_PasswordHash) AND ([Use" +
+                "rname] = @Original_Username))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermissionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PasswordHash", global::System.Data.SqlDbType.Binary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tbl_User] ([FirstName], [LastName], [PermissionID]) VALUES (@F" +
-                "irstName, @LastName, @PermissionID);\r\nSELECT UserID, FirstName, LastName, Permis" +
-                "sionID FROM Tbl_User WHERE (UserID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Tbl_User] ([PermissionID], [PasswordHash], [Username]) VALUES (@Perm" +
+                "issionID, @PasswordHash, @Username);\r\nSELECT UserID, PermissionID, PasswordHash," +
+                " Username FROM Tbl_User WHERE (UserID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PermissionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PasswordHash", global::System.Data.SqlDbType.Binary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tbl_User] SET [FirstName] = @FirstName, [LastName] = @LastName, [PermissionID] = @PermissionID WHERE (([UserID] = @Original_UserID) AND ([FirstName] = @Original_FirstName) AND ([LastName] = @Original_LastName) AND ([PermissionID] = @Original_PermissionID));
-SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @UserID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tbl_User] SET [PermissionID] = @PermissionID, [PasswordHash] = @PasswordHash, [Username] = @Username WHERE (([UserID] = @Original_UserID) AND ([PermissionID] = @Original_PermissionID) AND ([PasswordHash] = @Original_PasswordHash) AND ([Username] = @Original_Username));
+SELECT UserID, PermissionID, PasswordHash, Username FROM Tbl_User WHERE (UserID = @UserID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PermissionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PasswordHash", global::System.Data.SqlDbType.Binary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PermissionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PermissionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PasswordHash", global::System.Data.SqlDbType.Binary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -34305,7 +34304,7 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT UserID, FirstName, LastName, PermissionID FROM dbo.Tbl_User";
+            this._commandCollection[0].CommandText = "SELECT UserID, PermissionID, PasswordHash, Username FROM Tbl_User";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -34366,21 +34365,21 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_UserID, string Original_FirstName, string Original_LastName, int Original_PermissionID) {
+        public virtual int Delete(int Original_UserID, int Original_PermissionID, byte[] Original_PasswordHash, string Original_Username) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_UserID));
-            if ((Original_FirstName == null)) {
-                throw new global::System.ArgumentNullException("Original_FirstName");
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PermissionID));
+            if ((Original_PasswordHash == null)) {
+                throw new global::System.ArgumentNullException("Original_PasswordHash");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_FirstName));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((byte[])(Original_PasswordHash));
             }
-            if ((Original_LastName == null)) {
-                throw new global::System.ArgumentNullException("Original_LastName");
+            if ((Original_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_LastName));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Username));
             }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_PermissionID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -34401,20 +34400,20 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FirstName, string LastName, int PermissionID) {
-            if ((FirstName == null)) {
-                throw new global::System.ArgumentNullException("FirstName");
+        public virtual int Insert(int PermissionID, byte[] PasswordHash, string Username) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PermissionID));
+            if ((PasswordHash == null)) {
+                throw new global::System.ArgumentNullException("PasswordHash");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FirstName));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((byte[])(PasswordHash));
             }
-            if ((LastName == null)) {
-                throw new global::System.ArgumentNullException("LastName");
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(LastName));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Username));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PermissionID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -34435,34 +34434,34 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, int PermissionID, int Original_UserID, string Original_FirstName, string Original_LastName, int Original_PermissionID, int UserID) {
-            if ((FirstName == null)) {
-                throw new global::System.ArgumentNullException("FirstName");
+        public virtual int Update(int PermissionID, byte[] PasswordHash, string Username, int Original_UserID, int Original_PermissionID, byte[] Original_PasswordHash, string Original_Username, int UserID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PermissionID));
+            if ((PasswordHash == null)) {
+                throw new global::System.ArgumentNullException("PasswordHash");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(FirstName));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((byte[])(PasswordHash));
             }
-            if ((LastName == null)) {
-                throw new global::System.ArgumentNullException("LastName");
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(LastName));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Username));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(PermissionID));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_UserID));
-            if ((Original_FirstName == null)) {
-                throw new global::System.ArgumentNullException("Original_FirstName");
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PermissionID));
+            if ((Original_PasswordHash == null)) {
+                throw new global::System.ArgumentNullException("Original_PasswordHash");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_FirstName));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte[])(Original_PasswordHash));
             }
-            if ((Original_LastName == null)) {
-                throw new global::System.ArgumentNullException("Original_LastName");
+            if ((Original_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_LastName));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Username));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PermissionID));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(UserID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -34484,8 +34483,8 @@ SELECT UserID, FirstName, LastName, PermissionID FROM Tbl_User WHERE (UserID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, int PermissionID, int Original_UserID, string Original_FirstName, string Original_LastName, int Original_PermissionID) {
-            return this.Update(FirstName, LastName, PermissionID, Original_UserID, Original_FirstName, Original_LastName, Original_PermissionID, Original_UserID);
+        public virtual int Update(int PermissionID, byte[] PasswordHash, string Username, int Original_UserID, int Original_PermissionID, byte[] Original_PasswordHash, string Original_Username) {
+            return this.Update(PermissionID, PasswordHash, Username, Original_UserID, Original_PermissionID, Original_PasswordHash, Original_Username, Original_UserID);
         }
     }
     

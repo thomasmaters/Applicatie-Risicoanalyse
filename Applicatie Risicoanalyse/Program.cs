@@ -23,12 +23,6 @@ namespace Applicatie_Risicoanalyse
         [STAThread]
         static void Main()
         {
-            ARA_ACL kaas = ARA_ACL.Instance;
-            ARA_Globals.PermissionLevel test = ARA_ACL.getPermissionLevel("hendrik111111");
-            ARA_Globals.PermissionLevel test2 = ARA_ACL.getPermissionLevel("jan");
-            ARA_Globals.PermissionLevel test3 = ARA_ACL.getPermissionLevel("hendrik11111111111");
-            Debug.WriteLine(ARA_ACL.getPermissionLevel("hendrik111111").ToString());
-
             /*File.Copy("C:\\Users\\Thomas\\documents\\visual studio 2015\\Projects\\Applicatie Risicoanalyse\\Applicatie Risicoanalyse\\Resources\\Gotham-Light.otf",
     Path.Combine(Environment.GetFolderPath(SpecialFolder.Windows),
         "Fonts", "Gotham-LightTest.otf"));
@@ -38,7 +32,7 @@ namespace Applicatie_Risicoanalyse
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ARA_BaseForm());
+            Application.Run(new ARA_LoadingScreen());
         }
     }
 }

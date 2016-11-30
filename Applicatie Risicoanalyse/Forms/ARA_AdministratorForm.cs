@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Applicatie_Risicoanalyse.Globals;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,9 +28,12 @@ namespace Applicatie_Risicoanalyse.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void onAddNewUserClicked(object sender, EventArgs e)
         {
-            this.tbl_UserTableAdapter.Insert(this.textBox1.Text, this.textBox2.Text, (Int32)this.comboBox1.SelectedValue);
+            ARA_Login loginHandler = new ARA_Login();
+            byte[] passwordHash = loginHandler.getHashFromByteArray(loginHandler.GetBytes("password"));
+
+            this.tbl_UserTableAdapter.Insert((Int32)this.adminComboBoxPermissionGroup.SelectedValue, passwordHash, this.adminInputNewUsername.Text);
             this.dataGridView1.DataSource = this.tbl_UserTableAdapter.GetData();
         }
 

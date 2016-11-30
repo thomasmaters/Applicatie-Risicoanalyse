@@ -33,7 +33,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.arA_ButtonEditRiskImage = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.arA_EditRiskExposedPersons1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskExposedPersons();
             this.arA_EditRiskHazardIndentification1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskHazardIndentification();
             this.arA_EditRiskRiskEstimation1 = new Applicatie_Risicoanalyse.Controls.ARA_EditRiskRiskEstimation();
@@ -113,7 +113,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.arA_Button1);
+            this.flowLayoutPanel1.Controls.Add(this.arA_ButtonEditRiskImage);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskExposedPersons1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskHazardIndentification1);
             this.flowLayoutPanel1.Controls.Add(this.arA_EditRiskRiskEstimation1);
@@ -144,22 +144,22 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_Button1
             // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_Button1.CanButtonBeToggled = true;
-            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_Button1.Location = new System.Drawing.Point(0, 275);
-            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.arA_Button1.Name = "arA_Button1";
-            this.arA_Button1.Selected = false;
-            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
-            this.arA_Button1.SelectedTextColor = System.Drawing.Color.Black;
-            this.arA_Button1.Size = new System.Drawing.Size(741, 44);
-            this.arA_Button1.TabIndex = 7;
-            this.arA_Button1.Text = "Upload new image for risk";
-            this.arA_Button1.TextColor = System.Drawing.Color.Black;
-            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
+            this.arA_ButtonEditRiskImage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.arA_ButtonEditRiskImage.CanButtonBeToggled = true;
+            this.arA_ButtonEditRiskImage.HorizontalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_ButtonEditRiskImage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.arA_ButtonEditRiskImage.Location = new System.Drawing.Point(0, 275);
+            this.arA_ButtonEditRiskImage.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
+            this.arA_ButtonEditRiskImage.Name = "arA_Button1";
+            this.arA_ButtonEditRiskImage.Selected = false;
+            this.arA_ButtonEditRiskImage.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.arA_ButtonEditRiskImage.SelectedTextColor = System.Drawing.Color.Black;
+            this.arA_ButtonEditRiskImage.Size = new System.Drawing.Size(741, 44);
+            this.arA_ButtonEditRiskImage.TabIndex = 7;
+            this.arA_ButtonEditRiskImage.Text = "Upload new image for risk";
+            this.arA_ButtonEditRiskImage.TextColor = System.Drawing.Color.Black;
+            this.arA_ButtonEditRiskImage.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.arA_ButtonEditRiskImage.Click += new System.EventHandler(this.arA_Button1_Click);
             // 
             // arA_EditRiskExposedPersons1
             // 
@@ -611,7 +611,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_DataTableAdapter tbl_Risk_DataTableAdapter;
         private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Controls.ARA_Button arA_Button1;
+        private Controls.ARA_Button arA_ButtonEditRiskImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.BindingSource tbl_BLOB_StorageBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_BLOB_StorageTableAdapter tbl_BLOB_StorageTableAdapter;

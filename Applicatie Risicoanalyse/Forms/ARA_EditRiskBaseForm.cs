@@ -62,13 +62,15 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         private void loadPermissions()
         {
-            this.arA_EditRiskExposedPersons1.Enabled        = ARA_ACL.getPermissionLevel("Function.EditExposedPersons") == ARA_Globals.PermissionLevel.All;
-            this.arA_EditRiskHazardIndentification1.Enabled = ARA_ACL.getPermissionLevel("Function.EditHazardIndentification") == ARA_Globals.PermissionLevel.All;
-            this.arA_EditRiskRiskEstimation1.Enabled        = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationBeforeRiskReduction") == ARA_Globals.PermissionLevel.All;
-            this.arA_EditRiskRiskEstimation2.Enabled        = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationAfterRiskReduction") == ARA_Globals.PermissionLevel.All;
-            this.arA_EditRiskRiskReductionMesures1.Enabled  = ARA_ACL.getPermissionLevel("Function.EditRiskReductionMesures") == ARA_Globals.PermissionLevel.All;
-            this.arA_EditRiskRiskReductionMesures2.Enabled  = ARA_ACL.getPermissionLevel("Function.EditRemaingRisk") == ARA_Globals.PermissionLevel.All;
-            this.arA_Button1.Enabled                        = ARA_ACL.getPermissionLevel("Function.EditRiskImage") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskExposedPersons1.Enabled         = ARA_ACL.getPermissionLevel("Function.EditExposedPersons") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskHazardIndentification1.Enabled  = ARA_ACL.getPermissionLevel("Function.EditHazardIndentification") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskEstimation1.Enabled         = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationBeforeRiskReduction") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskEstimation2.Enabled         = ARA_ACL.getPermissionLevel("Function.EditRiskEstimationAfterRiskReduction") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskReductionMesures1.Enabled   = ARA_ACL.getPermissionLevel("Function.EditRiskReductionMesures") == ARA_Globals.PermissionLevel.All;
+            this.arA_EditRiskRiskReductionMesures2.Enabled   = ARA_ACL.getPermissionLevel("Function.EditRemaingRisk") == ARA_Globals.PermissionLevel.All;
+            this.arA_ButtonEditRiskImage.Enabled             = ARA_ACL.getPermissionLevel("Function.EditRiskImage") == ARA_Globals.PermissionLevel.All;
+            this.editRiskBaseFormButtonReviewAccept.Enabled  = ARA_ACL.getPermissionLevel("Function.ReviewRisks") == ARA_Globals.PermissionLevel.All;
+            this.editRiskBaseFormButtonReviewDecline.Enabled = ARA_ACL.getPermissionLevel("Function.ReviewRisks") == ARA_Globals.PermissionLevel.All;
         }
 
         /// <summary>
@@ -221,7 +223,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.arA_EditRiskRiskEstimation2.Enabled = false;
                 this.arA_EditRiskRiskReductionMesures1.Enabled = false;
                 this.arA_EditRiskRiskReductionMesures2.Enabled = false;
-                this.arA_Button1.Enabled = false;
+                this.arA_ButtonEditRiskImage.Enabled = false;
             }
             if (this.projectState == ARA_Constants.forReview
                 && (Int32)this.tbl_ProjectTableAdapter.GetData().FindByProjectID(this.projectID)["UserID"] != ARA_Globals.UserID)

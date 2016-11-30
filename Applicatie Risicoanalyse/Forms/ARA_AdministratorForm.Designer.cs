@@ -33,28 +33,25 @@
             this.arA_Text5 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_Text1 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.arA_Text2 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.adminInputNewUsername = new System.Windows.Forms.TextBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.arA_Text3 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.adminComboBoxPermissionGroup = new System.Windows.Forms.ComboBox();
             this.tblUserPermissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.splitter3 = new System.Windows.Forms.Splitter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.adminButtonAddUser = new System.Windows.Forms.Button();
             this.arA_Text4 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.splitter4 = new System.Windows.Forms.Splitter();
             this.button2 = new System.Windows.Forms.Button();
             this.tbl_User_PermissionsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter();
             this.tbl_UserTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblUserPermissionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -68,14 +65,12 @@
             this.flowLayoutPanel1.Controls.Add(this.arA_Text5);
             this.flowLayoutPanel1.Controls.Add(this.arA_Text1);
             this.flowLayoutPanel1.Controls.Add(this.splitter1);
-            this.flowLayoutPanel1.Controls.Add(this.arA_Text2);
-            this.flowLayoutPanel1.Controls.Add(this.textBox1);
+            this.flowLayoutPanel1.Controls.Add(this.adminInputNewUsername);
             this.flowLayoutPanel1.Controls.Add(this.splitter2);
-            this.flowLayoutPanel1.Controls.Add(this.textBox2);
             this.flowLayoutPanel1.Controls.Add(this.arA_Text3);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel1.Controls.Add(this.adminComboBoxPermissionGroup);
             this.flowLayoutPanel1.Controls.Add(this.splitter3);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.adminButtonAddUser);
             this.flowLayoutPanel1.Controls.Add(this.arA_Text4);
             this.flowLayoutPanel1.Controls.Add(this.dataGridView1);
             this.flowLayoutPanel1.Controls.Add(this.comboBox2);
@@ -107,38 +102,26 @@
             this.arA_Text1.Location = new System.Drawing.Point(0, 23);
             this.arA_Text1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text1.Name = "arA_Text1";
-            this.arA_Text1.Size = new System.Drawing.Size(199, 23);
+            this.arA_Text1.Size = new System.Drawing.Size(723, 23);
             this.arA_Text1.TabIndex = 2;
-            this.arA_Text1.Text = "First name";
+            this.arA_Text1.Text = "Username";
             this.arA_Text1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(202, 26);
+            this.splitter1.Location = new System.Drawing.Point(726, 26);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(3, 17);
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
-            // arA_Text2
+            // adminInputNewUsername
             // 
-            this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text2.Location = new System.Drawing.Point(208, 23);
-            this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Text2.Name = "arA_Text2";
-            this.arA_Text2.Size = new System.Drawing.Size(542, 23);
-            this.arA_Text2.TabIndex = 3;
-            this.arA_Text2.Text = "Last name";
-            this.arA_Text2.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 46);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 31);
-            this.textBox1.TabIndex = 1;
+            this.adminInputNewUsername.Location = new System.Drawing.Point(0, 46);
+            this.adminInputNewUsername.Margin = new System.Windows.Forms.Padding(0);
+            this.adminInputNewUsername.Name = "adminInputNewUsername";
+            this.adminInputNewUsername.Size = new System.Drawing.Size(199, 31);
+            this.adminInputNewUsername.TabIndex = 1;
             // 
             // splitter2
             // 
@@ -147,14 +130,6 @@
             this.splitter2.Size = new System.Drawing.Size(3, 25);
             this.splitter2.TabIndex = 6;
             this.splitter2.TabStop = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(208, 46);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 31);
-            this.textBox2.TabIndex = 4;
             // 
             // arA_Text3
             // 
@@ -168,17 +143,17 @@
             this.arA_Text3.Text = "Permission group";
             this.arA_Text3.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // comboBox1
+            // adminComboBoxPermissionGroup
             // 
-            this.comboBox1.DataSource = this.tblUserPermissionsBindingSource;
-            this.comboBox1.DisplayMember = "PermissionName";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 100);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 32);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.ValueMember = "PermissionID";
+            this.adminComboBoxPermissionGroup.DataSource = this.tblUserPermissionsBindingSource;
+            this.adminComboBoxPermissionGroup.DisplayMember = "PermissionName";
+            this.adminComboBoxPermissionGroup.FormattingEnabled = true;
+            this.adminComboBoxPermissionGroup.Location = new System.Drawing.Point(0, 100);
+            this.adminComboBoxPermissionGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.adminComboBoxPermissionGroup.Name = "adminComboBoxPermissionGroup";
+            this.adminComboBoxPermissionGroup.Size = new System.Drawing.Size(196, 32);
+            this.adminComboBoxPermissionGroup.TabIndex = 7;
+            this.adminComboBoxPermissionGroup.ValueMember = "PermissionID";
             // 
             // tblUserPermissionsBindingSource
             // 
@@ -198,16 +173,16 @@
             this.splitter3.TabIndex = 9;
             this.splitter3.TabStop = false;
             // 
-            // button1
+            // adminButtonAddUser
             // 
-            this.button1.Location = new System.Drawing.Point(205, 100);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add user";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.adminButtonAddUser.Location = new System.Drawing.Point(205, 100);
+            this.adminButtonAddUser.Margin = new System.Windows.Forms.Padding(0);
+            this.adminButtonAddUser.Name = "adminButtonAddUser";
+            this.adminButtonAddUser.Size = new System.Drawing.Size(202, 32);
+            this.adminButtonAddUser.TabIndex = 0;
+            this.adminButtonAddUser.Text = "Add user";
+            this.adminButtonAddUser.UseVisualStyleBackColor = true;
+            this.adminButtonAddUser.Click += new System.EventHandler(this.onAddNewUserClicked);
             // 
             // arA_Text4
             // 
@@ -231,9 +206,8 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Username,
             this.userIDDataGridViewTextBoxColumn,
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
             this.permissionIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.tblUserBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 158);
@@ -242,34 +216,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(742, 222);
             this.dataGridView1.TabIndex = 10;
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // permissionIDDataGridViewTextBoxColumn
-            // 
-            this.permissionIDDataGridViewTextBoxColumn.DataPropertyName = "PermissionID";
-            this.permissionIDDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.permissionIDDataGridViewTextBoxColumn.HeaderText = "PermissionID";
-            this.permissionIDDataGridViewTextBoxColumn.Name = "permissionIDDataGridViewTextBoxColumn";
-            this.permissionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tblUserBindingSource
             // 
@@ -315,6 +261,28 @@
             // 
             this.tbl_UserTableAdapter.ClearBeforeFill = true;
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // permissionIDDataGridViewTextBoxColumn
+            // 
+            this.permissionIDDataGridViewTextBoxColumn.DataPropertyName = "PermissionID";
+            this.permissionIDDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.permissionIDDataGridViewTextBoxColumn.HeaderText = "PermissionID";
+            this.permissionIDDataGridViewTextBoxColumn.Name = "permissionIDDataGridViewTextBoxColumn";
+            this.permissionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // ARA_AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -342,14 +310,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Controls.ARA_Text arA_Text1;
         private System.Windows.Forms.Splitter splitter1;
-        private Controls.ARA_Text arA_Text2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox adminInputNewUsername;
         private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.TextBox textBox2;
         private Controls.ARA_Text arA_Text3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox adminComboBoxPermissionGroup;
         private System.Windows.Forms.Splitter splitter3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button adminButtonAddUser;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private System.Windows.Forms.BindingSource tblUserPermissionsBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter tbl_User_PermissionsTableAdapter;
@@ -361,9 +327,10 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Splitter splitter4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionIDDataGridViewTextBoxColumn;
     }
 }

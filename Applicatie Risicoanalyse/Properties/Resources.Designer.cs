@@ -70,8 +70,9 @@ namespace Applicatie_Risicoanalyse.Properties {
         ///		&lt;right name=&quot;General.ButtonRecentProjects&quot; 			access=&quot;none&quot;/&gt;
         ///		&lt;right name=&quot;General.ButtonCreateProjectRevision&quot;	access=&quot;none&quot;/&gt;
         ///		&lt;right name=&quot;General.ButtonEditStandardRisks&quot; 		access=&quot;none&quot;/&gt;
-        ///		&lt;right name=&quot;General.ButtonAddRiskToProject&quot; 		access=&quot;none&quot;/&gt;
-        ///		&lt;right name=&quot;G [rest of string was truncated]&quot;;.
+        ///		&lt;right name=&quot;General.ButtonCreateNewRisk&quot;			access=&quot;none&quot;/&gt;
+        ///		
+        ///		&lt;right name=&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ACL {
             get {
@@ -105,6 +106,26 @@ namespace Applicatie_Risicoanalyse.Properties {
         internal static System.Drawing.Bitmap Langen_Group_Colour {
             get {
                 object obj = ResourceManager.GetObject("Langen Group_Colour", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon MooreBrabazon_with_Flying_Pig {
+            get {
+                object obj = ResourceManager.GetObject("MooreBrabazon_with_Flying_Pig", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MooreBrabazon_with_Flying_Pig1 {
+            get {
+                object obj = ResourceManager.GetObject("MooreBrabazon_with_Flying_Pig1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

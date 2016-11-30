@@ -233,6 +233,12 @@
     <Compile Include="Forms\ARA_InputDialogPopupForm.Designer.cs">
       <DependentUpon>ARA_InputDialogPopupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_LoadingScreen.Designer.cs">
+      <DependentUpon>ARA_LoadingScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ARA_NewRiskBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,7 @@
     <Compile Include="Globals\ARA_Events.cs" />
     <Compile Include="Globals\ARA_Globals.cs" />
     <Compile Include="Globals\ARA_ACL.cs" />
+    <Compile Include="Globals\ARA_Login.cs" />
     <Compile Include="LG_Analysis_DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -392,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_InputDialogPopupForm.resx">
       <DependentUpon>ARA_InputDialogPopupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_LoadingScreen.resx">
+      <DependentUpon>ARA_LoadingScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_NewRiskBaseForm.resx">
       <DependentUpon>ARA_NewRiskBaseForm.cs</DependentUpon>
@@ -520,6 +530,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MooreBrabazon_with_Flying_Pig.ico" />
+    <None Include="Resources\MooreBrabazon_with_Flying_Pig.jpg" />
+    <None Include="Resources\MooreBrabazon_with_Flying_Pig.ico" />
     <EmbeddedResource Include="Resources\PerformanceLevelFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>

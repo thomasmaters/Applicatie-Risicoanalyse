@@ -29,6 +29,7 @@
         ///
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ARA_BaseForm));
             this.SidePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.TopBar = new System.Windows.Forms.FlowLayoutPanel();
             this.LeftPadding = new System.Windows.Forms.FlowLayoutPanel();
@@ -100,6 +101,7 @@
             this.Controls.Add(this.SidePanel);
             this.Font = new System.Drawing.Font("Gotham Light", 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ARA_BaseForm";
             this.Text = "ARA_BaseForm";
