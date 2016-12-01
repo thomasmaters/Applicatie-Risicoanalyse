@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Applicatie_Risicoanalyse.Globals
 {
@@ -129,6 +130,43 @@ namespace Applicatie_Risicoanalyse.Globals
             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
+
+        //------------------------------------------------------------------------------------------
+        //Alternative 'Experimental' login function.
+        //------------------------------------------------------------------------------------------
+
+        [System.Runtime.InteropServices.DllImport("advapi32.dll")]
+        public static extern bool LogonUser(string userName, string domainName, string password, int LogonType, int LogonProvider, ref IntPtr phToken);
+
+        private void windowsAuthenticationLogin(string aUsername, string aDomain, string aPassword)
+        {
+            bool issuccess = false;
+            string username = GetloggedinUserName();
+            Debug.WriteLine(username);
+            if (username.ToLowerInvariant().Contains(aUsername.Trim().ToLowerInvariant()) && username.ToLowerInvariant().Contains(aDomain.Trim().ToLowerInvariant()))
+            {
+                issuccess = IsValidateCredentials(aUsername.Trim(), aPassword.Trim(), aDomain.Trim());
+            }
+
+            if (issuccess)
+                MessageBox.Show("Successfuly Login !!!");
+            else
+                MessageBox.Show("User Name / Password / Domain is invalid !!!");
+        }
+
+        private string GetloggedinUserName()
+        {
+            System.Security.Principal.WindowsIdentity currentUser = System.Security.Principal.WindowsIdentity.GetCurrent();
+            return currentUser.Name;
+        }
+
+        private bool IsValidateCredentials(string userName, string password, string domain)
+        {
+            IntPtr tokenHandler = IntPtr.Zero;
+            bool isValid = LogonUser(userName, domain, password, 2, 0, ref tokenHandler);
+            return isValid;
+        }
+        //-------------------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Destructor for cleaning resources.
