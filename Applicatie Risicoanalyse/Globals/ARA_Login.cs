@@ -138,20 +138,17 @@ namespace Applicatie_Risicoanalyse.Globals
         [System.Runtime.InteropServices.DllImport("advapi32.dll")]
         public static extern bool LogonUser(string userName, string domainName, string password, int LogonType, int LogonProvider, ref IntPtr phToken);
 
-        private void windowsAuthenticationLogin(string aUsername, string aDomain, string aPassword)
+        private bool windowsAuthenticationLogin(string aUsername, string aDomain, string aPassword)
         {
             bool issuccess = false;
             string username = GetloggedinUserName();
-            Debug.WriteLine(username);
+
             if (username.ToLowerInvariant().Contains(aUsername.Trim().ToLowerInvariant()) && username.ToLowerInvariant().Contains(aDomain.Trim().ToLowerInvariant()))
             {
                 issuccess = IsValidateCredentials(aUsername.Trim(), aPassword.Trim(), aDomain.Trim());
             }
 
-            if (issuccess)
-                MessageBox.Show("Successfuly Login !!!");
-            else
-                MessageBox.Show("User Name / Password / Domain is invalid !!!");
+            return issuccess;
         }
 
         private string GetloggedinUserName()
