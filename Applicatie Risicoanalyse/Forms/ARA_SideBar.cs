@@ -49,6 +49,9 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Set current date.
             this.SideBarDate.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARa_Date;
+
+            //Set logged in username.
+            this.SideBarUserName.Text = ARA_Globals.LoggedInUsername;
         }
 
         /// <summary>

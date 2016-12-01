@@ -31,9 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ARA_LoadingScreen));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.loadingScreenInputPassword = new System.Windows.Forms.MaskedTextBox();
             this.loadingScreenButtonLogin = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.arA_Text3 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_Text2 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.loadingScreenInputUsername = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -58,27 +56,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.loadingScreenInputPassword);
             this.panel1.Controls.Add(this.loadingScreenButtonLogin);
-            this.panel1.Controls.Add(this.arA_Text3);
             this.panel1.Controls.Add(this.arA_Text2);
             this.panel1.Controls.Add(this.loadingScreenInputUsername);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(344, 224);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 201);
+            this.panel1.Size = new System.Drawing.Size(249, 125);
             this.panel1.TabIndex = 100;
-            // 
-            // loadingScreenInputPassword
-            // 
-            this.loadingScreenInputPassword.Location = new System.Drawing.Point(11, 111);
-            this.loadingScreenInputPassword.Margin = new System.Windows.Forms.Padding(0);
-            this.loadingScreenInputPassword.Name = "loadingScreenInputPassword";
-            this.loadingScreenInputPassword.PasswordChar = '*';
-            this.loadingScreenInputPassword.Size = new System.Drawing.Size(227, 31);
-            this.loadingScreenInputPassword.TabIndex = 1;
-            this.loadingScreenInputPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loadingScreenInputPassword_KeyPress);
             // 
             // loadingScreenButtonLogin
             // 
@@ -86,7 +72,7 @@
             this.loadingScreenButtonLogin.CanButtonBeToggled = false;
             this.loadingScreenButtonLogin.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.loadingScreenButtonLogin.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.loadingScreenButtonLogin.Location = new System.Drawing.Point(11, 160);
+            this.loadingScreenButtonLogin.Location = new System.Drawing.Point(11, 85);
             this.loadingScreenButtonLogin.Margin = new System.Windows.Forms.Padding(0);
             this.loadingScreenButtonLogin.Name = "loadingScreenButtonLogin";
             this.loadingScreenButtonLogin.Selected = false;
@@ -100,33 +86,22 @@
             this.loadingScreenButtonLogin.Click += new System.EventHandler(this.loadingScreenButtonLoginClicked);
             this.loadingScreenButtonLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arA_Button1_KeyPress);
             // 
-            // arA_Text3
-            // 
-            this.arA_Text3.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text3.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text3.Location = new System.Drawing.Point(11, 80);
-            this.arA_Text3.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Text3.Name = "arA_Text3";
-            this.arA_Text3.Size = new System.Drawing.Size(227, 27);
-            this.arA_Text3.TabIndex = 100;
-            this.arA_Text3.Text = "Password:";
-            this.arA_Text3.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            // 
             // arA_Text2
             // 
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.arA_Text2.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text2.Location = new System.Drawing.Point(11, 5);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_Text2.Name = "arA_Text2";
             this.arA_Text2.Size = new System.Drawing.Size(227, 27);
             this.arA_Text2.TabIndex = 100;
-            this.arA_Text2.Text = "Username:";
+            this.arA_Text2.Text = "Welcome";
             this.arA_Text2.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // loadingScreenInputUsername
             // 
-            this.loadingScreenInputUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
+            this.loadingScreenInputUsername.BackColor = System.Drawing.Color.White;
             this.loadingScreenInputUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.loadingScreenInputUsername.BorderSize = 2;
             this.loadingScreenInputUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -135,6 +110,7 @@
             this.loadingScreenInputUsername.Margin = new System.Windows.Forms.Padding(0);
             this.loadingScreenInputUsername.MaxLength = 64;
             this.loadingScreenInputUsername.Name = "loadingScreenInputUsername";
+            this.loadingScreenInputUsername.ReadOnly = true;
             this.loadingScreenInputUsername.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.loadingScreenInputUsername.Size = new System.Drawing.Size(227, 38);
             this.loadingScreenInputUsername.TabIndex = 0;
@@ -185,7 +161,6 @@
             this.Load += new System.EventHandler(this.ARA_LoadingScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -195,12 +170,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private Controls.ARA_Button loadingScreenButtonLogin;
-        private Controls.ARA_Text arA_Text3;
         private Controls.ARA_Text arA_Text2;
         private Controls.ARA_TextBox loadingScreenInputUsername;
         private Controls.ARA_Text loadingScreenTextLoadState;
         private Controls.ARA_Text arA_Text4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.MaskedTextBox loadingScreenInputPassword;
     }
 }

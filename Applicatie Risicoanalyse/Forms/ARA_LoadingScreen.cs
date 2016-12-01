@@ -34,6 +34,12 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void ARA_LoadingScreen_Load(object sender, EventArgs e)
         {
+            //Set username from system.
+            ARA_Login login = new ARA_Login();
+            this.loadingScreenInputUsername.Text = login.getLoggedInUserName();
+            this.loadingScreenInputUsername.Invalidate();
+
+            //Start checking stuff on the backgroundworker.
             backgroundWorker1.RunWorkerAsync();
         }
 
@@ -144,15 +150,13 @@ namespace Applicatie_Risicoanalyse.Forms
         private void loadingScreenButtonLoginClicked(object sender, EventArgs e)
         {
             //Did the user put in some values.
-            if (this.loadingScreenInputPassword.Text.Length > 0 && this.loadingScreenInputUsername.Text.Length > 0)
+            if (this.loadingScreenInputUsername.Text.Length > 0)
             {
                 //Convert password to a hash.
                 ARA_Login loginHandler = new ARA_Login();
-                byte[] passwordHash = loginHandler.getHashFromByteArray(loginHandler.GetBytes(this.loadingScreenInputPassword.Text));
-                loadingScreenInputPassword.Text = "";
 
                 //Try to login the user.
-                if(loginHandler.login(this.loadingScreenInputUsername.Text, passwordHash))
+                if(loginHandler.login())
                 {
                     loginHandler = null;
 

@@ -59,6 +59,41 @@ namespace Applicatie_Risicoanalyse.Globals
         }
 
         /// <summary>
+        /// Alternative login function using the current logged in user on the windows machine.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public bool login()
+        {
+            //Loop through users table.
+            Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter userTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
+            foreach (DataRow row in userTableAdapter.GetData().Rows)
+            {
+                //Do the usernames match?
+                if (row["UserName"].ToString().ToLower() ==  Environment.UserName.ToLower())
+                {
+                    //Set userid.
+                    ARA_Globals.UserID = (Int32)row["UserID"];
+
+                    //Set permission level.
+                    try
+                    {
+                        Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter permissionTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter();
+                        ARA_Globals.UserPermissionGroup = permissionTableAdapter.GetData().FindByPermissionID((Int32)row["PermissionID"])["PermissionName"].ToString();
+                        ARA_Globals.LoggedInUsername = Environment.UserName;
+                    }
+                    catch (Exception)
+                    {
+                        //We didnt get his permission level, set it to default.
+                        ARA_Globals.UserPermissionGroup = "Default";
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Uses the sha512 instance to compute a password hash.
         /// </summary>
         /// <param name="byteArrayToHash"></param>
@@ -131,6 +166,17 @@ namespace Applicatie_Risicoanalyse.Globals
             return new string(chars);
         }
 
+        public string getloggedInUserNameWithDomain()
+        {
+            System.Security.Principal.WindowsIdentity currentUser = System.Security.Principal.WindowsIdentity.GetCurrent();
+            return currentUser.Name;
+        }
+
+        public string getLoggedInUserName()
+        {
+            return Environment.UserName;
+        }
+
         //------------------------------------------------------------------------------------------
         //Alternative 'Experimental' login function.
         //------------------------------------------------------------------------------------------
@@ -141,7 +187,7 @@ namespace Applicatie_Risicoanalyse.Globals
         private bool windowsAuthenticationLogin(string aUsername, string aDomain, string aPassword)
         {
             bool issuccess = false;
-            string username = GetloggedinUserName();
+            string username = getloggedInUserNameWithDomain();
 
             if (username.ToLowerInvariant().Contains(aUsername.Trim().ToLowerInvariant()) && username.ToLowerInvariant().Contains(aDomain.Trim().ToLowerInvariant()))
             {
@@ -149,12 +195,6 @@ namespace Applicatie_Risicoanalyse.Globals
             }
 
             return issuccess;
-        }
-
-        private string GetloggedinUserName()
-        {
-            System.Security.Principal.WindowsIdentity currentUser = System.Security.Principal.WindowsIdentity.GetCurrent();
-            return currentUser.Name;
         }
 
         private bool IsValidateCredentials(string userName, string password, string domain)

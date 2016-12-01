@@ -209,7 +209,7 @@
             this.SideBarUserName.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.SideBarUserName.Size = new System.Drawing.Size(160, 20);
             this.SideBarUserName.TabIndex = 13;
-            this.SideBarUserName.Text = "T.G. Maters";
+            this.SideBarUserName.Text = "-";
             this.SideBarUserName.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // SideBarDate

@@ -17,6 +17,7 @@ namespace Applicatie_Risicoanalyse.Globals
 
         private static string userPermissionGroup   = "Default";
         private static int userID                   = 1;
+        private static string loggedInUsername      = "";
 
         private static string[] riskClassDescription = 
         {
@@ -99,6 +100,19 @@ namespace Applicatie_Risicoanalyse.Globals
             set
             {
                 userID = value;
+            }
+        }
+
+        public static string LoggedInUsername
+        {
+            get
+            {
+                return loggedInUsername;
+            }
+
+            set
+            {
+                loggedInUsername = value;
             }
         }
 

@@ -59,7 +59,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public const string messageBoxSomethingWrongWhileGeneratingHeader = "Something went wrong while generating.";
         public const string messageBoxLoginFailded                        = "Couldn't login, check your username or password!";
         public const string messageBoxLoginFaildedHeader                  = "Login failed.";
-        public const string messageBoxLoginNewUser                        = "Succesfully created a new user. Send the user a email with his password: ";
+        public const string messageBoxLoginNewUser                        = "Succesfully added a new user to the database.";
         public const string messageBoxLoginNewUser1                       = " This password has also been copied to your clipboard.";
         public const string messageBoxLoginNewUserHeader                  = "Login failed.";
     }

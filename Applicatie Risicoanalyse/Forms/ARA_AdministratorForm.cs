@@ -48,8 +48,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.dataGridView1.DataSource = this.tbl_UserTableAdapter.GetData();
 
                 //Give the admin a pop-up and copy the new password to the users clipboard.
-                MessageBox.Show(ARA_Constants.messageBoxLoginNewUser + randomPassword + ARA_Constants.messageBoxLoginNewUser1, ARA_Constants.messageBoxLoginNewUserHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                System.Windows.Forms.Clipboard.SetText(randomPassword);
+                MessageBox.Show(ARA_Constants.messageBoxLoginNewUser, ARA_Constants.messageBoxLoginNewUserHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Clean the login handler form memory.
                 loginHandler = null;
