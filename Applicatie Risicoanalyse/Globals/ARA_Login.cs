@@ -46,9 +46,9 @@ namespace Applicatie_Risicoanalyse.Globals
                         }
                         catch (Exception)
                         {
+                            //We didnt get his permission level, set it to default.
                             ARA_Globals.UserPermissionGroup = "Default";
                         }
-
                         return true;
                     }
                     return false;
@@ -67,6 +67,26 @@ namespace Applicatie_Risicoanalyse.Globals
             return this.cryptographyInstance.ComputeHash(byteArrayToHash);
         }
 
+        /// <summary>
+        /// Generates a random password of a specific length.
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns>String containing the random password.</returns>
+        public string generateRandomPassword(int length)
+        {
+            Random random = new Random((Int32)DateTime.Now.Ticks);
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvw";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+        /// <summary>
+        /// Function to check if 2 hashes are equal.
+        /// </summary>
+        /// <param name="a1">Byte array to compare.</param>
+        /// <param name="b1">Other byte array to compare.</param>
+        /// <returns></returns>
         private bool compareHashes(byte[] a1, byte[] b1)
         {
             int i;
@@ -108,6 +128,18 @@ namespace Applicatie_Risicoanalyse.Globals
             char[] chars = new char[bytes.Length / sizeof(char)];
             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
+        }
+
+        /// <summary>
+        /// Destructor for cleaning resources.
+        /// </summary>
+        ~ARA_Login()
+        {
+            if(this.cryptographyInstance != null)
+            {
+                cryptographyInstance.Clear();
+                cryptographyInstance = null;
+            }
         }
     }
 }

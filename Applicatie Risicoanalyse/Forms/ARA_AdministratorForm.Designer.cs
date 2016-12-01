@@ -43,15 +43,15 @@
             this.adminButtonAddUser = new System.Windows.Forms.Button();
             this.arA_Text4 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tblUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.splitter4 = new System.Windows.Forms.Splitter();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tbl_User_PermissionsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter();
-            this.tbl_UserTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.splitter4 = new System.Windows.Forms.Splitter();
+            this.adminSetPermissionGroup = new System.Windows.Forms.Button();
+            this.tbl_User_PermissionsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_User_PermissionsTableAdapter();
+            this.tbl_UserTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblUserPermissionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -75,7 +75,7 @@
             this.flowLayoutPanel1.Controls.Add(this.dataGridView1);
             this.flowLayoutPanel1.Controls.Add(this.comboBox2);
             this.flowLayoutPanel1.Controls.Add(this.splitter4);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.adminSetPermissionGroup);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -217,6 +217,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(742, 222);
             this.dataGridView1.TabIndex = 10;
             // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // permissionIDDataGridViewTextBoxColumn
+            // 
+            this.permissionIDDataGridViewTextBoxColumn.DataPropertyName = "PermissionID";
+            this.permissionIDDataGridViewTextBoxColumn.FillWeight = 60F;
+            this.permissionIDDataGridViewTextBoxColumn.HeaderText = "PermissionID";
+            this.permissionIDDataGridViewTextBoxColumn.Name = "permissionIDDataGridViewTextBoxColumn";
+            this.permissionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // tblUserBindingSource
             // 
             this.tblUserBindingSource.DataMember = "Tbl_User";
@@ -242,16 +264,16 @@
             this.splitter4.TabIndex = 15;
             this.splitter4.TabStop = false;
             // 
-            // button2
+            // adminSetPermissionGroup
             // 
-            this.button2.Location = new System.Drawing.Point(205, 383);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(275, 32);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Set permission group";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.adminSetPermissionGroup.Location = new System.Drawing.Point(205, 383);
+            this.adminSetPermissionGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.adminSetPermissionGroup.Name = "adminSetPermissionGroup";
+            this.adminSetPermissionGroup.Size = new System.Drawing.Size(275, 32);
+            this.adminSetPermissionGroup.TabIndex = 13;
+            this.adminSetPermissionGroup.Text = "Set permission group";
+            this.adminSetPermissionGroup.UseVisualStyleBackColor = true;
+            this.adminSetPermissionGroup.Click += new System.EventHandler(this.onSetUserPermissionButtonClicked);
             // 
             // tbl_User_PermissionsTableAdapter
             // 
@@ -260,28 +282,6 @@
             // tbl_UserTableAdapter
             // 
             this.tbl_UserTableAdapter.ClearBeforeFill = true;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // permissionIDDataGridViewTextBoxColumn
-            // 
-            this.permissionIDDataGridViewTextBoxColumn.DataPropertyName = "PermissionID";
-            this.permissionIDDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.permissionIDDataGridViewTextBoxColumn.HeaderText = "PermissionID";
-            this.permissionIDDataGridViewTextBoxColumn.Name = "permissionIDDataGridViewTextBoxColumn";
-            this.permissionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ARA_AdministratorForm
             // 
@@ -326,7 +326,7 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter tbl_UserTableAdapter;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Splitter splitter4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button adminSetPermissionGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;

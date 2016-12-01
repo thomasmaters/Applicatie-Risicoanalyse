@@ -26,7 +26,11 @@ namespace Applicatie_Risicoanalyse.Forms
             setPanelForm(new ARA_MainMenu(), this.contentPanel);
         }
 
-        //Set the content panels form.
+        /// <summary>
+        /// Shows a form in a panel.
+        /// </summary>
+        /// <param name="aForm"></param>
+        /// <param name="aPanel"></param>
         public void setPanelForm(Form aForm, Panel aPanel)
         {
             //Make it a subform.
@@ -42,6 +46,11 @@ namespace Applicatie_Risicoanalyse.Forms
             aForm.Show();
         }
 
+        /// <summary>
+        /// Handler when the the user wants to set the main content panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onOpenContentFormEvent(object sender, OpenContentFormEventArgs e)
         {
             //if (this.contentPanel.Controls[0] != e.Form)

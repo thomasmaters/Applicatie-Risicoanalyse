@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseReportGeneratorForm));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.RarProgressBar = new System.Windows.Forms.ProgressBar();
             this.RarButtonCancel = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -94,6 +95,7 @@
             // RarButtonCancel
             // 
             this.RarButtonCancel.BaseColor = System.Drawing.Color.Maroon;
+            this.RarButtonCancel.CanButtonBeToggled = true;
             this.RarButtonCancel.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.RarButtonCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.RarButtonCancel.Location = new System.Drawing.Point(16, 93);
@@ -288,7 +290,7 @@
             // 
             this.get_RemainingRisks_In_ProjectTableAdapter.ClearBeforeFill = true;
             // 
-            // RemainingRiskReport
+            // BaseReportGeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -298,9 +300,10 @@
             this.Controls.Add(this.RarProgressText);
             this.Controls.Add(this.RarProgressBar);
             this.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.Name = "RemainingRiskReport";
-            this.Text = "Remaining Rest-Risk Report";
+            this.Name = "BaseReportGeneratorForm";
+            this.Text = "Report generator";
             this.Load += new System.EventHandler(this.testForm_Load);
             this.Shown += new System.EventHandler(this.testForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();

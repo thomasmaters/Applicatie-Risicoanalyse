@@ -168,5 +168,18 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Handler when the user selects the loginbutton with the TAB key and presses enter.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void arA_Button1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                this.loadingScreenButtonLoginClicked(sender, e);
+            }
+        }
     }
 }

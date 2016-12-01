@@ -11,6 +11,7 @@ namespace Applicatie_Risicoanalyse.Globals
         //Application constants.
         public const string applicationVersion = "ALPHA-V3.001";
         public const float noScaleFontSize     = 15F;
+        public const int randomPasswordLength = 10;
 
         //New risk creation constants.
         public const int hazardSituationMinimalTextLength = 25;
@@ -58,5 +59,8 @@ namespace Applicatie_Risicoanalyse.Globals
         public const string messageBoxSomethingWrongWhileGeneratingHeader = "Something went wrong while generating.";
         public const string messageBoxLoginFailded                        = "Couldn't login, check your username or password!";
         public const string messageBoxLoginFaildedHeader                  = "Login failed.";
+        public const string messageBoxLoginNewUser                        = "Succesfully created a new user. Send the user a email with his password: ";
+        public const string messageBoxLoginNewUser1                       = " This password has also been copied to your clipboard.";
+        public const string messageBoxLoginNewUserHeader                  = "Login failed.";
     }
 }

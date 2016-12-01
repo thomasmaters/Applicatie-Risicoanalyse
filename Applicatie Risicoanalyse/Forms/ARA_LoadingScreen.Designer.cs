@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.loadingScreenInputPassword = new System.Windows.Forms.MaskedTextBox();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.loadingScreenButtonLogin = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             this.arA_Text3 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.arA_Text2 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.loadingScreenInputUsername = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
@@ -59,7 +59,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.loadingScreenInputPassword);
-            this.panel1.Controls.Add(this.arA_Button1);
+            this.panel1.Controls.Add(this.loadingScreenButtonLogin);
             this.panel1.Controls.Add(this.arA_Text3);
             this.panel1.Controls.Add(this.arA_Text2);
             this.panel1.Controls.Add(this.loadingScreenInputUsername);
@@ -79,24 +79,25 @@
             this.loadingScreenInputPassword.Size = new System.Drawing.Size(227, 31);
             this.loadingScreenInputPassword.TabIndex = 1;
             // 
-            // arA_Button1
+            // loadingScreenButtonLogin
             // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.arA_Button1.CanButtonBeToggled = false;
-            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_Button1.Location = new System.Drawing.Point(11, 160);
-            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Button1.Name = "arA_Button1";
-            this.arA_Button1.Selected = false;
-            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button1.Size = new System.Drawing.Size(227, 31);
-            this.arA_Button1.TabIndex = 2;
-            this.arA_Button1.Text = "Login";
-            this.arA_Button1.TextColor = System.Drawing.Color.White;
-            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.Click += new System.EventHandler(this.loadingScreenButtonLoginClicked);
+            this.loadingScreenButtonLogin.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.loadingScreenButtonLogin.CanButtonBeToggled = false;
+            this.loadingScreenButtonLogin.HorizontalAlignment = System.Drawing.StringAlignment.Center;
+            this.loadingScreenButtonLogin.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.loadingScreenButtonLogin.Location = new System.Drawing.Point(11, 160);
+            this.loadingScreenButtonLogin.Margin = new System.Windows.Forms.Padding(0);
+            this.loadingScreenButtonLogin.Name = "loadingScreenButtonLogin";
+            this.loadingScreenButtonLogin.Selected = false;
+            this.loadingScreenButtonLogin.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.loadingScreenButtonLogin.SelectedTextColor = System.Drawing.Color.White;
+            this.loadingScreenButtonLogin.Size = new System.Drawing.Size(227, 31);
+            this.loadingScreenButtonLogin.TabIndex = 2;
+            this.loadingScreenButtonLogin.Text = "Login";
+            this.loadingScreenButtonLogin.TextColor = System.Drawing.Color.White;
+            this.loadingScreenButtonLogin.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.loadingScreenButtonLogin.Click += new System.EventHandler(this.loadingScreenButtonLoginClicked);
+            this.loadingScreenButtonLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arA_Button1_KeyPress);
             // 
             // arA_Text3
             // 
@@ -192,7 +193,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private Controls.ARA_Button arA_Button1;
+        private Controls.ARA_Button loadingScreenButtonLogin;
         private Controls.ARA_Text arA_Text3;
         private Controls.ARA_Text arA_Text2;
         private Controls.ARA_TextBox loadingScreenInputUsername;

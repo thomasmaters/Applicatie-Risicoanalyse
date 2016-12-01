@@ -32,6 +32,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Attach eventhandlers on form load and set sidebar texts.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onMainMenuLoad(object sender, EventArgs e)
         {
             //Add events.
@@ -46,6 +51,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.SideBarDate.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARa_Date;
         }
 
+        /// <summary>
+        /// Handler when the sidebar receives an event to select a sidebar button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onSetSideBarButtonSelectedEvent(object sender, SetSideBarButtonSelectedEventArgs e)
         {
             if(e.Index == "")

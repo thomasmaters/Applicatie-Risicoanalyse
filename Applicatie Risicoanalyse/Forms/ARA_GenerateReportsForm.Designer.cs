@@ -191,7 +191,7 @@
             this.arA_Button1.Selected = false;
             this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button1.Size = new System.Drawing.Size(239, 45);
+            this.arA_Button1.Size = new System.Drawing.Size(225, 45);
             this.arA_Button1.TabIndex = 6;
             this.arA_Button1.Text = "Generate All Reports";
             this.arA_Button1.TextColor = System.Drawing.Color.White;
@@ -217,7 +217,7 @@
             this.generateReportsComboBoxSort.FormattingEnabled = true;
             this.generateReportsComboBoxSort.Location = new System.Drawing.Point(502, 104);
             this.generateReportsComboBoxSort.Name = "generateReportsComboBoxSort";
-            this.generateReportsComboBoxSort.Size = new System.Drawing.Size(236, 28);
+            this.generateReportsComboBoxSort.Size = new System.Drawing.Size(225, 28);
             this.generateReportsComboBoxSort.TabIndex = 14;
             // 
             // ARA_GenerateReportsForm
@@ -225,7 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(750, 211);
+            this.ClientSize = new System.Drawing.Size(735, 211);
             this.Controls.Add(this.generateReportsComboBoxSort);
             this.Controls.Add(this.arA_Text4);
             this.Controls.Add(this.arA_Button4);

@@ -78,14 +78,21 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Function to draw the dropdown button.
+        /// </summary>
+        /// <param name="pe"></param>
         protected override void OnPaint(PaintEventArgs pe)
         {
             //Draw button base.
             base.OnPaint(pe);
 
+            //Check if we have a connected panel and sets its visability.
             if(this.connectedPanel != null && connectedPanel.Visible != this.selected)
             {
                 connectedPanel.Visible = this.selected;
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
 
             //Create brushes.
@@ -131,12 +138,20 @@ namespace Applicatie_Risicoanalyse.Controls
             formGraphics.Dispose();
         }
 
+        /// <summary>
+        /// Connects a panel to a dropdown button.
+        /// </summary>
+        /// <param name="panel"></param>
         public void setConnectedPanel(FlowLayoutPanel panel)
         {
             if (panel == null) { return; }
             this.connectedPanel = panel;
         }
 
+        /// <summary>
+        /// Adds a sub control (form) to the connected panel of the dropdownbutton.
+        /// </summary>
+        /// <param name="control"></param>
         public void addControlToConnectedPanel(Control control)
         {
             if(control != null && ConnectedPanel != null)
