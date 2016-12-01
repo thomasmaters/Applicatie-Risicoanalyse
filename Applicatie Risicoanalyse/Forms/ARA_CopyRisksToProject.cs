@@ -123,5 +123,16 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.addStyleToDataGrid();
         }
+
+        /// <summary>
+        /// Update datasources when visability changes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_CopyRisksToProject_VisibleChanged(object sender, EventArgs e)
+        {
+            this.copyRisksComboBoxProjects.DataSource = this.tbl_Risk_AnalysisTableAdapter.GetData();
+            copyRisksComboBoxProjects_SelectedIndexChanged(new object(), new EventArgs());
+        }
     }
 }

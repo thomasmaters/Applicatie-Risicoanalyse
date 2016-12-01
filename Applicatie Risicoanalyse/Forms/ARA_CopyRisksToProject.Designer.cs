@@ -315,6 +315,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Name = "ARA_CopyRisksToProject";
             this.Text = "testForm";
             this.Load += new System.EventHandler(this.copyRisksForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.ARA_CopyRisksToProject_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getRisksWithRiskDataInProjectBindingSource)).EndInit();
