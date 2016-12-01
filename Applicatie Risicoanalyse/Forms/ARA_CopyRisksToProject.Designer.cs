@@ -75,7 +75,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.copyRisksComboBoxProjects.Size = new System.Drawing.Size(226, 32);
             this.copyRisksComboBoxProjects.TabIndex = 0;
             this.copyRisksComboBoxProjects.ValueMember = "ProjectID";
-            this.copyRisksComboBoxProjects.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.copyRisksComboBoxProjects.SelectedIndexChanged += new System.EventHandler(this.copyRisksComboBoxProjects_SelectedIndexChanged);
             // 
             // tblRiskAnalysisBindingSource
             // 
@@ -143,6 +143,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.copyRisksDataGrid.AllowUserToResizeRows = false;
             this.copyRisksDataGrid.AutoGenerateColumns = false;
             this.copyRisksDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.copyRisksDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.copyRisksDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.copyRisksDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.projectIDDataGridViewTextBoxColumn3,
@@ -245,7 +246,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_Button1.Text = "Copy selected risks in current project";
             this.arA_Button1.TextColor = System.Drawing.Color.White;
             this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
+            this.arA_Button1.Click += new System.EventHandler(this.onCopyRisksButtonClicked);
             // 
             // arA_Text1
             // 

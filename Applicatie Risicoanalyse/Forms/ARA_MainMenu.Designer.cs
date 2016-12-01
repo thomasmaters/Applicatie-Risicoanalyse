@@ -40,8 +40,8 @@
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
             this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
             this.MainMenuPanelTitle.SuspendLayout();
             this.MainMenuPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenuTable)).BeginInit();
@@ -167,13 +167,10 @@
             this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
             this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tbl_LogTableAdapter
-            // 
-            this.tbl_LogTableAdapter.ClearBeforeFill = true;
-            // 
             // arA_Button1
             // 
             this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.arA_Button1.CanButtonBeToggled = false;
             this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_Button1.Location = new System.Drawing.Point(0, 183);
@@ -188,6 +185,10 @@
             this.arA_Button1.TextColor = System.Drawing.Color.White;
             this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
+            // 
+            // tbl_LogTableAdapter
+            // 
+            this.tbl_LogTableAdapter.ClearBeforeFill = true;
             // 
             // ARA_MainMenu
             // 

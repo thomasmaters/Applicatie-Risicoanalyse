@@ -181,5 +181,18 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.loadingScreenButtonLoginClicked(sender, e);
             }
         }
+
+        /// <summary>
+        /// Handler when the user has selected the password box and presses enter.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadingScreenInputPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.loadingScreenButtonLoginClicked(sender, e);
+            }
+        }
     }
 }

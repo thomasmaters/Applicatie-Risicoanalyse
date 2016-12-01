@@ -40,7 +40,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void copyRisksComboBoxProjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Did the user select something?
             if(this.copyRisksComboBoxProjects.SelectedValue != null && this.copyRisksComboBoxProjects.SelectedIndex != -1)
@@ -61,7 +61,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void arA_Button1_Click(object sender, EventArgs e)
+        private void onCopyRisksButtonClicked(object sender, EventArgs e)
         {
             //Do we have our selection?
             if(this.copyRisksDataGrid.SelectedRows.Count > 0 && this.copyRisksComboBoxProjects.SelectedValue != null)

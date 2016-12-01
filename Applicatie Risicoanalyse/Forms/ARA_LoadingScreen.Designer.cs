@@ -78,6 +78,7 @@
             this.loadingScreenInputPassword.PasswordChar = '*';
             this.loadingScreenInputPassword.Size = new System.Drawing.Size(227, 31);
             this.loadingScreenInputPassword.TabIndex = 1;
+            this.loadingScreenInputPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loadingScreenInputPassword_KeyPress);
             // 
             // loadingScreenButtonLogin
             // 

@@ -213,6 +213,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 158);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(742, 222);
             this.dataGridView1.TabIndex = 10;
@@ -222,6 +223,7 @@
             this.Username.DataPropertyName = "Username";
             this.Username.HeaderText = "Username";
             this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
             // 
             // userIDDataGridViewTextBoxColumn
             // 
@@ -237,6 +239,7 @@
             this.permissionIDDataGridViewTextBoxColumn.FillWeight = 60F;
             this.permissionIDDataGridViewTextBoxColumn.HeaderText = "PermissionID";
             this.permissionIDDataGridViewTextBoxColumn.Name = "permissionIDDataGridViewTextBoxColumn";
+            this.permissionIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.permissionIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tblUserBindingSource
