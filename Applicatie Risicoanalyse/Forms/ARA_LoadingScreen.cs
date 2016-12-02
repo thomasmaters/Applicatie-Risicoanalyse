@@ -25,6 +25,9 @@ namespace Applicatie_Risicoanalyse.Forms
             backgroundWorker1.DoWork += backgroundWorkerDoWork;
             backgroundWorker1.ProgressChanged += backgroundWorkerReportProgress;
             backgroundWorker1.RunWorkerCompleted += backgroundWorkerCompleted;
+
+            //Set form scaling.
+            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
         }
 
         /// <summary>

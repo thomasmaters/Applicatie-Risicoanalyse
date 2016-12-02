@@ -17,14 +17,14 @@ namespace Applicatie_Risicoanalyse.Reports
         public RemainingRiskReport(int projectID, string sortingKey, object newDocumentLocation, byte[] remainingRiskHeaderPageTemplateLocation, byte[] remainingRiskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation)
         {
             // This event will be raised on the worker thread when the worker starts.
-            DoWorkEventArgs eventArgs = new GenerateRemainingRiskReportEventArgs(projectID, sortingKey, newDocumentLocation, remainingRiskHeaderPageTemplateLocation, remainingRiskPageTemplateLocation, indexPageTemplateLocation, frontPageTemplateLocation);
+            DoWorkEventArgs eventArgs = new GenerateRemainingRiskReportEvent(projectID, sortingKey, newDocumentLocation, remainingRiskHeaderPageTemplateLocation, remainingRiskPageTemplateLocation, indexPageTemplateLocation, frontPageTemplateLocation);
             this.runBackgroundWorker(eventArgs);
             InitializeComponent();
         }
 
         protected override void generateReport(object sender, DoWorkEventArgs args)
         {
-            GenerateRemainingRiskReportEventArgs e = args as GenerateRemainingRiskReportEventArgs;
+            GenerateRemainingRiskReportEvent e = args as GenerateRemainingRiskReportEvent;
             if (e == null)
             {
                 throw new Exception("No generate risk report event args parsed");

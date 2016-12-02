@@ -58,6 +58,10 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Adds component types to a component group.
+        /// </summary>
+        /// <param name="parentGroup"></param>
         public void addTypeControlsToGroupControl(ARA_ListGroup parentGroup)
         {
             if(parentGroup.ARA_ListGroupDropDownButton.ConnectedPanel.Controls.Count != 0)
@@ -91,10 +95,18 @@ namespace Applicatie_Risicoanalyse.Forms
                         datarow["TypeName"].ToString(), 
                         risksInTypeDataRow["RisksInProjectGroup"].ToString() != risksInTypeDataRow["RisksInGroup"].ToString()
                     );
+
+                    //Let the application know we added a risk.
+                    ARA_Events.triggerRiskAddedToProjectEvent(this.projectID);
                 };
             }
         }
 
+        /// <summary>
+        /// Add risks in component type into the component type listGroup.
+        /// </summary>
+        /// <param name="parentGroup"></param>
+        /// <param name="parentType"></param>
         public void addRiskControlsToTypeControl(ARA_ListGroup parentGroup, ARA_ListGroup parentType)
         {
             //Did we already create the controls?
@@ -123,7 +135,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 //Add let it execute an event on click.
                 listItem.Click += delegate (object o, System.EventArgs e)
                 {
-                    ARA_Events.onAddRiskToProjectEvent(o, this.projectID, Int32.Parse(datarow["RiskID"].ToString()));
+                    ARA_Events.triggerAddRiskToProjectEvent(o, this.projectID, Int32.Parse(datarow["RiskID"].ToString()));
                 };
                 listItem.addFunction(delegate ()
                 {
@@ -132,6 +144,10 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Style the listGroup as a component group control.
+        /// </summary>
+        /// <param name="listGroup"></param>
         private void styleListGroupAsGroup(ARA_ListGroup listGroup)
         {
             listGroup.ARA_ListGroupDropDownButton.Font = this.Font;
@@ -155,6 +171,11 @@ namespace Applicatie_Risicoanalyse.Forms
             listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
+        /// <summary>
+        /// Style a component type listGroup as a componentType listgroup.
+        /// </summary>
+        /// <param name="listParent"></param>
+        /// <param name="listGroup"></param>
         private void styleListGroupAsType(ARA_ListGroup listParent ,ARA_ListGroup listGroup)
         {
             listGroup.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
@@ -180,6 +201,11 @@ namespace Applicatie_Risicoanalyse.Forms
             listGroup.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize/ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
+        /// <summary>
+        /// Add style for the listItems.
+        /// </summary>
+        /// <param name="listParent"></param>
+        /// <param name="listItem"></param>
         private void styleListItemAsRisk(ARA_ListGroup listParent, ARA_ListItem listItem)
         {
             listItem.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
@@ -195,6 +221,11 @@ namespace Applicatie_Risicoanalyse.Forms
             listItem.Scale(new SizeF(ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize, ARA_Globals.ARA_BaseFontSize / ARA_Constants.noScaleFontSize));
         }
 
+        /// <summary>
+        /// Handler when the user has added a risk to the project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addRiskToProject(object sender, AddRiskToProjectEvent e)
         {
             if(e.projectID != this.projectID)
@@ -217,8 +248,12 @@ namespace Applicatie_Risicoanalyse.Forms
                     clickedText.BackgroundColor = ARA_Colors.ARA_Green;
                     this.queriesTableAdapter1.Insert_In_ProjectRisks(e.projectID, e.riskID);
                 }
+                //Update the text.
+                clickedText.Invalidate();
             }
-            clickedText.Invalidate();
+
+            //Let the application know we added a risk.
+            ARA_Events.triggerRiskAddedToProjectEvent(this.projectID);
         }
 
         private void ARA_AddRisksToProject_Load(object sender, EventArgs e)
@@ -228,10 +263,13 @@ namespace Applicatie_Risicoanalyse.Forms
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Component_Group' table. You can move, or remove it, as needed.
             this.tbl_Component_GroupTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Component_Group);
             this.onRiskProjectOverviewLoad();
-
-
         }
 
+        /// <summary>
+        /// Handler when the user wants to search to risk collection.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onSearchBarTextChanged(object sender, EventArgs e)
         {
             int tempScrollPosition = this.addRiskToProjectSearchDataGrid.FirstDisplayedScrollingRowIndex;
@@ -246,10 +284,16 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Add style for the datagrid whether the risk is in the project or not.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onDataGridRowAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             foreach (DataGridViewRow row in this.addRiskToProjectSearchDataGrid.Rows)
             { 
+                //Is risk in the project.
                 if (row.Cells["inProjectDataGridViewTextBoxColumn"].Value.ToString() == "1")
                 {
                     row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Green;
@@ -261,6 +305,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Deletes or adds a risk to the project directly from the searchbar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onDataGridRowDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -276,9 +325,17 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
                 //Sneaky way to fire a textchange event without changing the text.
                 this.addRiskToProjectSearchTextBox.Text += "";
+
+                //Let the application know we added a risk.
+                ARA_Events.triggerRiskAddedToProjectEvent(this.projectID);
             }
         }
 
+        /// <summary>
+        /// Clear the selection of the datagrid when the user tries to select something.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onDataGridSelectionChanged(object sender, EventArgs e)
         {
             this.addRiskToProjectSearchDataGrid.ClearSelection();

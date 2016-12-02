@@ -20,19 +20,29 @@ namespace Applicatie_Risicoanalyse.Forms
 
             InitializeComponent();
 
+            //Attach events.
+            ARA_Events.NewProjectCreatedEventHandler += ARA_Events_NewProjectCreatedEventHandler;
+
             //Load combobox data from database.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
 
             //Scale form.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            this.arA_Text1.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
+            this.copyRisksTextSelectProject.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.copyRisksComboBoxProjects.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.copyRisksDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
             this.copyRisksDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
         }
 
-        private void copyRisksForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Update the datasource when a new project is created.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_NewProjectCreatedEventHandler(object sender, NewProjectCreatedEvent e)
         {
+            this.copyRisksComboBoxProjects.DataSource = this.tbl_Risk_AnalysisTableAdapter.GetData();
+            copyRisksComboBoxProjects_SelectedIndexChanged(new object(), new EventArgs());
         }
 
         /// <summary>
@@ -72,6 +82,9 @@ namespace Applicatie_Risicoanalyse.Forms
                     //Execute procedure to copy risks to another project.
                     this.queriesTableAdapter1.Copy_Risk_From_Project_Into_Project((Int32)row.Cells["riskIDDataGridViewTextBoxColumn"].Value, (Int32)this.copyRisksComboBoxProjects.SelectedValue, this.projectID);
                 }
+
+                //Let other forms in the application know we added some new risks to this project.
+                ARA_Events.triggerRiskAddedToProjectEvent(this.projectID);
 
                 //Let the user know the added some risks to the current opend project.
                 System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSuccesCopiedRisks, ARA_Constants.messageBoxSuccesCopiedRisksHead, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -122,17 +135,6 @@ namespace Applicatie_Risicoanalyse.Forms
         private void copyRisksDataGrid_Sorted(object sender, EventArgs e)
         {
             this.addStyleToDataGrid();
-        }
-
-        /// <summary>
-        /// Update datasources when visability changes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ARA_CopyRisksToProject_VisibleChanged(object sender, EventArgs e)
-        {
-            this.copyRisksComboBoxProjects.DataSource = this.tbl_Risk_AnalysisTableAdapter.GetData();
-            copyRisksComboBoxProjects_SelectedIndexChanged(new object(), new EventArgs());
         }
     }
 }

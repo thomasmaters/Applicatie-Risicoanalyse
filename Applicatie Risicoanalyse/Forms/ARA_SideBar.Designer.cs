@@ -242,7 +242,7 @@
             this.SideBarApplicationVersion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.SideBarApplicationVersion.Size = new System.Drawing.Size(160, 30);
             this.SideBarApplicationVersion.TabIndex = 11;
-            this.SideBarApplicationVersion.Text = "V1.";
+            this.SideBarApplicationVersion.Text = "V?.?.?.?";
             this.SideBarApplicationVersion.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ARA_SideBar

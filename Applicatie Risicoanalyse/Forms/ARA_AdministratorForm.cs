@@ -44,7 +44,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 byte[] passwordHash = loginHandler.getHashFromByteArray(loginHandler.GetBytes(randomPassword));
 
                 //Insert new user in the database.
-                this.tbl_UserTableAdapter.Insert((Int32)this.adminComboBoxPermissionGroup.SelectedValue, passwordHash, this.adminInputNewUsername.Text);
+                this.tbl_UserTableAdapter.Insert(this.adminInputNewUsername.Text, passwordHash, (Int32)this.adminComboBoxPermissionGroup.SelectedValue);
                 this.dataGridView1.DataSource = this.tbl_UserTableAdapter.GetData();
 
                 //Give the admin a pop-up and copy the new password to the users clipboard.

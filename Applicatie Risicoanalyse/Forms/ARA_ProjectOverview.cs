@@ -22,16 +22,21 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonCreateProject.setConnectedPanel(this.projectOverviewPanelCreateProject);
             this.projectOverviewButtonCreateProjectRevision.setConnectedPanel(this.projectOverviewPanelCreateProjectRevision);
             this.projectOverviewButtonOpenProject.setConnectedPanel(this.projectOverviewPanelOpenProject);
-            this.ProjectOverviewButtonRecentProjects.setConnectedPanel(this.ProjectOverviewPanelRecentProjects);
+            this.projectOverviewButtonRecentProjects.setConnectedPanel(this.ProjectOverviewPanelRecentProjects);
             this.projectOverviewButtonEditRiskStandard.setConnectedPanel(this.projectOverviewPanelEditRiskStandard);
             //Add Click event to hide all other buttons/panels when one opens.
             this.projectOverviewButtonCreateProject.Click += hideOtherPanels;
             this.projectOverviewButtonCreateProjectRevision.Click += hideOtherPanels;
             this.projectOverviewButtonOpenProject.Click += hideOtherPanels;
-            this.ProjectOverviewButtonRecentProjects.Click += hideOtherPanels;
+            this.projectOverviewButtonRecentProjects.Click += hideOtherPanels;
+            this.projectOverviewButtonEditRiskStandard.Click += hideOtherPanels;
 
             loadPermissions();
         }
+
+        /// <summary>
+        /// Loads the user permissions.
+        /// </summary>
         private void loadPermissions()
         {
             this.projectOverviewButtonCreateProject.Visible         = ARA_ACL.getPermissionLevel("General.ButtonCreateProject") >= ARA_Globals.PermissionLevel.ReadOnly;
@@ -41,7 +46,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonOpenProject.Visible           = ARA_ACL.getPermissionLevel("General.ButtonOpenProject") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelOpenProject.Enabled            = ARA_ACL.getPermissionLevel("General.ButtonOpenProject") == ARA_Globals.PermissionLevel.All;
 
-            this.ProjectOverviewButtonRecentProjects.Visible        = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.projectOverviewButtonRecentProjects.Visible        = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.ProjectOverviewPanelRecentProjects.Enabled         = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonCreateProjectRevision.Visible = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") >= ARA_Globals.PermissionLevel.ReadOnly;
@@ -54,6 +59,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonCreateNewRisk.Enabled         = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
         }
 
+        /// <summary>
+        /// Adds a form to a panel.
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="form"></param>
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
         {
             form.TopLevel = false;
@@ -61,6 +71,11 @@ namespace Applicatie_Risicoanalyse.Forms
             form.Show();
         }
 
+        /// <summary>
+        /// Hides all the panels in the form except the sender.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hideOtherPanels(object sender, EventArgs e)
         {
             foreach (var button in this.flowLayoutPanel1.Controls.OfType<Applicatie_Risicoanalyse.Controls.ARA_DropDownButton>())
@@ -77,14 +92,21 @@ namespace Applicatie_Risicoanalyse.Forms
             //Set scaling.
             this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
+            //Connect forms to panels.
             this.addFormToPanel(this.projectOverviewPanelCreateProject, new ARA_CreateProject());
             this.addFormToPanel(this.projectOverviewPanelOpenProject, new ARA_OpenProject());
             this.addFormToPanel(this.projectOverviewPanelEditRiskStandard, new ARA_SearchRiskStandard());
+            this.addFormToPanel(this.projectOverviewPanelCreateProjectRevision, new ARA_CreateProjectRevision());
         }
 
+        /// <summary>
+        /// Open new risk form when the user clicks the button for creating a new risk.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void projectOverviewButtonCreateNewRisk_Click(object sender, EventArgs e)
         {
-            ARA_Events.onOpenContentFormEvent(new ARA_NewRiskBaseForm());
+            ARA_Events.triggerOpenContentFormEvent(new ARA_NewRiskBaseForm());
         }
     }
 }

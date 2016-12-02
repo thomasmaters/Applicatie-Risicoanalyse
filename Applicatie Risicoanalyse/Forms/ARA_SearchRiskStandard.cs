@@ -61,7 +61,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 bool isProjectSpecificRisk = false;
 
                 //Open risk with its risk data.
-                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID, selectedRiskVersionID, selectedRiskDataID, -1, isProjectSpecificRisk));
+                Globals.ARA_Events.triggerOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID, selectedRiskVersionID, selectedRiskDataID, -1, isProjectSpecificRisk));
             }
         }
 

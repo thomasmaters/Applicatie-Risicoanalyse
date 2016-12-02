@@ -31,7 +31,7 @@
     <PublisherName>Langen Group</PublisherName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -316,6 +316,12 @@
     <Compile Include="Forms\ARA_CopyRisksToProject.Designer.cs">
       <DependentUpon>ARA_CopyRisksToProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ARA_CreateProjectRevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ARA_CreateProjectRevision.Designer.cs">
+      <DependentUpon>ARA_CreateProjectRevision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globals\ARA_Colors.cs" />
     <Compile Include="Globals\ARA_Constants.cs" />
     <Compile Include="Globals\ARA_Events.cs" />
@@ -444,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ARA_CopyRisksToProject.resx">
       <DependentUpon>ARA_CopyRisksToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ARA_CreateProjectRevision.resx">
+      <DependentUpon>ARA_CreateProjectRevision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

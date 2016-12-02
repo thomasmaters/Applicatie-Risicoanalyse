@@ -23,13 +23,6 @@ namespace Applicatie_Risicoanalyse
         [STAThread]
         static void Main()
         {
-            /*File.Copy("C:\\Users\\Thomas\\documents\\visual studio 2015\\Projects\\Applicatie Risicoanalyse\\Applicatie Risicoanalyse\\Resources\\Gotham-Light.otf",
-    Path.Combine(Environment.GetFolderPath(SpecialFolder.Windows),
-        "Fonts", "Gotham-LightTest.otf"));
-            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
-            key.SetValue("My Font Description", "Gotham-LightTest.otf");
-            key.Close();*/
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ARA_LoadingScreen());

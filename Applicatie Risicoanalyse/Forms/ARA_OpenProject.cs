@@ -32,6 +32,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_OpenProject_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Get_Projects_With_Revision' table. You can move, or remove it, as needed.
+            this.get_Projects_With_RevisionTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Get_Projects_With_Revision);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
         }
@@ -69,7 +71,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 int projectIDToOpen = (Int32)this.OpenProjectDataGrid.Rows[e.RowIndex].Cells["ProjectID"].Value;
 
                 //Trigger event to add a button to the sidebar and attach this form to it.
-                Applicatie_Risicoanalyse.Globals.ARA_Events.onSideBarAddNewButtonEvent(
+                Applicatie_Risicoanalyse.Globals.ARA_Events.triggerSideBarAddNewButtonEvent(
                     projectSideBarButton,
                     Activator.CreateInstance(typeof(ARA_RiskProjectOverview), projectIDToOpen));
             }

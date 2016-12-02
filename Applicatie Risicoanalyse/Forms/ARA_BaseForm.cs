@@ -15,7 +15,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onApplicationLoad(object sender, EventArgs e)
         {
             //Add events.
-            ARA_Events.openContentFormEventHandler += onOpenContentFormEvent;
+            ARA_Events.OpenContentFormEventHandler += onOpenContentFormEvent;
             ARA_Events.baseFormSetTopBarFormEventHandler += onBaseFormSetTopBarForm;
 
             //Set scaling.
@@ -51,7 +51,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void onOpenContentFormEvent(object sender, OpenContentFormEventArgs e)
+        private void onOpenContentFormEvent(object sender, OpenContentFormEvent e)
         {
             //if (this.contentPanel.Controls[0] != e.Form)
             //{
@@ -63,6 +63,11 @@ namespace Applicatie_Risicoanalyse.Forms
             //}
         }
 
+        /// <summary>
+        /// Handle when a BaseFromSetTopBarFormEvent is triggerd.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onBaseFormSetTopBarForm(object sender, BaseFormSetTopBarFormEvent e)
         {
             if(e.Form != null)
@@ -74,6 +79,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.TopBar.Controls.Clear();
             }
             GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }

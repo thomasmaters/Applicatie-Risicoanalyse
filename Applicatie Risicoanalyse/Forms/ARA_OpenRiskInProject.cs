@@ -26,13 +26,16 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
             this.projectState = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID)["StateName"].ToString();
 
+            //Add events.
+            ARA_Events.RiskAddedToProjectEventHandler += ARA_Events_AddRiskToProjectEventHandler;
+
             //On form load show datagrid items.
-            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, "");
-            this.OpenRiskInProjectDataGrid.Refresh();
+            this.openRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, "");
+            this.openRiskInProjectDataGrid.Refresh();
 
             //Scaling form and controls.
             this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            this.OpenRiskInProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+            this.openRiskInProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
             foreach (Control control in this.Controls)
             {
                 //control.Font = this.Font;
@@ -47,15 +50,15 @@ namespace Applicatie_Risicoanalyse.Forms
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
             //Remember scroll position.
-            int tempScrollPosition = this.OpenRiskInProjectDataGrid.FirstDisplayedScrollingRowIndex;
+            int tempScrollPosition = this.openRiskInProjectDataGrid.FirstDisplayedScrollingRowIndex;
 
-            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
-            this.OpenRiskInProjectDataGrid.Refresh();
+            this.openRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
+            this.openRiskInProjectDataGrid.Refresh();
 
-            if (tempScrollPosition != -1 && tempScrollPosition < this.OpenRiskInProjectDataGrid.Rows.Count)
+            if (tempScrollPosition != -1 && tempScrollPosition < this.openRiskInProjectDataGrid.Rows.Count)
             {
                 //Reapply scroll position.
-                this.OpenRiskInProjectDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
+                this.openRiskInProjectDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
             }
         }
 
@@ -70,32 +73,35 @@ namespace Applicatie_Risicoanalyse.Forms
             if (e.RowIndex != -1)
             {
                 //Get some data before editing the risk.
-                int selectedRiskID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["RiskID"].Value;
-                int selectedRiskDataID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["DefaultRiskDataID"].Value;
-                int selectedRiskVersionID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["VersionID"].Value;
+                int selectedRiskID = (Int32)this.openRiskInProjectDataGrid.Rows[e.RowIndex].Cells["RiskID"].Value;
+                int selectedRiskDataID = (Int32)this.openRiskInProjectDataGrid.Rows[e.RowIndex].Cells["DefaultRiskDataID"].Value;
+                int selectedRiskVersionID = (Int32)this.openRiskInProjectDataGrid.Rows[e.RowIndex].Cells["VersionID"].Value;
                 bool isProjectSpecificRisk = false;
 
                 //Do we have a project specific risk?
-                if (this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value != DBNull.Value)
+                if (this.openRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value != DBNull.Value)
                 {
-                    selectedRiskDataID = (Int32)this.OpenRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value;
+                    selectedRiskDataID = (Int32)this.openRiskInProjectDataGrid.Rows[e.RowIndex].Cells["ProjectRiskDataID"].Value;
                     isProjectSpecificRisk = true;
                 }
 
                 //Open risk with its risk data.
-                Globals.ARA_Events.onOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID,selectedRiskVersionID,selectedRiskDataID,this.projectID, isProjectSpecificRisk));
+                Globals.ARA_Events.triggerOpenContentFormEvent(new ARA_EditRiskBaseForm(selectedRiskID,selectedRiskVersionID,selectedRiskDataID,this.projectID, isProjectSpecificRisk));
             }
         }
 
         /// <summary>
-        /// Update the datagrid when the visiabilty of the form changes.
+        /// Update the datagrid when a risk is added to the current project of the form changes.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OpenRiskInProjectDataGrid_VisabilityChanged(object sender, EventArgs e)
+        private void ARA_Events_AddRiskToProjectEventHandler(object sender, RiskAddedToProjectEvent e)
         {
-            this.OpenRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
-            this.OpenRiskInProjectDataGrid.Refresh();
+            //Is the update for our project?
+            if (e.projectID == this.projectID)
+            {
+                this.openRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
+            }
         }
 
         /// <summary>
@@ -115,7 +121,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void addStyleToCells()
         {
             //Style the rows on datagrid values.
-            foreach (DataGridViewRow row in this.OpenRiskInProjectDataGrid.Rows)
+            foreach (DataGridViewRow row in this.openRiskInProjectDataGrid.Rows)
             {
                 //Mark the cells blue if its a project specific risk.
                 if (row.Cells["ProjectRiskDataID"].Value.ToString() != "")
@@ -149,7 +155,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //If our project is closed add a color to the out of date risks.
             if (this.projectState == ARA_Constants.closed)
             {
-                foreach (DataGridViewRow row in this.OpenRiskInProjectDataGrid.Rows)
+                foreach (DataGridViewRow row in this.openRiskInProjectDataGrid.Rows)
                 {
                     if (this.is_Risk_OldTableAdapter.GetData(
                         (Int32)row.Cells["RiskID"].Value,
@@ -172,16 +178,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void OpenRiskInProjectDataGrid_SelectionChanged(object sender, EventArgs e)
         {
-            this.OpenRiskInProjectDataGrid.ClearSelection();
-        }
-
-        /// <summary>
-        /// Do things when this form loads.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ARA_OpenRiskInProject_Load(object sender, EventArgs e)
-        {
+            this.openRiskInProjectDataGrid.ClearSelection();
         }
 
         /// <summary>

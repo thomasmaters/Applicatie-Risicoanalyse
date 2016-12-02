@@ -39,7 +39,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
 
             //Add event.
-            ARA_Events.openContentFormEventHandler += checkIfControlHasBeenFilledOnClose;
+            ARA_Events.OpenContentFormEventHandler += checkIfControlHasBeenFilledOnClose;
 
             //Fill form.
             setFormData();
@@ -265,7 +265,7 @@ namespace Applicatie_Risicoanalyse.Forms
         }
 
         //Check if we have filled the form, delete the risk otherwise.
-        private void checkIfControlHasBeenFilledOnClose(object sender, OpenContentFormEventArgs e)
+        private void checkIfControlHasBeenFilledOnClose(object sender, OpenContentFormEvent e)
         {
             if(e.Form == this)
             {
@@ -290,7 +290,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxAddedRiskToStandard, ARA_Constants.messageBoxAddedRiskToStandardHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            ARA_Events.openContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
+            ARA_Events.OpenContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;
         }
     }
 }

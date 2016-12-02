@@ -45,27 +45,34 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void onCreateProjectButtonClick(object sender, EventArgs e)
         {
-            //Executes procedure for adding an riskproject to the database.
-            this.createProjectDatabaseAdapter.Create_RiskProject
-                (
-                    ARA_Globals.UserID,
-                    this.createProjectInputCustomer.Text,
-                    this.createProjectInputMachineType.Text,
-                    this.createProjectInputMachineNumber.Text,
-                    this.createProjectInputOrderNumber.Text,
-                    this.createProjectInputExtraInfo.Text
-                );
+            if (canProjectBeCreated())
+            {
 
-            int newestAddedProject = (Int32)this.get_Newest_Added_ProjectTableAdapter.GetData().Rows[0]["NewestProject"];
-            this.projectSideBarButton = new ARA_Button();
-            this.projectSideBarButton.Text = this.createProjectInputMachineNumber.Text;
+                //Executes procedure for adding an riskproject to the database.
+                this.createProjectDatabaseAdapter.Create_RiskProject
+                    (
+                        ARA_Globals.UserID,
+                        this.createProjectInputCustomer.Text,
+                        this.createProjectInputMachineType.Text,
+                        this.createProjectInputMachineNumber.Text,
+                        this.createProjectInputOrderNumber.Text,
+                        this.createProjectInputExtraInfo.Text
+                    );
 
-            //Trigger event to add a button to the sidebar and attach this form to it.
-            Applicatie_Risicoanalyse.Globals.ARA_Events.onSideBarAddNewButtonEvent(
-                this.projectSideBarButton, 
-                Activator.CreateInstance(typeof(ARA_RiskProjectOverview),newestAddedProject));
+                int newestAddedProject = (Int32)this.get_Newest_Added_ProjectTableAdapter.GetData().Rows[0]["NewestProject"];
+                this.projectSideBarButton = new ARA_Button();
+                this.projectSideBarButton.Text = this.createProjectInputMachineNumber.Text;
 
-            clearInputFields();
+                //Let other forms know that there is a new project.
+                ARA_Events.triggerNewProjectCreatedEvent();
+
+                //Trigger event to add a button to the sidebar and attach this form to it.
+                Applicatie_Risicoanalyse.Globals.ARA_Events.triggerSideBarAddNewButtonEvent(
+                    this.projectSideBarButton,
+                    Activator.CreateInstance(typeof(ARA_RiskProjectOverview), newestAddedProject));
+
+                clearInputFields();
+            }
         }
 
         /// <summary>
@@ -86,10 +93,14 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void canProjectBeCreated(object sender, EventArgs e)
+        private void onInputChanged(object sender, EventArgs e)
         {
-            this.createProjectButtonCreateProject.Enabled = 
-                (
+            this.createProjectButtonCreateProject.Enabled = canProjectBeCreated();
+        }
+
+        private bool canProjectBeCreated()
+        {
+            return (
                     this.createProjectInputCustomer.Text.Length > 0 &&
                     this.createProjectInputMachineType.Text.Length > 0 &&
                     this.createProjectInputMachineNumber.Text.Length > 0 &&

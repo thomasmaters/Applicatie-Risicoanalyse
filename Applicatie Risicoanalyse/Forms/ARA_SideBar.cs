@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Applicatie_Risicoanalyse.Globals;
 using Applicatie_Risicoanalyse.Controls;
+using System.Deployment.Application;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -45,7 +46,14 @@ namespace Applicatie_Risicoanalyse.Forms
             Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarRemoveNewButtonEventHandler += onRemoveSideBarButtonEvent;
 
             //Set application version form globals.
-            this.SideBarApplicationVersion.Text = Applicatie_Risicoanalyse.Globals.ARA_Constants.applicationVersion;
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                this.SideBarApplicationVersion.Text = string.Format("v{0}.{1}.{2}.{3}", 
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Major, 
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Minor,
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Build,
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Revision);
+            }
 
             //Set current date.
             this.SideBarDate.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARa_Date;
@@ -59,7 +67,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void onSetSideBarButtonSelectedEvent(object sender, SetSideBarButtonSelectedEventArgs e)
+        private void onSetSideBarButtonSelectedEvent(object sender, SetSideBarButtonSelectedEvent e)
         {
             if(e.Index == "")
             {
@@ -94,7 +102,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Try to open the form instance.
             try
             {
-                Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
+                Applicatie_Risicoanalyse.Globals.ARA_Events.triggerOpenContentFormEvent((Form)e.FormType);
             }
             catch (Exception)
             {
@@ -104,7 +112,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Are there to much buttons in the sidebar? If so, remove one.
             if (this.SideBarButtonContainer.Controls.Count > 3)
             {
-                ARA_Events.onSideBarRemoveButtonEvent(this.SideBarButtonContainer.Controls.OfType<ARA_Button>().First<ARA_Button>().Text);
+                ARA_Events.triggerSideBarRemoveButtonEvent(this.SideBarButtonContainer.Controls.OfType<ARA_Button>().First<ARA_Button>().Text);
             }
 
             //Add some style to the button.
@@ -119,11 +127,11 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 tempButton.setButtonSelected(true);
                 //this.hideOtherPanels(new object(), e);
-                Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent((Form)e.FormType);
+                Applicatie_Risicoanalyse.Globals.ARA_Events.triggerOpenContentFormEvent((Form)e.FormType);
             };
             tempButton.DoubleClick += delegate (object senderr, EventArgs ev)
             {
-                ARA_Events.onSideBarRemoveButtonEvent(tempButton.Text);
+                ARA_Events.triggerSideBarRemoveButtonEvent(tempButton.Text);
                 onRiskAnalysisButtonClick(senderr, ev);
             };
 
@@ -178,7 +186,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.SideBarButtonMenu.setButtonSelected(true);
             this.hideOtherPanels(new object(), e);
-            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(this.mainMenu);
+            Applicatie_Risicoanalyse.Globals.ARA_Events.triggerOpenContentFormEvent(this.mainMenu);
             ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 
@@ -187,7 +195,7 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             this.SideBarButtonMenu.setButtonSelected(true);
             this.hideOtherPanels(new object(), e);
-            Applicatie_Risicoanalyse.Globals.ARA_Events.onOpenContentFormEvent(this.projectOverview);
+            Applicatie_Risicoanalyse.Globals.ARA_Events.triggerOpenContentFormEvent(this.projectOverview);
             ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 

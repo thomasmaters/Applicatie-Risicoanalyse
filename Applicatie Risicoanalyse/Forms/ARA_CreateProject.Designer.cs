@@ -133,7 +133,7 @@
             this.createProjectInputCustomer.Size = new System.Drawing.Size(345, 28);
             this.createProjectInputCustomer.TabIndex = 0;
             this.createProjectInputCustomer.Text = "";
-            this.createProjectInputCustomer.TextChanged += new System.EventHandler(this.canProjectBeCreated);
+            this.createProjectInputCustomer.TextChanged += new System.EventHandler(this.onInputChanged);
             // 
             // createProjectSpacer4
             // 
@@ -180,7 +180,7 @@
             this.createProjectInputMachineType.Size = new System.Drawing.Size(345, 28);
             this.createProjectInputMachineType.TabIndex = 1;
             this.createProjectInputMachineType.Text = "";
-            this.createProjectInputMachineType.TextChanged += new System.EventHandler(this.canProjectBeCreated);
+            this.createProjectInputMachineType.TextChanged += new System.EventHandler(this.onInputChanged);
             // 
             // createProjectTextMachineNumber
             // 
@@ -235,7 +235,7 @@
             this.createProjectInputOrderNumber.Size = new System.Drawing.Size(161, 28);
             this.createProjectInputOrderNumber.TabIndex = 3;
             this.createProjectInputOrderNumber.Text = "";
-            this.createProjectInputOrderNumber.TextChanged += new System.EventHandler(this.canProjectBeCreated);
+            this.createProjectInputOrderNumber.TextChanged += new System.EventHandler(this.onInputChanged);
             // 
             // createProjectInputMachineNumber
             // 
@@ -252,7 +252,7 @@
             this.createProjectInputMachineNumber.Size = new System.Drawing.Size(162, 28);
             this.createProjectInputMachineNumber.TabIndex = 2;
             this.createProjectInputMachineNumber.Text = "";
-            this.createProjectInputMachineNumber.TextChanged += new System.EventHandler(this.canProjectBeCreated);
+            this.createProjectInputMachineNumber.TextChanged += new System.EventHandler(this.onInputChanged);
             // 
             // createProjectSpacer2
             // 

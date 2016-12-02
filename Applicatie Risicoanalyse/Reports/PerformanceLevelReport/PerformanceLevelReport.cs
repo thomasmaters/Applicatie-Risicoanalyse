@@ -17,14 +17,14 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
         public PerformanceLevelReport(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] frontPageTemplateLocation)
         {
             // This event will be raised on the worker thread when the worker starts.
-            DoWorkEventArgs eventArgs = new GeneratePerformanceLevelReportEventArgs(projectID, sortingKey, newDocumentLocation, riskPageTemplateLocation, frontPageTemplateLocation);
+            DoWorkEventArgs eventArgs = new GeneratePerformanceLevelReportEvent(projectID, sortingKey, newDocumentLocation, riskPageTemplateLocation, frontPageTemplateLocation);
             this.runBackgroundWorker(eventArgs);
             InitializeComponent();
         }
 
         protected override void generateReport(object sender, DoWorkEventArgs args)
         {
-            GeneratePerformanceLevelReportEventArgs e = args as GeneratePerformanceLevelReportEventArgs;
+            GeneratePerformanceLevelReportEvent e = args as GeneratePerformanceLevelReportEvent;
             if (e == null)
             {
                 throw new Exception("No generate performance level report event args parsed");

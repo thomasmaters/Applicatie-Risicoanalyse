@@ -52,8 +52,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.groupNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.defaultRiskDataIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectRiskDataIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.arA_Text1 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.copyRisksButtonCopyRisks = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.copyRisksTextSelectProject = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.is_Risk_OldBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.is_Risk_OldTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Is_Risk_OldTableAdapter();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
@@ -231,34 +231,34 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_Button1
             // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
-            this.arA_Button1.CanButtonBeToggled = false;
-            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_Button1.Location = new System.Drawing.Point(9, 232);
-            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Button1.Name = "arA_Button1";
-            this.arA_Button1.Selected = false;
-            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button1.Size = new System.Drawing.Size(721, 26);
-            this.arA_Button1.TabIndex = 3;
-            this.arA_Button1.Text = "Copy selected risks in current project";
-            this.arA_Button1.TextColor = System.Drawing.Color.White;
-            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.Click += new System.EventHandler(this.onCopyRisksButtonClicked);
+            this.copyRisksButtonCopyRisks.BaseColor = ARA_Colors.ARA_Turkois;
+            this.copyRisksButtonCopyRisks.CanButtonBeToggled = false;
+            this.copyRisksButtonCopyRisks.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.copyRisksButtonCopyRisks.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.copyRisksButtonCopyRisks.Location = new System.Drawing.Point(9, 232);
+            this.copyRisksButtonCopyRisks.Margin = new System.Windows.Forms.Padding(0);
+            this.copyRisksButtonCopyRisks.Name = "arA_Button1";
+            this.copyRisksButtonCopyRisks.Selected = false;
+            this.copyRisksButtonCopyRisks.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.copyRisksButtonCopyRisks.SelectedTextColor = System.Drawing.Color.White;
+            this.copyRisksButtonCopyRisks.Size = new System.Drawing.Size(721, 26);
+            this.copyRisksButtonCopyRisks.TabIndex = 3;
+            this.copyRisksButtonCopyRisks.Text = "Copy selected risks in current project";
+            this.copyRisksButtonCopyRisks.TextColor = System.Drawing.Color.White;
+            this.copyRisksButtonCopyRisks.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.copyRisksButtonCopyRisks.Click += new System.EventHandler(this.onCopyRisksButtonClicked);
             // 
             // arA_Text1
             // 
-            this.arA_Text1.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Text1.Location = new System.Drawing.Point(9, -1);
-            this.arA_Text1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Text1.Name = "arA_Text1";
-            this.arA_Text1.Size = new System.Drawing.Size(495, 32);
-            this.arA_Text1.TabIndex = 2;
-            this.arA_Text1.Text = "Select risk from project:";
-            this.arA_Text1.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.copyRisksTextSelectProject.BackgroundColor = System.Drawing.Color.White;
+            this.copyRisksTextSelectProject.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.copyRisksTextSelectProject.Location = new System.Drawing.Point(9, -1);
+            this.copyRisksTextSelectProject.Margin = new System.Windows.Forms.Padding(0);
+            this.copyRisksTextSelectProject.Name = "arA_Text1";
+            this.copyRisksTextSelectProject.Size = new System.Drawing.Size(495, 32);
+            this.copyRisksTextSelectProject.TabIndex = 2;
+            this.copyRisksTextSelectProject.Text = "Select risk from project:";
+            this.copyRisksTextSelectProject.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // is_Risk_OldBindingSource
             // 
@@ -305,8 +305,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 265);
             this.Controls.Add(this.copyRisksDataGrid);
-            this.Controls.Add(this.arA_Button1);
-            this.Controls.Add(this.arA_Text1);
+            this.Controls.Add(this.copyRisksButtonCopyRisks);
+            this.Controls.Add(this.copyRisksTextSelectProject);
             this.Controls.Add(this.copyRisksComboBoxProjects);
             this.Font = new System.Drawing.Font("Gotham Light", 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -314,8 +314,6 @@ namespace Applicatie_Risicoanalyse.Forms
             this.MaximumSize = new System.Drawing.Size(750, 265);
             this.Name = "ARA_CopyRisksToProject";
             this.Text = "testForm";
-            this.Load += new System.EventHandler(this.copyRisksForm_Load);
-            this.VisibleChanged += new System.EventHandler(this.ARA_CopyRisksToProject_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getRisksWithRiskDataInProjectBindingSource)).EndInit();
@@ -328,13 +326,13 @@ namespace Applicatie_Risicoanalyse.Forms
         #endregion
 
         private System.Windows.Forms.ComboBox copyRisksComboBoxProjects;
-        private Controls.ARA_Text arA_Text1;
+        private Controls.ARA_Text copyRisksTextSelectProject;
         private System.Windows.Forms.BindingSource getRisksWithRiskDataInProjectBindingSource;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_With_RiskData_In_ProjectTableAdapter get_Risks_With_RiskData_In_ProjectTableAdapter;
         private System.Windows.Forms.BindingSource tblRiskAnalysisBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
-        private Controls.ARA_Button arA_Button1;
+        private Controls.ARA_Button copyRisksButtonCopyRisks;
         private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RiskID;
         private System.Windows.Forms.DataGridViewTextBoxColumn projectIDDataGridViewTextBoxColumn;

@@ -13,49 +13,72 @@ namespace Applicatie_Risicoanalyse.Globals
     class ARA_Events
     {
         //Eventhandlers for storing which function to trigger when the event gets called.
-        public static event EventHandler<OpenContentFormEventArgs> openContentFormEventHandler;
+        public static event EventHandler<OpenContentFormEvent> OpenContentFormEventHandler;
         public static event EventHandler<BaseFormSetTopBarFormEvent> baseFormSetTopBarFormEventHandler;
-        public static event EventHandler<SetSideBarButtonSelectedEventArgs> SetSideBarButtonSelectedEventHandler;
+        public static event EventHandler<SetSideBarButtonSelectedEvent> SetSideBarButtonSelectedEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
         public static event EventHandler<SideBarRemoveNewButtonEvent> SideBarRemoveNewButtonEventHandler;
         public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
         public static event EventHandler<SideBarAddNewButtonEvent> SideBarButtonAddedEventHandler;
+        public static event EventHandler<NewProjectCreatedEvent> NewProjectCreatedEventHandler;
+        public static event EventHandler<RiskAddedToProjectEvent> RiskAddedToProjectEventHandler;
 
         //Static function for adding an event to the event handlers.
-        public static void onOpenContentFormEvent(System.Windows.Forms.Form aForm)
+        public static void triggerOpenContentFormEvent(System.Windows.Forms.Form aForm)
         {
-            openContentFormEventHandler(aForm, new OpenContentFormEventArgs(aForm));
+            OpenContentFormEventHandler(aForm, new OpenContentFormEvent(aForm));
         }
         public static void triggerBaseFormSetTopBarEvent(System.Windows.Forms.Form aForm)
         {
             baseFormSetTopBarFormEventHandler(aForm, new BaseFormSetTopBarFormEvent(aForm));
         }
-
         public static void triggerSideBarButtonAddedEvent(object sender, SideBarAddNewButtonEvent e)
         {
-            SideBarButtonAddedEventHandler(sender, e);
+            if (SideBarButtonAddedEventHandler != null)
+            {
+                SideBarButtonAddedEventHandler(sender, e);
+            }
         }
-        public static void onSetSideBarButtonSelectedEvent(string aIndex)
+        public static void triggerSetSideBarButtonSelectedEvent(string aIndex)
         {
-            SetSideBarButtonSelectedEventHandler(aIndex, new SetSideBarButtonSelectedEventArgs(aIndex));
+            if (SetSideBarButtonSelectedEventHandler != null)
+            {
+                SetSideBarButtonSelectedEventHandler(aIndex, new SetSideBarButtonSelectedEvent(aIndex));
+            }
         }
-        public static void onSideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton, Object FormType)
+        public static void triggerSideBarAddNewButtonEvent(Applicatie_Risicoanalyse.Controls.ARA_Button aButton, Object FormType)
         {
-            SideBarAddNewButtonEventHandler(aButton, new SideBarAddNewButtonEvent(aButton,FormType));
+            if(SideBarAddNewButtonEventHandler != null)
+            {
+                SideBarAddNewButtonEventHandler(aButton, new SideBarAddNewButtonEvent(aButton,FormType));
+            }
         }
-        public static void onAddRiskToProjectEvent( object sender, int aProjectID, int aRiskID)
+        public static void triggerAddRiskToProjectEvent( object sender, int aProjectID, int aRiskID)
         {
             if(AddRiskToProjectEventHandler != null)
             {
                 AddRiskToProjectEventHandler(sender, new AddRiskToProjectEvent(aProjectID, aRiskID));
             }
         }
-
-        public static void onSideBarRemoveButtonEvent(string buttonText)
+        public static void triggerSideBarRemoveButtonEvent(string buttonText)
         {
             if(SideBarRemoveNewButtonEventHandler != null)
             {
                 SideBarRemoveNewButtonEventHandler(new object(), new SideBarRemoveNewButtonEvent(buttonText));
+            }
+        }
+        public static void triggerNewProjectCreatedEvent()
+        {
+            if(NewProjectCreatedEventHandler != null)
+            {
+                NewProjectCreatedEventHandler(new object(), new NewProjectCreatedEvent());
+            }
+        }
+        public static void triggerRiskAddedToProjectEvent(int aProjectID)
+        {
+            if (RiskAddedToProjectEventHandler != null)
+            {
+                RiskAddedToProjectEventHandler(new object(), new RiskAddedToProjectEvent(aProjectID));
             }
         }
     }
@@ -73,13 +96,13 @@ namespace Applicatie_Risicoanalyse.Globals
     }
 
     //Event for opening a form in the main content panel.
-    public class OpenContentFormEventArgs : EventArgs
+    public class OpenContentFormEvent : EventArgs
     {
         public System.Windows.Forms.Form Form { get;  private set; }
 
-        private OpenContentFormEventArgs() { }
+        private OpenContentFormEvent() { }
 
-        public OpenContentFormEventArgs(System.Windows.Forms.Form aForm)
+        public OpenContentFormEvent(System.Windows.Forms.Form aForm)
         {
             this.Form = aForm;
         }
@@ -98,13 +121,13 @@ namespace Applicatie_Risicoanalyse.Globals
     }
 
     //Event for selecting a specific button in the sidebar.
-    public class SetSideBarButtonSelectedEventArgs : EventArgs
+    public class SetSideBarButtonSelectedEvent : EventArgs
     {
         public string Index { get; private set; }
 
-        private SetSideBarButtonSelectedEventArgs() { }
+        private SetSideBarButtonSelectedEvent() { }
 
-        public SetSideBarButtonSelectedEventArgs(string aIndex)
+        public SetSideBarButtonSelectedEvent(string aIndex)
         {
             this.Index = aIndex;
         }
@@ -253,7 +276,7 @@ namespace Applicatie_Risicoanalyse.Globals
         }
     }
 
-    public class GenerateRemainingRiskReportEventArgs : DoWorkEventArgs
+    public class GenerateRemainingRiskReportEvent : DoWorkEventArgs
     {
         public int projectID { get; private set; }
         public string sortingKey { get; private set; }
@@ -263,12 +286,12 @@ namespace Applicatie_Risicoanalyse.Globals
         public byte[] frontPageTemplateLocation { get; private set; }
         public byte[] remainingRiskHeaderPageTemplateLocation { get; private set; }
 
-        private GenerateRemainingRiskReportEventArgs() : base(new object())
+        private GenerateRemainingRiskReportEvent() : base(new object())
         {
 
         }
 
-        public GenerateRemainingRiskReportEventArgs(int projectID, string sortingKey, object newDocumentLocation, byte[] remainingRiskHeaderPageTemplateLocation, byte[] remainingRiskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
+        public GenerateRemainingRiskReportEvent(int projectID, string sortingKey, object newDocumentLocation, byte[] remainingRiskHeaderPageTemplateLocation, byte[] remainingRiskPageTemplateLocation, byte[] indexPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
         {
             this.projectID = projectID;
             this.sortingKey = sortingKey;
@@ -280,7 +303,7 @@ namespace Applicatie_Risicoanalyse.Globals
         }
     }
 
-    public class GeneratePerformanceLevelReportEventArgs : DoWorkEventArgs
+    public class GeneratePerformanceLevelReportEvent : DoWorkEventArgs
     {
         public int projectID { get; private set; }
         public string sortingKey { get; private set; }
@@ -288,18 +311,36 @@ namespace Applicatie_Risicoanalyse.Globals
         public byte[] riskPageTemplateLocation { get; private set; }
         public byte[] frontPageTemplateLocation { get; private set; }
 
-        private GeneratePerformanceLevelReportEventArgs() : base(new object())
+        private GeneratePerformanceLevelReportEvent() : base(new object())
         {
 
         }
 
-        public GeneratePerformanceLevelReportEventArgs(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
+        public GeneratePerformanceLevelReportEvent(int projectID, string sortingKey, object newDocumentLocation, byte[] riskPageTemplateLocation, byte[] frontPageTemplateLocation) : base(new object())
         {
             this.projectID = projectID;
             this.sortingKey = sortingKey;
             this.newDocumentLocation = newDocumentLocation;
             this.riskPageTemplateLocation = riskPageTemplateLocation;
             this.frontPageTemplateLocation = frontPageTemplateLocation;
+        }
+    }
+
+    public class NewProjectCreatedEvent
+    {
+        public NewProjectCreatedEvent()
+        {
+        }
+    }
+
+    public class RiskAddedToProjectEvent
+    {
+        public int projectID { get; private set; }
+        private RiskAddedToProjectEvent() { }
+
+        public RiskAddedToProjectEvent(int aProjectID)
+        {
+            this.projectID = aProjectID;
         }
     }
 }

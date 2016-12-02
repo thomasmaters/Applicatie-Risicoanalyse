@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.ProjectOverviewButtonRecentProjects = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
+            this.projectOverviewButtonRecentProjects = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
             this.ProjectOverviewPanelRecentProjects = new System.Windows.Forms.FlowLayoutPanel();
             this.ProjectOverviewButtonSpacer1 = new System.Windows.Forms.Panel();
             this.projectOverviewButtonOpenProject = new Applicatie_Risicoanalyse.Controls.ARA_DropDownButton();
@@ -53,7 +53,7 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonRecentProjects);
+            this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonRecentProjects);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewPanelRecentProjects);
             this.flowLayoutPanel1.Controls.Add(this.ProjectOverviewButtonSpacer1);
             this.flowLayoutPanel1.Controls.Add(this.projectOverviewButtonOpenProject);
@@ -77,27 +77,27 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 488);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // ProjectOverviewButtonRecentProjects
+            // projectOverviewButtonRecentProjects
             // 
-            this.ProjectOverviewButtonRecentProjects.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.ProjectOverviewButtonRecentProjects.CanButtonBeToggled = true;
-            this.ProjectOverviewButtonRecentProjects.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.ProjectOverviewButtonRecentProjects.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.ProjectOverviewButtonRecentProjects.Location = new System.Drawing.Point(0, 0);
-            this.ProjectOverviewButtonRecentProjects.Margin = new System.Windows.Forms.Padding(0);
-            this.ProjectOverviewButtonRecentProjects.MaximumSize = new System.Drawing.Size(750, 40);
-            this.ProjectOverviewButtonRecentProjects.Name = "ProjectOverviewButtonRecentProjects";
-            this.ProjectOverviewButtonRecentProjects.PaddingFirstTriangle = 250;
-            this.ProjectOverviewButtonRecentProjects.PaddingSecondTriangle = 700;
-            this.ProjectOverviewButtonRecentProjects.Selected = false;
-            this.ProjectOverviewButtonRecentProjects.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.ProjectOverviewButtonRecentProjects.SelectedTextColor = System.Drawing.Color.White;
-            this.ProjectOverviewButtonRecentProjects.Size = new System.Drawing.Size(750, 40);
-            this.ProjectOverviewButtonRecentProjects.TabIndex = 0;
-            this.ProjectOverviewButtonRecentProjects.Text = "Recent Projects";
-            this.ProjectOverviewButtonRecentProjects.TextColor = System.Drawing.Color.White;
-            this.ProjectOverviewButtonRecentProjects.TriangleSize = 20;
-            this.ProjectOverviewButtonRecentProjects.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.projectOverviewButtonRecentProjects.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.projectOverviewButtonRecentProjects.CanButtonBeToggled = true;
+            this.projectOverviewButtonRecentProjects.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.projectOverviewButtonRecentProjects.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.projectOverviewButtonRecentProjects.Location = new System.Drawing.Point(0, 0);
+            this.projectOverviewButtonRecentProjects.Margin = new System.Windows.Forms.Padding(0);
+            this.projectOverviewButtonRecentProjects.MaximumSize = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonRecentProjects.Name = "projectOverviewButtonRecentProjects";
+            this.projectOverviewButtonRecentProjects.PaddingFirstTriangle = 250;
+            this.projectOverviewButtonRecentProjects.PaddingSecondTriangle = 700;
+            this.projectOverviewButtonRecentProjects.Selected = false;
+            this.projectOverviewButtonRecentProjects.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.projectOverviewButtonRecentProjects.SelectedTextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonRecentProjects.Size = new System.Drawing.Size(750, 40);
+            this.projectOverviewButtonRecentProjects.TabIndex = 0;
+            this.projectOverviewButtonRecentProjects.Text = "Recent Projects";
+            this.projectOverviewButtonRecentProjects.TextColor = System.Drawing.Color.White;
+            this.projectOverviewButtonRecentProjects.TriangleSize = 20;
+            this.projectOverviewButtonRecentProjects.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ProjectOverviewPanelRecentProjects
             // 
@@ -224,16 +224,18 @@
             // 
             // projectOverviewPanelCreateProjectRevision
             // 
-            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(0, 239);
+            this.projectOverviewPanelCreateProjectRevision.AutoSize = true;
+            this.projectOverviewPanelCreateProjectRevision.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.projectOverviewPanelCreateProjectRevision.Location = new System.Drawing.Point(750, 199);
             this.projectOverviewPanelCreateProjectRevision.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelCreateProjectRevision.Name = "projectOverviewPanelCreateProjectRevision";
-            this.projectOverviewPanelCreateProjectRevision.Size = new System.Drawing.Size(750, 43);
+            this.projectOverviewPanelCreateProjectRevision.Size = new System.Drawing.Size(0, 0);
             this.projectOverviewPanelCreateProjectRevision.TabIndex = 6;
             this.projectOverviewPanelCreateProjectRevision.Visible = false;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 282);
+            this.panel1.Location = new System.Drawing.Point(0, 239);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel1.Name = "panel1";
@@ -246,7 +248,7 @@
             this.projectOverviewButtonEditRiskStandard.CanButtonBeToggled = true;
             this.projectOverviewButtonEditRiskStandard.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonEditRiskStandard.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonEditRiskStandard.Location = new System.Drawing.Point(0, 294);
+            this.projectOverviewButtonEditRiskStandard.Location = new System.Drawing.Point(0, 251);
             this.projectOverviewButtonEditRiskStandard.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonEditRiskStandard.MaximumSize = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonEditRiskStandard.Name = "projectOverviewButtonEditRiskStandard";
@@ -265,7 +267,7 @@
             // projectOverviewPanelEditRiskStandard
             // 
             this.projectOverviewPanelEditRiskStandard.AutoSize = true;
-            this.projectOverviewPanelEditRiskStandard.Location = new System.Drawing.Point(750, 294);
+            this.projectOverviewPanelEditRiskStandard.Location = new System.Drawing.Point(750, 251);
             this.projectOverviewPanelEditRiskStandard.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewPanelEditRiskStandard.Name = "projectOverviewPanelEditRiskStandard";
             this.projectOverviewPanelEditRiskStandard.Size = new System.Drawing.Size(0, 0);
@@ -274,7 +276,7 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(0, 334);
+            this.panel2.Location = new System.Drawing.Point(0, 291);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel2.Name = "panel2";
@@ -287,7 +289,7 @@
             this.projectOverviewButtonCreateNewRisk.CanButtonBeToggled = false;
             this.projectOverviewButtonCreateNewRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.projectOverviewButtonCreateNewRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.projectOverviewButtonCreateNewRisk.Location = new System.Drawing.Point(0, 346);
+            this.projectOverviewButtonCreateNewRisk.Location = new System.Drawing.Point(0, 303);
             this.projectOverviewButtonCreateNewRisk.Margin = new System.Windows.Forms.Padding(0);
             this.projectOverviewButtonCreateNewRisk.MaximumSize = new System.Drawing.Size(750, 40);
             this.projectOverviewButtonCreateNewRisk.Name = "projectOverviewButtonCreateNewRisk";
@@ -303,7 +305,7 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 386);
+            this.panel3.Location = new System.Drawing.Point(0, 343);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.MaximumSize = new System.Drawing.Size(800, 12);
             this.panel3.Name = "panel3";
@@ -335,7 +337,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Controls.ARA_DropDownButton ProjectOverviewButtonRecentProjects;
+        private Controls.ARA_DropDownButton projectOverviewButtonRecentProjects;
         private System.Windows.Forms.FlowLayoutPanel ProjectOverviewPanelRecentProjects;
         private Controls.ARA_DropDownButton projectOverviewButtonOpenProject;
         private System.Windows.Forms.FlowLayoutPanel projectOverviewPanelOpenProject;

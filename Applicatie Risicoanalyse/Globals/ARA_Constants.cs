@@ -9,7 +9,6 @@ namespace Applicatie_Risicoanalyse.Globals
     public static class ARA_Constants
     {
         //Application constants.
-        public const string applicationVersion = "ALPHA-V3.001";
         public const float noScaleFontSize     = 15F;
         public const int randomPasswordLength = 10;
 
@@ -60,7 +59,9 @@ namespace Applicatie_Risicoanalyse.Globals
         public const string messageBoxLoginFailded                        = "Couldn't login, check your username or password!";
         public const string messageBoxLoginFaildedHeader                  = "Login failed.";
         public const string messageBoxLoginNewUser                        = "Succesfully added a new user to the database.";
-        public const string messageBoxLoginNewUser1                       = " This password has also been copied to your clipboard.";
+        public const string messageBoxLoginNewUser1                       = "This password has also been copied to your clipboard.";
         public const string messageBoxLoginNewUserHeader                  = "Login failed.";
+        public const string messageBoxProjectRevisionCreated              = "Succesfully created a project revision.";
+        public const string messageBoxProjectRevisionCreatedHeader        = "Revision created.";
     }
 }

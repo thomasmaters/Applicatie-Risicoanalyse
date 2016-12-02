@@ -42,7 +42,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void arA_Button1_Click(object sender, EventArgs e)
         {
-            ARA_Events.onOpenContentFormEvent(new ARA_AdministratorForm());
+            ARA_Events.triggerOpenContentFormEvent(new ARA_AdministratorForm());
         }
     }
 }
