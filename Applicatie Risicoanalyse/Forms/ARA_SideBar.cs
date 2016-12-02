@@ -48,12 +48,13 @@ namespace Applicatie_Risicoanalyse.Forms
             //Set application version form globals.
             if (ApplicationDeployment.IsNetworkDeployed)
             {
-                this.SideBarApplicationVersion.Text = string.Format("v{0}.{1}.{2}.{3}", 
+                ARA_Globals.ApplicationVersion = string.Format("v{0}.{1}.{2}.{3}", 
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.Major, 
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.Minor,
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.Build,
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.Revision);
             }
+            this.SideBarApplicationVersion.Text = ARA_Globals.ApplicationVersion;
 
             //Set current date.
             this.SideBarDate.Text = Applicatie_Risicoanalyse.Globals.ARA_Globals.ARa_Date;
@@ -131,6 +132,7 @@ namespace Applicatie_Risicoanalyse.Forms
             };
             tempButton.DoubleClick += delegate (object senderr, EventArgs ev)
             {
+                ARA_Events.triggerProjectClosedEvent();
                 ARA_Events.triggerSideBarRemoveButtonEvent(tempButton.Text);
                 onRiskAnalysisButtonClick(senderr, ev);
             };

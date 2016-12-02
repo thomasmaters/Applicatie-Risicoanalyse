@@ -57,6 +57,12 @@ namespace Applicatie_Risicoanalyse.Forms
                 //Execute procedure to create a project revision.
                 queriesTableAdapter1.Create_RiskProject_Revision((Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value, ARA_Globals.UserID);
 
+                //Log event.
+                ARA_Events.triggerNewProjectRevisionEvent(
+                    (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value,
+                    (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["Revision"].Value + 1
+                    );
+
                 //Update the datasource of the dataGrid.
                 this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
 

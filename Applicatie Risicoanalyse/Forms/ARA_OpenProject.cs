@@ -38,15 +38,23 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
         }
 
+        /// <summary>
+        /// Update the datagrid when the user want to search.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void arA_TextBox1_TextChanged(object sender, EventArgs e)
         {
+            //Get current scrollposition.
             int tempScrollPosition = this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex;
 
             try
             {
+                //Set datasource.
                 this.OpenProjectDataGrid.DataSource = this.search_ProjectsTableAdapter.GetData("" + this.OpenProjectTextBoxSearch.Text);
                 this.OpenProjectDataGrid.Refresh();
 
+                //Scroll datagrid to the previous scrollposition.
                 if (tempScrollPosition != -1 && tempScrollPosition < this.OpenProjectDataGrid.Rows.Count)
                 {
                     this.OpenProjectDataGrid.FirstDisplayedScrollingRowIndex = tempScrollPosition;
@@ -59,6 +67,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Handler when the user wants to open a specific project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenProjectDataGrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -70,6 +83,9 @@ namespace Applicatie_Risicoanalyse.Forms
                 //Get selected project id.
                 int projectIDToOpen = (Int32)this.OpenProjectDataGrid.Rows[e.RowIndex].Cells["ProjectID"].Value;
 
+                //Log this event.
+                ARA_Events.triggerProjectOpendEvent(projectIDToOpen);
+
                 //Trigger event to add a button to the sidebar and attach this form to it.
                 Applicatie_Risicoanalyse.Globals.ARA_Events.triggerSideBarAddNewButtonEvent(
                     projectSideBarButton,
@@ -77,6 +93,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Add styling based on project state when rows are added to the datagrid.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenProjectDataGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             foreach (DataGridViewRow row in this.OpenProjectDataGrid.Rows)
@@ -101,6 +122,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Clear selection when the user sets the selection.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenProjectDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             this.OpenProjectDataGrid.ClearSelection();

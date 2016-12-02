@@ -64,7 +64,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.projectSideBarButton.Text = this.createProjectInputMachineNumber.Text;
 
                 //Let other forms know that there is a new project.
-                ARA_Events.triggerNewProjectCreatedEvent();
+                ARA_Events.triggerNewProjectCreatedEvent(newestAddedProject);
 
                 //Trigger event to add a button to the sidebar and attach this form to it.
                 Applicatie_Risicoanalyse.Globals.ARA_Events.triggerSideBarAddNewButtonEvent(

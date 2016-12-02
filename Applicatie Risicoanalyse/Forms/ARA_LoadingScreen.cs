@@ -19,6 +19,9 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             InitializeComponent();
 
+            //Init logger.
+            Logger logger = Logger.Instance;
+
             //Set background worker parameters.
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = false;
@@ -162,6 +165,9 @@ namespace Applicatie_Risicoanalyse.Forms
                 if(loginHandler.login())
                 {
                     loginHandler = null;
+
+                    //Add log message.
+                    ARA_Events.triggerUserLoggedInEvent();
 
                     this.Hide();
 

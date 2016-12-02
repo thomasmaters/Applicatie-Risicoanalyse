@@ -46,6 +46,9 @@ namespace Applicatie_Risicoanalyse.Forms
             setControlsEnabled();
         }
 
+        /// <summary>
+        /// Set the data for all the controls.
+        /// </summary>
         private void setFormData()
         {
             try
@@ -180,7 +183,9 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        //Signals the form and the database to make a project specific risk.
+        /// <summary>
+        /// Signals the form and the database to make a project specific risk.
+        /// </summary>
         private void setControlsEnabled()
         {
             this.arA_EditRiskExposedPersons1.Enabled = this.arA_NewRiskRiskGrouping1.HasControlBeenChanged;
@@ -200,6 +205,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = ARA_Colors.ARA_Green;
         }
 
+        /// <summary>
+        /// Sets project info on the topbar.
+        /// </summary>
         private void setTopBarRiskInfo()
         {
             //Set top bar info.
@@ -227,7 +235,10 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_DataTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Data);
         }
 
-        //Loads image from database if we have a fileid.
+        /// <summary>
+        /// Loads image from database if we have a fileId.
+        /// </summary>
+        /// <param name="fileID"></param>
         private void loadRiskImage(int fileID)
         {
             if (fileID != -1)
@@ -238,17 +249,20 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
         /// <summary>
-        ///   
+        /// Button clicked for uploading a new image.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //Button clicked for uploading a new image.
         private void arA_Button1_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.ShowDialog();
         }
 
-        //New image file chosen.
+        /// <summary>
+        /// Handler when the user selects a image file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (e.Cancel == false)
@@ -264,7 +278,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
-        //Check if we have filled the form, delete the risk otherwise.
+        /// <summary>
+        /// Check if we have filled the form, delete the risk otherwise.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkIfControlHasBeenFilledOnClose(object sender, OpenContentFormEvent e)
         {
             if(e.Form == this)
@@ -275,6 +293,9 @@ namespace Applicatie_Risicoanalyse.Forms
             deleteControlIfItIsNotFilled();
         }
 
+        /// <summary>
+        /// Checks if the risk is correctly filled in, deletes it otherwise.
+        /// </summary>
         private void deleteControlIfItIsNotFilled()
         {
             if (this.arA_NewRiskRiskGrouping1.HasControlBeenChanged == false ||
@@ -288,6 +309,9 @@ namespace Applicatie_Risicoanalyse.Forms
             }
             else //We filled the form correctly
             {
+                //Log event.
+                ARA_Events.triggerNewRiskAddedToStandardEvent(this.riskID);
+
                 System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxAddedRiskToStandard, ARA_Constants.messageBoxAddedRiskToStandardHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             ARA_Events.OpenContentFormEventHandler -= checkIfControlHasBeenFilledOnClose;

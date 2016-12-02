@@ -247,6 +247,11 @@ namespace Applicatie_Risicoanalyse.Forms
                     {
                         this.riskVersionID += 1;
                         this.riskDataID = (Int32)tempRow["newRiskDataID"];
+
+                        //Log event.
+                        ARA_Events.triggerNewRiskVersionEvent(this.riskID, this.riskVersionID);
+
+                        //Let the user know we made a new version of the risk.
                         System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxNewRiskVersion, ARA_Constants.messageBoxNewRiskVersionHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -257,6 +262,11 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
                     this.riskDataID = (Int32)tempRow["newRiskDataID"];
+
+                    //Log event.
+                    ARA_Events.triggerProjectSpecificRiskCreatedEvent(this.riskID,this.projectID);
+
+                    //Let the user know we made a project specific project.
                     System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxRiskProjectSpecific, ARA_Constants.messageBoxRiskProjectSpecificHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

@@ -13,15 +13,24 @@ namespace Applicatie_Risicoanalyse.Globals
     class ARA_Events
     {
         //Eventhandlers for storing which function to trigger when the event gets called.
-        public static event EventHandler<OpenContentFormEvent> OpenContentFormEventHandler;
-        public static event EventHandler<BaseFormSetTopBarFormEvent> baseFormSetTopBarFormEventHandler;
+        public static event EventHandler<OpenContentFormEvent>          OpenContentFormEventHandler;
+        public static event EventHandler<BaseFormSetTopBarFormEvent>    baseFormSetTopBarFormEventHandler;
         public static event EventHandler<SetSideBarButtonSelectedEvent> SetSideBarButtonSelectedEventHandler;
-        public static event EventHandler<SideBarAddNewButtonEvent> SideBarAddNewButtonEventHandler;
-        public static event EventHandler<SideBarRemoveNewButtonEvent> SideBarRemoveNewButtonEventHandler;
-        public static event EventHandler<AddRiskToProjectEvent> AddRiskToProjectEventHandler;
-        public static event EventHandler<SideBarAddNewButtonEvent> SideBarButtonAddedEventHandler;
-        public static event EventHandler<NewProjectCreatedEvent> NewProjectCreatedEventHandler;
-        public static event EventHandler<RiskAddedToProjectEvent> RiskAddedToProjectEventHandler;
+        public static event EventHandler<SideBarAddNewButtonEvent>      SideBarAddNewButtonEventHandler;
+        public static event EventHandler<SideBarRemoveNewButtonEvent>   SideBarRemoveNewButtonEventHandler;
+        public static event EventHandler<AddRiskToProjectEvent>         AddRiskToProjectEventHandler;
+        public static event EventHandler<SideBarAddNewButtonEvent>      SideBarButtonAddedEventHandler;
+
+        public static event EventHandler<NewProjectCreatedEvent>        NewProjectCreatedEventHandler;
+        public static event EventHandler<RiskAddedToProjectEvent>       RiskAddedToProjectEventHandler;
+        public static event EventHandler<ProjectOpendEvent>             ProjectOpendEventHandler;
+        public static event EventHandler<ProjectClosedEvent>            ProjectClosedEventHandler;
+        public static event EventHandler<UserLoggedInEvent>             UserLoggedInEventHandler;
+        public static event EventHandler<ProjectStateChangedEvent>      ProjectStateChangedEventHandler;
+        public static event EventHandler<NewProjectRevisionEvent>       NewProjectRevisionEventHandler;
+        public static event EventHandler<ProjectSpecificRiskCreatedEvent> ProjectSpecificRiskCreatedEventHandler;
+        public static event EventHandler<NewRiskAddedToStandardEvent>   NewRiskAddedToStandardEventHandler;
+        public static event EventHandler<NewRiskVersionEvent>           NewRiskVersionEventHandler;
 
         //Static function for adding an event to the event handlers.
         public static void triggerOpenContentFormEvent(System.Windows.Forms.Form aForm)
@@ -67,11 +76,11 @@ namespace Applicatie_Risicoanalyse.Globals
                 SideBarRemoveNewButtonEventHandler(new object(), new SideBarRemoveNewButtonEvent(buttonText));
             }
         }
-        public static void triggerNewProjectCreatedEvent()
+        public static void triggerNewProjectCreatedEvent(int aProjectID)
         {
             if(NewProjectCreatedEventHandler != null)
             {
-                NewProjectCreatedEventHandler(new object(), new NewProjectCreatedEvent());
+                NewProjectCreatedEventHandler(new object(), new NewProjectCreatedEvent(aProjectID));
             }
         }
         public static void triggerRiskAddedToProjectEvent(int aProjectID)
@@ -80,6 +89,141 @@ namespace Applicatie_Risicoanalyse.Globals
             {
                 RiskAddedToProjectEventHandler(new object(), new RiskAddedToProjectEvent(aProjectID));
             }
+        }
+
+        public static void triggerProjectOpendEvent(int aProjectID)
+        {
+            if(ProjectOpendEventHandler != null)
+            {
+                ProjectOpendEventHandler(new object(), new ProjectOpendEvent(aProjectID));
+            }
+        }
+        public static void triggerProjectClosedEvent()
+        {
+            if(ProjectClosedEventHandler != null)
+            {
+                ProjectClosedEventHandler(new object(), new ProjectClosedEvent());
+            }
+        }
+        public static void triggerUserLoggedInEvent()
+        {
+            if(UserLoggedInEventHandler != null)
+            {
+                UserLoggedInEventHandler(new object(), new UserLoggedInEvent());
+            }
+        }
+        public static void triggerProjectStateChangedEvent(int aProjectID, string aState)
+        {
+            if(ProjectStateChangedEventHandler != null)
+            {
+                ProjectStateChangedEventHandler(new object(), new ProjectStateChangedEvent(aProjectID, aState));
+            }
+        }
+        public static void triggerNewProjectRevisionEvent(int aRevisionOfProjectID, int aRevison)
+        {
+            if(NewProjectRevisionEventHandler != null)
+            {
+                NewProjectRevisionEventHandler(new object(), new NewProjectRevisionEvent(aRevisionOfProjectID, aRevison));
+            }
+        }
+        public static void triggerProjectSpecificRiskCreatedEvent(int aRiskID, int aProjectID)
+        {
+            if(ProjectSpecificRiskCreatedEventHandler != null)
+            {
+                ProjectSpecificRiskCreatedEventHandler(new object(), new ProjectSpecificRiskCreatedEvent(aRiskID, aProjectID));
+            }
+        }
+        public static void triggerNewRiskAddedToStandardEvent(int aRiskID)
+        {
+            if(NewRiskAddedToStandardEventHandler != null)
+            {
+                NewRiskAddedToStandardEventHandler(new object(), new NewRiskAddedToStandardEvent(aRiskID));
+            }
+        }
+        public static void triggerNewRiskVersionEvent(int aRiskID, int aVersion)
+        {
+            if(NewRiskVersionEventHandler != null)
+            {
+                NewRiskVersionEventHandler(new object(), new NewRiskVersionEvent(aRiskID, aVersion));
+            }
+        }
+    }
+
+    public class NewRiskVersionEvent
+    {
+        public int riskID { get; private set; }
+        public int version { get; private set; }
+
+        public NewRiskVersionEvent(int aRiskID, int aVersion)
+        {
+            this.riskID = aRiskID;
+            this.version = aVersion;
+        }
+    }
+
+    public class NewRiskAddedToStandardEvent
+    {
+        public int riskID { get; private set; }
+        public NewRiskAddedToStandardEvent(int aRiskID)
+        {
+            this.riskID = aRiskID;
+        }
+    }
+
+    public class ProjectSpecificRiskCreatedEvent
+    {
+        public int riskID { get; private set; }
+        public int projectID { get; private set; }
+        public ProjectSpecificRiskCreatedEvent(int aRiskID, int aProjectID)
+        {
+            this.riskID = aRiskID;
+            this.projectID = aProjectID;
+        }
+    }
+
+    public class NewProjectRevisionEvent
+    {
+        public int revision { get; private set; }
+        public int revisionOfProjectID { get; private set; }
+        public NewProjectRevisionEvent(int aRevisionOfProjectID, int aRevison)
+        {
+            this.revision = aRevison;
+            this.revisionOfProjectID = aRevisionOfProjectID;
+        }
+    }
+
+    public class ProjectStateChangedEvent
+    {
+        public int projectID { get; private set; }
+        public string state { get; private set; }
+        public ProjectStateChangedEvent(int aProjectID, string aState)
+        {
+            this.projectID = aProjectID;
+            this.state = aState;
+        }
+    }
+
+    public class UserLoggedInEvent
+    {
+        public UserLoggedInEvent()
+        {
+
+        }
+    }
+
+    public class ProjectClosedEvent
+    {
+        public ProjectClosedEvent()
+        {
+        }
+    }
+
+    public class ProjectOpendEvent
+    {
+        public int projectID { get; private set; }
+        public ProjectOpendEvent(int aProjectID)
+        {
+            this.projectID = aProjectID;
         }
     }
 
@@ -328,8 +472,10 @@ namespace Applicatie_Risicoanalyse.Globals
 
     public class NewProjectCreatedEvent
     {
-        public NewProjectCreatedEvent()
+        public int projectID { get; private set; }
+        public NewProjectCreatedEvent(int aProjectID)
         {
+            this.projectID = aProjectID;
         }
     }
 

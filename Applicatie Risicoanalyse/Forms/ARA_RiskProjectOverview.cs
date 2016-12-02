@@ -181,6 +181,9 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.forReview);
 
+                //Log event.
+                ARA_Events.triggerProjectStateChangedEvent(this.projectID, ARA_Constants.forReview);
+
                 //Hide the button when the project state changes.
                 enableControlOnProjectState();
             }
@@ -198,6 +201,9 @@ namespace Applicatie_Risicoanalyse.Forms
                 if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmFinalDraft, ARA_Constants.messageBoxConfirmFinalDraftHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.finalDraft);
+
+                    //Log event.
+                    ARA_Events.triggerProjectStateChangedEvent(this.projectID, ARA_Constants.finalDraft);
                 }
             }
             else
@@ -206,6 +212,9 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.draft);
                     this.queriesTableAdapter1.Increase_Project_DraftVersion(this.projectID);
+
+                    //Log event.
+                    ARA_Events.triggerProjectStateChangedEvent(this.projectID, ARA_Constants.draft);
                 }
             }
 
@@ -223,6 +232,9 @@ namespace Applicatie_Risicoanalyse.Forms
             if (System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxConfirmCloseProject, ARA_Constants.messageBoxConfirmCloseProjectHeader, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 this.queriesTableAdapter1.Update_Project_State(this.projectID, ARA_Constants.closed);
+
+                //Log event.
+                ARA_Events.triggerProjectStateChangedEvent(this.projectID, ARA_Constants.closed);
 
                 //Hide the button when the project state changes.
                 enableControlOnProjectState();
