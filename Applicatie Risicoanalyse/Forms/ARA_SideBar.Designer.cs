@@ -161,7 +161,7 @@
             // SideBarSearch
             // 
             this.SideBarSearch.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.SideBarSearch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.SideBarSearch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.SideBarSearch.ForeColor = System.Drawing.Color.White;
             this.SideBarSearch.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarSearch.Location = new System.Drawing.Point(0, 407);
@@ -171,7 +171,6 @@
             this.SideBarSearch.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.SideBarSearch.Size = new System.Drawing.Size(160, 35);
             this.SideBarSearch.TabIndex = 6;
-            this.SideBarSearch.Text = "Search";
             this.SideBarSearch.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // SideBarDefiderLine

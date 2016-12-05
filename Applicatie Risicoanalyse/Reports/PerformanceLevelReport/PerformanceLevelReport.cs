@@ -62,7 +62,7 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
 
                 backgroundWorker1.ReportProgress(68, (object)"Adding watermarks(if needed).");
 
-                setWaterMark(wordInterface, wordDocument, projectInfoRow["StateName"].ToString());
+                setWaterMark(wordInterface, wordDocument, projectInfoRow["StateName"].ToString(), projectInfoRow["DraftVersion"].ToString());
 
                 backgroundWorker1.ReportProgress(70, (object)"Saving the document.");
 

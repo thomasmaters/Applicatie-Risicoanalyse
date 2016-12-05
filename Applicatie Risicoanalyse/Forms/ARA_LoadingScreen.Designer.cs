@@ -71,7 +71,7 @@
             this.loadingScreenButtonLogin.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.loadingScreenButtonLogin.CanButtonBeToggled = false;
             this.loadingScreenButtonLogin.HorizontalAlignment = System.Drawing.StringAlignment.Center;
-            this.loadingScreenButtonLogin.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.loadingScreenButtonLogin.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(0)))));
             this.loadingScreenButtonLogin.Location = new System.Drawing.Point(11, 85);
             this.loadingScreenButtonLogin.Margin = new System.Windows.Forms.Padding(0);
             this.loadingScreenButtonLogin.Name = "loadingScreenButtonLogin";

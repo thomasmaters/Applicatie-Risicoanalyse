@@ -71,16 +71,16 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="wordInterface"></param>
         /// <param name="wordDocument"></param>
         /// <param name="projectState"></param>
-        protected void setWaterMark(WordInterface wordInterface, Document wordDocument, string projectState)
+        protected void setWaterMark(WordInterface wordInterface, Document wordDocument, string projectState, string draftVersion = "")
         {
             //Set watermark text based on project state.
             if (projectState == ARA_Constants.draft)
             {
-                wordInterface.insertWatermarkText(wordDocument, "DRAFT");
+                wordInterface.insertWatermarkText(wordDocument, "DRAFT-" + draftVersion);
             }
             else if (projectState == ARA_Constants.forReview)
             {
-                wordInterface.insertWatermarkText(wordDocument, "REVIEW");
+                wordInterface.insertWatermarkText(wordDocument, "REVIEW ");
             }
             else if (projectState == ARA_Constants.finalDraft)
             {

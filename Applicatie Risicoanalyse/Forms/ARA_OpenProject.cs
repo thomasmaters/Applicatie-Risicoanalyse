@@ -25,9 +25,35 @@ namespace Applicatie_Risicoanalyse.Forms
                 control.Font = this.Font;
             }
 
+            //Add events.
+            ARA_Events.NewProjectRevisionEventHandler += ARA_Events_NewProjectRevisionEventHandler;
+            ARA_Events.NewProjectCreatedEventHandler += ARA_Events_NewProjectCreatedEventHandler;
+
             //Special scaling for the datagrid.
             this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+        }
+
+        /// <summary>
+        /// Handler when the user creates a new project, so the datagrid gets updated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_NewProjectCreatedEventHandler(object sender, NewProjectCreatedEvent e)
+        {
+            this.OpenProjectDataGrid.DataSource = this.get_Projects_With_RevisionTableAdapter.GetData();
+            OpenProjectDataGrid_RowsAdded(new object(), new DataGridViewRowsAddedEventArgs(0, 0));
+        }
+
+        /// <summary>
+        /// Handler when the user creates a new project revision.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_NewProjectRevisionEventHandler(object sender, NewProjectRevisionEvent e)
+        {
+            this.OpenProjectDataGrid.DataSource = this.get_Projects_With_RevisionTableAdapter.GetData();
+            OpenProjectDataGrid_RowsAdded(new object(), new DataGridViewRowsAddedEventArgs(0,0));
         }
 
         private void ARA_OpenProject_Load(object sender, EventArgs e)
