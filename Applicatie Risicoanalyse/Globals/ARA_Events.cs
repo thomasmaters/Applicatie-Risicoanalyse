@@ -78,13 +78,15 @@ namespace Applicatie_Risicoanalyse.Globals
         }
         public static void triggerNewProjectCreatedEvent(int aProjectID)
         {
-            if(NewProjectCreatedEventHandler != null)
+            Logger.Instance.log(string.Format("{0} created a new project with id {1}.", ARA_Globals.LoggedInUsername, aProjectID));
+            if (NewProjectCreatedEventHandler != null)
             {
                 NewProjectCreatedEventHandler(new object(), new NewProjectCreatedEvent(aProjectID));
             }
         }
         public static void triggerRiskAddedToProjectEvent(int aProjectID)
         {
+            Logger.Instance.log(string.Format("{0} added a risk to project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
             if (RiskAddedToProjectEventHandler != null)
             {
                 RiskAddedToProjectEventHandler(new object(), new RiskAddedToProjectEvent(aProjectID));
@@ -93,56 +95,64 @@ namespace Applicatie_Risicoanalyse.Globals
 
         public static void triggerProjectOpendEvent(int aProjectID)
         {
-            if(ProjectOpendEventHandler != null)
+            Logger.Instance.log(string.Format("{0} opened project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
+            if (ProjectOpendEventHandler != null)
             {
                 ProjectOpendEventHandler(new object(), new ProjectOpendEvent(aProjectID));
             }
         }
         public static void triggerProjectClosedEvent()
         {
-            if(ProjectClosedEventHandler != null)
+            Logger.Instance.log(string.Format("{0} closed a project.", ARA_Globals.LoggedInUsername));
+            if (ProjectClosedEventHandler != null)
             {
                 ProjectClosedEventHandler(new object(), new ProjectClosedEvent());
             }
         }
         public static void triggerUserLoggedInEvent()
         {
-            if(UserLoggedInEventHandler != null)
+            Logger.Instance.log(string.Format("{0} logged in on {1} with application version {2}.", ARA_Globals.LoggedInUsername, ARA_Globals.ARa_Date, ARA_Globals.ApplicationVersion));
+            if (UserLoggedInEventHandler != null)
             {
                 UserLoggedInEventHandler(new object(), new UserLoggedInEvent());
             }
         }
         public static void triggerProjectStateChangedEvent(int aProjectID, string aState)
         {
-            if(ProjectStateChangedEventHandler != null)
+            Logger.Instance.log(string.Format("{0} changed the state of project {1} to the state {2}.", ARA_Globals.LoggedInUsername, aProjectID, aState));
+            if (ProjectStateChangedEventHandler != null)
             {
                 ProjectStateChangedEventHandler(new object(), new ProjectStateChangedEvent(aProjectID, aState));
             }
         }
         public static void triggerNewProjectRevisionEvent(int aRevisionOfProjectID, int aRevison)
         {
-            if(NewProjectRevisionEventHandler != null)
+            Logger.Instance.log(string.Format("{0} created revsion {2} of project {1}.", ARA_Globals.LoggedInUsername, aRevisionOfProjectID, aRevison));
+            if (NewProjectRevisionEventHandler != null)
             {
                 NewProjectRevisionEventHandler(new object(), new NewProjectRevisionEvent(aRevisionOfProjectID, aRevison));
             }
         }
         public static void triggerProjectSpecificRiskCreatedEvent(int aRiskID, int aProjectID)
         {
-            if(ProjectSpecificRiskCreatedEventHandler != null)
+            Logger.Instance.log(string.Format("{0} made risk {1} in project {2} project specific.", ARA_Globals.LoggedInUsername, aRiskID, aProjectID));
+            if (ProjectSpecificRiskCreatedEventHandler != null)
             {
                 ProjectSpecificRiskCreatedEventHandler(new object(), new ProjectSpecificRiskCreatedEvent(aRiskID, aProjectID));
             }
         }
         public static void triggerNewRiskAddedToStandardEvent(int aRiskID)
         {
-            if(NewRiskAddedToStandardEventHandler != null)
+            Logger.Instance.log(string.Format("{0} added risk {1} to the standard.", ARA_Globals.LoggedInUsername, aRiskID));
+            if (NewRiskAddedToStandardEventHandler != null)
             {
                 NewRiskAddedToStandardEventHandler(new object(), new NewRiskAddedToStandardEvent(aRiskID));
             }
         }
         public static void triggerNewRiskVersionEvent(int aRiskID, int aVersion)
         {
-            if(NewRiskVersionEventHandler != null)
+            Logger.Instance.log(string.Format("{0} created version {2} of risk {1}.", ARA_Globals.LoggedInUsername, aRiskID, aVersion));
+            if (NewRiskVersionEventHandler != null)
             {
                 NewRiskVersionEventHandler(new object(), new NewRiskVersionEvent(aRiskID, aVersion));
             }

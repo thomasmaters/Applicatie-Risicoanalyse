@@ -45,15 +45,6 @@ namespace Applicatie_Risicoanalyse.Forms
             Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarAddNewButtonEventHandler += onAddNewButtonToSideBar;
             Applicatie_Risicoanalyse.Globals.ARA_Events.SideBarRemoveNewButtonEventHandler += onRemoveSideBarButtonEvent;
 
-            //Set application version form globals.
-            if (ApplicationDeployment.IsNetworkDeployed)
-            {
-                ARA_Globals.ApplicationVersion = string.Format("v{0}.{1}.{2}.{3}", 
-                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Major, 
-                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Minor,
-                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Build,
-                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Revision);
-            }
             this.SideBarApplicationVersion.Text = ARA_Globals.ApplicationVersion;
 
             //Set current date.

@@ -155,66 +155,6 @@ namespace Applicatie_Risicoanalyse.Globals
         private static Tbl_LogTableAdapter logTableAdapter = new Tbl_LogTableAdapter();
         private Logger()
         {
-            ARA_Events.NewProjectCreatedEventHandler          += ARA_Events_NewProjectCreatedEventHandler;
-            ARA_Events.RiskAddedToProjectEventHandler         += ARA_Events_RiskAddedToProjectEventHandler;
-            ARA_Events.ProjectOpendEventHandler               += ARA_Events_ProjectOpendEventHandler;
-            ARA_Events.ProjectClosedEventHandler              += ARA_Events_ProjectClosedEventHandler;
-            ARA_Events.UserLoggedInEventHandler               += ARA_Events_UserLoggedInEventHandler;
-            ARA_Events.ProjectStateChangedEventHandler        += ARA_Events_ProjectStateChangedEventHandler;
-            ARA_Events.NewProjectRevisionEventHandler         += ARA_Events_NewProjectRevisionEventHandler;
-            ARA_Events.ProjectSpecificRiskCreatedEventHandler += ARA_Events_ProjectSpecificRiskCreatedEventHandler;
-            ARA_Events.NewRiskAddedToStandardEventHandler     += ARA_Events_NewRiskAddedToStandardEventHandler;
-            ARA_Events.NewRiskVersionEventHandler             += ARA_Events_NewRiskVersionEventHandler;
-        }
-
-        private void ARA_Events_NewRiskVersionEventHandler(object sender, NewRiskVersionEvent e)
-        {
-            this.log(string.Format("{0} created version {2} of risk {1}.",ARA_Globals.LoggedInUsername,e.riskID,e.version));
-        }
-
-        private void ARA_Events_NewRiskAddedToStandardEventHandler(object sender, NewRiskAddedToStandardEvent e)
-        {
-            this.log(string.Format("{0} added risk {1} to the standard.", ARA_Globals.LoggedInUsername, e.riskID));
-        }
-
-        private void ARA_Events_ProjectSpecificRiskCreatedEventHandler(object sender, ProjectSpecificRiskCreatedEvent e)
-        {
-            this.log(string.Format("{0} made risk {2} in project {1} project specific.", ARA_Globals.LoggedInUsername, e.projectID, e.riskID));
-        }
-
-        private void ARA_Events_NewProjectRevisionEventHandler(object sender, NewProjectRevisionEvent e)
-        {
-            this.log(string.Format("{0} created revsion {1} of project {2}.", ARA_Globals.LoggedInUsername, e.revision, e.revisionOfProjectID));
-        }
-
-        private void ARA_Events_ProjectStateChangedEventHandler(object sender, ProjectStateChangedEvent e)
-        {
-            this.log(string.Format("{0} changed the state of project {1} to the state {2}.", ARA_Globals.LoggedInUsername, e.projectID, e.state));
-        }
-
-        private void ARA_Events_UserLoggedInEventHandler(object sender, UserLoggedInEvent e)
-        {
-            this.log(string.Format("{0} logged in on {1} with application version {2}.", ARA_Globals.LoggedInUsername,ARA_Globals.ARa_Date,ARA_Globals.ApplicationVersion));
-        }
-
-        private void ARA_Events_ProjectClosedEventHandler(object sender, ProjectClosedEvent e)
-        {
-            this.log(string.Format("{0} closed a project.", ARA_Globals.LoggedInUsername));
-        }
-
-        private void ARA_Events_ProjectOpendEventHandler(object sender, ProjectOpendEvent e)
-        {
-            this.log(string.Format("{0} opened project {1}.", ARA_Globals.LoggedInUsername, e.projectID));
-        }
-
-        private void ARA_Events_RiskAddedToProjectEventHandler(object sender, RiskAddedToProjectEvent e)
-        {
-            this.log(string.Format("{0} added a risk to project {1}.", ARA_Globals.LoggedInUsername, e.projectID));
-        }
-
-        private void ARA_Events_NewProjectCreatedEventHandler(object sender, NewProjectCreatedEvent e)
-        {
-            this.log(string.Format("{0} created a new project.", ARA_Globals.LoggedInUsername));
         }
 
         public void log(string logMessage)

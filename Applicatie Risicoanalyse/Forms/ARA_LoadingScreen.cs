@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Deployment.Application;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -21,6 +22,16 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Init logger.
             Logger logger = Logger.Instance;
+
+            //Set application version.
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                ARA_Globals.ApplicationVersion = string.Format("v{0}.{1}.{2}.{3}",
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Major,
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Minor,
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Build,
+                    ApplicationDeployment.CurrentDeployment.CurrentVersion.Revision);
+            }
 
             //Set background worker parameters.
             backgroundWorker1.WorkerReportsProgress = true;
