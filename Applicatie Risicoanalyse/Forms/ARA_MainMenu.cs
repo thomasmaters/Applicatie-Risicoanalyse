@@ -27,20 +27,14 @@ namespace Applicatie_Risicoanalyse.Forms
             //Add event to update datagrid when a new logmessage is added.
             ARA_Events.NewLogMessageEventHandler += ARA_Events_NewLogMessageEventHandler;
 
-            //Set datagrid sorting.
-            DataView tempLogView = tbl_LogTableAdapter.GetData().DefaultView;
-            tempLogView.Sort = "LogDate DESC";
-            
-            this.mainMenuDataGrid.DataSource = tempLogView;
+            //Set datagrid datasource.
+            this.mainMenuDataGrid.DataSource = this.get_Latest_ActivityTableAdapter.GetData();
         }
 
         private void ARA_Events_NewLogMessageEventHandler(object sender, NewLogMessageEvent e)
         {
             //Update datagrid datasource.
-            DataView tempLogView = tbl_LogTableAdapter.GetData().DefaultView;
-            tempLogView.Sort = "LogDate DESC";
-
-            this.mainMenuDataGrid.DataSource = tempLogView;
+            this.mainMenuDataGrid.DataSource = this.get_Latest_ActivityTableAdapter.GetData();
         }
 
         public void loadPermissions()
@@ -55,9 +49,6 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Set scaling.
             this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
-
-            //Load database data.
-            this.tbl_LogTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Log);
         }
 
         /// <summary>

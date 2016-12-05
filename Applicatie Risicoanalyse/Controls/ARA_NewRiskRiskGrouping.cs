@@ -54,14 +54,19 @@ namespace Applicatie_Risicoanalyse.Controls
 
         }
 
+        /// <summary>
+        /// Sets the datafor all the controls and handler when they change.
+        /// </summary>
         public void setControlData()
         {
+            //Set componentgroupe combobox datasource.
             DataView componentGroupView = new DataView(this.tbl_Component_GroupTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
 
             this.riskGroupingComboBoxComponentGroup.DisplayMember = "GroupName";
             this.riskGroupingComboBoxComponentGroup.ValueMember = "GroupName";
             this.riskGroupingComboBoxComponentGroup.DataSource = componentGroupView;
 
+            //Set componenttype combobox datasource.
             DataView componentTypeView = new DataView(this.tbl_Component_TypeTableAdapter.GetData(), "", "", DataViewRowState.CurrentRows);
             componentTypeView.RowFilter = string.Format("GroupName = '{0}'", this.riskGroupingComboBoxComponentGroup.SelectedValue);
 
@@ -94,7 +99,5 @@ namespace Applicatie_Risicoanalyse.Controls
                 riskComponentGroupAndTypeChangedEventHandler(sender, new RiskComponentGroupAndTypeChangedEvent(this.riskGroupingComboBoxComponentGroup.SelectedValue.ToString(), this.riskGroupingComboBoxComponentType.SelectedValue.ToString()));
             }
         }
-
-       
     }
 }

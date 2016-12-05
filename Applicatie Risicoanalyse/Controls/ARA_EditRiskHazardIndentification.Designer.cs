@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.hazardComboBoxDangerGroup = new System.Windows.Forms.ComboBox();
+            this.hazardComboBoxDangerSource = new System.Windows.Forms.ComboBox();
             this.tbl_Danger_SourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.tbl_DangerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,29 +58,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_DataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // hazardComboBoxDangerGroup
             // 
-            this.comboBox1.DisplayMember = "DangerGroupName";
-            this.comboBox1.Font = new System.Drawing.Font("Gotham Light", 11F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 46);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(351, 26);
-            this.comboBox1.TabIndex = 33;
-            this.comboBox1.ValueMember = "DangerGroupName";
+            this.hazardComboBoxDangerGroup.DisplayMember = "DangerGroupName";
+            this.hazardComboBoxDangerGroup.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.hazardComboBoxDangerGroup.FormattingEnabled = true;
+            this.hazardComboBoxDangerGroup.Location = new System.Drawing.Point(19, 46);
+            this.hazardComboBoxDangerGroup.Margin = new System.Windows.Forms.Padding(0);
+            this.hazardComboBoxDangerGroup.Name = "hazardComboBoxDangerGroup";
+            this.hazardComboBoxDangerGroup.Size = new System.Drawing.Size(351, 26);
+            this.hazardComboBoxDangerGroup.TabIndex = 33;
+            this.hazardComboBoxDangerGroup.ValueMember = "DangerGroupName";
             // 
-            // comboBox2
+            // hazardComboBoxDangerSource
             // 
-            this.comboBox2.DisplayMember = "DangerSourceName";
-            this.comboBox2.Font = new System.Drawing.Font("Gotham Light", 11F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(19, 92);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(351, 26);
-            this.comboBox2.TabIndex = 34;
-            this.comboBox2.ValueMember = "DangerSourceName";
+            this.hazardComboBoxDangerSource.DisplayMember = "DangerSourceName";
+            this.hazardComboBoxDangerSource.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.hazardComboBoxDangerSource.FormattingEnabled = true;
+            this.hazardComboBoxDangerSource.Location = new System.Drawing.Point(19, 92);
+            this.hazardComboBoxDangerSource.Margin = new System.Windows.Forms.Padding(0);
+            this.hazardComboBoxDangerSource.Name = "hazardComboBoxDangerSource";
+            this.hazardComboBoxDangerSource.Size = new System.Drawing.Size(351, 26);
+            this.hazardComboBoxDangerSource.TabIndex = 34;
+            this.hazardComboBoxDangerSource.ValueMember = "DangerSourceName";
             // 
             // tbl_Danger_SourceBindingSource
             // 
@@ -157,7 +157,7 @@
             this.hazardIndentificationRectangleIndicator.Location = new System.Drawing.Point(11, 23);
             this.hazardIndentificationRectangleIndicator.Margin = new System.Windows.Forms.Padding(0);
             this.hazardIndentificationRectangleIndicator.Name = "hazardIndentificationRectangleIndicator";
-            this.hazardIndentificationRectangleIndicator.Size = new System.Drawing.Size(4, 138);
+            this.hazardIndentificationRectangleIndicator.Size = new System.Drawing.Size(4, 140);
             this.hazardIndentificationRectangleIndicator.TabIndex = 29;
             this.hazardIndentificationRectangleIndicator.Text = "arA_Rectangle2";
             // 
@@ -285,8 +285,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.hazardComboBoxDangerSource);
+            this.Controls.Add(this.hazardComboBoxDangerGroup);
             this.Controls.Add(this.hazardIndentificationRectangleIndicator);
             this.Controls.Add(this.arA_TextBox2);
             this.Controls.Add(this.HazardTextEvent);
@@ -323,8 +323,8 @@
         private ARA_Text HazardTextSource;
         private ARA_Text HazardTextType;
         private ARA_Text HarzardTextTitle;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox hazardComboBoxDangerGroup;
+        private System.Windows.Forms.ComboBox hazardComboBoxDangerSource;
         private System.Windows.Forms.BindingSource tbl_DangerBindingSource;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_DangerTableAdapter tbl_DangerTableAdapter;

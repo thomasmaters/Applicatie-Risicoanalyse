@@ -249,7 +249,6 @@ namespace Applicatie_Risicoanalyse.Reports
                         DataRow dangerRow = this.tbl_DangerTableAdapter.GetData().FindByDangerID((Int32)riskData["DangerID"]);
                         DataRow dangerSourceRow = this.tbl_Danger_SourceTableAdapter.GetData().FindByDangerSourceID((Int32)riskData["DangerSourceID"]);
 
-                        DataView dangerResults = new DataView(this.tbl_Danger_ResultTableAdapter.GetData());
                         DataView riskEstimationBeforeView = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
                         DataView riskEstimationAfterView = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
                         DataView appliedRiskReductionMeasures = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
@@ -275,22 +274,23 @@ namespace Applicatie_Risicoanalyse.Reports
                         wordDocument.Activate();
 
                         //Set values form newly added document.
-                        dangerResults.RowFilter = string.Format("DangerSourceID = {0}", dangerSourceRow["DangerSourceID"].ToString());
                         wordInterface.searchAndReplace(wordInterface.app, "<Hazard>", dangerRow["DangerGroupName"].ToString());
                         wordInterface.searchAndReplace(wordInterface.app, "<HazardSource>", dangerSourceRow["DangerSourceName"].ToString());
 
-                        if (dangerResults.Count > 0)
+                        if (dangerSourceRow["DangerResultID1"] != DBNull.Value)
                         {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", string.Format("{0}", dangerResults[0]["DangerResultName"].ToString()));
+                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID1"]);
+                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
                         }
                         else
                         {
                             wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", "");
                         }
 
-                        if (dangerResults.Count > 1)
+                        if (dangerSourceRow["DangerResultID2"] != DBNull.Value)
                         {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", string.Format("{0}", dangerResults[1]["DangerResultName"].ToString()));
+                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID2"]);
+                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
                         }
                         else
                         {

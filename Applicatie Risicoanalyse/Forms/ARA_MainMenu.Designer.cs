@@ -32,22 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainMenuPanelTitle = new System.Windows.Forms.FlowLayoutPanel();
+            this.mainMenuRecentActivityText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.mainMenuDataGrid = new System.Windows.Forms.DataGridView();
             this.logDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getLatestActivityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
-            this.tblLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
             this.get_Latest_ActivityTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Latest_ActivityTableAdapter();
             this.mainMenuButtonOpenAdminPanel = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.mainMenuRecentActivityText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.MainMenuPanelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getLatestActivityBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLogBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuPanelTitle
@@ -59,6 +56,18 @@
             this.MainMenuPanelTitle.Name = "MainMenuPanelTitle";
             this.MainMenuPanelTitle.Size = new System.Drawing.Size(750, 27);
             this.MainMenuPanelTitle.TabIndex = 0;
+            // 
+            // mainMenuRecentActivityText
+            // 
+            this.mainMenuRecentActivityText.BackgroundColor = System.Drawing.Color.White;
+            this.mainMenuRecentActivityText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.mainMenuRecentActivityText.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuRecentActivityText.Margin = new System.Windows.Forms.Padding(0);
+            this.mainMenuRecentActivityText.Name = "mainMenuRecentActivityText";
+            this.mainMenuRecentActivityText.Size = new System.Drawing.Size(750, 29);
+            this.mainMenuRecentActivityText.TabIndex = 0;
+            this.mainMenuRecentActivityText.Text = "Recent activity";
+            this.mainMenuRecentActivityText.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // mainMenuDataGrid
             // 
@@ -148,20 +157,11 @@
             this.lG_Analysis_DatabaseDataSet.DataSetName = "LG_Analysis_DatabaseDataSet";
             this.lG_Analysis_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // tblLogBindingSource
-            // 
-            this.tblLogBindingSource.DataMember = "Tbl_Log";
-            this.tblLogBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
-            // tbl_LogTableAdapter
-            // 
-            this.tbl_LogTableAdapter.ClearBeforeFill = true;
-            // 
             // get_Latest_ActivityTableAdapter
             // 
             this.get_Latest_ActivityTableAdapter.ClearBeforeFill = true;
             // 
-            // arA_Button1
+            // mainMenuButtonOpenAdminPanel
             // 
             this.mainMenuButtonOpenAdminPanel.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.mainMenuButtonOpenAdminPanel.CanButtonBeToggled = false;
@@ -169,7 +169,7 @@
             this.mainMenuButtonOpenAdminPanel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.mainMenuButtonOpenAdminPanel.Location = new System.Drawing.Point(0, 289);
             this.mainMenuButtonOpenAdminPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.mainMenuButtonOpenAdminPanel.Name = "arA_Button1";
+            this.mainMenuButtonOpenAdminPanel.Name = "mainMenuButtonOpenAdminPanel";
             this.mainMenuButtonOpenAdminPanel.Selected = false;
             this.mainMenuButtonOpenAdminPanel.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.mainMenuButtonOpenAdminPanel.SelectedTextColor = System.Drawing.Color.White;
@@ -179,18 +179,6 @@
             this.mainMenuButtonOpenAdminPanel.TextColor = System.Drawing.Color.White;
             this.mainMenuButtonOpenAdminPanel.VerticalAlignment = System.Drawing.StringAlignment.Center;
             this.mainMenuButtonOpenAdminPanel.Click += new System.EventHandler(this.mainMenuButtonOpenAdminPanel_Click);
-            // 
-            // MainMenuRecentActivityText
-            // 
-            this.mainMenuRecentActivityText.BackgroundColor = System.Drawing.Color.White;
-            this.mainMenuRecentActivityText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.mainMenuRecentActivityText.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuRecentActivityText.Margin = new System.Windows.Forms.Padding(0);
-            this.mainMenuRecentActivityText.Name = "MainMenuRecentActivityText";
-            this.mainMenuRecentActivityText.Size = new System.Drawing.Size(750, 29);
-            this.mainMenuRecentActivityText.TabIndex = 0;
-            this.mainMenuRecentActivityText.Text = "Recent activity";
-            this.mainMenuRecentActivityText.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // ARA_MainMenu
             // 
@@ -212,15 +200,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getLatestActivityBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblLogBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource tblLogBindingSource;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter tbl_LogTableAdapter;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
 
         private System.Windows.Forms.FlowLayoutPanel MainMenuPanelTitle;
