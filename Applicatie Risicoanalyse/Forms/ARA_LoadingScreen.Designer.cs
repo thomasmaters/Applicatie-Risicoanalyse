@@ -37,6 +37,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.arA_Text4 = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.loadingScreenTextLoadState = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.loadingScreenButtonChangeScale = new Applicatie_Risicoanalyse.Controls.ARA_Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -140,6 +141,26 @@
             this.loadingScreenTextLoadState.TabIndex = 100;
             this.loadingScreenTextLoadState.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // loadingScreenButtonChangeScale
+            // 
+            this.loadingScreenButtonChangeScale.BaseColor = System.Drawing.Color.White;
+            this.loadingScreenButtonChangeScale.CanButtonBeToggled = false;
+            this.loadingScreenButtonChangeScale.Font = new System.Drawing.Font("Gotham Light", 8F);
+            this.loadingScreenButtonChangeScale.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.loadingScreenButtonChangeScale.HoverColor = System.Drawing.Color.Gainsboro;
+            this.loadingScreenButtonChangeScale.Location = new System.Drawing.Point(0, 522);
+            this.loadingScreenButtonChangeScale.Margin = new System.Windows.Forms.Padding(0);
+            this.loadingScreenButtonChangeScale.Name = "loadingScreenButtonChangeScale";
+            this.loadingScreenButtonChangeScale.Selected = false;
+            this.loadingScreenButtonChangeScale.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.loadingScreenButtonChangeScale.SelectedTextColor = System.Drawing.Color.White;
+            this.loadingScreenButtonChangeScale.Size = new System.Drawing.Size(298, 20);
+            this.loadingScreenButtonChangeScale.TabIndex = 101;
+            this.loadingScreenButtonChangeScale.Text = "arA_Button1";
+            this.loadingScreenButtonChangeScale.TextColor = System.Drawing.Color.Black;
+            this.loadingScreenButtonChangeScale.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.loadingScreenButtonChangeScale.Click += new System.EventHandler(this.loadingScreenButtonChangeScale_Click);
+            // 
             // ARA_LoadingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -148,6 +169,7 @@
             this.BackgroundImage = global::Applicatie_Risicoanalyse.Properties.Resources.MooreBrabazon_with_Flying_Pig1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(960, 540);
+            this.Controls.Add(this.loadingScreenButtonChangeScale);
             this.Controls.Add(this.arA_Text4);
             this.Controls.Add(this.loadingScreenTextLoadState);
             this.Controls.Add(this.panel1);
@@ -175,5 +197,6 @@
         private Controls.ARA_Text loadingScreenTextLoadState;
         private Controls.ARA_Text arA_Text4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Controls.ARA_Button loadingScreenButtonChangeScale;
     }
 }

@@ -33,6 +33,10 @@ namespace Applicatie_Risicoanalyse.Forms
                     ApplicationDeployment.CurrentDeployment.CurrentVersion.Revision);
             }
 
+            //Set application scale button text.
+            this.loadingScreenButtonChangeScale.Text = this.loadingScreenButtonChangeScale.Text = "Application scale: " + Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale.ToString();
+            this.loadingScreenButtonChangeScale.Invalidate();
+
             //Set background worker parameters.
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = false;
@@ -217,6 +221,31 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 this.loadingScreenButtonLoginClicked(sender, e);
             }
+        }
+
+        /// <summary>
+        /// Handler when the user clicks the application scale button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadingScreenButtonChangeScale_Click(object sender, EventArgs e)
+        {
+            //Did we exceed our maximum size?
+            if(Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale + 1F >= 30F)
+            {
+                Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale = 15F;
+            }
+            else
+            {
+                Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale += 1F;
+            }
+
+            //Save the setting.
+            Applicatie_Risicoanalyse.Properties.Settings.Default.Save();
+
+            //Set the text so the user knows what scale its set to.
+            this.loadingScreenButtonChangeScale.Text = "Application scale: " + Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale.ToString() + " (Will take affect after restart!)";
+            this.loadingScreenButtonChangeScale.Invalidate();
         }
     }
 }

@@ -44,5 +44,17 @@ namespace Applicatie_Risicoanalyse.Properties {
                 return ((string)(this["LG_Analysis_DatabaseConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public float ApplicationScale {
+            get {
+                return ((float)(this["ApplicationScale"]));
+            }
+            set {
+                this["ApplicationScale"] = value;
+            }
+        }
     }
 }

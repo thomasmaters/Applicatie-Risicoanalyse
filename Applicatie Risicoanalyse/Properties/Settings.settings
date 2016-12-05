@@ -18,5 +18,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=WS-024\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;User ID=sa;Password=Wachtwoord@1</Value>
     </Setting>
+    <Setting Name="ApplicationScale" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -31,7 +31,7 @@
     <PublisherName>Langen Group</PublisherName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -367,6 +367,7 @@
       <DependentUpon>BaseReportGeneratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\WordInterface.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Controls\ARA_Button.resx">
       <DependentUpon>ARA_Button.cs</DependentUpon>
     </EmbeddedResource>

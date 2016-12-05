@@ -12,7 +12,7 @@ namespace Applicatie_Risicoanalyse.Globals
 {
     public static class ARA_Globals
     {
-        private static float aRA_BaseFontSize       = 15F;
+        private static float aRA_BaseFontSize       = Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale;
         private static String aRa_Date              = DateTime.Now.ToString("dd-MM-yyyy");
         private static string applicationVersion    = "?.?.?.?";
 
