@@ -177,9 +177,9 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 setTopBarRiskInfo();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 

@@ -330,8 +330,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Splitter splitter4;
         private System.Windows.Forms.Button adminSetPermissionGroup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionIDDataGridViewTextBoxColumn;

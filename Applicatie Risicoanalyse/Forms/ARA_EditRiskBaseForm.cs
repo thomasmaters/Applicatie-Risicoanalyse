@@ -204,9 +204,9 @@ namespace Applicatie_Risicoanalyse.Forms
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                throw;
             }
         }
 
