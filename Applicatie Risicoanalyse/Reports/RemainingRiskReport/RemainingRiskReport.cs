@@ -38,12 +38,11 @@ namespace Applicatie_Risicoanalyse.Reports
                 WordInterface wordInterface = new WordInterface();
 
                 // Open a new document.
-                //wordDocument = wordInterface.app.Documents.Add(ref missing, ref missing, ref missing, ref missing);
-                FileStream newDocument = File.Create((string)e.newDocumentLocation);
+                FileStream newDocument = File.Create((string)e.newDocumentLocation + ".docx");
                 newDocument.Close();
                 newDocument = null;
 
-                wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation);
+                wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation + ".docx");
 
                 DataRow projectInfoRow = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
                 DataView riskDataRows = new DataView(this.get_RemainingRisks_In_ProjectTableAdapter.GetData(e.projectID));
@@ -64,13 +63,17 @@ namespace Applicatie_Risicoanalyse.Reports
 
                 generateRemainingRiskPages(e.remainingRiskHeaderPageTemplateLocation, e.remainingRiskPageTemplateLocation, wordInterface, wordDocument, riskDataRows, projectInfoRow);
 
+                backgroundWorker1.ReportProgress(68, (object)"Adding watermarks(if needed).");
+
+                setWaterMark(wordInterface, wordDocument, projectInfoRow["StateName"].ToString());
+
                 backgroundWorker1.ReportProgress(70, (object)"Saving the document.");
 
                 wordInterface.saveDocument(wordDocument, (string)e.newDocumentLocation);
 
                 backgroundWorker1.ReportProgress(90, (object)"Converting document to pdf.");
 
-                //convertToPdf();
+                wordInterface.saveDocumentAsPdf(wordDocument, (string)e.newDocumentLocation);
 
                 backgroundWorker1.ReportProgress(100, (object)"Done generating.");
 
@@ -99,7 +102,7 @@ namespace Applicatie_Risicoanalyse.Reports
             // Close and release the Document object.
             if (wordDocument != null)
             {
-
+                wordDocument.Close();
                 wordDocument = null;
             }
         }

@@ -38,12 +38,12 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
             try
             {
                 // Open a new document.
-                FileStream newDocument = File.Create((string)e.newDocumentLocation);
+                FileStream newDocument = File.Create((string)e.newDocumentLocation + ".docx");
                 newDocument.Close();
                 newDocument = null;
 
                 //Create our output document.
-                wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation);
+                wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation + ".docx");
 
                 //Get some data out of the database.
                 DataRow projectInfoRow = tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
@@ -60,13 +60,17 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
 
                 generateRiskPages(e.riskPageTemplateLocation, wordInterface, wordDocument, riskDataRows, projectInfoRow);
 
+                backgroundWorker1.ReportProgress(68, (object)"Adding watermarks(if needed).");
+
+                setWaterMark(wordInterface, wordDocument, projectInfoRow["StateName"].ToString());
+
                 backgroundWorker1.ReportProgress(70, (object)"Saving the document.");
 
                 wordInterface.saveDocument(wordDocument, (string)e.newDocumentLocation);
 
                 backgroundWorker1.ReportProgress(90, (object)"Converting document to pdf.");
 
-                //convertToPdf();
+                wordInterface.saveDocumentAsPdf(wordDocument, (string)e.newDocumentLocation);
 
                 backgroundWorker1.ReportProgress(100, (object)"Done generating.");
 
@@ -91,6 +95,7 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
             // Close and release the Document object.
             if (wordDocument != null)
             {
+                wordDocument.Close();
                 wordDocument = null;
             }
             //Clean the word interface.

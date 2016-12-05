@@ -64,6 +64,30 @@ namespace Applicatie_Risicoanalyse.Forms
             backgroundWorker1.RunWorkerAsync();
         }
 
+
+        /// <summary>
+        /// Sets the documents watermark based on the projectstate.
+        /// </summary>
+        /// <param name="wordInterface"></param>
+        /// <param name="wordDocument"></param>
+        /// <param name="projectState"></param>
+        protected void setWaterMark(WordInterface wordInterface, Document wordDocument, string projectState)
+        {
+            //Set watermark text based on project state.
+            if (projectState == ARA_Constants.draft)
+            {
+                wordInterface.insertWatermarkText(wordDocument, "DRAFT");
+            }
+            else if (projectState == ARA_Constants.forReview)
+            {
+                wordInterface.insertWatermarkText(wordDocument, "REVIEW");
+            }
+            else if (projectState == ARA_Constants.finalDraft)
+            {
+                wordInterface.insertWatermarkText(wordDocument, "FINAL DRAFT");
+            }
+        }
+
         private void RarButtonCancel_Click(object sender, EventArgs e)
         {
             if (backgroundWorker1.IsBusy)

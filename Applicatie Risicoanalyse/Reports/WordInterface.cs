@@ -15,7 +15,7 @@ using Applicatie_Risicoanalyse.Globals;
 
 namespace Applicatie_Risicoanalyse.Reports
 {
-    class WordInterface
+    public class WordInterface
     {
         private object missing = Type.Missing;
         private object paramFalse = false;
@@ -101,16 +101,25 @@ namespace Applicatie_Risicoanalyse.Reports
         }
 
         /// <summary>
-        /// Saves a document at a specific file location.
+        /// Saves a document as a word document at a specific file location.
         /// </summary>
         /// <param name="doc">Document to save.</param>
         /// <param name="location">String representing a filepath where to save the document.</param>
         public void saveDocument(Document doc, string location)
         {
-            object saveLocation = @location;
+            object saveLocation = @location + ".docx";
 
             //Save the document at a location.
             doc.SaveAs2(saveLocation);
+        }
+
+        public void saveDocumentAsPdf(Document doc, string location)
+        {
+            object saveLocation = @location + ".pdf";
+
+            //Save the document at a location.
+            doc.Activate();
+            doc.SaveAs2(saveLocation, WdSaveFormat.wdFormatPDF);
         }
 
         /// <summary>
@@ -159,6 +168,12 @@ namespace Applicatie_Risicoanalyse.Reports
             return null;
         }
 
+        /// <summary>
+        /// Adds text to a table cell and removes the trailing enter.
+        /// </summary>
+        /// <param name="cellRange"></param>
+        /// <param name="textToAdd"></param>
+        /// <param name="addComma"></param>
         public void addTextToTableCell(Range cellRange, string textToAdd, bool addComma = false)
         {
             string temp;
@@ -255,6 +270,31 @@ namespace Applicatie_Risicoanalyse.Reports
             rng.Paste();
 
             return document.Tables[document.Tables.Count];
+        }
+
+        /// <summary>
+        /// Inserts a watermark into a document.
+        /// </summary>
+        /// <param name="doc">The input document.</param>
+        /// <param name="watermarkText">Text of the watermark.</param>
+        public void insertWatermarkText(Document doc, string watermarkText)
+        {
+            Microsoft.Office.Interop.Word.Shape nShape = null;
+
+            foreach (Section section in doc.Sections)
+            {
+                nShape = section.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes.AddTextEffect(MsoPresetTextEffect.msoTextEffect1, watermarkText, "Gotham Light", 100, MsoTriState.msoTrue, MsoTriState.msoFalse, 0, 0);
+                nShape.Fill.Visible = MsoTriState.msoTrue;
+                nShape.Line.Visible = MsoTriState.msoFalse;
+                nShape.Rotation = 45;
+                nShape.Fill.Solid();
+                nShape.Fill.ForeColor.RGB = (Int32)WdColor.wdColorGray20;
+                nShape.RelativeHorizontalPosition = WdRelativeHorizontalPosition.wdRelativeHorizontalPositionMargin;
+                nShape.RelativeVerticalPosition = WdRelativeVerticalPosition.wdRelativeVerticalPositionMargin;
+                // center location
+                nShape.Left = (float)WdShapePosition.wdShapeCenter;
+                nShape.Top = (float)WdShapePosition.wdShapeCenter;
+            }
         }
 
         /// <summary>
