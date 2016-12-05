@@ -63,5 +63,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public const string messageBoxLoginNewUserHeader                  = "Login failed.";
         public const string messageBoxProjectRevisionCreated              = "Succesfully created a project revision.";
         public const string messageBoxProjectRevisionCreatedHeader        = "Revision created.";
+        public const string messageBoxProjectRevisionFailed               = "Failed to create a project revision. Contact the administrator if this problem keeps occuring. ";
+        public const string messageBoxProjectRevisionFailedHeader         = "Failed to create a project revision.";
     }
 }

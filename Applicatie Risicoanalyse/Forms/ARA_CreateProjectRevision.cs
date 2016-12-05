@@ -51,23 +51,30 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void projectRevisionButtonCreateRevision_Click(object sender, EventArgs e)
         {
-            //Did the user select some row?
-            if(this.projectRevisionDataGrid.SelectedRows.Count > 0)
+            try
             {
-                //Execute procedure to create a project revision.
-                queriesTableAdapter1.Create_RiskProject_Revision((Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value, ARA_Globals.UserID);
+                //Did the user select some row?
+                if (this.projectRevisionDataGrid.SelectedRows.Count > 0)
+                {
+                    int selectedProjectID = (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value;
+                    int selectedRevision = Int32.Parse(this.projectRevisionDataGrid.SelectedRows[0].Cells["Revision"].Value.ToString()) + 1;
 
-                //Log event.
-                ARA_Events.triggerNewProjectRevisionEvent(
-                    (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value,
-                    (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["Revision"].Value + 1
-                    );
+                    //Execute procedure to create a project revision.
+                    queriesTableAdapter1.Create_RiskProject_Revision(selectedProjectID, ARA_Globals.UserID);
 
-                //Update the datasource of the dataGrid.
-                this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
+                    //Log event.
+                    ARA_Events.triggerNewProjectRevisionEvent(selectedProjectID, selectedRevision);
 
-                //Let the user know something happend.
-                MessageBox.Show(ARA_Constants.messageBoxProjectRevisionCreated, ARA_Constants.messageBoxProjectRevisionCreatedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Update the datasource of the dataGrid.
+                    this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
+
+                    //Let the user know something happend.
+                    MessageBox.Show(ARA_Constants.messageBoxProjectRevisionCreated, ARA_Constants.messageBoxProjectRevisionCreatedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ARA_Constants.messageBoxProjectRevisionFailed + ex, ARA_Constants.messageBoxProjectRevisionFailedHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

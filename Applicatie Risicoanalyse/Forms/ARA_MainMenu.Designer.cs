@@ -41,8 +41,8 @@
             this.tblLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_LogTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_LogTableAdapter();
             this.get_Latest_ActivityTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Latest_ActivityTableAdapter();
-            this.arA_Button1 = new Applicatie_Risicoanalyse.Controls.ARA_Button();
-            this.MainMenuRecentActivityText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.mainMenuButtonOpenAdminPanel = new Applicatie_Risicoanalyse.Controls.ARA_Button();
+            this.mainMenuRecentActivityText = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.MainMenuPanelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getLatestActivityBindingSource)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // MainMenuPanelTitle
             // 
-            this.MainMenuPanelTitle.Controls.Add(this.MainMenuRecentActivityText);
+            this.MainMenuPanelTitle.Controls.Add(this.mainMenuRecentActivityText);
             this.MainMenuPanelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainMenuPanelTitle.Location = new System.Drawing.Point(0, 0);
             this.MainMenuPanelTitle.Margin = new System.Windows.Forms.Padding(0);
@@ -163,34 +163,34 @@
             // 
             // arA_Button1
             // 
-            this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.arA_Button1.CanButtonBeToggled = false;
-            this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.arA_Button1.Location = new System.Drawing.Point(0, 289);
-            this.arA_Button1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_Button1.Name = "arA_Button1";
-            this.arA_Button1.Selected = false;
-            this.arA_Button1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
-            this.arA_Button1.SelectedTextColor = System.Drawing.Color.White;
-            this.arA_Button1.Size = new System.Drawing.Size(750, 33);
-            this.arA_Button1.TabIndex = 1;
-            this.arA_Button1.Text = "Open admin panel";
-            this.arA_Button1.TextColor = System.Drawing.Color.White;
-            this.arA_Button1.VerticalAlignment = System.Drawing.StringAlignment.Center;
-            this.arA_Button1.Click += new System.EventHandler(this.arA_Button1_Click);
+            this.mainMenuButtonOpenAdminPanel.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.mainMenuButtonOpenAdminPanel.CanButtonBeToggled = false;
+            this.mainMenuButtonOpenAdminPanel.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.mainMenuButtonOpenAdminPanel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
+            this.mainMenuButtonOpenAdminPanel.Location = new System.Drawing.Point(0, 289);
+            this.mainMenuButtonOpenAdminPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.mainMenuButtonOpenAdminPanel.Name = "arA_Button1";
+            this.mainMenuButtonOpenAdminPanel.Selected = false;
+            this.mainMenuButtonOpenAdminPanel.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
+            this.mainMenuButtonOpenAdminPanel.SelectedTextColor = System.Drawing.Color.White;
+            this.mainMenuButtonOpenAdminPanel.Size = new System.Drawing.Size(750, 33);
+            this.mainMenuButtonOpenAdminPanel.TabIndex = 1;
+            this.mainMenuButtonOpenAdminPanel.Text = "Open admin panel";
+            this.mainMenuButtonOpenAdminPanel.TextColor = System.Drawing.Color.White;
+            this.mainMenuButtonOpenAdminPanel.VerticalAlignment = System.Drawing.StringAlignment.Center;
+            this.mainMenuButtonOpenAdminPanel.Click += new System.EventHandler(this.mainMenuButtonOpenAdminPanel_Click);
             // 
             // MainMenuRecentActivityText
             // 
-            this.MainMenuRecentActivityText.BackgroundColor = System.Drawing.Color.White;
-            this.MainMenuRecentActivityText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.MainMenuRecentActivityText.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuRecentActivityText.Margin = new System.Windows.Forms.Padding(0);
-            this.MainMenuRecentActivityText.Name = "MainMenuRecentActivityText";
-            this.MainMenuRecentActivityText.Size = new System.Drawing.Size(750, 29);
-            this.MainMenuRecentActivityText.TabIndex = 0;
-            this.MainMenuRecentActivityText.Text = "Recent activity";
-            this.MainMenuRecentActivityText.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.mainMenuRecentActivityText.BackgroundColor = System.Drawing.Color.White;
+            this.mainMenuRecentActivityText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.mainMenuRecentActivityText.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuRecentActivityText.Margin = new System.Windows.Forms.Padding(0);
+            this.mainMenuRecentActivityText.Name = "MainMenuRecentActivityText";
+            this.mainMenuRecentActivityText.Size = new System.Drawing.Size(750, 29);
+            this.mainMenuRecentActivityText.TabIndex = 0;
+            this.mainMenuRecentActivityText.Text = "Recent activity";
+            this.mainMenuRecentActivityText.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // ARA_MainMenu
             // 
@@ -198,7 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 488);
-            this.Controls.Add(this.arA_Button1);
+            this.Controls.Add(this.mainMenuButtonOpenAdminPanel);
             this.Controls.Add(this.mainMenuDataGrid);
             this.Controls.Add(this.MainMenuPanelTitle);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -224,10 +224,10 @@
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
 
         private System.Windows.Forms.FlowLayoutPanel MainMenuPanelTitle;
-        private Controls.ARA_Text MainMenuRecentActivityText;
+        private Controls.ARA_Text mainMenuRecentActivityText;
 
         protected System.Windows.Forms.DataGridView mainMenuDataGrid;
-        private Controls.ARA_Button arA_Button1;
+        private Controls.ARA_Button mainMenuButtonOpenAdminPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn logDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actionDescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;

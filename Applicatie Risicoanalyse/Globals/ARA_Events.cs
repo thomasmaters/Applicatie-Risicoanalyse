@@ -32,6 +32,8 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<NewRiskAddedToStandardEvent>   NewRiskAddedToStandardEventHandler;
         public static event EventHandler<NewRiskVersionEvent>           NewRiskVersionEventHandler;
 
+        public static event EventHandler<NewLogMessageEvent>            NewLogMessageEventHandler;
+
         //Static function for adding an event to the event handlers.
         public static void triggerOpenContentFormEvent(System.Windows.Forms.Form aForm)
         {
@@ -76,6 +78,7 @@ namespace Applicatie_Risicoanalyse.Globals
                 SideBarRemoveNewButtonEventHandler(new object(), new SideBarRemoveNewButtonEvent(buttonText));
             }
         }
+
         public static void triggerNewProjectCreatedEvent(int aProjectID)
         {
             Logger.Instance.log(string.Format("{0} created a new project with id {1}.", ARA_Globals.LoggedInUsername, aProjectID));
@@ -92,7 +95,6 @@ namespace Applicatie_Risicoanalyse.Globals
                 RiskAddedToProjectEventHandler(new object(), new RiskAddedToProjectEvent(aProjectID));
             }
         }
-
         public static void triggerProjectOpendEvent(int aProjectID)
         {
             Logger.Instance.log(string.Format("{0} opened project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
@@ -156,6 +158,24 @@ namespace Applicatie_Risicoanalyse.Globals
             {
                 NewRiskVersionEventHandler(new object(), new NewRiskVersionEvent(aRiskID, aVersion));
             }
+        }
+
+        public static void triggerNewLogMessageEvent(string aLogMessage)
+        {
+            if(NewLogMessageEventHandler != null)
+            {
+                NewLogMessageEventHandler(new object(), new NewLogMessageEvent(aLogMessage));
+            }
+        }
+    }
+
+    public class NewLogMessageEvent
+    {
+        public string logMessage { get; private set; }
+
+        public NewLogMessageEvent(string aLogMessage)
+        {
+            this.logMessage = aLogMessage;
         }
     }
 

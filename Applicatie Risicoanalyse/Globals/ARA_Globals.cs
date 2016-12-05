@@ -162,6 +162,7 @@ namespace Applicatie_Risicoanalyse.Globals
             try
             {
                 logTableAdapter.Insert(DateTime.Now, logMessage, ARA_Globals.UserID);
+                ARA_Events.triggerNewLogMessageEvent(logMessage);
             }
             catch (Exception)
             {
