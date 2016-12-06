@@ -114,6 +114,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_Text2.Click += new EventHandler(delegate (object sender, EventArgs e) { this.OnClick(e); });
         }
 
+        /// <summary>
+        /// Click handler that starts the update chain.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
@@ -128,6 +132,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_Text2.Invalidate();
         }
 
+        /// <summary>
+        /// Updates the control with the specific delegates it has.
+        /// </summary>
         public override void updateControl()
         {
             base.updateControl();
@@ -138,6 +145,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
+        /// <summary>
+        /// Starts the update for the parent control if it has a parent.
+        /// </summary>
         public override void updateParentControl()
         {
             base.updateParentControl();

@@ -45,10 +45,5 @@ namespace Applicatie_Risicoanalyse.Controls
             myBrush.Dispose();
             formGraphics.Dispose();
         }
-
-        public void RePaint(PaintEventArgs pe)
-        {
-            this.OnPaint(pe);
-        }
     }
 }

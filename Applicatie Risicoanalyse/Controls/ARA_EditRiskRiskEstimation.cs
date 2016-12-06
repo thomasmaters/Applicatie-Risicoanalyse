@@ -45,7 +45,6 @@ namespace Applicatie_Risicoanalyse.Controls
                 hasControlBeenChanged = value;
             }
         }
-
         public string TitleText
         {
             get
@@ -77,7 +76,11 @@ namespace Applicatie_Risicoanalyse.Controls
             arA_EditRiskRiskEstimationItem4.riskEstimationItemChangedEventHandler += onRiskEstimationItemChanged;
         }
 
-        //Signal parent with custom event that a riskestimationitem has changed.
+        /// <summary>
+        /// Signal parent with custom event that a riskestimationitem has changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void onRiskEstimationItemChanged(object sender, EventArgs e)
         {
             if(riskEstimationEvenHandler != null)
@@ -97,24 +100,29 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Sets the control data.
+        /// <summary>
+        /// Sets the control data.
+        /// </summary>
+        /// <param name="riskEstimationDataTable"></param>
         public void setControlData(DataView riskEstimationDataTable)
         {
             riskEstimationEvenHandler = null;
             hasControlBeenChanged = false;
 
             DataTable temp = riskEstimationDataTable.ToTable(true, "GroupName");
-
+            //Get groups.
             string groupName1 = temp.Rows[0]["GroupName"].ToString();
             string groupName2 = temp.Rows[1]["GroupName"].ToString();
             string groupName3 = temp.Rows[2]["GroupName"].ToString();
             string groupName4 = temp.Rows[3]["GroupName"].ToString();
 
+            //Set groupnames in subcontrols.
             this.arA_EditRiskRiskEstimationItem1.GroupName = groupName1;
             this.arA_EditRiskRiskEstimationItem2.GroupName = groupName2;
             this.arA_EditRiskRiskEstimationItem3.GroupName = groupName3;
             this.arA_EditRiskRiskEstimationItem4.GroupName = groupName4;
 
+            //Set sub-controls controlData.
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName1 + "'";
             this.arA_EditRiskRiskEstimationItem1.setControlData(riskEstimationDataTable);
             riskEstimationDataTable.RowFilter = "GroupName ='" + groupName2 + "'";
@@ -125,10 +133,13 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_EditRiskRiskEstimationItem4.setControlData(riskEstimationDataTable);
             //Gekozen om dit met static waardes omdat de form dan sneller laad en geen controls aangemaakt hoeven te worden on runtime.
 
+            //Update the safemeasures required text.
             updateSafetyMesuresRequirement();
         }
 
-        //Updates the text when an button is pressed, and calculateds the risk class.
+        /// <summary>
+        /// Updates the text when an button is pressed, and calculateds the risk class.
+        /// </summary>
         public void updateSafetyMesuresRequirement()
         {
             int riskClassification = calculateRiskEstimationClass();
@@ -138,7 +149,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_Text6.Invalidate();
         }
 
-        //Calcules riskclass.
+        /// <summary>
+        /// Calcules riskclass.
+        /// </summary>
+        /// <returns></returns>
         public int calculateRiskEstimationClass()
         {
             int severity = this.arA_EditRiskRiskEstimationItem1.SelectedWeight;
@@ -160,7 +174,10 @@ namespace Applicatie_Risicoanalyse.Controls
             return classMatrix[severity - 1,totalRiskPoints - 4];
         }
 
-        //Calculates the PR + AV + PS.
+        /// <summary>
+        /// Calculates the PR + AV + PS.
+        /// </summary>
+        /// <returns></returns>
         private int calculateRiskPoints()
         {
             return

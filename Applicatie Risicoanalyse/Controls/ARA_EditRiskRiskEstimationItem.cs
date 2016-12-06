@@ -78,7 +78,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.RiskEstimation5Button.Click += onRiskEstimationButtonClick;
         }
 
-        //Sets groupname of item.
+        /// <summary>
+        /// Sets groupname of item.
+        /// </summary>
         public string GroupName
         {
             get
@@ -91,7 +93,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Shows the amount of buttons in the control.
+        /// <summary>
+        /// Shows the amount of buttons in the control.
+        /// </summary>
+        /// <param name="amountOfControls"></param>
         public void setAmountOfButtons(int amountOfControls)
         {
             for(int i=0;i<this.RiskEstimationPanel.Controls.Count;i++)
@@ -107,9 +112,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Sets button texts from a datarowcollection.
+        //Sets button texts from a dataView.
         public void setControlData(DataView buttonTexts)
         {
+            //Resets values.
             setAmountOfButtons(buttonTexts.Count);
             buttonWeights.Clear();
             buttonIDs.Clear();
@@ -120,10 +126,11 @@ namespace Applicatie_Risicoanalyse.Controls
             for (int i = 0; i < buttonTexts.Count; i++)
             {
                 this.RiskEstimationPanel.Controls[i].Text = buttonTexts[i]["ItemDescription"].ToString();
-
+                //Add hidden weights to buttons.
                 buttonWeights.Add(Int32.Parse(buttonTexts[i]["ItemWeight"].ToString()));
                 buttonIDs.Add(Int32.Parse(buttonTexts[i]["EstimationID"].ToString()));
 
+                //Set the button selected if its already in the database.
                 if (buttonTexts[i]["InProject"].ToString() == "1")
                 {
                     setButtonSelected(i);
@@ -132,14 +139,20 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Sets a specific button selected, while deselecting the other ones.
+        /// <summary>
+        /// Sets a specific button selected, while deselecting the other ones.
+        /// </summary>
+        /// <param name="buttonID"></param>
         public void setButtonSelected(int buttonID)
         {
             setButtonSelected(null);
             ((ARA_Button)(this.RiskEstimationPanel.Controls[buttonID])).setButtonSelected(true);
         }
 
-        //Sets a specific button selected, while deselecting the other ones. Als update the selected weight.
+        /// <summary>
+        /// Sets a specific button selected, while deselecting the other ones. Als update the selected weight.
+        /// </summary>
+        /// <param name="button"></param>
         private void setButtonSelected(ARA_Button button = null)
         {
             //Loop throuh all our buttons.
@@ -159,7 +172,11 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Handler when one of the buttons is pressed.
+        /// <summary>
+        /// Handler when one of the buttons is pressed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onRiskEstimationButtonClick(object sender, EventArgs e)
         {
             try

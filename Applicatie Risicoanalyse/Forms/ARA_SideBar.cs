@@ -78,6 +78,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Handler when a SideBarAddNewButtonEvent is triggerd.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void onAddNewButtonToSideBar(object sender, SideBarAddNewButtonEvent e)
         {
 
@@ -132,7 +137,10 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addButtonToSideBar(tempButton);
         }
 
-        //Dynamicly add buttons to the sidebar.
+        /// <summary>
+        /// Dynamicly add buttons to the sidebar.
+        /// </summary>
+        /// <param name="control"></param>
         public void addButtonToSideBar(ARA_Button control)
         {
             if(control == null)
@@ -146,6 +154,11 @@ namespace Applicatie_Risicoanalyse.Forms
             control.setButtonSelected(true);
         }
 
+        /// <summary>
+        /// Handler when a SideBarRemoveNewButtonEvent is triggerd.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void onRemoveSideBarButtonEvent(object sender, SideBarRemoveNewButtonEvent e)
         {
             Control button = getButtonFromText(e.buttonText);
@@ -155,6 +168,11 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Searches the sidebarbutton container for buttons with a specific name.
+        /// </summary>
+        /// <param name="buttonText"></param>
+        /// <returns></returns>
         public Control getButtonFromText(string buttonText)
         {
             foreach(ARA_Button control in this.SideBarButtonContainer.Controls.OfType<ARA_Button>())
@@ -167,14 +185,21 @@ namespace Applicatie_Risicoanalyse.Forms
             return null;
         }
 
-        //Dynamicly remove button from sidebar.
+        /// <summary>
+        /// Dynamicly remove button from sidebar.
+        /// </summary>
+        /// <param name="control"></param>
         public void removeButtonFromSideBar(Control control)
         {
             this.SideBarButtonContainer.Controls.Remove(control);
             this.SideBarButtonSpacer.Height += control.Height;
         }
 
-        //MainMenu button click handler.
+        /// <summary>
+        /// MainMenu button click handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onMenuButtonClick(object sender, EventArgs e)
         {
             this.SideBarButtonMenu.setButtonSelected(true);
@@ -183,7 +208,11 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 
-        //RiskAnalysis button click handler.
+        /// <summary>
+        /// RiskAnalysis button click handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onRiskAnalysisButtonClick(object sender, EventArgs e)
         {
             this.SideBarButtonMenu.setButtonSelected(true);
@@ -192,7 +221,11 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.triggerBaseFormSetTopBarEvent(null);
         }
 
-        //Deselects all sidebar buttons except the event source.
+        /// <summary>
+        /// Deselects all sidebar buttons except the event source.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hideOtherPanels(object sender, EventArgs e)
         {
             foreach (var button in this.SideBarButtonContainer.Controls.OfType<Applicatie_Risicoanalyse.Controls.ARA_Button>())

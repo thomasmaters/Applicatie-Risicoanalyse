@@ -91,6 +91,11 @@ namespace Applicatie_Risicoanalyse.Controls
             this.hasControlBeenChanged = false;
         }
 
+        /// <summary>
+        /// Handle when the user changes the riskGrouping combobox and sends and triggers an event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void riskGroupingComboBoxComponentType_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.hasControlBeenChanged = true;

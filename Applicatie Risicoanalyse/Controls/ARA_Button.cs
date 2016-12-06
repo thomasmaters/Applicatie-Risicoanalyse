@@ -202,6 +202,10 @@ namespace Applicatie_Risicoanalyse.Controls
             formGraphics.Dispose();
         }
 
+        /// <summary>
+        /// Handler when the user moves its mouse above the button.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -209,6 +213,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
+        /// <summary>
+        /// Handler when the user moves its mouse off the control.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
@@ -216,6 +224,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
+        /// <summary>
+        /// Handler when the user clicks the button.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnMouseClick(MouseEventArgs e)
         {
             base.OnMouseClick(e);
@@ -229,6 +241,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        /// <summary>
+        /// Sets the control selected.
+        /// </summary>
+        /// <param name="e"></param>
         public void setButtonSelected(bool e)
         {
             if(canButtonBeToggled == true)

@@ -35,8 +35,13 @@ namespace Applicatie_Risicoanalyse.Controls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sets the controldata.
+        /// </summary>
+        /// <param name="controlData"></param>
         public void setControlData(DataView controlData)
         {
+            //Reset some values.
             this.itemCheckEventHandler = null;
             this.hasControlBeenChanged = false;
             this.checkedListBox1.Items.Clear();
@@ -88,13 +93,21 @@ namespace Applicatie_Risicoanalyse.Controls
             };
         }
 
-        //Remove ugly selection color.
+        /// <summary>
+        /// Remove ugly selection color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.checkedListBox1.ClearSelected();
         }
 
-        //Show or hide when groupcheckbox is checked.
+        /// <summary>
+        /// Show or hide when groupcheckbox is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             //Hide or show checkedlistbox on checkstate of checkbox1.

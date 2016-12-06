@@ -98,6 +98,10 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectButtonCreateProject.Enabled = canProjectBeCreated();
         }
 
+        /// <summary>
+        /// Checks if the project can be created by checking the inputboxxes values.
+        /// </summary>
+        /// <returns></returns>
         private bool canProjectBeCreated()
         {
             return (

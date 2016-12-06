@@ -19,25 +19,29 @@ namespace Applicatie_Risicoanalyse.Forms
             InitializeComponent();
             //Scaling.
             this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            this.arA_Text1.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
-            this.arA_Text2.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
+            this.topBarTextLeft.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
+            this.topBarTextRight.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
 
             //Set text property.
-            this.arA_Text1.Text = leftText;
-            this.arA_Text2.Text = rightText;
+            this.topBarTextLeft.Text = leftText;
+            this.topBarTextRight.Text = rightText;
 
-            while ((arA_Text2.Width < System.Windows.Forms.TextRenderer.MeasureText(arA_Text2.Text,
-                new Font(arA_Text2.Font.FontFamily, arA_Text2.Font.Size, arA_Text2.Font.Style)).Width || arA_Text2.Height < System.Windows.Forms.TextRenderer.MeasureText(arA_Text2.Text,
-                new Font(arA_Text2.Font.FontFamily, arA_Text2.Font.Size, arA_Text2.Font.Style)).Height) && arA_Text2.Font.Size > 8F)
-            {
-                arA_Text2.Font = new Font(arA_Text2.Font.FontFamily, arA_Text2.Font.Size - 0.5f, arA_Text2.Font.Style);
-            }
+            //Scale the text.
+            scaleTextToFitItsControl(this.topBarTextLeft);
+            scaleTextToFitItsControl(this.topBarTextRight);
+        }
 
-            while ((arA_Text1.Width < System.Windows.Forms.TextRenderer.MeasureText(arA_Text1.Text,
-                new Font(arA_Text1.Font.FontFamily, arA_Text1.Font.Size, arA_Text1.Font.Style)).Width || arA_Text1.Height < System.Windows.Forms.TextRenderer.MeasureText(arA_Text1.Text,
-                new Font(arA_Text1.Font.FontFamily, arA_Text1.Font.Size, arA_Text1.Font.Style)).Height) && arA_Text1.Font.Size > 8F)
+        /// <summary>
+        /// Scales a controls font to fit its bounderies. While keeping a minimum fontsize.
+        /// </summary>
+        /// <param name="control"></param>
+        private void scaleTextToFitItsControl(Control control)
+        {
+            while ((control.Width < System.Windows.Forms.TextRenderer.MeasureText(control.Text,
+                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Width || control.Height < System.Windows.Forms.TextRenderer.MeasureText(control.Text,
+                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Height) && control.Font.Size > 8F)
             {
-                arA_Text1.Font = new Font(arA_Text1.Font.FontFamily, arA_Text1.Font.Size - 0.5f, arA_Text1.Font.Style);
+                control.Font = new Font(control.Font.FontFamily, control.Font.Size - 0.5f, control.Font.Style);
             }
         }
     }

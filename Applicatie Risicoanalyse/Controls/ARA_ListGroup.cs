@@ -199,6 +199,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.ARA_ListGroupText.Invalidate();
         }
 
+        /// <summary>
+        /// Click handler that starts the update chain.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
@@ -207,6 +211,10 @@ namespace Applicatie_Risicoanalyse.Controls
             this.updateChilderenControls();
         }
 
+        /// <summary>
+        /// Double click handler that starts the update chain.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnDoubleClick(EventArgs e)
         {
             base.OnDoubleClick(e);
@@ -215,6 +223,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.updateChilderenControls();
         }
 
+        /// <summary>
+        /// Updates the control with the specific delegates it has.
+        /// </summary>
         public override void updateControl()
         {
             base.updateControl();
@@ -225,6 +236,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
+        /// <summary>
+        /// Starts the update for the parent control if it has a parent.
+        /// </summary>
         public override void updateParentControl()
         {
             base.updateParentControl();
@@ -237,6 +251,9 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Invalidate();
         }
 
+        /// <summary>
+        /// Updates the controls childeren in its childeren collection.
+        /// </summary>
         public override void updateChilderenControls()
         {
             base.updateChilderenControls();
@@ -255,6 +272,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        /// <summary>
+        /// Adds a child to the control.
+        /// </summary>
+        /// <param name="child"></param>
         public void addChild(ARA_ListInterface child)
         {
             if(child != null)
@@ -263,6 +284,10 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        /// <summary>
+        /// Adds an control to the dropdown button.
+        /// </summary>
+        /// <param name="control"></param>
         public void addControlToDropDownButton(Control control)
         {
             this.ARA_ListGroupDropDownButton.addControlToConnectedPanel(control);
@@ -270,7 +295,6 @@ namespace Applicatie_Risicoanalyse.Controls
 
         private void onListGroupLoad(object sender, EventArgs e)
         {
-
 
         }
     }

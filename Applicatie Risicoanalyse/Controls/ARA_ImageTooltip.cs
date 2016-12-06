@@ -19,12 +19,22 @@ namespace Applicatie_Risicoanalyse.Controls
             this.Draw += new DrawToolTipEventHandler(this.OnDraw);
         }
 
-        private void OnPopup(object sender, PopupEventArgs e) // use this event to set the size of the tool tip
+        /// <summary>
+        /// Sets the size of the tooltip when it pops up.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnPopup(object sender, PopupEventArgs e) 
         {
             e.ToolTipSize = new Size(300, 300);
         }
 
-        private void OnDraw(object sender, DrawToolTipEventArgs e) // use this to customzie the tool tip
+        /// <summary>
+        /// Drawing of the tooltip.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnDraw(object sender, DrawToolTipEventArgs e)
         {
             Graphics g = e.Graphics;
             

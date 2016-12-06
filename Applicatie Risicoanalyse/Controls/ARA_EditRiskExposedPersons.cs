@@ -47,7 +47,11 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
-        //Adds persons from database in to control.
+        /// <summary>
+        /// Sets the controls data from the database.
+        /// </summary>
+        /// <param name="controlData"></param>
+        /// <param name="riskDataID"></param>
         public void setControlData(DataView controlData, int riskDataID)
         {
             //Reset form.
@@ -82,6 +86,9 @@ namespace Applicatie_Risicoanalyse.Controls
             }
         }
 
+        /// <summary>
+        /// Sets if the control has been updated by the user.
+        /// </summary>
         private void setControlHasBeenChanged()
         {
             hasControlBeenChanged = false;
