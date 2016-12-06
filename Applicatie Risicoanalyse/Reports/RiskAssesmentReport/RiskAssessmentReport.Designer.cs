@@ -34,9 +34,12 @@
             this.get_RiskAssessment_Index_DataTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskAssessment_Index_DataTableAdapter();
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.tbl_DangerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_All_RiskProject_InfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_All_RiskProject_InfoTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_All_RiskProject_InfoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskAssessment_Index_DataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_DangerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_All_RiskProject_InfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lG_Analysis_DatabaseDataSet
@@ -87,14 +90,24 @@
             this.tbl_DangerBindingSource.DataMember = "Tbl_Danger";
             this.tbl_DangerBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
             // 
+            // get_All_RiskProject_InfoBindingSource
+            // 
+            this.get_All_RiskProject_InfoBindingSource.DataMember = "Get_All_RiskProject_Info";
+            this.get_All_RiskProject_InfoBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_All_RiskProject_InfoTableAdapter
+            // 
+            this.get_All_RiskProject_InfoTableAdapter.ClearBeforeFill = true;
+            // 
             // RiskAssessmentReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
-            this.ClientSize = new System.Drawing.Size(416, 132);
+            this.ClientSize = new System.Drawing.Size(416, 131);
             this.Name = "RiskAssessmentReport";
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RiskAssessment_Index_DataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_DangerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_All_RiskProject_InfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,5 +119,7 @@
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_RiskAssessment_Index_DataTableAdapter get_RiskAssessment_Index_DataTableAdapter;
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource tbl_DangerBindingSource;
+        private System.Windows.Forms.BindingSource get_All_RiskProject_InfoBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Get_All_RiskProject_InfoTableAdapter get_All_RiskProject_InfoTableAdapter;
     }
 }

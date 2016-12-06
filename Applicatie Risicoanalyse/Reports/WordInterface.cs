@@ -81,14 +81,15 @@ namespace Applicatie_Risicoanalyse.Reports
         /// <param name="find">String to search for.</param>
         /// <param name="replaceWith">String to replace the searched value with.</param>
         /// <param name="textColor">A color to give to the replaced text.</param>
-        public void searchAndReplace(Microsoft.Office.Interop.Word.Application app, string find, string replaceWith, Color textColor = new Color())
+        public void searchAndReplace(Document wordDocument, string find, string replaceWith, Color textColor = new Color(), bool searchInShapes = false)
         {
-            Microsoft.Office.Interop.Word.Find findObject = app.Selection.Find;
+            Microsoft.Office.Interop.Word.Find findObject = this.app.Selection.Find;
             findObject.ClearFormatting();
             findObject.Text = find;
             findObject.Replacement.ClearFormatting();
             findObject.Replacement.Text = replaceWith;
 
+            //Set text color if it is given.
             if (textColor != new Color())
             {
                 findObject.Replacement.Font.Color = (Microsoft.Office.Interop.Word.WdColor)(textColor.R + 0x100 * textColor.G + 0x10000 * textColor.B);
@@ -98,6 +99,25 @@ namespace Applicatie_Risicoanalyse.Reports
             findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing, ref missing, ref missing,
                 ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
+            if(searchInShapes)
+            {
+                //Also check shapes
+                var shapes = wordDocument.Shapes;
+                //Finds text within textboxes, then changes them
+                foreach (Microsoft.Office.Interop.Word.Shape shape in shapes)
+                {
+                    if(shape.Type == MsoShapeType.msoTextBox)
+                    {
+                        shape.TextFrame.TextRange.Find.ClearFormatting();
+
+                        shape.TextFrame.TextRange.Find.Execute((object)find,
+                            ref missing, ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, (object)replaceWith, ref missing, ref missing, ref missing,
+                            ref missing, ref missing);
+                    }
+                }
+            }
         }
 
         /// <summary>

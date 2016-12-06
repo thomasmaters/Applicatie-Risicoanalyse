@@ -119,11 +119,11 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                     wordDocument.Activate();
 
                     //Set template data.
-                    wordInterface.searchAndReplace(wordInterface.app, "<CustomerName>", projectInfoRow["Customer"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<MachineNumber>", projectInfoRow["MachineNumber"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<OrderNumber>", projectInfoRow["OrderNumber"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<MachineType>", projectInfoRow["MachineType"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<CurrentDate>", ARA_Globals.ARa_Date);
+                    wordInterface.searchAndReplace(wordDocument, "<CustomerName>", projectInfoRow["Customer"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<MachineNumber>", projectInfoRow["MachineNumber"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<OrderNumber>", projectInfoRow["OrderNumber"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<MachineType>", projectInfoRow["MachineType"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<CurrentDate>", ARA_Globals.ARa_Date);
 
                     //Remove template from memory.
                     if (frontPageTemplate != null)
@@ -176,8 +176,6 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
 
                         //Get some more info about the risk.
                         DataRow riskData = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
-                        DataRow dangerRow = this.tbl_DangerTableAdapter.GetData().FindByDangerID((Int32)riskData["DangerID"]);
-                        DataRow dangerSourceRow = this.tbl_Danger_SourceTableAdapter.GetData().FindByDangerSourceID((Int32)riskData["DangerSourceID"]);
 
                         DataView riskEstimationBeforeView = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
                         DataView riskEstimationAfterView = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
@@ -195,41 +193,20 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                         wordInterface.copyDocumentToOtherDocument(riskTemplate, wordDocument, true);
                         wordDocument.Activate();
 
-                        //Set values form newly added document.
-                        wordInterface.searchAndReplace(wordInterface.app, "<Hazard>", dangerRow["DangerGroupName"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<HazardSource>", dangerSourceRow["DangerSourceName"].ToString());
-
-                        if (dangerSourceRow["DangerResultID1"] != DBNull.Value)
-                        {
-                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID1"]);
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
-                        }
-                        else
-                        {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", "");
-                        }
-
-                        if (dangerSourceRow["DangerResultID2"] != DBNull.Value)
-                        {
-                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID2"]);
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
-                        }
-                        else
-                        {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", "");
-                        }
+                        //Sets the risk hazard specifications.
+                        generateHazardIndentification(wordInterface, wordDocument, (Int32)riskData["DangerID"], (Int32)riskData["DangerSourceID"]);
 
                         //Search and replace headerinfo.
-                        wordInterface.searchAndReplace(wordInterface.app, "<CustomerName>", projectInfoRow["Customer"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<MachineInfo>", string.Format("{0}/{1}", projectInfoRow["MachineNumber"].ToString(), projectInfoRow["OrderNumber"].ToString()));
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskID>", riskDataRow["RiskID"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<BriefActionDescription>", riskDataRow["HazardSituation"].ToString(), ARA_Colors.ARA_Red);
+                        wordInterface.searchAndReplace(wordDocument, "<CustomerName>", projectInfoRow["Customer"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<MachineInfo>", string.Format("{0}/{1}", projectInfoRow["MachineNumber"].ToString(), projectInfoRow["OrderNumber"].ToString()));
+                        wordInterface.searchAndReplace(wordDocument, "<RiskID>", riskDataRow["RiskID"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<BriefActionDescription>", riskDataRow["HazardSituation"].ToString(), ARA_Colors.ARA_Red);
 
                         //Search and replace riskdata.
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskGroup>", string.Format("{0} - {1}", riskDataRow["GroupName"].ToString(), riskDataRow["TypeName"].ToString()));
-                        wordInterface.searchAndReplace(wordInterface.app, "<ActionEvent>", riskData["HazardEvent"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskReductionInfo>", riskData["RiskReductionInfo"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<MinimalAdditionInfo>", riskData["MinimalAdditionInfo"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskGroup>", string.Format("{0} - {1}", riskDataRow["GroupName"].ToString(), riskDataRow["TypeName"].ToString()));
+                        wordInterface.searchAndReplace(wordDocument, "<ActionEvent>", riskData["HazardEvent"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskReductionInfo>", riskData["RiskReductionInfo"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<MinimalAdditionInfo>", riskData["MinimalAdditionInfo"].ToString());
 
                         //Set the riskestimation fields.
                         ARA_EditRiskRiskEstimation temp = new ARA_EditRiskRiskEstimation();
@@ -238,10 +215,10 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
                             throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVWeightB>", riskEstimationBeforeView[3]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<AVWeightB>", riskEstimationBeforeView[3]["ItemWeight"].ToString());
 
                         //Find riskReduction en minimalAddition tables and fill them.
                         Microsoft.Office.Interop.Word.Table appliedRiskReductionMeasuresTable = wordInterface.findTableWithTitle(wordDocument, "AppliedRiskReductionMeasures");
@@ -255,12 +232,12 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                         minimalAdditionMeasuresTable.Title = "";
 
                         //Calculated PL.
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEWeightPL>", plCalculator.plSeverityText((Int32)riskEstimationBeforeView[0]["ItemWeight"]));
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRWeightPL>", plCalculator.plFrequencyText((Int32)riskEstimationBeforeView[2]["ItemWeight"]));
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVWeightPL>", plCalculator.plPossabilityOfAvoidingText((Int32)riskEstimationBeforeView[3]["ItemWeight"]));
+                        wordInterface.searchAndReplace(wordDocument, "<SEWeightPL>", plCalculator.plSeverityText((Int32)riskEstimationBeforeView[0]["ItemWeight"]));
+                        wordInterface.searchAndReplace(wordDocument, "<FRWeightPL>", plCalculator.plFrequencyText((Int32)riskEstimationBeforeView[2]["ItemWeight"]));
+                        wordInterface.searchAndReplace(wordDocument, "<AVWeightPL>", plCalculator.plPossabilityOfAvoidingText((Int32)riskEstimationBeforeView[3]["ItemWeight"]));
 
                         char PLr = plCalculator.calculatePerformanceLevel((Int32)riskEstimationBeforeView[0]["ItemWeight"], (Int32)riskEstimationBeforeView[2]["ItemWeight"], (Int32)riskEstimationBeforeView[3]["ItemWeight"]);
-                        wordInterface.searchAndReplace(wordInterface.app, "<PerformanceLevel>", PLr.ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PerformanceLevel>", PLr.ToString());
 
                         //Clear some memory.
                         temp.Dispose();

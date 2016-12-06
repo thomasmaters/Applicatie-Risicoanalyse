@@ -66,6 +66,8 @@
             this.tbl_MinimalAddition_In_RiskTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_MinimalAddition_In_RiskTableAdapter();
             this.get_RemainingRisks_In_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_RemainingRisks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_RemainingRisks_In_ProjectTableAdapter();
+            this.tbl_UserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_UserTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
@@ -82,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Danger_SourceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RemainingRisks_In_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_UserBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // RarProgressBar
@@ -290,12 +293,21 @@
             // 
             this.get_RemainingRisks_In_ProjectTableAdapter.ClearBeforeFill = true;
             // 
+            // tbl_UserBindingSource
+            // 
+            this.tbl_UserBindingSource.DataMember = "Tbl_User";
+            this.tbl_UserBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_UserTableAdapter
+            // 
+            this.tbl_UserTableAdapter.ClearBeforeFill = true;
+            // 
             // BaseReportGeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(417, 123);
+            this.ClientSize = new System.Drawing.Size(413, 128);
             this.Controls.Add(this.RarButtonCancel);
             this.Controls.Add(this.RarProgressText);
             this.Controls.Add(this.RarProgressBar);
@@ -322,6 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Danger_SourceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MinimalAddition_In_RiskBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_RemainingRisks_In_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_UserBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,5 +376,7 @@
         protected LG_Analysis_DatabaseDataSetTableAdapters.Tbl_MinimalAddition_In_RiskTableAdapter tbl_MinimalAddition_In_RiskTableAdapter;
         private System.Windows.Forms.BindingSource get_RemainingRisks_In_ProjectBindingSource;
         protected LG_Analysis_DatabaseDataSetTableAdapters.Get_RemainingRisks_In_ProjectTableAdapter get_RemainingRisks_In_ProjectTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_UserBindingSource;
+        protected LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter tbl_UserTableAdapter;
     }
 }

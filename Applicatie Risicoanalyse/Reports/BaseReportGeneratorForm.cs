@@ -88,6 +88,48 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        /// <summary>
+        /// Sets the hazard parameters in a word template.
+        /// </summary>
+        /// <param name="wordInterface"></param>
+        /// <param name="dangerID"></param>
+        /// <param name="dangerSourceID"></param>
+        protected void generateHazardIndentification(WordInterface wordInterface, Document wordDocument, int dangerID, int dangerSourceID)
+        {
+            //Get some data from the database.
+            DataRow dangerRow = this.tbl_DangerTableAdapter.GetData().FindByDangerID(dangerID);
+            DataRow dangerSourceRow = this.tbl_Danger_SourceTableAdapter.GetData().FindByDangerSourceID(dangerSourceID);
+
+            //Set values form newly added document.
+            wordInterface.searchAndReplace(wordDocument, "<Hazard>", dangerRow["DangerGroupName"].ToString());
+            wordInterface.searchAndReplace(wordDocument, "<HazardSource>", dangerSourceRow["DangerSourceName"].ToString());
+
+            if (dangerSourceRow["DangerResultID1"] != DBNull.Value)
+            {
+                DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID1"]);
+                wordInterface.searchAndReplace(wordDocument, "<HazardResult1>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
+            }
+            else
+            {
+                wordInterface.searchAndReplace(wordDocument, "<HazardResult1>", "");
+            }
+
+            if (dangerSourceRow["DangerResultID2"] != DBNull.Value)
+            {
+                DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID2"]);
+                wordInterface.searchAndReplace(wordDocument, "<HazardResult2>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
+            }
+            else
+            {
+                wordInterface.searchAndReplace(wordDocument, "<HazardResult2>", "");
+            }
+        }
+
+        /// <summary>
+        /// Generation cancel button clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RarButtonCancel_Click(object sender, EventArgs e)
         {
             if (backgroundWorker1.IsBusy)
@@ -98,6 +140,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void testForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_User' table. You can move, or remove it, as needed.
+            this.tbl_UserTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_User);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_MinimalAddition_In_Risk' table. You can move, or remove it, as needed.
             this.tbl_MinimalAddition_In_RiskTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_MinimalAddition_In_Risk);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Danger_Source' table. You can move, or remove it, as needed.

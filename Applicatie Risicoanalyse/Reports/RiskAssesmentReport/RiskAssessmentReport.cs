@@ -45,7 +45,7 @@ namespace Applicatie_Risicoanalyse.Reports
                 wordDocument = wordInterface.app.Documents.Open(e.newDocumentLocation + ".docx");
 
                 //Get some data out of the database.
-                DataRow projectInfoRow = tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(e.projectID);
+                DataRow projectInfoRow = get_All_RiskProject_InfoTableAdapter.GetData(e.projectID).Rows[0];
                 DataView riskDataRows = new DataView(this.get_Risks_With_RiskData_In_ProjectTableAdapter.GetData(e.projectID));
                 riskDataRows.Sort = ARA_Globals.RiskSortingOptions[e.sortingKey];
 
@@ -122,11 +122,11 @@ namespace Applicatie_Risicoanalyse.Reports
                     wordDocument.Activate();
 
                     //Set template data.
-                    wordInterface.searchAndReplace(wordInterface.app, "<CustomerName>", projectInfoRow["Customer"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<MachineNumber>", projectInfoRow["MachineNumber"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<OrderNumber>", projectInfoRow["OrderNumber"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<MachineType>", projectInfoRow["MachineType"].ToString());
-                    wordInterface.searchAndReplace(wordInterface.app, "<CurrentDate>", ARA_Globals.ARa_Date);
+                    wordInterface.searchAndReplace(wordDocument, "<CustomerName>", projectInfoRow["Customer"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<MachineNumber>", projectInfoRow["MachineNumber"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<OrderNumber>", projectInfoRow["OrderNumber"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<MachineType>", projectInfoRow["MachineType"].ToString());
+                    wordInterface.searchAndReplace(wordDocument, "<CurrentDate>", ARA_Globals.ARa_Date);
 
                     //Remove template from memory.
                     if (frontPageTemplate != null)
@@ -289,8 +289,8 @@ namespace Applicatie_Risicoanalyse.Reports
 
                         //Get some more info about the risk.
                         DataRow riskData = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
-                        DataRow dangerRow = this.tbl_DangerTableAdapter.GetData().FindByDangerID((Int32)riskData["DangerID"]);
-                        DataRow dangerSourceRow = this.tbl_Danger_SourceTableAdapter.GetData().FindByDangerSourceID((Int32)riskData["DangerSourceID"]);
+                        DataRow reviewerRow = this.tbl_UserTableAdapter.GetData().FindByUserID((Int32)riskDataRow["ReviewedByUser"]);
+                        DataRow authorRow = this.tbl_UserTableAdapter.GetData().FindByUserID((Int32)projectInfoRow["UserID"]);
 
                         DataView riskEstimationBeforeView = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
                         DataView riskEstimationAfterView = new DataView(this.get_RiskEstimation_In_RiskData_AfterTableAdapter.GetData(riskDataID));
@@ -308,41 +308,20 @@ namespace Applicatie_Risicoanalyse.Reports
                         wordInterface.copyDocumentToOtherDocument(riskTemplate, wordDocument, true);
                         wordDocument.Activate();
 
-                        //Set values form newly added document.
-                        wordInterface.searchAndReplace(wordInterface.app, "<Hazard>", dangerRow["DangerGroupName"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<HazardSource>", dangerSourceRow["DangerSourceName"].ToString());
-
-                        if (dangerSourceRow["DangerResultID1"] != DBNull.Value)
-                        {
-                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID1"]);
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
-                        }
-                        else
-                        {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult1>", "");
-                        }
-
-                        if (dangerSourceRow["DangerResultID2"] != DBNull.Value)
-                        {
-                            DataRow dangerResult = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)dangerSourceRow["DangerResultID2"]);
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", string.Format("{0}", dangerResult["DangerResultName"].ToString()));
-                        }
-                        else
-                        {
-                            wordInterface.searchAndReplace(wordInterface.app, "<HazardResult2>", "");
-                        }
+                        //Sets the risk hazard specifications.
+                        generateHazardIndentification(wordInterface, wordDocument,(Int32)riskData["DangerID"], (Int32)riskData["DangerSourceID"]);
 
                         //Search and replace headerinfo.
-                        wordInterface.searchAndReplace(wordInterface.app, "<CustomerName>", projectInfoRow["Customer"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<MachineInfo>", string.Format("{0}/{1}", projectInfoRow["MachineNumber"].ToString(), projectInfoRow["OrderNumber"].ToString()));
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskID>", riskDataRow["RiskID"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<BriefActionDescription>", riskDataRow["HazardSituation"].ToString(), ARA_Colors.ARA_Red);
+                        wordInterface.searchAndReplace(wordDocument, "<CustomerName>", projectInfoRow["Customer"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<MachineInfo>", string.Format("{0}/{1}", projectInfoRow["MachineNumber"].ToString(), projectInfoRow["OrderNumber"].ToString()));
+                        wordInterface.searchAndReplace(wordDocument, "<RiskID>", riskDataRow["RiskID"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<BriefActionDescription>", riskDataRow["HazardSituation"].ToString(), ARA_Colors.ARA_Red);
 
                         //Search and replace riskdata.
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskGroup>", string.Format("{0} - {1}", riskDataRow["GroupName"].ToString(), riskDataRow["TypeName"].ToString()));
-                        wordInterface.searchAndReplace(wordInterface.app, "<ActionEvent>", riskData["HazardEvent"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskReductionInfo>", riskData["RiskReductionInfo"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<MinimalAdditionInfo>", riskData["MinimalAdditionInfo"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskGroup>", string.Format("{0} - {1}", riskDataRow["GroupName"].ToString(), riskDataRow["TypeName"].ToString()));
+                        wordInterface.searchAndReplace(wordDocument, "<ActionEvent>", riskData["HazardEvent"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskReductionInfo>", riskData["RiskReductionInfo"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<MinimalAdditionInfo>", riskData["MinimalAdditionInfo"].ToString());
 
                         //Set the riskestimation fields.
                         ARA_EditRiskRiskEstimation temp = new ARA_EditRiskRiskEstimation();
@@ -351,31 +330,31 @@ namespace Applicatie_Risicoanalyse.Reports
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
                             throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEDescriptionB>", riskEstimationBeforeView[0]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRDescriptionB>", riskEstimationBeforeView[1]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<PRDescriptionB>", riskEstimationBeforeView[2]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVDescriptionB>", riskEstimationBeforeView[3]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVWeightB>", riskEstimationBeforeView[3]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueB>", temp.calculateRiskEstimationClass().ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionB>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
+                        wordInterface.searchAndReplace(wordDocument, "<SEDescriptionB>", riskEstimationBeforeView[0]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<FRDescriptionB>", riskEstimationBeforeView[1]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PRDescriptionB>", riskEstimationBeforeView[2]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<AVDescriptionB>", riskEstimationBeforeView[3]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<AVWeightB>", riskEstimationBeforeView[3]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskClassValueB>", temp.calculateRiskEstimationClass().ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskClassDescriptionB>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
                         temp.setControlData(riskEstimationAfterView);
                         riskEstimationAfterView.RowFilter = "InProject = '1'";
                         if (riskEstimationAfterView.Count != 4)
                             throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEDescriptionA>", riskEstimationAfterView[0]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRDescriptionA>", riskEstimationAfterView[1]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<PRDescriptionA>", riskEstimationAfterView[2]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVDescriptionA>", riskEstimationAfterView[3]["ItemDescription"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<SEWeightA>", riskEstimationAfterView[0]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<FRWeightA>", riskEstimationAfterView[1]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<PRWeightA>", riskEstimationAfterView[2]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<AVWeightA>", riskEstimationAfterView[3]["ItemWeight"].ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskClassValueA>", temp.calculateRiskEstimationClass().ToString());
-                        wordInterface.searchAndReplace(wordInterface.app, "<RiskClassDescriptionA>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
+                        wordInterface.searchAndReplace(wordDocument, "<SEDescriptionA>", riskEstimationAfterView[0]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<FRDescriptionA>", riskEstimationAfterView[1]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PRDescriptionA>", riskEstimationAfterView[2]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<AVDescriptionA>", riskEstimationAfterView[3]["ItemDescription"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<SEWeightA>", riskEstimationAfterView[0]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<FRWeightA>", riskEstimationAfterView[1]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<PRWeightA>", riskEstimationAfterView[2]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<AVWeightA>", riskEstimationAfterView[3]["ItemWeight"].ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskClassValueA>", temp.calculateRiskEstimationClass().ToString());
+                        wordInterface.searchAndReplace(wordDocument, "<RiskClassDescriptionA>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
                         //Find table and do stuff with it.
                         Microsoft.Office.Interop.Word.Table appliedRiskReductionMeasuresTable = wordInterface.findTableWithTitle(wordDocument, "AppliedRiskReductionMeasures");
@@ -387,6 +366,18 @@ namespace Applicatie_Risicoanalyse.Reports
                         minimalAdditionMeasures.RowFilter = "InProject = '1'";
                         wordInterface.fillTableWithRiskReducingMeasures(wordDocument, minimalAdditionMeasuresTable, minimalAdditionMeasures, "MeasureSubGroup", "InProject");
                         minimalAdditionMeasuresTable.Title = "";
+
+                        //Set author en reviewer names.
+                        wordInterface.searchAndReplace(wordDocument, "<AuthorName>", authorRow["UserName"].ToString(), new Color(), true);
+                        //Did someone review this risk?
+                        if (riskDataRow["ReviewedByUser"] != DBNull.Value)
+                        {
+                            wordInterface.searchAndReplace(wordDocument, "<ReviewerName>", reviewerRow["UserName"].ToString(), new Color(), true);
+                        }
+                        else
+                        {
+                            wordInterface.searchAndReplace(wordDocument, "<ReviewerName>", "NOT REVIEWED", new Color(), true);
+                        }
 
                         //Clear some memory.
                         temp.Dispose();

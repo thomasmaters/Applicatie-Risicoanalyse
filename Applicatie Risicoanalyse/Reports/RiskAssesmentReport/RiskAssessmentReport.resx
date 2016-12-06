@@ -142,13 +142,13 @@
     <value>232, 134</value>
   </metadata>
   <metadata name="get_ExposedPersons_In_RiskDataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>424, 56</value>
+    <value>437, 56</value>
   </metadata>
   <metadata name="tbl_Risk_DataTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>727, 56</value>
+    <value>240, 56</value>
   </metadata>
   <metadata name="tbl_DangerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 56</value>
+    <value>740, 56</value>
   </metadata>
   <metadata name="tbl_Danger_ResultTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
@@ -179,5 +179,11 @@
   </metadata>
   <metadata name="tbl_DangerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>487, 173</value>
+  </metadata>
+  <metadata name="get_All_RiskProject_InfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>677, 173</value>
+  </metadata>
+  <metadata name="get_All_RiskProject_InfoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>936, 173</value>
   </metadata>
 </root>
