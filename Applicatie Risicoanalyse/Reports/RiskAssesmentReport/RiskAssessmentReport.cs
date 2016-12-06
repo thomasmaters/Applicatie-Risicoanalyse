@@ -289,7 +289,6 @@ namespace Applicatie_Risicoanalyse.Reports
 
                         //Get some more info about the risk.
                         DataRow riskData = this.tbl_Risk_DataTableAdapter.GetData().FindByRiskDataID(riskDataID);
-                        DataRow reviewerRow = this.tbl_UserTableAdapter.GetData().FindByUserID((Int32)riskDataRow["ReviewedByUser"]);
                         DataRow authorRow = this.tbl_UserTableAdapter.GetData().FindByUserID((Int32)projectInfoRow["UserID"]);
 
                         DataView riskEstimationBeforeView = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
@@ -372,6 +371,7 @@ namespace Applicatie_Risicoanalyse.Reports
                         //Did someone review this risk?
                         if (riskDataRow["ReviewedByUser"] != DBNull.Value)
                         {
+                            DataRow reviewerRow = this.tbl_UserTableAdapter.GetData().FindByUserID((Int32)riskDataRow["ReviewedByUser"]);
                             wordInterface.searchAndReplace(wordDocument, "<ReviewerName>", reviewerRow["UserName"].ToString(), new Color(), true);
                         }
                         else
