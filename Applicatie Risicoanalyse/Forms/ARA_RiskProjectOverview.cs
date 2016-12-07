@@ -156,12 +156,13 @@ namespace Applicatie_Risicoanalyse.Forms
         private void setProjectInfoTopForm()
         {
             //Construct text to display on topbar.
-            DataRow riskAnalysisData = this.tbl_Risk_AnalysisTableAdapter.GetData().FindByProjectID(this.projectID);
+            DataRow riskAnalysisData = this.get_All_RiskProject_InfoTableAdapter.GetData(this.projectID).Rows[0];
             string leftText = string.Format("Customer: {0}\nProject state: {1}",
                 riskAnalysisData["Customer"],
                 riskAnalysisData["StateName"]);
-            string rightText = string.Format("Draft version: {0}", 
-                riskAnalysisData["DraftVersion"]);
+            string rightText = string.Format("Draft version: {0}\nProject revision: {1}", 
+                riskAnalysisData["DraftVersion"],
+                riskAnalysisData["Revision"]);
 
             //Create topbar form.
             Form topBar = new ARA_TopBar(leftText, rightText);

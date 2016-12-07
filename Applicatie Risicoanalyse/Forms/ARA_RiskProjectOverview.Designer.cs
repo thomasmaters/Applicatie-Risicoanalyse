@@ -61,12 +61,15 @@ namespace Applicatie_Risicoanalyse.Forms
             this.is_ProjectReview_AcceptedTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Is_ProjectReview_AcceptedTableAdapter();
             this.tbl_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter();
+            this.get_All_RiskProject_InfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.get_All_RiskProject_InfoTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_All_RiskProject_InfoTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Newest_Added_ProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.is_ProjectReview_AcceptedBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_All_RiskProject_InfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -429,6 +432,15 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.tbl_ProjectTableAdapter.ClearBeforeFill = true;
             // 
+            // get_All_RiskProject_InfoBindingSource
+            // 
+            this.get_All_RiskProject_InfoBindingSource.DataMember = "Get_All_RiskProject_Info";
+            this.get_All_RiskProject_InfoBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // get_All_RiskProject_InfoTableAdapter
+            // 
+            this.get_All_RiskProject_InfoTableAdapter.ClearBeforeFill = true;
+            // 
             // ARA_RiskProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -453,6 +465,7 @@ namespace Applicatie_Risicoanalyse.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.is_ProjectReview_AcceptedBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.get_All_RiskProject_InfoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,5 +502,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private Controls.ARA_DropDownButton riskProjectOverviewButtonCopyRisk;
         private System.Windows.Forms.FlowLayoutPanel riskProjectOverviewPanelCopyRisk;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.BindingSource get_All_RiskProject_InfoBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Get_All_RiskProject_InfoTableAdapter get_All_RiskProject_InfoTableAdapter;
     }
 }

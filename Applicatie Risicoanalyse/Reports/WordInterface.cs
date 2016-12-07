@@ -25,6 +25,7 @@ namespace Applicatie_Risicoanalyse.Reports
         {
             // Start an instance of Word.
             this.app = new Microsoft.Office.Interop.Word.Application();
+            this.app.Visible = false;
         }
 
         /// <summary>
@@ -81,41 +82,46 @@ namespace Applicatie_Risicoanalyse.Reports
         /// <param name="find">String to search for.</param>
         /// <param name="replaceWith">String to replace the searched value with.</param>
         /// <param name="textColor">A color to give to the replaced text.</param>
-        public void searchAndReplace(Document wordDocument, string find, string replaceWith, Color textColor = new Color(), bool searchInShapes = false)
+        public void searchAndReplace(Document wordDocument, string find, string replaceWith, Color textColor = new Color(), bool searchInLastTextBox = false)
         {
-            Microsoft.Office.Interop.Word.Find findObject = this.app.Selection.Find;
-            findObject.ClearFormatting();
-            findObject.Text = find;
-            findObject.Replacement.ClearFormatting();
-            findObject.Replacement.Text = replaceWith;
-
-            //Set text color if it is given.
-            if (textColor != new Color())
+            if (!searchInLastTextBox)
             {
-                findObject.Replacement.Font.Color = (Microsoft.Office.Interop.Word.WdColor)(textColor.R + 0x100 * textColor.G + 0x10000 * textColor.B);
+                Microsoft.Office.Interop.Word.Find findObject = this.app.Selection.Find;
+                findObject.ClearFormatting();
+                findObject.Text = find;
+                findObject.Replacement.ClearFormatting();
+                findObject.Replacement.Text = replaceWith;
+
+                //Set text color if it is given.
+                if (textColor != new Color())
+                {
+                    findObject.Replacement.Font.Color = (Microsoft.Office.Interop.Word.WdColor)(textColor.R + 0x100 * textColor.G + 0x10000 * textColor.B);
+                }
+
+                object replaceAll = Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll;
+                findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing, ref missing,
+                    ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
             }
-
-            object replaceAll = Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll;
-            findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                ref missing, ref missing, ref missing, ref missing, ref missing,
-                ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
-            if(searchInShapes)
+            else
             {
                 //Also check shapes
-                var shapes = wordDocument.Shapes;
-                //Finds text within textboxes, then changes them
-                foreach (Microsoft.Office.Interop.Word.Shape shape in shapes)
-                {
-                    if(shape.Type == MsoShapeType.msoTextBox)
-                    {
-                        shape.TextFrame.TextRange.Find.ClearFormatting();
+                Microsoft.Office.Interop.Word.Shape shape = wordDocument.Shapes[wordDocument.Shapes.Count];
 
-                        shape.TextFrame.TextRange.Find.Execute((object)find,
-                            ref missing, ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref missing, ref missing, (object)replaceWith, ref missing, ref missing, ref missing,
-                            ref missing, ref missing);
-                    }
+                //Is it a textbox.
+                if (shape.Type == MsoShapeType.msoTextBox)
+                {
+                    Microsoft.Office.Interop.Word.Find findObject = shape.TextFrame.TextRange.Find;
+                    findObject.ClearFormatting();
+                    findObject.Text = find;
+                    findObject.Replacement.ClearFormatting();
+                    findObject.Replacement.Text = replaceWith;
+
+                    findObject.Execute((object)find,
+                        ref missing, ref missing, ref missing, ref missing, ref missing, ref paramFalse,
+                        ref missing, ref missing, (object)replaceWith, ref missing, ref missing, ref missing,
+                        ref missing, ref missing);
                 }
             }
         }
@@ -133,6 +139,11 @@ namespace Applicatie_Risicoanalyse.Reports
             doc.SaveAs2(saveLocation);
         }
 
+        /// <summary>
+        /// Saves the document as a pdf document on the specified location.
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="location"></param>
         public void saveDocumentAsPdf(Document doc, string location)
         {
             object saveLocation = @location + ".pdf";
@@ -178,12 +189,17 @@ namespace Applicatie_Risicoanalyse.Reports
         /// <returns>Microsoft.Office.Interop.Word.Table</returns>
         public Microsoft.Office.Interop.Word.Table findTableWithTitle(Document doc, string titleToFind)
         {
-            foreach (Microsoft.Office.Interop.Word.Table table in doc.Tables)
+            if(doc.Tables.Count > 1 && doc.Tables[doc.Tables.Count-1].Title == titleToFind)
             {
-                if (table.Title == titleToFind)
-                {
-                    return table;
-                }
+                return doc.Tables[doc.Tables.Count - 1];
+            }
+            else if (doc.Tables[doc.Tables.Count].Title == titleToFind)
+            {
+                return doc.Tables[doc.Tables.Count];
+            }
+            else if(doc.Tables.Count > 0)
+            {
+                return doc.Tables[doc.Tables.Count];
             }
             return null;
         }
