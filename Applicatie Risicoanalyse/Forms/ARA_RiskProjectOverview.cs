@@ -28,12 +28,14 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             this.riskProjectOverviewButtonGenerateReports.setConnectedPanel(this.riskProjectOverviewPanelGenerateReports);
             this.riskProjectOverviewButtonCopyRisk.setConnectedPanel(this.riskProjectOverviewPanelCopyRisk);
+            this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             //Add Click event to hide all other buttons/panels when one opens.
             this.riskProjectOverviewButtonOpenRisk.Click           += hideOtherPanels;
             this.riskProjectOverviewButtonAddRiskToProject.Click   += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
             this.riskProjectOverviewButtonGenerateReports.Click    += hideOtherPanels;
             this.riskProjectOverviewButtonCopyRisk.Click           += hideOtherPanels;
+            this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
         }
 
         /// <summary>
@@ -111,6 +113,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelGenerateReports, new ARA_GenerateReportsForm(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelCopyRisk, new ARA_CopyRisksToProject(projectID));
+            this.addFormToPanel(this.riskProjectOverviewPanelEditProjectDetails, new ARA_EditProjectDetails(projectID));
 
             //Enable controls and reload permissions.
             enableControlOnProjectState();

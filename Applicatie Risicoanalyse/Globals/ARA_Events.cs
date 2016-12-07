@@ -32,6 +32,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<NewRiskAddedToStandardEvent>   NewRiskAddedToStandardEventHandler;
         public static event EventHandler<NewRiskVersionEvent>           NewRiskVersionEventHandler;
 
+        public static event EventHandler<ProjectDetailsChangedEvent>    ProjectDetailsChangedEventHandler;
         public static event EventHandler<NewLogMessageEvent>            NewLogMessageEventHandler;
 
         //Static function for adding an event to the event handlers.
@@ -166,6 +167,24 @@ namespace Applicatie_Risicoanalyse.Globals
             {
                 NewLogMessageEventHandler(new object(), new NewLogMessageEvent(aLogMessage));
             }
+        }
+        public static void triggerProjectDetailsChangedEvent(int aProjectID)
+        {
+            Logger.Instance.log(string.Format("{0} updated the project details of project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
+            if (ProjectDetailsChangedEventHandler != null)
+            {
+                ProjectDetailsChangedEventHandler(new object(), new ProjectDetailsChangedEvent(aProjectID));
+            }
+        }
+    }
+
+    public class ProjectDetailsChangedEvent
+    {
+        public int projectID { get; private set; }
+
+        public ProjectDetailsChangedEvent(int aProjectID)
+        {
+            this.projectID = aProjectID;
         }
     }
 

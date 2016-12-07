@@ -65,5 +65,9 @@ namespace Applicatie_Risicoanalyse.Globals
         public const string messageBoxProjectRevisionCreatedHeader        = "Revision created.";
         public const string messageBoxProjectRevisionFailed               = "Failed to create a project revision. Contact the administrator if this problem keeps occuring. ";
         public const string messageBoxProjectRevisionFailedHeader         = "Failed to create a project revision.";
+        public const string messageBoxProjectDetailsSaved                 = "The projectdetails have succesfully been updated.";
+        public const string messageBoxProjectDetailsSavedHeader           = "Succes.";
+        public const string messageBoxProjectDetailsFailed                = "Failed to update project details, check your inputs.";
+        public const string messageBoxProjectDetailsFailedHeader          = "Failed to update project details.";
     }
 }

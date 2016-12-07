@@ -28,10 +28,22 @@ namespace Applicatie_Risicoanalyse.Forms
             //Add events.
             ARA_Events.NewProjectRevisionEventHandler += ARA_Events_NewProjectRevisionEventHandler;
             ARA_Events.NewProjectCreatedEventHandler += ARA_Events_NewProjectCreatedEventHandler;
+            ARA_Events.ProjectDetailsChangedEventHandler += ARA_Events_ProjectDetailsChangedEventHandler;
 
             //Special scaling for the datagrid.
             this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+        }
+
+        /// <summary>
+        /// Handler when the user updates the project details of a project.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_ProjectDetailsChangedEventHandler(object sender, ProjectDetailsChangedEvent e)
+        {
+            this.OpenProjectDataGrid.DataSource = this.get_Projects_With_RevisionTableAdapter.GetData();
+            OpenProjectDataGrid_RowsAdded(new object(), new DataGridViewRowsAddedEventArgs(0, 0));
         }
 
         /// <summary>
