@@ -39,9 +39,9 @@
             this.checkedListBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(127, 3);
+            this.checkedListBox1.Location = new System.Drawing.Point(227, 3);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(429, 23);
+            this.checkedListBox1.Size = new System.Drawing.Size(419, 23);
             this.checkedListBox1.TabIndex = 74;
             this.checkedListBox1.Visible = false;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -68,9 +68,9 @@
             this.Controls.Add(this.checkBox1);
             this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(560, 500);
+            this.MaximumSize = new System.Drawing.Size(650, 500);
             this.Name = "ARA_EditRiskRiskReductionMeasuresItem";
-            this.Size = new System.Drawing.Size(560, 32);
+            this.Size = new System.Drawing.Size(650, 32);
             this.ResumeLayout(false);
             this.PerformLayout();
 
