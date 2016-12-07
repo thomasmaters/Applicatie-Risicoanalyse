@@ -145,7 +145,7 @@ namespace Applicatie_Risicoanalyse.Globals
         }
         public static void triggerNewRiskAddedToStandardEvent(int aRiskID)
         {
-            Logger.Instance.log(string.Format("{0} added risk {1} to the standard.", ARA_Globals.LoggedInUsername, aRiskID));
+            Logger.Instance.log(string.Format("{0} added the new risk {1} to the standard.", ARA_Globals.LoggedInUsername, aRiskID));
             if (NewRiskAddedToStandardEventHandler != null)
             {
                 NewRiskAddedToStandardEventHandler(new object(), new NewRiskAddedToStandardEvent(aRiskID));
@@ -153,7 +153,7 @@ namespace Applicatie_Risicoanalyse.Globals
         }
         public static void triggerNewRiskVersionEvent(int aRiskID, int aVersion)
         {
-            Logger.Instance.log(string.Format("{0} created version {2} of risk {1}.", ARA_Globals.LoggedInUsername, aRiskID, aVersion));
+            Logger.Instance.log(string.Format("{0} created version {2} of standard risk {1}.", ARA_Globals.LoggedInUsername, aRiskID, aVersion));
             if (NewRiskVersionEventHandler != null)
             {
                 NewRiskVersionEventHandler(new object(), new NewRiskVersionEvent(aRiskID, aVersion));
