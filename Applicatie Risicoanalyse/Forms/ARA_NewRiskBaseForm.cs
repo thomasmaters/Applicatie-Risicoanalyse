@@ -27,7 +27,7 @@ namespace Applicatie_Risicoanalyse.Forms
             InitializeComponent();
 
             //Initalize variables.
-            DataRow newRisk = this.create_New_RiskTableAdapter.GetData().Rows[0];
+            DataRow newRisk = this.create_New_RiskTableAdapter.GetData(ARA_Globals.UserID).Rows[0];
             this.riskID = (Int32)newRisk["newRiskID"];
             this.riskDataID = (Int32)newRisk["newRiskDataID"];
 

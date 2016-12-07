@@ -86,6 +86,8 @@ namespace Applicatie_Risicoanalyse.Forms
             this.get_Risks_In_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_ProjectTableAdapter();
             this.tbl_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter();
+            this.tbl_UserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_UserTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
@@ -107,6 +109,7 @@ namespace Applicatie_Risicoanalyse.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_ProjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_UserBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -142,7 +145,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // arA_Button1
+            // arA_ButtonEditRiskImage
             // 
             this.arA_ButtonEditRiskImage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.arA_ButtonEditRiskImage.CanButtonBeToggled = true;
@@ -150,7 +153,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_ButtonEditRiskImage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.arA_ButtonEditRiskImage.Location = new System.Drawing.Point(0, 275);
             this.arA_ButtonEditRiskImage.Margin = new System.Windows.Forms.Padding(0, 0, 0, 25);
-            this.arA_ButtonEditRiskImage.Name = "arA_Button1";
+            this.arA_ButtonEditRiskImage.Name = "arA_ButtonEditRiskImage";
             this.arA_ButtonEditRiskImage.Selected = false;
             this.arA_ButtonEditRiskImage.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.arA_ButtonEditRiskImage.SelectedTextColor = System.Drawing.Color.Black;
@@ -541,6 +544,15 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.tbl_ProjectTableAdapter.ClearBeforeFill = true;
             // 
+            // tbl_UserBindingSource
+            // 
+            this.tbl_UserBindingSource.DataMember = "Tbl_User";
+            this.tbl_UserBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
+            // 
+            // tbl_UserTableAdapter
+            // 
+            this.tbl_UserTableAdapter.ClearBeforeFill = true;
+            // 
             // ARA_EditRiskBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -578,6 +590,7 @@ namespace Applicatie_Risicoanalyse.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tbl_Risk_AnalysisBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.get_Risks_In_ProjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_ProjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_UserBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,5 +653,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Risks_In_ProjectTableAdapter get_Risks_In_ProjectTableAdapter;
         private System.Windows.Forms.BindingSource tbl_ProjectBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_ProjectTableAdapter tbl_ProjectTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_UserBindingSource;
+        private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_UserTableAdapter tbl_UserTableAdapter;
     }
 }

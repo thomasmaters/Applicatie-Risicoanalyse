@@ -18,6 +18,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private int riskVersionID = 1;
         private int riskDataID = 1;
         private int projectID = 1;
+        private int riskCreatedByUserID = -1;
         private string projectState = ARA_Constants.draft;
         private string riskGroupName = "";
         private string riskTypeName = "";
@@ -91,6 +92,7 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.riskGroupName = riskView["GroupName"].ToString();
                 this.riskTypeName = riskView["TypeName"].ToString();
                 this.hazardSituation = riskDataView["HazardSituation"].ToString();
+                this.riskCreatedByUserID = (Int32)riskDataView["UserID"];
 
                 //Risk estimation before risk reduction.
                 DataView riskEstimationViewBefore = new DataView(this.get_RiskEstimation_In_RiskData_BeforeTableAdapter.GetData(riskDataID));
@@ -242,7 +244,7 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 if (this.projectID == -1)//Are we edeting the standard?
                 {
-                    DataRow tempRow = this.create_New_Risk_VersionTableAdapter.GetData(this.riskID, this.riskVersionID, this.riskDataID).Rows[0];
+                    DataRow tempRow = this.create_New_Risk_VersionTableAdapter.GetData(this.riskID, this.riskVersionID, this.riskDataID, ARA_Globals.UserID).Rows[0];
                     if(tempRow != null && tempRow["newRiskDataID"] != DBNull.Value)
                     {
                         this.riskVersionID += 1;
@@ -260,7 +262,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 }
                 else
                 {
-                    DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID).Rows[0];
+                    //Execute query to make risk projectspecific.
+                    DataRow tempRow = this.update_RiskDataID_In_RisksInProjectTableAdapter.GetData(this.projectID, this.riskID, ARA_Globals.UserID).Rows[0];
                     this.riskDataID = (Int32)tempRow["newRiskDataID"];
 
                     //Log event.
@@ -282,13 +285,22 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             //Set top bar info.
             ARA_TopBar aForm = new ARA_TopBar(
-                    string.Format("RiskID: {0} -- {1} -> {2}\nVersion: {3}",this.riskID,this.riskGroupName,this.riskTypeName,this.riskVersionID),
-                    string.Format("{0} {1}", this.hazardSituation,this.isRiskDataProjectSpecific && this.projectID != -1 ? "\n(Project specific)":""));
+                    string.Format("RiskID: {0} -- {1} -> {2}\nVersion: {3}, Created by: {4}", 
+                        this.riskID, 
+                        this.riskGroupName, 
+                        this.riskTypeName, 
+                        this.riskVersionID,
+                        this.tbl_UserTableAdapter.GetData().FindByUserID(this.riskCreatedByUserID)["UserName"].ToString()),
+                    string.Format("{0} {1}", 
+                        this.hazardSituation,
+                        this.isRiskDataProjectSpecific && this.projectID != -1 ? "\n(Project specific)":""));
             ARA_Events.triggerBaseFormSetTopBarEvent(aForm);
         }
 
         private void ARA_EditRiskBaseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_User' table. You can move, or remove it, as needed.
+            this.tbl_UserTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_User);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Project' table. You can move, or remove it, as needed.
             this.tbl_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Project);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
