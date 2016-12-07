@@ -14156,9 +14156,6 @@ namespace Applicatie_Risicoanalyse {
                 base.Columns.Add(this.columnHasRemainingRisk);
                 this.columnDangerSourceName = new global::System.Data.DataColumn("DangerSourceName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDangerSourceName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRiskID,
-                                this.columnVersionID}, false));
                 this.columnRiskID.AutoIncrement = true;
                 this.columnRiskID.ReadOnly = true;
                 this.columnTypeName.MaxLength = 64;
@@ -14166,7 +14163,7 @@ namespace Applicatie_Risicoanalyse {
                 this.columnDangerID.ReadOnly = true;
                 this.columnDangerSourceID.ReadOnly = true;
                 this.columnHasRemainingRisk.ReadOnly = true;
-                this.columnDangerSourceName.AllowDBNull = false;
+                this.columnDangerSourceName.AllowDBNull = true;
                 this.columnDangerSourceName.MaxLength = 128;
             }
             
