@@ -33,7 +33,7 @@
             this.get_Newest_Added_ProjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.createProjectDatabaseAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
-            this.createProjectTextExtraInfo = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.editProjectDetailsTextExtraInfo = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.editProjectDetailsInputExtraInfo = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.createProjectSpacer3 = new System.Windows.Forms.FlowLayoutPanel();
             this.createProjectButtonCreateProject = new Applicatie_Risicoanalyse.Controls.ARA_Button();
@@ -41,15 +41,15 @@
             this.createProjectControlBoxRight = new System.Windows.Forms.FlowLayoutPanel();
             this.get_Newest_Added_ProjectTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter();
             this.editProjectDetailsInputOrderNumber = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
-            this.createProjectTextOrderNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.editProjectDetailsTextOrderNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.editProjectDetailsInputMachineNumber = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
-            this.createProjectTextCustomer = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.editProjectDetailsTextCustomer = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.editProjectDetailsInputCustomer = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
             this.createProjectSpacer4 = new System.Windows.Forms.Panel();
-            this.createProjectTextMachineType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.editProjectDetailsTextMachineType = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.createProjectSpacer5 = new System.Windows.Forms.Panel();
             this.editProjectDetailsInputMachineType = new Applicatie_Risicoanalyse.Controls.ARA_TextBox();
-            this.createProjectTextMachineNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
+            this.editProjectDetailsTextMachineNumber = new Applicatie_Risicoanalyse.Controls.ARA_Text();
             this.createProjectSpacer1 = new System.Windows.Forms.Panel();
             this.createProjectControlBoxLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -107,16 +107,16 @@
             // 
             // createProjectTextExtraInfo
             // 
-            this.createProjectTextExtraInfo.BackgroundColor = System.Drawing.Color.White;
-            this.createProjectTextExtraInfo.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextExtraInfo.Location = new System.Drawing.Point(0, 0);
-            this.createProjectTextExtraInfo.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextExtraInfo.MaximumSize = new System.Drawing.Size(344, 27);
-            this.createProjectTextExtraInfo.Name = "createProjectTextExtraInfo";
-            this.createProjectTextExtraInfo.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextExtraInfo.TabIndex = 100;
-            this.createProjectTextExtraInfo.Text = "Extra information";
-            this.createProjectTextExtraInfo.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.editProjectDetailsTextExtraInfo.BackgroundColor = System.Drawing.Color.White;
+            this.editProjectDetailsTextExtraInfo.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.editProjectDetailsTextExtraInfo.Location = new System.Drawing.Point(0, 0);
+            this.editProjectDetailsTextExtraInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.editProjectDetailsTextExtraInfo.MaximumSize = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextExtraInfo.Name = "createProjectTextExtraInfo";
+            this.editProjectDetailsTextExtraInfo.Size = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextExtraInfo.TabIndex = 100;
+            this.editProjectDetailsTextExtraInfo.Text = "Extra information";
+            this.editProjectDetailsTextExtraInfo.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // editProjectDetailsInputExtraInfo
             // 
@@ -173,7 +173,7 @@
             // 
             // createProjectControlBoxRight
             // 
-            this.createProjectControlBoxRight.Controls.Add(this.createProjectTextExtraInfo);
+            this.createProjectControlBoxRight.Controls.Add(this.editProjectDetailsTextExtraInfo);
             this.createProjectControlBoxRight.Controls.Add(this.editProjectDetailsInputExtraInfo);
             this.createProjectControlBoxRight.Controls.Add(this.createProjectSpacer3);
             this.createProjectControlBoxRight.Controls.Add(this.createProjectButtonCreateProject);
@@ -207,16 +207,16 @@
             // 
             // createProjectTextOrderNumber
             // 
-            this.createProjectTextOrderNumber.BackgroundColor = System.Drawing.Color.White;
-            this.createProjectTextOrderNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextOrderNumber.Location = new System.Drawing.Point(181, 116);
-            this.createProjectTextOrderNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextOrderNumber.MaximumSize = new System.Drawing.Size(344, 27);
-            this.createProjectTextOrderNumber.Name = "createProjectTextOrderNumber";
-            this.createProjectTextOrderNumber.Size = new System.Drawing.Size(164, 27);
-            this.createProjectTextOrderNumber.TabIndex = 100;
-            this.createProjectTextOrderNumber.Text = "Order number";
-            this.createProjectTextOrderNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.editProjectDetailsTextOrderNumber.BackgroundColor = System.Drawing.Color.White;
+            this.editProjectDetailsTextOrderNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.editProjectDetailsTextOrderNumber.Location = new System.Drawing.Point(181, 116);
+            this.editProjectDetailsTextOrderNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.editProjectDetailsTextOrderNumber.MaximumSize = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextOrderNumber.Name = "createProjectTextOrderNumber";
+            this.editProjectDetailsTextOrderNumber.Size = new System.Drawing.Size(164, 27);
+            this.editProjectDetailsTextOrderNumber.TabIndex = 100;
+            this.editProjectDetailsTextOrderNumber.Text = "Order number";
+            this.editProjectDetailsTextOrderNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // editProjectDetailsInputMachineNumber
             // 
@@ -236,16 +236,16 @@
             // 
             // createProjectTextCustomer
             // 
-            this.createProjectTextCustomer.BackgroundColor = System.Drawing.Color.White;
-            this.createProjectTextCustomer.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextCustomer.Location = new System.Drawing.Point(0, 0);
-            this.createProjectTextCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextCustomer.MaximumSize = new System.Drawing.Size(344, 27);
-            this.createProjectTextCustomer.Name = "createProjectTextCustomer";
-            this.createProjectTextCustomer.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextCustomer.TabIndex = 100;
-            this.createProjectTextCustomer.Text = "Customer";
-            this.createProjectTextCustomer.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.editProjectDetailsTextCustomer.BackgroundColor = System.Drawing.Color.White;
+            this.editProjectDetailsTextCustomer.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.editProjectDetailsTextCustomer.Location = new System.Drawing.Point(0, 0);
+            this.editProjectDetailsTextCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.editProjectDetailsTextCustomer.MaximumSize = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextCustomer.Name = "createProjectTextCustomer";
+            this.editProjectDetailsTextCustomer.Size = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextCustomer.TabIndex = 100;
+            this.editProjectDetailsTextCustomer.Text = "Customer";
+            this.editProjectDetailsTextCustomer.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // editProjectDetailsInputCustomer
             // 
@@ -273,16 +273,16 @@
             // 
             // createProjectTextMachineType
             // 
-            this.createProjectTextMachineType.BackgroundColor = System.Drawing.Color.White;
-            this.createProjectTextMachineType.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextMachineType.Location = new System.Drawing.Point(0, 58);
-            this.createProjectTextMachineType.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextMachineType.MaximumSize = new System.Drawing.Size(344, 27);
-            this.createProjectTextMachineType.Name = "createProjectTextMachineType";
-            this.createProjectTextMachineType.Size = new System.Drawing.Size(344, 27);
-            this.createProjectTextMachineType.TabIndex = 100;
-            this.createProjectTextMachineType.Text = "Machine type";
-            this.createProjectTextMachineType.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.editProjectDetailsTextMachineType.BackgroundColor = System.Drawing.Color.White;
+            this.editProjectDetailsTextMachineType.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.editProjectDetailsTextMachineType.Location = new System.Drawing.Point(0, 58);
+            this.editProjectDetailsTextMachineType.Margin = new System.Windows.Forms.Padding(0);
+            this.editProjectDetailsTextMachineType.MaximumSize = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextMachineType.Name = "createProjectTextMachineType";
+            this.editProjectDetailsTextMachineType.Size = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextMachineType.TabIndex = 100;
+            this.editProjectDetailsTextMachineType.Text = "Machine type";
+            this.editProjectDetailsTextMachineType.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // createProjectSpacer5
             // 
@@ -310,16 +310,16 @@
             // 
             // createProjectTextMachineNumber
             // 
-            this.createProjectTextMachineNumber.BackgroundColor = System.Drawing.Color.White;
-            this.createProjectTextMachineNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextMachineNumber.Location = new System.Drawing.Point(0, 116);
-            this.createProjectTextMachineNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextMachineNumber.MaximumSize = new System.Drawing.Size(344, 27);
-            this.createProjectTextMachineNumber.Name = "createProjectTextMachineNumber";
-            this.createProjectTextMachineNumber.Size = new System.Drawing.Size(181, 27);
-            this.createProjectTextMachineNumber.TabIndex = 100;
-            this.createProjectTextMachineNumber.Text = "Machine number";
-            this.createProjectTextMachineNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
+            this.editProjectDetailsTextMachineNumber.BackgroundColor = System.Drawing.Color.White;
+            this.editProjectDetailsTextMachineNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
+            this.editProjectDetailsTextMachineNumber.Location = new System.Drawing.Point(0, 116);
+            this.editProjectDetailsTextMachineNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.editProjectDetailsTextMachineNumber.MaximumSize = new System.Drawing.Size(344, 27);
+            this.editProjectDetailsTextMachineNumber.Name = "createProjectTextMachineNumber";
+            this.editProjectDetailsTextMachineNumber.Size = new System.Drawing.Size(181, 27);
+            this.editProjectDetailsTextMachineNumber.TabIndex = 100;
+            this.editProjectDetailsTextMachineNumber.Text = "Machine number";
+            this.editProjectDetailsTextMachineNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // createProjectSpacer1
             // 
@@ -333,14 +333,14 @@
             // 
             // createProjectControlBoxLeft
             // 
-            this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextCustomer);
+            this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsTextCustomer);
             this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsInputCustomer);
             this.createProjectControlBoxLeft.Controls.Add(this.createProjectSpacer4);
-            this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextMachineType);
+            this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsTextMachineType);
             this.createProjectControlBoxLeft.Controls.Add(this.createProjectSpacer5);
             this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsInputMachineType);
-            this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextMachineNumber);
-            this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextOrderNumber);
+            this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsTextMachineNumber);
+            this.createProjectControlBoxLeft.Controls.Add(this.editProjectDetailsTextOrderNumber);
             this.createProjectControlBoxLeft.Controls.Add(this.panel1);
             this.createProjectControlBoxLeft.Location = new System.Drawing.Point(20, 0);
             this.createProjectControlBoxLeft.Margin = new System.Windows.Forms.Padding(0);
@@ -414,7 +414,7 @@
         private System.Windows.Forms.BindingSource get_Newest_Added_ProjectBindingSource;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter createProjectDatabaseAdapter;
-        private Controls.ARA_Text createProjectTextExtraInfo;
+        private Controls.ARA_Text editProjectDetailsTextExtraInfo;
         private Controls.ARA_TextBox editProjectDetailsInputExtraInfo;
         private System.Windows.Forms.FlowLayoutPanel createProjectSpacer3;
         private Controls.ARA_Button createProjectButtonCreateProject;
@@ -422,15 +422,15 @@
         private System.Windows.Forms.FlowLayoutPanel createProjectControlBoxRight;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Newest_Added_ProjectTableAdapter get_Newest_Added_ProjectTableAdapter;
         private Controls.ARA_TextBox editProjectDetailsInputOrderNumber;
-        private Controls.ARA_Text createProjectTextOrderNumber;
+        private Controls.ARA_Text editProjectDetailsTextOrderNumber;
         private Controls.ARA_TextBox editProjectDetailsInputMachineNumber;
-        private Controls.ARA_Text createProjectTextCustomer;
+        private Controls.ARA_Text editProjectDetailsTextCustomer;
         private Controls.ARA_TextBox editProjectDetailsInputCustomer;
         private System.Windows.Forms.Panel createProjectSpacer4;
-        private Controls.ARA_Text createProjectTextMachineType;
+        private Controls.ARA_Text editProjectDetailsTextMachineType;
         private System.Windows.Forms.Panel createProjectSpacer5;
         private Controls.ARA_TextBox editProjectDetailsInputMachineType;
-        private Controls.ARA_Text createProjectTextMachineNumber;
+        private Controls.ARA_Text editProjectDetailsTextMachineNumber;
         private System.Windows.Forms.Panel createProjectSpacer1;
         private System.Windows.Forms.FlowLayoutPanel createProjectControlBoxLeft;
         private System.Windows.Forms.Panel panel1;

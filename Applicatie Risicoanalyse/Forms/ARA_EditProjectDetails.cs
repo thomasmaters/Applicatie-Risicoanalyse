@@ -20,6 +20,17 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectID = projectID;
 
             InitializeComponent();
+
+            //Set scaling.
+            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+
+            //Fix for text scaling of form.
+            System.Drawing.Font textFont = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize - 3F);
+            this.editProjectDetailsTextCustomer.Font = textFont;
+            this.editProjectDetailsTextExtraInfo.Font = textFont;
+            this.editProjectDetailsTextMachineNumber.Font = textFont;
+            this.editProjectDetailsTextMachineType.Font = textFont;
+            this.editProjectDetailsTextOrderNumber.Font = textFont;
         }
 
         /// <summary>
