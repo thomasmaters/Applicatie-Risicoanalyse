@@ -149,7 +149,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <returns></returns>
         private bool isServerConnected()
         {
-            using (var l_oConnection = new SqlConnection(Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString))
+            using (var l_oConnection = new SqlConnection(Applicatie_Risicoanalyse.Properties.Settings.Default.LG_Analysis_DatabaseConnectionString1))
             {
                 try
                 {
