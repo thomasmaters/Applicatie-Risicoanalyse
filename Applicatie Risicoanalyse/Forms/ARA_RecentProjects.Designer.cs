@@ -30,65 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recentProjectsDataGrid = new System.Windows.Forms.DataGridView();
-            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getRecentRiskProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lG_Analysis_DatabaseDataSet = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSet();
             this.getProjectsWithRevisionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.get_Projects_With_RevisionTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Projects_With_RevisionTableAdapter();
-            this.search_ProjectsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectsTableAdapter();
-            this.search_ProjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_Risk_AnalysisTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter();
             this.tblRiskAnalysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager();
             this.get_Recent_Risk_ProjectsTableAdapter = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.Get_Recent_Risk_ProjectsTableAdapter();
+            this.queriesTableAdapter1 = new Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter();
+            this.customerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.machineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatestActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.recentProjectsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getRecentRiskProjectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getProjectsWithRevisionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.search_ProjectsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Revision
-            // 
-            this.Revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Revision.DataPropertyName = "Revision";
-            this.Revision.HeaderText = "Revision";
-            this.Revision.Name = "Revision";
-            this.Revision.ReadOnly = true;
-            this.Revision.Width = 118;
-            // 
-            // StateName
-            // 
-            this.StateName.DataPropertyName = "StateName";
-            this.StateName.HeaderText = "StateName";
-            this.StateName.Name = "StateName";
-            this.StateName.ReadOnly = true;
-            this.StateName.Visible = false;
-            // 
-            // ProjectID
-            // 
-            this.ProjectID.DataPropertyName = "ProjectID";
-            this.ProjectID.HeaderText = "ProjectID";
-            this.ProjectID.Name = "ProjectID";
-            this.ProjectID.ReadOnly = true;
-            this.ProjectID.Visible = false;
-            // 
-            // DateCreated
-            // 
-            this.DateCreated.DataPropertyName = "DateCreated";
-            this.DateCreated.HeaderText = "DateCreated";
-            this.DateCreated.Name = "DateCreated";
-            this.DateCreated.ReadOnly = true;
-            this.DateCreated.Visible = false;
             // 
             // recentProjectsDataGrid
             // 
@@ -108,6 +74,7 @@
             this.machineTypeDataGridViewTextBoxColumn,
             this.StateName,
             this.machineNumberDataGridViewTextBoxColumn,
+            this.LatestActivity,
             this.orderNumberDataGridViewTextBoxColumn,
             this.Revision});
             this.recentProjectsDataGrid.DataSource = this.getRecentRiskProjectsBindingSource;
@@ -136,34 +103,6 @@
             this.recentProjectsDataGrid.TabIndex = 6;
             this.recentProjectsDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.recentProjectsDataGrid_CellMouseDoubleClick);
             // 
-            // customerDataGridViewTextBoxColumn
-            // 
-            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
-            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
-            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // machineTypeDataGridViewTextBoxColumn
-            // 
-            this.machineTypeDataGridViewTextBoxColumn.DataPropertyName = "MachineType";
-            this.machineTypeDataGridViewTextBoxColumn.HeaderText = "MachineType";
-            this.machineTypeDataGridViewTextBoxColumn.Name = "machineTypeDataGridViewTextBoxColumn";
-            this.machineTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // machineNumberDataGridViewTextBoxColumn
-            // 
-            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
-            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
-            this.machineNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // orderNumberDataGridViewTextBoxColumn
-            // 
-            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
-            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "OrderNumber";
-            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
-            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // getRecentRiskProjectsBindingSource
             // 
             this.getRecentRiskProjectsBindingSource.DataMember = "Get_Recent_Risk_Projects";
@@ -183,15 +122,6 @@
             // 
             this.get_Projects_With_RevisionTableAdapter.ClearBeforeFill = true;
             // 
-            // search_ProjectsTableAdapter
-            // 
-            this.search_ProjectsTableAdapter.ClearBeforeFill = true;
-            // 
-            // search_ProjectsBindingSource
-            // 
-            this.search_ProjectsBindingSource.DataMember = "Search_Projects";
-            this.search_ProjectsBindingSource.DataSource = this.lG_Analysis_DatabaseDataSet;
-            // 
             // tbl_Risk_AnalysisTableAdapter
             // 
             this.tbl_Risk_AnalysisTableAdapter.ClearBeforeFill = true;
@@ -204,6 +134,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.T1TableAdapter = null;
             this.tableAdapterManager.Tbl_BLOB_StorageTableAdapter = null;
             this.tableAdapterManager.Tbl_Component_GroupTableAdapter = null;
             this.tableAdapterManager.Tbl_Component_TypeTableAdapter = null;
@@ -233,6 +164,83 @@
             // 
             this.get_Recent_Risk_ProjectsTableAdapter.ClearBeforeFill = true;
             // 
+            // customerDataGridViewTextBoxColumn
+            // 
+            this.customerDataGridViewTextBoxColumn.DataPropertyName = "Customer";
+            this.customerDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            this.customerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.customerDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DateCreated
+            // 
+            this.DateCreated.DataPropertyName = "DateCreated";
+            this.DateCreated.HeaderText = "DateCreated";
+            this.DateCreated.Name = "DateCreated";
+            this.DateCreated.ReadOnly = true;
+            this.DateCreated.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DateCreated.Visible = false;
+            // 
+            // ProjectID
+            // 
+            this.ProjectID.DataPropertyName = "ProjectID";
+            this.ProjectID.HeaderText = "ProjectID";
+            this.ProjectID.Name = "ProjectID";
+            this.ProjectID.ReadOnly = true;
+            this.ProjectID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ProjectID.Visible = false;
+            // 
+            // machineTypeDataGridViewTextBoxColumn
+            // 
+            this.machineTypeDataGridViewTextBoxColumn.DataPropertyName = "MachineType";
+            this.machineTypeDataGridViewTextBoxColumn.HeaderText = "MachineType";
+            this.machineTypeDataGridViewTextBoxColumn.Name = "machineTypeDataGridViewTextBoxColumn";
+            this.machineTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.machineTypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // StateName
+            // 
+            this.StateName.DataPropertyName = "StateName";
+            this.StateName.HeaderText = "StateName";
+            this.StateName.Name = "StateName";
+            this.StateName.ReadOnly = true;
+            this.StateName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.StateName.Visible = false;
+            // 
+            // machineNumberDataGridViewTextBoxColumn
+            // 
+            this.machineNumberDataGridViewTextBoxColumn.DataPropertyName = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.HeaderText = "MachineNumber";
+            this.machineNumberDataGridViewTextBoxColumn.Name = "machineNumberDataGridViewTextBoxColumn";
+            this.machineNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.machineNumberDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // LatestActivity
+            // 
+            this.LatestActivity.DataPropertyName = "LatestActivity";
+            this.LatestActivity.HeaderText = "LatestActivity";
+            this.LatestActivity.Name = "LatestActivity";
+            this.LatestActivity.ReadOnly = true;
+            this.LatestActivity.Visible = false;
+            // 
+            // orderNumberDataGridViewTextBoxColumn
+            // 
+            this.orderNumberDataGridViewTextBoxColumn.DataPropertyName = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.HeaderText = "OrderNumber";
+            this.orderNumberDataGridViewTextBoxColumn.Name = "orderNumberDataGridViewTextBoxColumn";
+            this.orderNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.orderNumberDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Revision
+            // 
+            this.Revision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Revision.DataPropertyName = "Revision";
+            this.Revision.HeaderText = "Revision";
+            this.Revision.Name = "Revision";
+            this.Revision.ReadOnly = true;
+            this.Revision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Revision.Width = 99;
+            // 
             // ARA_RecentProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
@@ -251,7 +259,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.getRecentRiskProjectsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lG_Analysis_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getProjectsWithRevisionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.search_ProjectsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblRiskAnalysisBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -260,23 +267,23 @@
         #endregion
 
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Projects_With_RevisionTableAdapter get_Projects_With_RevisionTableAdapter;
-        private LG_Analysis_DatabaseDataSetTableAdapters.Search_ProjectsTableAdapter search_ProjectsTableAdapter;
-        private System.Windows.Forms.BindingSource search_ProjectsBindingSource;
         private LG_Analysis_DatabaseDataSet lG_Analysis_DatabaseDataSet;
         private LG_Analysis_DatabaseDataSetTableAdapters.Tbl_Risk_AnalysisTableAdapter tbl_Risk_AnalysisTableAdapter;
         private System.Windows.Forms.BindingSource tblRiskAnalysisBindingSource;
         private System.Windows.Forms.BindingSource getProjectsWithRevisionBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn machineNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StateName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn machineTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private LG_Analysis_DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView recentProjectsDataGrid;
         private System.Windows.Forms.BindingSource getRecentRiskProjectsBindingSource;
         private LG_Analysis_DatabaseDataSetTableAdapters.Get_Recent_Risk_ProjectsTableAdapter get_Recent_Risk_ProjectsTableAdapter;
+        private LG_Analysis_DatabaseDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn machineTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StateName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn machineNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatestActivity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Revision;
     }
 }

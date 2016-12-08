@@ -31,10 +31,23 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.NewProjectRevisionEventHandler    += ARA_Events_NewProjectRevisionEventHandler;
             ARA_Events.NewProjectCreatedEventHandler     += ARA_Events_NewProjectCreatedEventHandler;
             ARA_Events.ProjectDetailsChangedEventHandler += ARA_Events_ProjectDetailsChangedEventHandler;
+            ARA_Events.ProjectOpendEventHandler          += ARA_Events_ProjectOpendEventHandler;
 
             //Special scaling for the datagrid.
             this.recentProjectsDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
             this.recentProjectsDataGrid.DefaultCellStyle.Font              = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+        }
+
+        /// <summary>
+        /// Handler when a project opens, set the project latest recent activity.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_ProjectOpendEventHandler(object sender, ProjectOpendEvent e)
+        {
+            this.queriesTableAdapter1.Update_Project_RecentActivity(e.projectID);
+            this.recentProjectsDataGrid.DataSource = this.get_Recent_Risk_ProjectsTableAdapter.GetData(this.amountOfRecentProjectsToShow);
+            recentProjectsDataGrid_RowsAdded(new object(), new DataGridViewRowsAddedEventArgs(0, 0));
         }
 
         private void ARA_Events_ProjectDetailsChangedEventHandler(object sender, ProjectDetailsChangedEvent e)
@@ -112,7 +125,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
         private void ARA_RecentProjects_Load(object sender, EventArgs e)
         {
-            this.recentProjectsDataGrid.DataSource = this.get_Projects_With_RevisionTableAdapter.GetData();
+            this.recentProjectsDataGrid.DataSource = this.get_Recent_Risk_ProjectsTableAdapter.GetData(this.amountOfRecentProjectsToShow);
         }
     }
 }
