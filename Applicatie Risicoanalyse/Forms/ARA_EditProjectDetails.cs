@@ -93,7 +93,6 @@ namespace Applicatie_Risicoanalyse.Forms
             return this.editProjectDetailsInputCustomer.Text.Length > 0 &&
                 this.editProjectDetailsInputMachineNumber.Text.Length > 0 &&
                 this.editProjectDetailsInputMachineType.Text.Length > 0 &&
-                this.editProjectDetailsInputExtraInfo.Text.Length > 0 &&
                 this.editProjectDetailsInputOrderNumber.Text.Length > 0;
         }
     }

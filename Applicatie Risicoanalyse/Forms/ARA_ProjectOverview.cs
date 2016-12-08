@@ -24,12 +24,14 @@ namespace Applicatie_Risicoanalyse.Forms
             this.projectOverviewButtonOpenProject.setConnectedPanel(this.projectOverviewPanelOpenProject);
             this.projectOverviewButtonRecentProjects.setConnectedPanel(this.ProjectOverviewPanelRecentProjects);
             this.projectOverviewButtonEditRiskStandard.setConnectedPanel(this.projectOverviewPanelEditRiskStandard);
+            this.projectOverviewButtonRecentProjects.setConnectedPanel(this.ProjectOverviewPanelRecentProjects);
             //Add Click event to hide all other buttons/panels when one opens.
             this.projectOverviewButtonCreateProject.Click += hideOtherPanels;
             this.projectOverviewButtonCreateProjectRevision.Click += hideOtherPanels;
             this.projectOverviewButtonOpenProject.Click += hideOtherPanels;
             this.projectOverviewButtonRecentProjects.Click += hideOtherPanels;
             this.projectOverviewButtonEditRiskStandard.Click += hideOtherPanels;
+            this.projectOverviewButtonRecentProjects.Click += hideOtherPanels;
 
             loadPermissions();
         }
@@ -97,6 +99,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addFormToPanel(this.projectOverviewPanelOpenProject, new ARA_OpenProject());
             this.addFormToPanel(this.projectOverviewPanelEditRiskStandard, new ARA_SearchRiskStandard());
             this.addFormToPanel(this.projectOverviewPanelCreateProjectRevision, new ARA_CreateProjectRevision());
+            this.addFormToPanel(this.ProjectOverviewPanelRecentProjects, new ARA_RecentProjects());
         }
 
         /// <summary>
