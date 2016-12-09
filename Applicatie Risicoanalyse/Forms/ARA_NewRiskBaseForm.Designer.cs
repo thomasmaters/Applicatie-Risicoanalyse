@@ -174,9 +174,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.arA_EditRiskHazardIndentification1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 539);
             this.arA_EditRiskHazardIndentification1.Margin = new System.Windows.Forms.Padding(0);
-            this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 170);
+            this.arA_EditRiskHazardIndentification1.MaximumSize = new System.Drawing.Size(750, 250);
             this.arA_EditRiskHazardIndentification1.Name = "arA_EditRiskHazardIndentification1";
-            this.arA_EditRiskHazardIndentification1.Size = new System.Drawing.Size(750, 170);
+            this.arA_EditRiskHazardIndentification1.Size = new System.Drawing.Size(750, 250);
             this.arA_EditRiskHazardIndentification1.TabIndex = 1;
             // 
             // arA_EditRiskRiskEstimation1

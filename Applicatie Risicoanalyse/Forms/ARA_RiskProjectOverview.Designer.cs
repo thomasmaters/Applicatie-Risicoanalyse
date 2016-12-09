@@ -1,4 +1,6 @@
 ﻿using Applicatie_Risicoanalyse.Globals;
+using System;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -129,8 +131,12 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewPanelEditProjectDetails.Margin = new System.Windows.Forms.Padding(0);
             this.riskProjectOverviewPanelEditProjectDetails.Name = "riskProjectOverviewPanelEditProjectDetails";
             this.riskProjectOverviewPanelEditProjectDetails.Size = new System.Drawing.Size(0, 0);
-            this.riskProjectOverviewPanelEditProjectDetails.TabIndex = 1;
+            this.riskProjectOverviewPanelEditProjectDetails.TabIndex = 100;
             this.riskProjectOverviewPanelEditProjectDetails.Visible = false;
+            this.riskProjectOverviewPanelEditProjectDetails.VisibleChanged += delegate (object sender, EventArgs e) 
+            {
+                Debug.WriteLine(this.riskProjectOverviewPanelEditProjectDetails.Visible.ToString());
+            };
             // 
             // ProjectOverviewButtonSpacer1
             // 

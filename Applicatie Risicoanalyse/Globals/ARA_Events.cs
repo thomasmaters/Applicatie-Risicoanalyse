@@ -32,6 +32,7 @@ namespace Applicatie_Risicoanalyse.Globals
         public static event EventHandler<NewRiskAddedToStandardEvent>   NewRiskAddedToStandardEventHandler;
         public static event EventHandler<NewRiskVersionEvent>           NewRiskVersionEventHandler;
 
+        public static event EventHandler<RiskInProjectReviewedEvent> RiskInProjectReviewedEventHandler;
         public static event EventHandler<ProjectDetailsChangedEvent>    ProjectDetailsChangedEventHandler;
         public static event EventHandler<NewLogMessageEvent>            NewLogMessageEventHandler;
 
@@ -161,6 +162,13 @@ namespace Applicatie_Risicoanalyse.Globals
             }
         }
 
+        public static void triggerRiskInProjectReviewedEvent(int aProjectID, int aRiskID, bool aAcceptedOrDeclined)
+        {
+            if(RiskInProjectReviewedEventHandler != null)
+            {
+                RiskInProjectReviewedEventHandler(new object(), new RiskInProjectReviewedEvent( aProjectID, aRiskID, aAcceptedOrDeclined));
+            }
+        }
         public static void triggerNewLogMessageEvent(string aLogMessage)
         {
             if(NewLogMessageEventHandler != null)
@@ -175,6 +183,20 @@ namespace Applicatie_Risicoanalyse.Globals
             {
                 ProjectDetailsChangedEventHandler(new object(), new ProjectDetailsChangedEvent(aProjectID));
             }
+        }
+    }
+
+    public class RiskInProjectReviewedEvent
+    {
+        public int projectID { get; private set; }
+        public int riskID { get; private set; }
+        public bool acceptedOrDeclined { get; private set; }
+
+        public RiskInProjectReviewedEvent(int aProjectID, int aRiskID, bool aAcceptedOrDeclined)
+        {
+            this.projectID = aProjectID;
+            this.riskID = aRiskID;
+            this.acceptedOrDeclined = aAcceptedOrDeclined;
         }
     }
 

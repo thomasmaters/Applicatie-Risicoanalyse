@@ -28,14 +28,12 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             this.riskProjectOverviewButtonGenerateReports.setConnectedPanel(this.riskProjectOverviewPanelGenerateReports);
             this.riskProjectOverviewButtonCopyRisk.setConnectedPanel(this.riskProjectOverviewPanelCopyRisk);
-            this.riskProjectOverviewButtonEditProjectDetails.setConnectedPanel(this.riskProjectOverviewPanelEditProjectDetails);
             //Add Click event to hide all other buttons/panels when one opens.
             this.riskProjectOverviewButtonOpenRisk.Click           += hideOtherPanels;
             this.riskProjectOverviewButtonAddRiskToProject.Click   += hideOtherPanels;
             this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
             this.riskProjectOverviewButtonGenerateReports.Click    += hideOtherPanels;
             this.riskProjectOverviewButtonCopyRisk.Click           += hideOtherPanels;
-            this.riskProjectOverviewButtonEditProjectDetails.Click += hideOtherPanels;
         }
 
         /// <summary>
@@ -75,6 +73,8 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="form">Form to connect to the panel.</param>
         private void addFormToPanel(FlowLayoutPanel panel, System.Windows.Forms.Form form)
         {
+            panel.Controls.Clear();
+
             form.TopLevel = false;
             panel.Controls.Add(form);
             form.Show();
@@ -109,14 +109,17 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
             this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
+            this.addFormToPanel(this.riskProjectOverviewPanelEditProjectDetails, new ARA_EditProjectDetails(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelGenerateReports, new ARA_GenerateReportsForm(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelCopyRisk, new ARA_CopyRisksToProject(projectID));
-            this.addFormToPanel(this.riskProjectOverviewPanelEditProjectDetails, new ARA_EditProjectDetails(projectID));
 
             //Enable controls and reload permissions.
             enableControlOnProjectState();
+
+            this.riskProjectOverviewButtonEditProjectDetails.Update();
+            this.riskProjectOverviewButtonEditProjectDetails.Invalidate();
         }
 
         /// <summary>

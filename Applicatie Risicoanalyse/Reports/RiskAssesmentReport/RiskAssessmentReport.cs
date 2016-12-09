@@ -328,7 +328,7 @@ namespace Applicatie_Risicoanalyse.Reports
 
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataRow["RiskID"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<SEDescriptionB>", riskEstimationBeforeView[0]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<FRDescriptionB>", riskEstimationBeforeView[1]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<PRDescriptionB>", riskEstimationBeforeView[2]["ItemDescription"].ToString());
@@ -343,7 +343,7 @@ namespace Applicatie_Risicoanalyse.Reports
                         temp.setControlData(riskEstimationAfterView);
                         riskEstimationAfterView.RowFilter = "InProject = '1'";
                         if (riskEstimationAfterView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataRow["RiskID"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<SEDescriptionA>", riskEstimationAfterView[0]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<FRDescriptionA>", riskEstimationAfterView[1]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<PRDescriptionA>", riskEstimationAfterView[2]["ItemDescription"].ToString());

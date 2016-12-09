@@ -77,7 +77,7 @@ namespace Applicatie_Risicoanalyse.Controls
             this.RiskEstimationText.Name = "RiskEstimationText";
             this.RiskEstimationText.Size = new System.Drawing.Size(724, 23);
             this.RiskEstimationText.TabIndex = 70;
-            this.RiskEstimationText.Text = "Other risk reducing mesures";
+            this.RiskEstimationText.Text = "Other risk reducing mesures (max 1024 chr.)";
             this.RiskEstimationText.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_TextBox1
@@ -92,6 +92,7 @@ namespace Applicatie_Risicoanalyse.Controls
             this.arA_TextBox1.Size = new System.Drawing.Size(705, 48);
             this.arA_TextBox1.TabIndex = 71;
             this.arA_TextBox1.Text = "";
+            this.arA_TextBox1.MaxLength = 1024;
             this.arA_TextBox1.TextChanged += new System.EventHandler(this.arA_TextBox1_TextChanged);
             // 
             // riskReductionRectangleIndicator

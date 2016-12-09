@@ -29,6 +29,7 @@ namespace Applicatie_Risicoanalyse.Forms
             //Add events.
             ARA_Events.RiskAddedToProjectEventHandler += ARA_Events_AddRiskToProjectEventHandler;
             ARA_Events.ProjectSpecificRiskCreatedEventHandler += ARA_Events_ProjectSpecificRiskCreatedEventHandler;
+            ARA_Events.RiskInProjectReviewedEventHandler += ARA_Events_RiskInProjectReviewedEventHandler;
 
             //On form load show datagrid items.
             this.openRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, "");
@@ -40,6 +41,20 @@ namespace Applicatie_Risicoanalyse.Forms
             foreach (Control control in this.Controls)
             {
                 //control.Font = this.Font;
+            }
+        }
+
+        /// <summary>
+        /// Update the datagrid row styles when the user reviews a risk.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_RiskInProjectReviewedEventHandler(object sender, RiskInProjectReviewedEvent e)
+        {
+            //Is the update for our project?
+            if (e.projectID == this.projectID)
+            {
+                this.openRiskInProjectDataGrid.DataSource = this.search_ProjectRisksTableAdapter.GetData(this.projectID, this.arA_TextBox1.Text);
             }
         }
 

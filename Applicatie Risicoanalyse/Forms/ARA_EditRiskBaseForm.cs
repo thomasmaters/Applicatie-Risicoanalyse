@@ -434,19 +434,8 @@ namespace Applicatie_Risicoanalyse.Forms
             int currentRiskRowIndex = risksInGroupAndTypeView.Rows.IndexOf(risksInGroupAndTypeView.Select("RiskID = " + this.riskID.ToString())[0]);
             int risksInGroupAndTypeCount = risksInGroupAndTypeView.Rows.Count;
 
-            //Calculate next riskRowIndex.
-            if (currentRiskRowIndex + direction == risksInGroupAndTypeView.Rows.Count)
-            {
-                currentRiskRowIndex = 0;
-            }
-            else if(currentRiskRowIndex + direction == -1)
-            {
-                currentRiskRowIndex = risksInGroupAndTypeView.Rows.Count - 1;
-            }
-            else
-            {
-                currentRiskRowIndex += direction;
-            }
+            //Calculate the next risk to show.
+            currentRiskRowIndex = calculateNextRiskToDisplay(direction, currentRiskRowIndex, risksInGroupAndTypeCount, risksInGroupAndTypeView);
 
             //Set class variables.
             this.riskID = (Int32)risksInGroupAndTypeView.Rows[currentRiskRowIndex]["RiskID"];
@@ -518,6 +507,34 @@ namespace Applicatie_Risicoanalyse.Forms
             }
         }
 
+        private int calculateNextRiskToDisplay(int direction, int currentRiskRowIndex,int risksInGroupAndTypeCount,DataTable risksInGroupAndTypeView)
+        {
+            if(this.projectState != ARA_Constants.forReview)
+            {
+                //Calculate next riskRowIndex.
+                if (currentRiskRowIndex + direction == risksInGroupAndTypeCount)
+                {
+                    return 0;
+                }
+                else if (currentRiskRowIndex + direction == -1)
+                {
+                    return risksInGroupAndTypeCount - 1;
+                }
+                else
+                {
+                    return currentRiskRowIndex += direction;
+                }
+            }
+            else if(direction != 0)
+            {
+                if(risksInGroupAndTypeView.Select("RiskID <> " + this.riskID.ToString() + "AND ReviewedByUser IS NULL").Length > 0)
+                {
+                    return risksInGroupAndTypeView.Rows.IndexOf(risksInGroupAndTypeView.Select("RiskID <> " + this.riskID.ToString() + "AND ReviewedByUser IS NULL")[0]);
+                }
+            }
+            return currentRiskRowIndex;
+        }
+
         /// <summary>
         /// When the button is pressed go to the next risk and mark the risk as accepted by the reviewer.
         /// </summary>
@@ -525,9 +542,15 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="e"></param>
         private void editRiskBaseFormButtonReviewAccept_Click(object sender, EventArgs e)
         {
+            //Update database.
             this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, ARA_Globals.UserID,string.Empty);
+
+            //Trigger event.
+            ARA_Events.triggerRiskInProjectReviewedEvent(this.projectID, this.riskID, true);
+
             setNextRisk(1);
             setFormData();
+            this.AutoScrollPosition = new Point(0, 0);
         }
 
         /// <summary>
@@ -544,8 +567,13 @@ namespace Applicatie_Risicoanalyse.Forms
             {
                 // Read the contents of testDialog's TextBox.
                 this.queriesTableAdapter1.Set_Risk_In_Project_Reviewed(this.projectID, this.riskID, -1, "" + testDialog.inputDialogTextboxInput.Text);
+
+                //Trigger event.
+                ARA_Events.triggerRiskInProjectReviewedEvent(this.projectID, this.riskID, false);
+
                 setNextRisk(1);
                 setFormData();
+                this.AutoScrollPosition = new Point(0, 0);
             }
             else
             {
