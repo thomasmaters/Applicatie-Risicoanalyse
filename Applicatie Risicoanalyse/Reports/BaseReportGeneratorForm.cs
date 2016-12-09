@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
 using Applicatie_Risicoanalyse.Controls;
 using Applicatie_Risicoanalyse.Globals;

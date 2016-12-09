@@ -44,6 +44,7 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Show the form.
             aForm.Show();
+            aForm.Focus();
         }
 
         /// <summary>

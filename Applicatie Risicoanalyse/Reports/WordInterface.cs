@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-
-using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Word;
 
 using Applicatie_Risicoanalyse.Controls;
 using Applicatie_Risicoanalyse.Globals;
+using Microsoft.Office.Core;
 
 namespace Applicatie_Risicoanalyse.Reports
 {

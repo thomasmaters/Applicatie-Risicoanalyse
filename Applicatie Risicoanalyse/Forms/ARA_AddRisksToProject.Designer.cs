@@ -82,7 +82,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 38);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 38);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // addRiskToProjectSearchTextBox
@@ -92,7 +92,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addRiskToProjectSearchTextBox.BorderSize = 1;
             this.addRiskToProjectSearchTextBox.Location = new System.Drawing.Point(3, 3);
             this.addRiskToProjectSearchTextBox.Name = "addRiskToProjectSearchTextBox";
-            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(743, 31);
+            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(740, 31);
             this.addRiskToProjectSearchTextBox.TabIndex = 0;
             this.addRiskToProjectSearchTextBox.Text = "";
             this.addRiskToProjectSearchTextBox.TextChanged += new System.EventHandler(this.onSearchBarTextChanged);
@@ -106,9 +106,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addRiskToProjectPanelContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.addRiskToProjectPanelContent.Location = new System.Drawing.Point(0, 38);
             this.addRiskToProjectPanelContent.Margin = new System.Windows.Forms.Padding(0);
-            this.addRiskToProjectPanelContent.MaximumSize = new System.Drawing.Size(750, 301);
+            this.addRiskToProjectPanelContent.MaximumSize = new System.Drawing.Size(740, 301);
             this.addRiskToProjectPanelContent.Name = "addRiskToProjectPanelContent";
-            this.addRiskToProjectPanelContent.Size = new System.Drawing.Size(750, 301);
+            this.addRiskToProjectPanelContent.Size = new System.Drawing.Size(740, 301);
             this.addRiskToProjectPanelContent.TabIndex = 1;
             // 
             // addRiskToProjectSearchDataGrid
@@ -307,7 +307,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(750, 340);
+            this.MaximumSize = new System.Drawing.Size(740, 340);
             this.Name = "ARA_AddRisksToProject";
             this.Text = "ARA_RiskProjectOverview";
             this.Load += new System.EventHandler(this.ARA_AddRisksToProject_Load);

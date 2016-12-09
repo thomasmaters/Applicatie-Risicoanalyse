@@ -167,6 +167,7 @@ namespace Applicatie_Risicoanalyse.Controls
                     if(buttonWeights.Count > 0)
                     {
                         this.selectedIndex = this.RiskEstimationPanel.Controls.IndexOf(control);
+                        control.setButtonSelected(false);
                     }
                 }
             }

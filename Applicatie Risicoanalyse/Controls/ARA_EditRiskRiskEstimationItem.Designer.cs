@@ -55,7 +55,7 @@ namespace Applicatie_Risicoanalyse.Controls
             // 
             // RiskEstimation5Button
             // 
-            this.RiskEstimation5Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
+            this.RiskEstimation5Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
             this.RiskEstimation5Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation5Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation5Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
@@ -73,7 +73,7 @@ namespace Applicatie_Risicoanalyse.Controls
             // 
             // RiskEstimation4Button
             // 
-            this.RiskEstimation4Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(236)))), ((int)(((byte)(136)))), ((int)(((byte)(29)))));
+            this.RiskEstimation4Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(236)))), ((int)(((byte)(136)))), ((int)(((byte)(29)))));
             this.RiskEstimation4Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation4Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation4Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(136)))), ((int)(((byte)(29)))));
@@ -91,7 +91,7 @@ namespace Applicatie_Risicoanalyse.Controls
             // 
             // RiskEstimation3Button
             // 
-            this.RiskEstimation3Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
+            this.RiskEstimation3Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
             this.RiskEstimation3Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation3Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation3Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
@@ -109,7 +109,7 @@ namespace Applicatie_Risicoanalyse.Controls
             // 
             // RiskEstimation2Button
             // 
-            this.RiskEstimation2Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
+            this.RiskEstimation2Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
             this.RiskEstimation2Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation2Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation2Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
@@ -127,7 +127,7 @@ namespace Applicatie_Risicoanalyse.Controls
             // 
             // RiskEstimation1Button
             // 
-            this.RiskEstimation1Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
+            this.RiskEstimation1Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.RiskEstimation1Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation1Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation1Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
