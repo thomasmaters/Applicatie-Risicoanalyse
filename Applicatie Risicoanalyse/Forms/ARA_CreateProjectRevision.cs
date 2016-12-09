@@ -21,11 +21,11 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.NewProjectCreatedEventHandler += ARA_Events_NewProjectCreatedEventHandler;
 
             //Set form scaling.
-            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
 
             //Special scaling for datagrid.
-            this.projectRevisionDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.projectRevisionDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+            this.projectRevisionDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.projectRevisionDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         /// <summary>

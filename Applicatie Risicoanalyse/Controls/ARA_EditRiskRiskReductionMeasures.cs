@@ -160,7 +160,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 {
                     //Create a new checkbox and style it a little.
                     CheckBox riskReductionMeasureItem = new CheckBox();
-                    riskReductionMeasureItem.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+                    riskReductionMeasureItem.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
                     riskReductionMeasureItem.Text = row["MeasureSubGroup"].ToString();
                     riskReductionMeasureItem.AutoSize = true;
                     riskReductionMeasureItem.Checked = row["InProject"].ToString() == "1";

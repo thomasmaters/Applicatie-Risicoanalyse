@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_EditRiskRiskEstimation
     {
@@ -50,7 +52,7 @@
             this.panel1.Controls.Add(this.riskEstimationRectangleIndicatior);
             this.panel1.Controls.Add(this.arA_Text6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -80,7 +82,7 @@
             // 
             // arA_EditRiskRiskEstimationItem4
             // 
-            this.arA_EditRiskRiskEstimationItem4.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimationItem4.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimationItem4.Location = new System.Drawing.Point(15, 212);
             this.arA_EditRiskRiskEstimationItem4.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimationItem4.MaximumSize = new System.Drawing.Size(724, 63);
@@ -90,7 +92,7 @@
             // 
             // arA_EditRiskRiskEstimationItem3
             // 
-            this.arA_EditRiskRiskEstimationItem3.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimationItem3.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimationItem3.Location = new System.Drawing.Point(15, 149);
             this.arA_EditRiskRiskEstimationItem3.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimationItem3.MaximumSize = new System.Drawing.Size(724, 63);
@@ -100,7 +102,7 @@
             // 
             // arA_EditRiskRiskEstimationItem2
             // 
-            this.arA_EditRiskRiskEstimationItem2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimationItem2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimationItem2.Location = new System.Drawing.Point(15, 86);
             this.arA_EditRiskRiskEstimationItem2.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimationItem2.MaximumSize = new System.Drawing.Size(724, 63);
@@ -110,7 +112,7 @@
             // 
             // arA_EditRiskRiskEstimationItem1
             // 
-            this.arA_EditRiskRiskEstimationItem1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimationItem1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimationItem1.Location = new System.Drawing.Point(15, 23);
             this.arA_EditRiskRiskEstimationItem1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_EditRiskRiskEstimationItem1.MaximumSize = new System.Drawing.Size(724, 63);
@@ -147,7 +149,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.RiskEstimationTextTitle);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ARA_EditRiskRiskEstimation";
             this.Size = new System.Drawing.Size(770, 311);

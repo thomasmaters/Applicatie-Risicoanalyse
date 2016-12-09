@@ -7,6 +7,10 @@ using System.Drawing;
 using System.Data;
 using Applicatie_Risicoanalyse.LG_Analysis_DatabaseDataSetTableAdapters;
 using System.Diagnostics;
+using System.Drawing.Text;
+using System.Windows.Shapes;
+using System.IO;
+using Applicatie_Risicoanalyse.Properties;
 
 namespace Applicatie_Risicoanalyse.Globals
 {
@@ -15,6 +19,7 @@ namespace Applicatie_Risicoanalyse.Globals
         private static float aRA_BaseFontSize       = Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale;
         private static String aRa_Date              = DateTime.Now.ToString("dd-MM-yyyy");
         private static string applicationVersion    = "?.?.?.?";
+        private static FontFamily aRA_Font                = null;
 
         private static string userPermissionGroup   = "Default";
         private static int userID                   = 1;
@@ -130,6 +135,19 @@ namespace Applicatie_Risicoanalyse.Globals
             }
         }
 
+        public static FontFamily ARA_Font
+        {
+            get
+            {
+                return aRA_Font;
+            }
+
+            set
+            {
+                aRA_Font = value;
+            }
+        }
+
         public static PermissionLevel getPermissionLevelFromString(string permissionLevel)
         {
             if(permissionLevel.ToLower() == "all")
@@ -155,6 +173,19 @@ namespace Applicatie_Risicoanalyse.Globals
         private static Tbl_LogTableAdapter logTableAdapter = new Tbl_LogTableAdapter();
         private Logger()
         {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            Stream fontStream = this.GetType().Assembly.GetManifestResourceStream("Gotham-Light.ttf");
+
+            byte[] fontdata = Applicatie_Risicoanalyse.Properties.Resources.Gotham_Light;
+            unsafe
+            {
+                fixed (byte* pFontData = fontdata)
+                {
+                    pfc.AddMemoryFont((System.IntPtr)pFontData, fontdata.Length);
+                    ARA_Globals.ARA_Font = pfc.Families[0];
+                }
+            }
+
         }
 
         public void log(string logMessage)

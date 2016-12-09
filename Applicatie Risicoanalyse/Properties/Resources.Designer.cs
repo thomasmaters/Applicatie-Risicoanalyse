@@ -63,7 +63,7 @@ namespace Applicatie_Risicoanalyse.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;acl&gt;
         ///	&lt;acl groupname=&quot;Default&quot;&gt;
-        ///		&lt;right name=&quot;General.ButtonOpenAdminPanel&quot;			access=&quot;none&quot;/&gt;
+        ///		&lt;right name=&quot;General.ButtonOpenAdminPanel&quot; access=&quot;none&quot;/&gt;
         ///	
         ///		&lt;right name=&quot;General.ButtonCreateProject&quot;  			access=&quot;none&quot;/&gt;
         ///		&lt;right name=&quot;General.ButtonOpenProject&quot; 			access=&quot;none&quot;/&gt;
@@ -72,7 +72,7 @@ namespace Applicatie_Risicoanalyse.Properties {
         ///		&lt;right name=&quot;General.ButtonEditStandardRisks&quot; 		access=&quot;none&quot;/&gt;
         ///		&lt;right name=&quot;General.ButtonCreateNewRisk&quot;			access=&quot;none&quot;/&gt;
         ///		
-        ///		&lt;right name=&quot; [rest of string was truncated]&quot;;.
+        ///		&lt;right name=&quot;Ge [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ACL {
             get {
@@ -86,16 +86,6 @@ namespace Applicatie_Risicoanalyse.Properties {
         internal static byte[] Gotham_Light {
             get {
                 object obj = ResourceManager.GetObject("Gotham_Light", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Gotham_LightItalic {
-            get {
-                object obj = ResourceManager.GetObject("Gotham_LightItalic", resourceCulture);
                 return ((byte[])(obj));
             }
         }

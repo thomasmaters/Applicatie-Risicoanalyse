@@ -107,7 +107,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Project);
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis' table. You can move, or remove it, as needed.
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
             this.addFormToPanel(this.riskProjectOverviewPanelAddRiskToProject, new ARA_AddRisksToProject(projectID));
             this.addFormToPanel(this.riskProjectOverviewPanelOpenRisk, new ARA_OpenRiskInProject(projectID));

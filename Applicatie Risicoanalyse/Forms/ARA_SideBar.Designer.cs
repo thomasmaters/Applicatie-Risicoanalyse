@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_SideBar
     {
@@ -231,7 +233,7 @@
             // 
             this.SideBarApplicationVersion.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.SideBarApplicationVersion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.SideBarApplicationVersion.Font = new System.Drawing.Font("Gotham Light", 8F);
+            this.SideBarApplicationVersion.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 8F);
             this.SideBarApplicationVersion.ForeColor = System.Drawing.Color.White;
             this.SideBarApplicationVersion.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.SideBarApplicationVersion.Location = new System.Drawing.Point(0, 510);
@@ -252,7 +254,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(160, 540);
             this.Controls.Add(this.SideBarContainer);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(160, 540);

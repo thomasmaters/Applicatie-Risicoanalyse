@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_EditRiskRiskEstimationItem
     {
@@ -54,7 +56,7 @@
             // RiskEstimation5Button
             // 
             this.RiskEstimation5Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
-            this.RiskEstimation5Button.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.RiskEstimation5Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation5Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation5Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
             this.RiskEstimation5Button.Location = new System.Drawing.Point(0, 0);
@@ -72,7 +74,7 @@
             // RiskEstimation4Button
             // 
             this.RiskEstimation4Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(236)))), ((int)(((byte)(136)))), ((int)(((byte)(29)))));
-            this.RiskEstimation4Button.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.RiskEstimation4Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation4Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation4Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(136)))), ((int)(((byte)(29)))));
             this.RiskEstimation4Button.Location = new System.Drawing.Point(141, 0);
@@ -90,7 +92,7 @@
             // RiskEstimation3Button
             // 
             this.RiskEstimation3Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
-            this.RiskEstimation3Button.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.RiskEstimation3Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation3Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation3Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(23)))));
             this.RiskEstimation3Button.Location = new System.Drawing.Point(286, 0);
@@ -108,7 +110,7 @@
             // RiskEstimation2Button
             // 
             this.RiskEstimation2Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
-            this.RiskEstimation2Button.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.RiskEstimation2Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation2Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation2Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
             this.RiskEstimation2Button.Location = new System.Drawing.Point(431, 0);
@@ -126,7 +128,7 @@
             // RiskEstimation1Button
             // 
             this.RiskEstimation1Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
-            this.RiskEstimation1Button.Font = new System.Drawing.Font("Gotham Light", 12F);
+            this.RiskEstimation1Button.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F);
             this.RiskEstimation1Button.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimation1Button.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(140)))), ((int)(((byte)(186)))));
             this.RiskEstimation1Button.Location = new System.Drawing.Point(576, 0);
@@ -144,7 +146,7 @@
             // RiskEstimationText
             // 
             this.RiskEstimationText.BackgroundColor = System.Drawing.Color.White;
-            this.RiskEstimationText.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
+            this.RiskEstimationText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Italic);
             this.RiskEstimationText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimationText.Location = new System.Drawing.Point(0, 0);
             this.RiskEstimationText.Margin = new System.Windows.Forms.Padding(0);
@@ -160,7 +162,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.RiskEstimationPanel);
             this.Controls.Add(this.RiskEstimationText);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(724, 63);
             this.Name = "ARA_EditRiskRiskEstimationItem";

@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_EditProjectDetails
     {
@@ -390,7 +392,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 190);
             this.Controls.Add(this.createProjectContentBox);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 190);

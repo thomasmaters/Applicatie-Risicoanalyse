@@ -89,7 +89,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // inputDialogText
             // 
             this.inputDialogText.BackgroundColor = System.Drawing.Color.White;
-            this.inputDialogText.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.inputDialogText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             this.inputDialogText.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.inputDialogText.Location = new System.Drawing.Point(16, 4);
             this.inputDialogText.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -109,7 +109,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Controls.Add(this.inputDialogOK);
             this.Controls.Add(this.inputDialogTextboxInput);
             this.Controls.Add(this.inputDialogText);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);

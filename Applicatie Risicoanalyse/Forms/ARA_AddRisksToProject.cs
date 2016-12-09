@@ -29,14 +29,14 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.AddRiskToProjectEventHandler += addRiskToProject;
 
             //Special scaling for the searchdatagrid.
-            this.addRiskToProjectSearchDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.addRiskToProjectSearchDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+            this.addRiskToProjectSearchDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.addRiskToProjectSearchDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         private void onRiskProjectOverviewLoad()
         {
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
 
             foreach (DataRow datarow in this.tbl_Component_GroupTableAdapter.GetData().Rows)
             {
@@ -178,8 +178,8 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="listGroup"></param>
         private void styleListGroupAsType(ARA_ListGroup listParent ,ARA_ListGroup listGroup)
         {
-            listGroup.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            listGroup.ARA_ListGroupText.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            listGroup.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
+            listGroup.ARA_ListGroupText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
             listGroup.BackColor = Color.White;
             listGroup.BackgroundColor = Color.White;
             listGroup.DropDownButtonFirstTrianglePadding = 5;
@@ -208,7 +208,7 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="listItem"></param>
         private void styleListItemAsRisk(ARA_ListGroup listParent, ARA_ListItem listItem)
         {
-            listItem.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 4F);
+            listItem.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 4F);
             listItem.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             listItem.Location = new System.Drawing.Point(111, 65);
             listItem.Margin = new System.Windows.Forms.Padding(0);

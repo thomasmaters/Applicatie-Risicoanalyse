@@ -18,15 +18,15 @@ namespace Applicatie_Risicoanalyse.Forms
         public ARA_SearchRiskStandard()
         {
             InitializeComponent();
-            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
             foreach (Control control in this.Controls)
             {
                 control.Font = this.Font;
             }
             
             //Special scaling for datagrid.
-            this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+            this.OpenProjectDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.OpenProjectDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         /// <summary>

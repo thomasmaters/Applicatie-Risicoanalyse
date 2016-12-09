@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_RecentProjects
     {
@@ -86,7 +88,7 @@
             this.recentProjectsDataGrid.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gotham Light", 15F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -248,7 +250,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 260);
             this.Controls.Add(this.recentProjectsDataGrid);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 260);

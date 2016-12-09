@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_EditRiskRiskReductionMeasures
     {
@@ -68,7 +70,7 @@
             // RiskEstimationText
             // 
             this.RiskEstimationText.BackgroundColor = System.Drawing.Color.White;
-            this.RiskEstimationText.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
+            this.RiskEstimationText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Italic);
             this.RiskEstimationText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.RiskEstimationText.Location = new System.Drawing.Point(0, 0);
             this.RiskEstimationText.Margin = new System.Windows.Forms.Padding(0);
@@ -83,7 +85,7 @@
             this.arA_TextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.arA_TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_TextBox1.BorderSize = 1;
-            this.arA_TextBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.arA_TextBox1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             this.arA_TextBox1.Location = new System.Drawing.Point(6, 23);
             this.arA_TextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.arA_TextBox1.Name = "arA_TextBox1";
@@ -122,7 +124,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.riskReductionRectangleIndicator);
             this.Controls.Add(this.HarzardTextTitle);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(725, 2000);
             this.Name = "ARA_EditRiskRiskReductionMeasures";

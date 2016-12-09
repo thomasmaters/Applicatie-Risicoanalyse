@@ -27,10 +27,10 @@ namespace Applicatie_Risicoanalyse.Forms
             // TODO: This line of code loads data into the 'lG_Analysis_DatabaseDataSet.Get_Newest_Added_Project' table. You can move, or remove it, as needed.
             this.get_Newest_Added_ProjectTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Get_Newest_Added_Project);
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
             //Fix for text scaling of form.
-            System.Drawing.Font textFont = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize - 3F);
+            System.Drawing.Font textFont = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize - 3F);
             this.createProjectTextCustomer.Font = textFont;
             this.createProjectTextExtraInfo.Font = textFont;
             this.createProjectTextMachineNumber.Font = textFont;

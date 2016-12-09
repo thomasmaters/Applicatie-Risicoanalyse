@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_BaseForm
     {
@@ -99,7 +101,7 @@
             this.Controls.Add(this.LeftPadding);
             this.Controls.Add(this.TopBar);
             this.Controls.Add(this.SidePanel);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);

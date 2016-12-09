@@ -21,7 +21,7 @@ namespace Applicatie_Risicoanalyse.Forms
             InitializeComponent();
 
             //Scaling form and controls.
-            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
             foreach (Control control in this.Controls)
             {
                 control.Font = this.Font;
@@ -34,8 +34,8 @@ namespace Applicatie_Risicoanalyse.Forms
             ARA_Events.ProjectOpendEventHandler          += ARA_Events_ProjectOpendEventHandler;
 
             //Special scaling for the datagrid.
-            this.recentProjectsDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.recentProjectsDataGrid.DefaultCellStyle.Font              = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
+            this.recentProjectsDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.recentProjectsDataGrid.DefaultCellStyle.Font              = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
         }
 
         /// <summary>

@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_EditRiskRiskReductionMeasuresItem
     {
@@ -36,7 +38,7 @@
             // 
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.checkedListBox1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
             this.checkedListBox1.Location = new System.Drawing.Point(227, 3);
@@ -49,7 +51,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.checkBox1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             this.checkBox1.Location = new System.Drawing.Point(3, 3);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
             this.checkBox1.Name = "checkBox1";
@@ -66,7 +68,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.checkBox1);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(650, 500);
             this.Name = "ARA_EditRiskRiskReductionMeasuresItem";

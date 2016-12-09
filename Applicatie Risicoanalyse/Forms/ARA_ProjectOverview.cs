@@ -92,7 +92,7 @@ namespace Applicatie_Risicoanalyse.Forms
         private void onProjectOverviewLoad(object sender, EventArgs e)
         {
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
 
             //Connect forms to panels.
             this.addFormToPanel(this.projectOverviewPanelCreateProject, new ARA_CreateProject());

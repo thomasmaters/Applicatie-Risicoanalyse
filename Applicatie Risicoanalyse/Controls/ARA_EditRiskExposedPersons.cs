@@ -68,7 +68,7 @@ namespace Applicatie_Risicoanalyse.Controls
                 //Style the checkbox.
                 checkbox.Text = row["PersonDescription"].ToString();
                 checkbox.AutoSize = true;
-                checkbox.Font = new System.Drawing.Font("Gotham Light", 12F, System.Drawing.FontStyle.Italic);
+                checkbox.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Italic);
                 checkbox.Checked = row["InProject"].ToString() == "1";
 
                 //Add it to the flowLayoutPanel.

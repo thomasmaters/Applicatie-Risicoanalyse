@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_NewRiskRiskGrouping
     {
@@ -49,7 +51,7 @@
             // riskGroupingComboBoxComponentType
             // 
             this.riskGroupingComboBoxComponentType.DisplayMember = "DangerSourceName";
-            this.riskGroupingComboBoxComponentType.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.riskGroupingComboBoxComponentType.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.riskGroupingComboBoxComponentType.FormattingEnabled = true;
             this.riskGroupingComboBoxComponentType.Location = new System.Drawing.Point(19, 97);
             this.riskGroupingComboBoxComponentType.Margin = new System.Windows.Forms.Padding(0);
@@ -62,7 +64,7 @@
             // riskGroupingComboBoxComponentGroup
             // 
             this.riskGroupingComboBoxComponentGroup.DisplayMember = "DangerGroupName";
-            this.riskGroupingComboBoxComponentGroup.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.riskGroupingComboBoxComponentGroup.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.riskGroupingComboBoxComponentGroup.FormattingEnabled = true;
             this.riskGroupingComboBoxComponentGroup.Location = new System.Drawing.Point(19, 51);
             this.riskGroupingComboBoxComponentGroup.Margin = new System.Windows.Forms.Padding(0);
@@ -84,7 +86,7 @@
             // HazardTextSource
             // 
             this.HazardTextSource.BackgroundColor = System.Drawing.Color.White;
-            this.HazardTextSource.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
+            this.HazardTextSource.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Italic);
             this.HazardTextSource.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.HazardTextSource.Location = new System.Drawing.Point(15, 77);
             this.HazardTextSource.Margin = new System.Windows.Forms.Padding(0);
@@ -97,7 +99,7 @@
             // HazardTextType
             // 
             this.HazardTextType.BackgroundColor = System.Drawing.Color.White;
-            this.HazardTextType.Font = new System.Drawing.Font("Gotham Light", 13F, System.Drawing.FontStyle.Italic);
+            this.HazardTextType.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Italic);
             this.HazardTextType.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.HazardTextType.Location = new System.Drawing.Point(15, 28);
             this.HazardTextType.Margin = new System.Windows.Forms.Padding(0);
@@ -182,7 +184,7 @@
             this.Controls.Add(this.HazardTextSource);
             this.Controls.Add(this.HazardTextType);
             this.Controls.Add(this.RiskGroupingText);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 140);
             this.Name = "ARA_NewRiskRiskGrouping";

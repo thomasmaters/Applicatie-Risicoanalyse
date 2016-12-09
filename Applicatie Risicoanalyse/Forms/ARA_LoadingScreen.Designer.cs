@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_LoadingScreen
     {
@@ -90,7 +92,7 @@
             // arA_Text2
             // 
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text2.Font = new System.Drawing.Font("Gotham Light", 13F);
+            this.arA_Text2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text2.Location = new System.Drawing.Point(11, 5);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
@@ -120,7 +122,7 @@
             // arA_Text4
             // 
             this.arA_Text4.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text4.Font = new System.Drawing.Font("Gotham Light", 8F);
+            this.arA_Text4.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 8F);
             this.arA_Text4.HorizontalAlignment = System.Drawing.StringAlignment.Far;
             this.arA_Text4.Location = new System.Drawing.Point(0, 522);
             this.arA_Text4.Margin = new System.Windows.Forms.Padding(0);
@@ -145,7 +147,7 @@
             // 
             this.loadingScreenButtonChangeScale.BaseColor = System.Drawing.Color.White;
             this.loadingScreenButtonChangeScale.CanButtonBeToggled = false;
-            this.loadingScreenButtonChangeScale.Font = new System.Drawing.Font("Gotham Light", 8F);
+            this.loadingScreenButtonChangeScale.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 8F);
             this.loadingScreenButtonChangeScale.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.loadingScreenButtonChangeScale.HoverColor = System.Drawing.Color.Gainsboro;
             this.loadingScreenButtonChangeScale.Location = new System.Drawing.Point(0, 522);
@@ -174,7 +176,7 @@
             this.Controls.Add(this.loadingScreenTextLoadState);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MinimumSize = new System.Drawing.Size(976, 579);

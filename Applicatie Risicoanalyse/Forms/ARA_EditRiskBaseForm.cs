@@ -42,13 +42,13 @@ namespace Applicatie_Risicoanalyse.Forms
             }
 
             //Scaling form and controls.
-            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
             foreach (Control control in this.flowLayoutPanel1.Controls)
             {
                 control.Font = this.Font;
             }
-            this.EditRiskButtonNextRisk.Font = new Font("Gotham Light", 11);
-            this.EditRiskButtonPreviousRisk.Font = new Font("Gotham Light", 11);
+            this.EditRiskButtonNextRisk.Font = new Font(ARA_Globals.ARA_Font, 11);
+            this.EditRiskButtonPreviousRisk.Font = new Font(ARA_Globals.ARA_Font, 11);
 
             setFormData();
             setNextRisk(0);

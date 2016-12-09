@@ -166,7 +166,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_EditRiskExposedPersons1
             // 
-            this.arA_EditRiskExposedPersons1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskExposedPersons1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskExposedPersons1.HasControlBeenChanged = false;
             this.arA_EditRiskExposedPersons1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskExposedPersons1.Location = new System.Drawing.Point(0, 344);
@@ -179,7 +179,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.arA_EditRiskHazardIndentification1.AutoScroll = true;
             this.arA_EditRiskHazardIndentification1.BackColor = System.Drawing.Color.White;
-            this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskHazardIndentification1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskHazardIndentification1.HasControlBeenChanged = true;
             this.arA_EditRiskHazardIndentification1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskHazardIndentification1.Location = new System.Drawing.Point(0, 399);
@@ -191,7 +191,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_EditRiskRiskEstimation1
             // 
-            this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimation1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation1.HasControlBeenChanged = false;
             this.arA_EditRiskRiskEstimation1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskEstimation1.Location = new System.Drawing.Point(0, 569);
@@ -204,7 +204,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // arA_EditRiskRiskReductionMesures1
             // 
             this.arA_EditRiskRiskReductionMesures1.AutoSize = true;
-            this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskReductionMesures1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures1.HasControlBeenChanged = false;
             this.arA_EditRiskRiskReductionMesures1.IncludeMeasuresWithNoGroup = true;
             this.arA_EditRiskRiskReductionMesures1.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
@@ -218,7 +218,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // arA_EditRiskRiskEstimation2
             // 
-            this.arA_EditRiskRiskEstimation2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskEstimation2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskEstimation2.HasControlBeenChanged = false;
             this.arA_EditRiskRiskEstimation2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_EditRiskRiskEstimation2.Location = new System.Drawing.Point(0, 1000);
@@ -231,7 +231,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // arA_EditRiskRiskReductionMesures2
             // 
             this.arA_EditRiskRiskReductionMesures2.AutoSize = true;
-            this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_EditRiskRiskReductionMesures2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_EditRiskRiskReductionMesures2.HasControlBeenChanged = false;
             this.arA_EditRiskRiskReductionMesures2.IncludeMeasuresWithNoGroup = false;
             this.arA_EditRiskRiskReductionMesures2.IndicatorRectangleColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
@@ -247,7 +247,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.editRiskBaseFormButtonReviewAccept.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
             this.editRiskBaseFormButtonReviewAccept.CanButtonBeToggled = true;
-            this.editRiskBaseFormButtonReviewAccept.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.editRiskBaseFormButtonReviewAccept.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.editRiskBaseFormButtonReviewAccept.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.editRiskBaseFormButtonReviewAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
             this.editRiskBaseFormButtonReviewAccept.Location = new System.Drawing.Point(0, 1437);
@@ -268,7 +268,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.editRiskBaseFormButtonReviewDecline.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
             this.editRiskBaseFormButtonReviewDecline.CanButtonBeToggled = true;
-            this.editRiskBaseFormButtonReviewDecline.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.editRiskBaseFormButtonReviewDecline.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.editRiskBaseFormButtonReviewDecline.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.editRiskBaseFormButtonReviewDecline.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(9)))), ((int)(((byte)(56)))));
             this.editRiskBaseFormButtonReviewDecline.Location = new System.Drawing.Point(0, 1478);
@@ -289,7 +289,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.EditRiskButtonPreviousRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.EditRiskButtonPreviousRisk.CanButtonBeToggled = true;
-            this.EditRiskButtonPreviousRisk.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.EditRiskButtonPreviousRisk.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.EditRiskButtonPreviousRisk.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.EditRiskButtonPreviousRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.EditRiskButtonPreviousRisk.Location = new System.Drawing.Point(0, 1519);
@@ -323,7 +323,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.EditRiskButtonNextRisk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditRiskButtonNextRisk.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
             this.EditRiskButtonNextRisk.CanButtonBeToggled = true;
-            this.EditRiskButtonNextRisk.Font = new System.Drawing.Font("Gotham Light", 11F);
+            this.EditRiskButtonNextRisk.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 11F);
             this.EditRiskButtonNextRisk.HorizontalAlignment = System.Drawing.StringAlignment.Far;
             this.EditRiskButtonNextRisk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.EditRiskButtonNextRisk.Location = new System.Drawing.Point(459, 1519);
@@ -561,7 +561,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(750, 488);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 488);

@@ -26,7 +26,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.mainMenu = new ARA_MainMenu();
             this.projectOverview = new ARA_ProjectOverview();
 
-            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize );
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize );
             foreach (Control control in this.Controls)
             {
                 control.Font = this.Font;

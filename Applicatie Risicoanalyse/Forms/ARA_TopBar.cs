@@ -18,9 +18,9 @@ namespace Applicatie_Risicoanalyse.Forms
         {
             InitializeComponent();
             //Scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            this.topBarTextLeft.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
-            this.topBarTextRight.Font = new System.Drawing.Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 2);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
+            this.topBarTextLeft.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 2);
+            this.topBarTextRight.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 2);
 
             //Set text property.
             this.topBarTextLeft.Text = leftText;

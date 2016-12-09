@@ -308,7 +308,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.Controls.Add(this.copyRisksButtonCopyRisks);
             this.Controls.Add(this.copyRisksTextSelectProject);
             this.Controls.Add(this.copyRisksComboBoxProjects);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 265);

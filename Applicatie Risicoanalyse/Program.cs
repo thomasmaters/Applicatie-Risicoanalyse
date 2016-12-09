@@ -20,9 +20,12 @@ namespace Applicatie_Risicoanalyse
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
+            Logger.Instance.ToString();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ARA_LoadingScreen());

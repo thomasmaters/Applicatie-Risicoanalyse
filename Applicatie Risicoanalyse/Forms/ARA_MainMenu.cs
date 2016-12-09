@@ -21,8 +21,8 @@ namespace Applicatie_Risicoanalyse.Forms
             loadPermissions();
 
             //Special scaling for the datagrid.
-            this.mainMenuDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.mainMenuDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 6);
+            this.mainMenuDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.mainMenuDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 6);
 
             //Add event to update datagrid when a new logmessage is added.
             ARA_Events.NewLogMessageEventHandler += ARA_Events_NewLogMessageEventHandler;
@@ -48,7 +48,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.get_Latest_ActivityTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Get_Latest_Activity);
 
             //Set scaling.
-            this.Font = new System.Drawing.Font("Gotham Light", Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, Applicatie_Risicoanalyse.Globals.ARA_Globals.ARA_BaseFontSize);
         }
 
         /// <summary>

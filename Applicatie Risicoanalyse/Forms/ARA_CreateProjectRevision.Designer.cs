@@ -159,7 +159,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.ClientSize = new System.Drawing.Size(750, 285);
             this.Controls.Add(this.projectRevisionButtonCreateRevision);
             this.Controls.Add(this.projectRevisionDataGrid);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximumSize = new System.Drawing.Size(750, 285);

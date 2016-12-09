@@ -27,11 +27,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.tbl_Risk_AnalysisTableAdapter.Fill(this.lG_Analysis_DatabaseDataSet.Tbl_Risk_Analysis);
 
             //Scale form.
-            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
-            this.copyRisksTextSelectProject.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.copyRisksComboBoxProjects.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
-            this.copyRisksDataGrid.DefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 5);
-            this.copyRisksDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize - 3);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
+            this.copyRisksTextSelectProject.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.copyRisksComboBoxProjects.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
+            this.copyRisksDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
+            this.copyRisksDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
         }
 
         /// <summary>

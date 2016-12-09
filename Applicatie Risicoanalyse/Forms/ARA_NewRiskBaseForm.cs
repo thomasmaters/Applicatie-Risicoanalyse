@@ -32,7 +32,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.riskDataID = (Int32)newRisk["newRiskDataID"];
 
             //Scaling form and controls.
-            this.Font = new Font("Gotham Light", ARA_Globals.ARA_BaseFontSize);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
             foreach (Control control in this.flowLayoutPanel1.Controls)
             {
                 control.Font = this.Font;

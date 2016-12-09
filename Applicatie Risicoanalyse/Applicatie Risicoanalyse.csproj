@@ -31,7 +31,7 @@
     <PublisherName>Langen Group</PublisherName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>38</ApplicationRevision>
+    <ApplicationRevision>47</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -48,6 +48,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -531,10 +532,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Gotham-Light.otf">
+    <EmbeddedResource Include="Resources\Gotham-Light.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <None Include="Resources\Gotham-LightItalic.otf" />
+    </EmbeddedResource>
     <None Include="Resources\Langen Group_Colour.png" />
   </ItemGroup>
   <ItemGroup>

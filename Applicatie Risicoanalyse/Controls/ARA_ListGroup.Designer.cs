@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Controls
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Controls
 {
     partial class ARA_ListGroup
     {
@@ -38,7 +40,7 @@
             // ARA_ListGroupText
             // 
             this.ARA_ListGroupText.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
-            this.ARA_ListGroupText.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.ARA_ListGroupText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.ARA_ListGroupText.ForeColor = System.Drawing.Color.White;
             this.ARA_ListGroupText.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.ARA_ListGroupText.Location = new System.Drawing.Point(656, 0);
@@ -52,7 +54,7 @@
             // ARA_ListGroupPanelButton
             // 
             this.ARA_ListGroupPanelButton.AutoSize = true;
-            this.ARA_ListGroupPanelButton.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ARA_ListGroupPanelButton.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ARA_ListGroupPanelButton.Location = new System.Drawing.Point(750, 0);
             this.ARA_ListGroupPanelButton.Margin = new System.Windows.Forms.Padding(0);
             this.ARA_ListGroupPanelButton.Name = "ARA_ListGroupPanelButton";
@@ -78,7 +80,7 @@
             // ARA_ListGroupDropDownButton
             // 
             this.ARA_ListGroupDropDownButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
-            this.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font("Gotham Light", 15F);
+            this.ARA_ListGroupDropDownButton.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.ARA_ListGroupDropDownButton.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.ARA_ListGroupDropDownButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.ARA_ListGroupDropDownButton.Location = new System.Drawing.Point(0, 0);
@@ -102,7 +104,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.ARA_ListGroupContentPanel);
-            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ARA_ListGroup";
             this.Size = new System.Drawing.Size(750, 355);
