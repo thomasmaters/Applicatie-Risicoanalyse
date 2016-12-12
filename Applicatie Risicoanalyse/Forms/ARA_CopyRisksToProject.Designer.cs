@@ -143,6 +143,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.copyRisksDataGrid.AllowUserToResizeRows = false;
             this.copyRisksDataGrid.AutoGenerateColumns = false;
             this.copyRisksDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.copyRisksDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.copyRisksDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.copyRisksDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.copyRisksDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

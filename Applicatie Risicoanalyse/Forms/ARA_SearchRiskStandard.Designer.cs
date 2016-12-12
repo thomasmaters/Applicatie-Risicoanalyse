@@ -75,7 +75,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.OpenProjectDataGrid.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -176,13 +176,14 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 350);
+            this.ClientSize = new System.Drawing.Size(740, 350);
             this.Controls.Add(this.OpenProjectDataGrid);
             this.Controls.Add(this.OpenProjectTextBoxSearch);
+            this.BackColor = System.Drawing.Color.White;
             this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(750, 350);
+            this.MaximumSize = new System.Drawing.Size(740, 350);
             this.Name = "ARA_SearchRiskStandard";
             this.Text = "ARA_SearchRiskStandard";
             this.VisibleChanged += new System.EventHandler(this.ARA_SearchRiskStandard_VisibleChanged);

@@ -88,7 +88,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.recentProjectsDataGrid.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;

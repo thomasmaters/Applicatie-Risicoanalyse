@@ -191,11 +191,7 @@ namespace Applicatie_Risicoanalyse.Forms
                         (Int32)row.Cells["RiskID"].Value,
                         (Int32)row.Cells["VersionID"].Value)[0]["IsRiskOld"].ToString() == "1")
                     {
-                        row.DefaultCellStyle.BackColor = ARA_Colors.ARA_Blue5;
-                    }
-                    else
-                    {
-                        row.DefaultCellStyle.BackColor = Color.White;
+                        row.Cells[0].Style.BackColor = ARA_Colors.ARA_Blue5;
                     }
                 }
             }

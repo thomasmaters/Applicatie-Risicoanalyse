@@ -74,9 +74,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectContentBox.Controls.Add(this.createProjectControlBoxRight);
             this.createProjectContentBox.Location = new System.Drawing.Point(0, 0);
             this.createProjectContentBox.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectContentBox.MaximumSize = new System.Drawing.Size(347, 104);
+            this.createProjectContentBox.MaximumSize = new System.Drawing.Size(750, 190);
             this.createProjectContentBox.Name = "createProjectContentBox";
-            this.createProjectContentBox.Size = new System.Drawing.Size(347, 104);
+            this.createProjectContentBox.Size = new System.Drawing.Size(750, 190);
             this.createProjectContentBox.TabIndex = 100;
             // 
             // createProjectSpacer1
@@ -84,9 +84,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.createProjectSpacer1.Location = new System.Drawing.Point(0, 0);
             this.createProjectSpacer1.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer1.MaximumSize = new System.Drawing.Size(9, 102);
+            this.createProjectSpacer1.MaximumSize = new System.Drawing.Size(20, 188);
             this.createProjectSpacer1.Name = "createProjectSpacer1";
-            this.createProjectSpacer1.Size = new System.Drawing.Size(9, 102);
+            this.createProjectSpacer1.Size = new System.Drawing.Size(20, 188);
             this.createProjectSpacer1.TabIndex = 100;
             // 
             // createProjectControlBoxLeft
@@ -100,11 +100,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextMachineNumber);
             this.createProjectControlBoxLeft.Controls.Add(this.createProjectTextOrderNumber);
             this.createProjectControlBoxLeft.Controls.Add(this.panel1);
-            this.createProjectControlBoxLeft.Location = new System.Drawing.Point(9, 0);
+            this.createProjectControlBoxLeft.Location = new System.Drawing.Point(20, 0);
             this.createProjectControlBoxLeft.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectControlBoxLeft.MaximumSize = new System.Drawing.Size(159, 103);
+            this.createProjectControlBoxLeft.MaximumSize = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxLeft.Name = "createProjectControlBoxLeft";
-            this.createProjectControlBoxLeft.Size = new System.Drawing.Size(159, 103);
+            this.createProjectControlBoxLeft.Size = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxLeft.TabIndex = 100;
             // 
             // createProjectTextCustomer
@@ -113,9 +113,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectTextCustomer.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.createProjectTextCustomer.Location = new System.Drawing.Point(0, 0);
             this.createProjectTextCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextCustomer.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectTextCustomer.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectTextCustomer.Name = "createProjectTextCustomer";
-            this.createProjectTextCustomer.Size = new System.Drawing.Size(159, 15);
+            this.createProjectTextCustomer.Size = new System.Drawing.Size(345, 28);
             this.createProjectTextCustomer.TabIndex = 100;
             this.createProjectTextCustomer.Text = "Customer";
             this.createProjectTextCustomer.VerticalAlignment = System.Drawing.StringAlignment.Far;
@@ -125,46 +125,46 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.createProjectInputCustomer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.createProjectInputCustomer.BorderSize = 1;
-            this.createProjectInputCustomer.Location = new System.Drawing.Point(0, 15);
+            this.createProjectInputCustomer.Location = new System.Drawing.Point(0, 28);
             this.createProjectInputCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectInputCustomer.MaximumSize = new System.Drawing.Size(161, 17);
+            this.createProjectInputCustomer.MaximumSize = new System.Drawing.Size(344, 28);
             this.createProjectInputCustomer.MaxLength = 64;
             this.createProjectInputCustomer.Name = "createProjectInputCustomer";
             this.createProjectInputCustomer.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.createProjectInputCustomer.Size = new System.Drawing.Size(161, 17);
+            this.createProjectInputCustomer.Size = new System.Drawing.Size(344, 28);
             this.createProjectInputCustomer.TabIndex = 0;
             this.createProjectInputCustomer.Text = "";
             this.createProjectInputCustomer.TextChanged += new System.EventHandler(this.onInputChanged);
             // 
             // createProjectSpacer4
             // 
-            this.createProjectSpacer4.Location = new System.Drawing.Point(0, 32);
+            this.createProjectSpacer4.Location = new System.Drawing.Point(0, 56);
             this.createProjectSpacer4.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer4.MaximumSize = new System.Drawing.Size(159, 2);
+            this.createProjectSpacer4.MaximumSize = new System.Drawing.Size(345, 4);
             this.createProjectSpacer4.Name = "createProjectSpacer4";
-            this.createProjectSpacer4.Size = new System.Drawing.Size(159, 2);
+            this.createProjectSpacer4.Size = new System.Drawing.Size(345, 4);
             this.createProjectSpacer4.TabIndex = 100;
             // 
             // createProjectTextMachineType
             // 
             this.createProjectTextMachineType.BackgroundColor = System.Drawing.Color.White;
             this.createProjectTextMachineType.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextMachineType.Location = new System.Drawing.Point(0, 34);
+            this.createProjectTextMachineType.Location = new System.Drawing.Point(0, 60);
             this.createProjectTextMachineType.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextMachineType.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectTextMachineType.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectTextMachineType.Name = "createProjectTextMachineType";
-            this.createProjectTextMachineType.Size = new System.Drawing.Size(159, 15);
+            this.createProjectTextMachineType.Size = new System.Drawing.Size(345, 28);
             this.createProjectTextMachineType.TabIndex = 100;
             this.createProjectTextMachineType.Text = "Machine type";
             this.createProjectTextMachineType.VerticalAlignment = System.Drawing.StringAlignment.Far;
             // 
             // createProjectSpacer5
             // 
-            this.createProjectSpacer5.Location = new System.Drawing.Point(0, 49);
+            this.createProjectSpacer5.Location = new System.Drawing.Point(0, 88);
             this.createProjectSpacer5.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer5.MaximumSize = new System.Drawing.Size(159, 2);
+            this.createProjectSpacer5.MaximumSize = new System.Drawing.Size(345, 4);
             this.createProjectSpacer5.Name = "createProjectSpacer5";
-            this.createProjectSpacer5.Size = new System.Drawing.Size(159, 2);
+            this.createProjectSpacer5.Size = new System.Drawing.Size(345, 4);
             this.createProjectSpacer5.TabIndex = 100;
             // 
             // createProjectInputMachineType
@@ -172,13 +172,13 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputMachineType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.createProjectInputMachineType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.createProjectInputMachineType.BorderSize = 1;
-            this.createProjectInputMachineType.Location = new System.Drawing.Point(0, 51);
+            this.createProjectInputMachineType.Location = new System.Drawing.Point(0, 92);
             this.createProjectInputMachineType.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectInputMachineType.MaximumSize = new System.Drawing.Size(161, 17);
+            this.createProjectInputMachineType.MaximumSize = new System.Drawing.Size(344, 28);
             this.createProjectInputMachineType.MaxLength = 32;
             this.createProjectInputMachineType.Name = "createProjectInputMachineType";
             this.createProjectInputMachineType.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.createProjectInputMachineType.Size = new System.Drawing.Size(161, 17);
+            this.createProjectInputMachineType.Size = new System.Drawing.Size(344, 28);
             this.createProjectInputMachineType.TabIndex = 1;
             this.createProjectInputMachineType.Text = "";
             this.createProjectInputMachineType.TextChanged += new System.EventHandler(this.onInputChanged);
@@ -187,11 +187,11 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.createProjectTextMachineNumber.BackgroundColor = System.Drawing.Color.White;
             this.createProjectTextMachineNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextMachineNumber.Location = new System.Drawing.Point(0, 68);
+            this.createProjectTextMachineNumber.Location = new System.Drawing.Point(0, 120);
             this.createProjectTextMachineNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextMachineNumber.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectTextMachineNumber.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectTextMachineNumber.Name = "createProjectTextMachineNumber";
-            this.createProjectTextMachineNumber.Size = new System.Drawing.Size(85, 15);
+            this.createProjectTextMachineNumber.Size = new System.Drawing.Size(184, 28);
             this.createProjectTextMachineNumber.TabIndex = 100;
             this.createProjectTextMachineNumber.Text = "Machine number";
             this.createProjectTextMachineNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
@@ -200,11 +200,11 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.createProjectTextOrderNumber.BackgroundColor = System.Drawing.Color.White;
             this.createProjectTextOrderNumber.HorizontalAlignment = System.Drawing.StringAlignment.Near;
-            this.createProjectTextOrderNumber.Location = new System.Drawing.Point(85, 68);
+            this.createProjectTextOrderNumber.Location = new System.Drawing.Point(184, 120);
             this.createProjectTextOrderNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextOrderNumber.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectTextOrderNumber.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectTextOrderNumber.Name = "createProjectTextOrderNumber";
-            this.createProjectTextOrderNumber.Size = new System.Drawing.Size(71, 15);
+            this.createProjectTextOrderNumber.Size = new System.Drawing.Size(154, 28);
             this.createProjectTextOrderNumber.TabIndex = 100;
             this.createProjectTextOrderNumber.Text = "Order number";
             this.createProjectTextOrderNumber.VerticalAlignment = System.Drawing.StringAlignment.Far;
@@ -213,11 +213,11 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             this.panel1.Controls.Add(this.createProjectInputOrderNumber);
             this.panel1.Controls.Add(this.createProjectInputMachineNumber);
-            this.panel1.Location = new System.Drawing.Point(0, 83);
+            this.panel1.Location = new System.Drawing.Point(0, 148);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.MaximumSize = new System.Drawing.Size(159, 15);
+            this.panel1.MaximumSize = new System.Drawing.Size(345, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 15);
+            this.panel1.Size = new System.Drawing.Size(345, 28);
             this.panel1.TabIndex = 100;
             // 
             // createProjectInputOrderNumber
@@ -227,13 +227,13 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputOrderNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.createProjectInputOrderNumber.BorderSize = 1;
             this.createProjectInputOrderNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.createProjectInputOrderNumber.Location = new System.Drawing.Point(85, 0);
+            this.createProjectInputOrderNumber.Location = new System.Drawing.Point(184, 0);
             this.createProjectInputOrderNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectInputOrderNumber.MaximumSize = new System.Drawing.Size(77, 17);
+            this.createProjectInputOrderNumber.MaximumSize = new System.Drawing.Size(162, 28);
             this.createProjectInputOrderNumber.MaxLength = 8;
             this.createProjectInputOrderNumber.Name = "createProjectInputOrderNumber";
             this.createProjectInputOrderNumber.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.createProjectInputOrderNumber.Size = new System.Drawing.Size(76, 17);
+            this.createProjectInputOrderNumber.Size = new System.Drawing.Size(160, 28);
             this.createProjectInputOrderNumber.TabIndex = 3;
             this.createProjectInputOrderNumber.Text = "";
             this.createProjectInputOrderNumber.TextChanged += new System.EventHandler(this.onInputChanged);
@@ -246,11 +246,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputMachineNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.createProjectInputMachineNumber.Location = new System.Drawing.Point(0, 0);
             this.createProjectInputMachineNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectInputMachineNumber.MaximumSize = new System.Drawing.Size(77, 17);
+            this.createProjectInputMachineNumber.MaximumSize = new System.Drawing.Size(162, 28);
             this.createProjectInputMachineNumber.MaxLength = 8;
             this.createProjectInputMachineNumber.Name = "createProjectInputMachineNumber";
             this.createProjectInputMachineNumber.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.createProjectInputMachineNumber.Size = new System.Drawing.Size(77, 17);
+            this.createProjectInputMachineNumber.Size = new System.Drawing.Size(162, 28);
             this.createProjectInputMachineNumber.TabIndex = 2;
             this.createProjectInputMachineNumber.Text = "";
             this.createProjectInputMachineNumber.TextChanged += new System.EventHandler(this.onInputChanged);
@@ -258,11 +258,11 @@ namespace Applicatie_Risicoanalyse.Forms
             // createProjectSpacer2
             // 
             this.createProjectSpacer2.AutoScroll = true;
-            this.createProjectSpacer2.Location = new System.Drawing.Point(168, 0);
+            this.createProjectSpacer2.Location = new System.Drawing.Point(365, 0);
             this.createProjectSpacer2.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectSpacer2.MaximumSize = new System.Drawing.Size(9, 102);
+            this.createProjectSpacer2.MaximumSize = new System.Drawing.Size(20, 188);
             this.createProjectSpacer2.Name = "createProjectSpacer2";
-            this.createProjectSpacer2.Size = new System.Drawing.Size(9, 102);
+            this.createProjectSpacer2.Size = new System.Drawing.Size(20, 188);
             this.createProjectSpacer2.TabIndex = 100;
             // 
             // createProjectControlBoxRight
@@ -271,11 +271,11 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectControlBoxRight.Controls.Add(this.createProjectInputExtraInfo);
             this.createProjectControlBoxRight.Controls.Add(this.createProjectSpacer3);
             this.createProjectControlBoxRight.Controls.Add(this.createProjectButtonCreateProject);
-            this.createProjectControlBoxRight.Location = new System.Drawing.Point(177, 0);
+            this.createProjectControlBoxRight.Location = new System.Drawing.Point(385, 0);
             this.createProjectControlBoxRight.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectControlBoxRight.MaximumSize = new System.Drawing.Size(159, 103);
+            this.createProjectControlBoxRight.MaximumSize = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxRight.Name = "createProjectControlBoxRight";
-            this.createProjectControlBoxRight.Size = new System.Drawing.Size(159, 103);
+            this.createProjectControlBoxRight.Size = new System.Drawing.Size(345, 190);
             this.createProjectControlBoxRight.TabIndex = 100;
             // 
             // createProjectTextExtraInfo
@@ -284,9 +284,9 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectTextExtraInfo.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.createProjectTextExtraInfo.Location = new System.Drawing.Point(0, 0);
             this.createProjectTextExtraInfo.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectTextExtraInfo.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectTextExtraInfo.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectTextExtraInfo.Name = "createProjectTextExtraInfo";
-            this.createProjectTextExtraInfo.Size = new System.Drawing.Size(159, 15);
+            this.createProjectTextExtraInfo.Size = new System.Drawing.Size(345, 28);
             this.createProjectTextExtraInfo.TabIndex = 100;
             this.createProjectTextExtraInfo.Text = "Extra information";
             this.createProjectTextExtraInfo.VerticalAlignment = System.Drawing.StringAlignment.Far;
@@ -296,22 +296,22 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectInputExtraInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(221)))), ((int)(((byte)(235)))));
             this.createProjectInputExtraInfo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.createProjectInputExtraInfo.BorderSize = 1;
-            this.createProjectInputExtraInfo.Location = new System.Drawing.Point(0, 15);
+            this.createProjectInputExtraInfo.Location = new System.Drawing.Point(0, 28);
             this.createProjectInputExtraInfo.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectInputExtraInfo.MaximumSize = new System.Drawing.Size(161, 50);
+            this.createProjectInputExtraInfo.MaximumSize = new System.Drawing.Size(344, 89);
             this.createProjectInputExtraInfo.MaxLength = 512;
             this.createProjectInputExtraInfo.Name = "createProjectInputExtraInfo";
             this.createProjectInputExtraInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.createProjectInputExtraInfo.Size = new System.Drawing.Size(161, 50);
+            this.createProjectInputExtraInfo.Size = new System.Drawing.Size(344, 89);
             this.createProjectInputExtraInfo.TabIndex = 4;
             this.createProjectInputExtraInfo.Text = "";
             // 
             // createProjectSpacer3
             // 
-            this.createProjectSpacer3.Location = new System.Drawing.Point(0, 65);
+            this.createProjectSpacer3.Location = new System.Drawing.Point(0, 117);
             this.createProjectSpacer3.Margin = new System.Windows.Forms.Padding(0);
             this.createProjectSpacer3.Name = "createProjectSpacer3";
-            this.createProjectSpacer3.Size = new System.Drawing.Size(159, 15);
+            this.createProjectSpacer3.Size = new System.Drawing.Size(345, 28);
             this.createProjectSpacer3.TabIndex = 100;
             // 
             // createProjectButtonCreateProject
@@ -321,14 +321,14 @@ namespace Applicatie_Risicoanalyse.Forms
             this.createProjectButtonCreateProject.Enabled = false;
             this.createProjectButtonCreateProject.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.createProjectButtonCreateProject.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(185)))), ((int)(((byte)(72)))));
-            this.createProjectButtonCreateProject.Location = new System.Drawing.Point(0, 80);
+            this.createProjectButtonCreateProject.Location = new System.Drawing.Point(0, 145);
             this.createProjectButtonCreateProject.Margin = new System.Windows.Forms.Padding(0);
-            this.createProjectButtonCreateProject.MaximumSize = new System.Drawing.Size(159, 15);
+            this.createProjectButtonCreateProject.MaximumSize = new System.Drawing.Size(345, 28);
             this.createProjectButtonCreateProject.Name = "createProjectButtonCreateProject";
             this.createProjectButtonCreateProject.Selected = false;
             this.createProjectButtonCreateProject.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.createProjectButtonCreateProject.SelectedTextColor = System.Drawing.Color.White;
-            this.createProjectButtonCreateProject.Size = new System.Drawing.Size(159, 15);
+            this.createProjectButtonCreateProject.Size = new System.Drawing.Size(345, 28);
             this.createProjectButtonCreateProject.TabIndex = 5;
             this.createProjectButtonCreateProject.Text = "Create project";
             this.createProjectButtonCreateProject.TextColor = System.Drawing.Color.White;
@@ -381,13 +381,14 @@ namespace Applicatie_Risicoanalyse.Forms
             // 
             // ARA_CreateProject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 103);
+            this.ClientSize = new System.Drawing.Size(750, 190);
             this.Controls.Add(this.createProjectContentBox);
+            this.Font = new System.Drawing.Font("Gotham Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(346, 103);
+            this.MaximumSize = new System.Drawing.Size(750, 190);
             this.Name = "ARA_CreateProject";
             this.Text = "ARA_CreateProject";
             this.Load += new System.EventHandler(this.onCreateProjectLoad);

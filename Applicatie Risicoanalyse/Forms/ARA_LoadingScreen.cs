@@ -104,7 +104,6 @@ namespace Applicatie_Risicoanalyse.Forms
         private void backgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
             //Can we connect to the database.
-            System.Threading.Thread.Sleep(1000);
             backgroundWorker1.ReportProgress(0, (object)"Checking database connection.");
             if(!isServerConnected())
             {
@@ -115,7 +114,6 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Can we load the ACL.
             backgroundWorker1.ReportProgress(0, (object)"Checking Permissions File.");
-            System.Threading.Thread.Sleep(1000);
             if(!canACLBeLoaded())
             {
                 e.Cancel = true;

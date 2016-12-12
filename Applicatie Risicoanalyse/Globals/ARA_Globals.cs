@@ -19,7 +19,7 @@ namespace Applicatie_Risicoanalyse.Globals
         private static float aRA_BaseFontSize       = Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale;
         private static String aRa_Date              = DateTime.Now.ToString("dd-MM-yyyy");
         private static string applicationVersion    = "?.?.?.?";
-        private static FontFamily aRA_Font                = null;
+        private static FontFamily aRA_Font = null;
 
         private static string userPermissionGroup   = "Default";
         private static int userID                   = 1;
@@ -185,7 +185,6 @@ namespace Applicatie_Risicoanalyse.Globals
                     ARA_Globals.ARA_Font = pfc.Families[0];
                 }
             }
-
         }
 
         public void log(string logMessage)
