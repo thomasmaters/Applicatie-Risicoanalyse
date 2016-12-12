@@ -275,7 +275,6 @@ namespace Applicatie_Risicoanalyse.Controls
             // HarzardTextTitle
             // 
             this.HarzardTextTitle.BackgroundColor = System.Drawing.Color.White;
-            this.HarzardTextTitle.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Bold);
             this.HarzardTextTitle.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.HarzardTextTitle.Location = new System.Drawing.Point(12, 0);
             this.HarzardTextTitle.Margin = new System.Windows.Forms.Padding(0);

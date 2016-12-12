@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Applicatie_Risicoanalyse.Globals;
+using System.Diagnostics;
 
 namespace Applicatie_Risicoanalyse.Forms
 {
@@ -37,11 +38,11 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="control"></param>
         private void scaleTextToFitItsControl(Control control)
         {
-            while ((control.Width < System.Windows.Forms.TextRenderer.MeasureText(control.Text,
-                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Width || control.Height < System.Windows.Forms.TextRenderer.MeasureText(control.Text,
-                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Height) && control.Font.Size > 8F)
+            while ((System.Windows.Forms.TextRenderer.MeasureText(control.Text,
+                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Width > control.Width || System.Windows.Forms.TextRenderer.MeasureText(control.Text,
+                new Font(control.Font.FontFamily, control.Font.Size, control.Font.Style)).Height > control.Height*0.65) && control.Font.Size > 8F)
             {
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size - 0.5f, control.Font.Style);
+                control.Font = new Font(control.Font.FontFamily, control.Font.Size - 0.5F, control.Font.Style);
             }
         }
     }

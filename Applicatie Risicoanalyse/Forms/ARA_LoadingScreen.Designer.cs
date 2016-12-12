@@ -92,7 +92,7 @@ namespace Applicatie_Risicoanalyse.Forms
             // arA_Text2
             // 
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F);
+            this.arA_Text2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F);
             this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text2.Location = new System.Drawing.Point(11, 5);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);

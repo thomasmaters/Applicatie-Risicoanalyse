@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class BaseReportGeneratorForm
     {
@@ -116,7 +118,7 @@
             // RarProgressText
             // 
             this.RarProgressText.BackgroundColor = System.Drawing.Color.White;
-            this.RarProgressText.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RarProgressText.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RarProgressText.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.RarProgressText.Location = new System.Drawing.Point(16, 56);
             this.RarProgressText.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -311,9 +313,9 @@
             this.Controls.Add(this.RarButtonCancel);
             this.Controls.Add(this.RarProgressText);
             this.Controls.Add(this.RarProgressBar);
-            this.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "BaseReportGeneratorForm";
             this.Text = "Report generator";
             this.Load += new System.EventHandler(this.testForm_Load);

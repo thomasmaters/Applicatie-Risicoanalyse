@@ -92,7 +92,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addRiskToProjectSearchTextBox.BorderSize = 1;
             this.addRiskToProjectSearchTextBox.Location = new System.Drawing.Point(3, 3);
             this.addRiskToProjectSearchTextBox.Name = "addRiskToProjectSearchTextBox";
-            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(740, 31);
+            this.addRiskToProjectSearchTextBox.Size = new System.Drawing.Size(732, 31);
             this.addRiskToProjectSearchTextBox.TabIndex = 0;
             this.addRiskToProjectSearchTextBox.Text = "";
             this.addRiskToProjectSearchTextBox.TextChanged += new System.EventHandler(this.onSearchBarTextChanged);
@@ -139,7 +139,7 @@ namespace Applicatie_Risicoanalyse.Forms
             this.addRiskToProjectSearchDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.addRiskToProjectSearchDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.addRiskToProjectSearchDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.addRiskToProjectSearchDataGrid.Size = new System.Drawing.Size(734, 186);
+            this.addRiskToProjectSearchDataGrid.Size = new System.Drawing.Size(722, 186);
             this.addRiskToProjectSearchDataGrid.TabIndex = 0;
             this.addRiskToProjectSearchDataGrid.Visible = false;
             this.addRiskToProjectSearchDataGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onDataGridRowDoubleClick);

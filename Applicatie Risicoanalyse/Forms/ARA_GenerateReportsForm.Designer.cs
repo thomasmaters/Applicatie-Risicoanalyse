@@ -1,4 +1,6 @@
-﻿namespace Applicatie_Risicoanalyse.Forms
+﻿using Applicatie_Risicoanalyse.Globals;
+
+namespace Applicatie_Risicoanalyse.Forms
 {
     partial class ARA_GenerateReportsForm
     {
@@ -82,7 +84,7 @@
             // arA_Text4
             // 
             this.arA_Text4.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text4.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Text4.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Text4.HorizontalAlignment = System.Drawing.StringAlignment.Near;
             this.arA_Text4.Location = new System.Drawing.Point(502, 82);
             this.arA_Text4.Margin = new System.Windows.Forms.Padding(0);
@@ -96,7 +98,7 @@
             // 
             this.arA_Button4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_Button4.CanButtonBeToggled = true;
-            this.arA_Button4.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Button4.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button4.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_Button4.Location = new System.Drawing.Point(328, 172);
@@ -116,7 +118,7 @@
             // 
             this.arA_Button3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_Button3.CanButtonBeToggled = true;
-            this.arA_Button3.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Button3.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button3.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_Button3.Location = new System.Drawing.Point(168, 172);
@@ -136,7 +138,7 @@
             // 
             this.arA_Button2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_Button2.CanButtonBeToggled = true;
-            this.arA_Button2.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Button2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_Button2.Location = new System.Drawing.Point(9, 172);
@@ -155,7 +157,7 @@
             // arA_Text3
             // 
             this.arA_Text3.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text3.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Text3.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Text3.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text3.Location = new System.Drawing.Point(328, 135);
             this.arA_Text3.Margin = new System.Windows.Forms.Padding(0);
@@ -168,7 +170,7 @@
             // arA_Text2
             // 
             this.arA_Text2.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text2.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Text2.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Text2.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text2.Location = new System.Drawing.Point(160, 135);
             this.arA_Text2.Margin = new System.Windows.Forms.Padding(0);
@@ -182,7 +184,7 @@
             // 
             this.arA_Button1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(174)))));
             this.arA_Button1.CanButtonBeToggled = true;
-            this.arA_Button1.Font = new System.Drawing.Font("Gotham Book", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Button1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Button1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(98)))), ((int)(((byte)(110)))));
             this.arA_Button1.Location = new System.Drawing.Point(502, 9);
@@ -201,7 +203,7 @@
             // arA_Text1
             // 
             this.arA_Text1.BackgroundColor = System.Drawing.Color.White;
-            this.arA_Text1.Font = new System.Drawing.Font("Gotham Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arA_Text1.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arA_Text1.HorizontalAlignment = System.Drawing.StringAlignment.Center;
             this.arA_Text1.Location = new System.Drawing.Point(9, 135);
             this.arA_Text1.Margin = new System.Windows.Forms.Padding(0);
@@ -213,7 +215,7 @@
             // 
             // generateReportsComboBoxSort
             // 
-            this.generateReportsComboBoxSort.Font = new System.Drawing.Font("Gotham Book", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateReportsComboBoxSort.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generateReportsComboBoxSort.FormattingEnabled = true;
             this.generateReportsComboBoxSort.Location = new System.Drawing.Point(502, 104);
             this.generateReportsComboBoxSort.Name = "generateReportsComboBoxSort";
@@ -238,7 +240,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("Gotham Book", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font(ARA_Globals.ARA_Font, 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.MaximumSize = new System.Drawing.Size(750, 211);

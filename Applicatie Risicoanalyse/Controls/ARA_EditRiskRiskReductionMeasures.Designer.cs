@@ -77,7 +77,7 @@ namespace Applicatie_Risicoanalyse.Controls
             this.RiskEstimationText.Name = "RiskEstimationText";
             this.RiskEstimationText.Size = new System.Drawing.Size(724, 23);
             this.RiskEstimationText.TabIndex = 70;
-            this.RiskEstimationText.Text = "Other risk reducing mesures (max 1024 chr.)";
+            this.RiskEstimationText.Text = "Other risk reducing measures (max 1024 chr.)";
             this.RiskEstimationText.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
             // arA_TextBox1

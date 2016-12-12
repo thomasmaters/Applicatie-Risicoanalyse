@@ -34,7 +34,7 @@ namespace Applicatie_Risicoanalyse.Forms
             }
 
             //Set application scale button text.
-            this.loadingScreenButtonChangeScale.Text = this.loadingScreenButtonChangeScale.Text = "Application scale: " + Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale.ToString();
+            this.loadingScreenButtonChangeScale.Text = "Application scale: " + Applicatie_Risicoanalyse.Properties.Settings.Default.ApplicationScale.ToString();
             this.loadingScreenButtonChangeScale.Invalidate();
 
             //Set background worker parameters.
@@ -45,7 +45,9 @@ namespace Applicatie_Risicoanalyse.Forms
             backgroundWorker1.RunWorkerCompleted += backgroundWorkerCompleted;
 
             //Set form scaling.
-            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
+            this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize, FontStyle.Regular);
+            this.loadingScreenInputUsername.Font = this.Font;
+            Debug.WriteLine(this.loadingScreenInputUsername.Font.ToString());
         }
 
         /// <summary>
