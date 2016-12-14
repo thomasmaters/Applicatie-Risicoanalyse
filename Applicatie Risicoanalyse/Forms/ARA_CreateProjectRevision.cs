@@ -19,6 +19,8 @@ namespace Applicatie_Risicoanalyse.Forms
 
             //Add eventhandler.
             ARA_Events.NewProjectCreatedEventHandler += ARA_Events_NewProjectCreatedEventHandler;
+            ARA_Events.ProjectStateChangedEventHandler += ARA_Events_ProjectStateChangedEventHandler;
+            ARA_Events.NewProjectRevisionEventHandler += ARA_Events_NewProjectRevisionEventHandler;
 
             //Set form scaling.
             this.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize);
@@ -26,6 +28,26 @@ namespace Applicatie_Risicoanalyse.Forms
             //Special scaling for datagrid.
             this.projectRevisionDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 3);
             this.projectRevisionDataGrid.DefaultCellStyle.Font = new Font(ARA_Globals.ARA_Font, ARA_Globals.ARA_BaseFontSize - 5);
+        }
+
+        /// <summary>
+        /// Handler when the user creates a new project revision.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_NewProjectRevisionEventHandler(object sender, NewProjectRevisionEvent e)
+        {
+            this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
+        }
+
+        /// <summary>
+        /// Handler when the user changes a project state.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ARA_Events_ProjectStateChangedEventHandler(object sender, ProjectStateChangedEvent e)
+        {
+            this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
         }
 
         /// <summary>
@@ -64,9 +86,6 @@ namespace Applicatie_Risicoanalyse.Forms
 
                     //Log event.
                     ARA_Events.triggerNewProjectRevisionEvent(selectedProjectID, selectedRevision);
-
-                    //Update the datasource of the dataGrid.
-                    this.projectRevisionDataGrid.DataSource = this.get_Projects_For_ProjectRevisionTableAdapter.GetData();
 
                     //Let the user know something happend.
                     MessageBox.Show(ARA_Constants.messageBoxProjectRevisionCreated, ARA_Constants.messageBoxProjectRevisionCreatedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);
