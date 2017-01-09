@@ -186,7 +186,11 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                         riskTemplate.Activate();
                         foreach (DataRow exposedPersonRow in this.get_ExposedPersons_In_RiskDataTableAdapter.GetData(riskDataID).Rows)
                         {
-                            riskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString())[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
+                            ContentControls personCheckbox = riskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString());
+                            if (personCheckbox.Count > 0)
+                            {
+                                personCheckbox[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
+                            }
                         }
 
                         //Copy template.

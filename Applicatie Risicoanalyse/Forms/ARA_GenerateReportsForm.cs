@@ -101,8 +101,8 @@ namespace Applicatie_Risicoanalyse.Forms
                 this.projectID,
                 this.generateReportsComboBoxSort.SelectedItem.ToString(),
                 filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
-                Applicatie_Risicoanalyse.Properties.Resources.PerformanceLevelRiskPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.PerformanceLevelFrontPageTemplate);
+                ARA_Globals.PerformanceLevelRiskPageTemplate,
+                ARA_Globals.PerformanceLevelFrontPageTemplate);
             report.Show();
         }
 
@@ -116,10 +116,10 @@ namespace Applicatie_Risicoanalyse.Forms
             RemainingRiskReport report = new RemainingRiskReport(
                 this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
                 filePath + "\\" + ARA_Constants.remainingRiskReportFileName,
-                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageHeaderTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskRiskPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RemainingRiskFrontPageTemplate);
+                ARA_Globals.RemainingRiskRiskPageHeaderTemplate,
+                ARA_Globals.RemainingRiskRiskPageTemplate,
+                ARA_Globals.RiskAssessmentIndexPageTemplate,
+                ARA_Globals.RemainingRiskFrontPageTemplate);
             report.Show();
         }
 
@@ -133,9 +133,9 @@ namespace Applicatie_Risicoanalyse.Forms
             RiskAssessmentReport report = new RiskAssessmentReport(
                 this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), 
                 filePath + "\\" + ARA_Constants.riskAssesmentReportFileName,
-                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentRiskPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentIndexPageTemplate,
-                Applicatie_Risicoanalyse.Properties.Resources.RiskAssessmentFrontPageTemplate);
+                ARA_Globals.RiskAssessmentRiskPageTemplate,
+                ARA_Globals.RiskAssessmentIndexPageTemplate,
+                ARA_Globals.RiskAssessmentFrontPageTemplate);
             report.Show();
         }
 

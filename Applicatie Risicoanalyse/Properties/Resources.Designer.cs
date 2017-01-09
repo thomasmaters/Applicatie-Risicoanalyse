@@ -131,42 +131,12 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] PerformanceLevelFrontPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("PerformanceLevelFrontPageTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap PerformanceLevelReportIcon {
             get {
                 object obj = ResourceManager.GetObject("PerformanceLevelReportIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] PerformanceLevelRiskPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("PerformanceLevelRiskPageTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RemainingRiskFrontPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RemainingRiskFrontPageTemplate", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         
@@ -181,62 +151,12 @@ namespace Applicatie_Risicoanalyse.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RemainingRiskRiskPageHeaderTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RemainingRiskRiskPageHeaderTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RemainingRiskRiskPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RemainingRiskRiskPageTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RiskAssessmentFrontPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RiskAssessmentFrontPageTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RiskAssessmentIndexPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RiskAssessmentIndexPageTemplate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap RiskAssessmentReportIcon {
             get {
                 object obj = ResourceManager.GetObject("RiskAssessmentReportIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RiskAssessmentRiskPageTemplate {
-            get {
-                object obj = ResourceManager.GetObject("RiskAssessmentRiskPageTemplate", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

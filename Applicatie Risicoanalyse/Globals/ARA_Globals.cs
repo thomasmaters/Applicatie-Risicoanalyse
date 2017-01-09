@@ -11,6 +11,7 @@ using System.Drawing.Text;
 using System.Windows.Shapes;
 using System.IO;
 using Applicatie_Risicoanalyse.Properties;
+using System.Reflection;
 
 namespace Applicatie_Risicoanalyse.Globals
 {
@@ -24,6 +25,20 @@ namespace Applicatie_Risicoanalyse.Globals
         private static string userPermissionGroup   = "Default";
         private static int userID                   = 1;
         private static string loggedInUsername      = "";
+
+        private static string appLocation = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"Resources\");
+
+        public static byte[] RiskAssessmentFrontPageTemplate = System.IO.File.ReadAllBytes(appLocation + "RiskAssessmentFrontPageTemplate.docx");
+        public static byte[] RiskAssessmentIndexPageTemplate = System.IO.File.ReadAllBytes(appLocation + "RiskAssessmentIndexPageTemplate.docx");
+        public static byte[] RiskAssessmentRiskPageTemplate = System.IO.File.ReadAllBytes(appLocation + "RiskAssessmentRiskPageTemplate.docx");
+
+        public static byte[] RemainingRiskFrontPageTemplate = System.IO.File.ReadAllBytes(appLocation + "RemainingRiskFrontPageTemplate.docx");
+        public static byte[] RemainingRiskRiskPageHeaderTemplate = System.IO.File.ReadAllBytes(appLocation + "RemainingRiskRiskPageHeaderTemplate.docx");
+        public static byte[] RemainingRiskRiskPageTemplate = System.IO.File.ReadAllBytes(appLocation + "RemainingRiskRiskPageTemplate.docx");
+
+        public static byte[] PerformanceLevelFrontPageTemplate = System.IO.File.ReadAllBytes(appLocation + "PerformanceLevelFrontPageTemplate.docx");
+        public static byte[] PerformanceLevelRiskPageTemplate = System.IO.File.ReadAllBytes(appLocation + "PerformanceLevelRiskPageTemplate.docx");
+
 
         private static string[] riskClassDescription = 
         {

@@ -259,7 +259,11 @@ namespace Applicatie_Risicoanalyse.Reports
                         remainingRiskTemplate.Activate();
                         foreach (DataRow exposedPersonRow in this.get_ExposedPersons_In_RiskDataTableAdapter.GetData(riskDataID).Rows)
                         {
-                            remainingRiskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString())[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
+                            ContentControls personCheckbox = remainingRiskTemplate.SelectContentControlsByTitle(exposedPersonRow["PersonDescription"].ToString());
+                            if (personCheckbox.Count > 0)
+                            {
+                                personCheckbox[(object)1].Checked = exposedPersonRow["InProject"].ToString() == "1";
+                            }
                         }
 
                         //Copy template.

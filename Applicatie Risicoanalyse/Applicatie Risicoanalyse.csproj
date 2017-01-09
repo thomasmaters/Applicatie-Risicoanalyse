@@ -31,7 +31,7 @@
     <PublisherName>Langen Group</PublisherName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>74</ApplicationRevision>
+    <ApplicationRevision>78</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -517,15 +517,40 @@
     <EmbeddedResource Include="Reports\RiskAssesmentReport\RiskAssessmentReport.resx">
       <DependentUpon>RiskAssessmentReport.cs</DependentUpon>
     </EmbeddedResource>
-    <Resource Include="Resources\RiskAssessmentFrontPageTemplate.docx">
+    <Content Include="Resources\Word2013\PerformanceLevelFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\RiskAssessmentIndexPageTemplate.docx">
+    </Content>
+    <Content Include="Resources\Word2013\PerformanceLevelRiskPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\RiskAssessmentRiskPageTemplate.docx">
+    </Content>
+    <Content Include="Resources\Word2013\RemainingRiskFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
+    <Content Include="Resources\Word2013\RemainingRiskRiskPageHeaderTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Word2013\RemainingRiskRiskPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Word2013\RiskAssessmentFrontPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Word2013\RiskAssessmentIndexPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Word2013\RiskAssessmentRiskPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\RiskAssessmentFrontPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\RiskAssessmentIndexPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\RiskAssessmentRiskPageTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\RiskAssessmentRiskPageTemplate1.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -570,22 +595,27 @@
     <Content Include="MooreBrabazon_with_Flying_Pig.ico" />
     <None Include="Resources\MooreBrabazon_with_Flying_Pig.jpg" />
     <None Include="Resources\MooreBrabazon_with_Flying_Pig.ico" />
-    <Resource Include="Resources\PerformanceLevelFrontPageTemplate.docx">
+    <Content Include="Resources\PerformanceLevelFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Include="Resources\PerformanceLevelReportIcon.png" />
-    <Resource Include="Resources\PerformanceLevelRiskPageTemplate.docx">
+    <Content Include="Resources\PerformanceLevelRiskPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\RemainingRiskFrontPageTemplate.docx">
+    </Content>
+    <Content Include="Resources\RemainingRiskFrontPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\RemainingRiskRiskPageHeaderTemplate.docx">
+    </Content>
+    <Content Include="Resources\RemainingRiskRiskPageHeaderTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\RemainingRiskRiskPageTemplate.docx">
+    </Content>
+    <Content Include="Resources\RemainingRiskRiskPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </Content>
+    <None Include="Resources\PerformanceLevelRiskPageTemplate1.docx" />
+    <None Include="Resources\RemainingRiskFrontPageTemplate1.docx" />
+    <None Include="Resources\RemainingRiskRiskPageHeaderTemplate1.docx" />
+    <None Include="Resources\RemainingRiskRiskPageTemplate1.docx" />
+    <None Include="Resources\RiskAssessmentIndexPageTemplate1.docx" />
     <None Include="Resources\RiskAssessmentReportIcon.png" />
     <None Include="Resources\RemainingRiskReportIcon.png" />
   </ItemGroup>
