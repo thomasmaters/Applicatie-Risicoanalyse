@@ -55,10 +55,52 @@
 		<right name="Function.EditRiskImage"				access="all"/>
 		<right name="Function.ReviewRisks"					access="all"/>
 	</acl>	
+	<acl groupname="Lead">	
+		<right name="General.ButtonCreateProject"  			access="all"/>
+		<right name="General.ButtonOpenProject" 			access="all"/>
+		<right name="General.ButtonRecentProjects" 			access="all"/>
+		<right name="General.ButtonCreateProjectRevision"	access="all"/>
+		<right name="General.ButtonEditStandardRisks" 		access="all"/>
+		<right name="General.ButtonCreateNewRisk"			access="all"/>
+		
+		<right name="General.ButtonCopyRisksToProject"		access="all"/>
+		<right name="General.ButtonGenerateReports"			access="all"/>
+		<right name="General.ButtonOpenRisk" 				access="all"/>
+		<right name="General.ButtonAddRiskToProject" 		access="all"/>
+		<right name="General.ButtonEditProjectDetails" 		access="all"/>
+		<right name="General.ButtonMarkProjectClosed" 		access="all"/>
+		<right name="General.ButtonMarkProjectForReview" 	access="all"/>
+		<right name="General.ButtonMarkProjectDoneReviewing" access="all"/>
+		
+		<right name="Function.EditExposedPersons"			access="all"/>
+		<right name="Function.EditHazardIndentification"	access="all"/>
+		<right name="Function.EditRiskEstimationBeforeRiskReduction"	access="all"/>
+		<right name="Function.EditRiskEstimationAfterRiskReduction"		access="all"/>
+		<right name="Function.EditRiskReductionMesures"		access="all"/>
+		<right name="Function.EditRemaingRisk"				access="all"/>
+		<right name="Function.EditRiskImage"				access="all"/>
+		<right name="Function.ReviewRisks"					access="all"/>
+	</acl>
 	<acl groupname="Engineer">	
 		<right name="General.ButtonOpenProject" 			access="all"/>
-		<right name="General.ButtonOpenRisk" 				access="all"/>
+		<right name="General.ButtonRecentProjects" 			access="all"/>
+		<right name="General.ButtonEditStandardRisks" 		access="readonly"/>
+		<right name="General.ButtonCreateNewRisk"			access="all"/>
+		
 		<right name="General.ButtonCopyRisksToProject"		access="all"/>
-		<right name="General.ButtonEditStandardRisks" 		access="all"/>
+		<right name="General.ButtonGenerateReports"			access="all"/>
+		<right name="General.ButtonOpenRisk" 				access="all"/>
+		<right name="General.ButtonAddRiskToProject" 		access="all"/>
+		<right name="General.ButtonEditProjectDetails" 		access="all"/>
+		<right name="General.ButtonMarkProjectForReview" 	access="all"/>
+		
+		<right name="Function.EditExposedPersons"			access="all"/>
+		<right name="Function.EditHazardIndentification"	access="all"/>
+		<right name="Function.EditRiskEstimationBeforeRiskReduction"	access="all"/>
+		<right name="Function.EditRiskEstimationAfterRiskReduction"		access="all"/>
+		<right name="Function.EditRiskReductionMesures"		access="all"/>
+		<right name="Function.EditRemaingRisk"				access="all"/>
+		<right name="Function.EditRiskImage"				access="all"/>
+		<right name="Function.ReviewRisks"					access="all"/>
 	</acl>
 </acl>

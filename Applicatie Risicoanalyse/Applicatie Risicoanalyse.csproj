@@ -550,7 +550,6 @@
     <Content Include="Resources\RiskAssessmentRiskPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\RiskAssessmentRiskPageTemplate1.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -611,11 +610,6 @@
     <Content Include="Resources\RemainingRiskRiskPageTemplate.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\PerformanceLevelRiskPageTemplate1.docx" />
-    <None Include="Resources\RemainingRiskFrontPageTemplate1.docx" />
-    <None Include="Resources\RemainingRiskRiskPageHeaderTemplate1.docx" />
-    <None Include="Resources\RemainingRiskRiskPageTemplate1.docx" />
-    <None Include="Resources\RiskAssessmentIndexPageTemplate1.docx" />
     <None Include="Resources\RiskAssessmentReportIcon.png" />
     <None Include="Resources\RemainingRiskReportIcon.png" />
   </ItemGroup>
