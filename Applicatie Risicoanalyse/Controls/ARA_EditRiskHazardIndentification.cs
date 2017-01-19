@@ -132,7 +132,7 @@ namespace Applicatie_Risicoanalyse.Controls
             //Do we got our second danger consequence?
             if(selectedDangerSourceRow["DangerResultID2"] != DBNull.Value)
             {
-                DataRow row = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)selectedDangerSourceRow["DangerResultID1"]);
+                DataRow row = this.tbl_Danger_ResultTableAdapter.GetData().FindByDangerResultID((Int32)selectedDangerSourceRow["DangerResultID2"]);
                 this.HazardTextConsequence2.Text = row["DangerResultName"].ToString();
             }
             else
