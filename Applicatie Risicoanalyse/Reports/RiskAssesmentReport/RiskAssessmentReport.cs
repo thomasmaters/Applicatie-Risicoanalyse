@@ -296,6 +296,15 @@ namespace Applicatie_Risicoanalyse.Reports
                         DataView appliedRiskReductionMeasures = new DataView(this.get_RiskReduction_In_RiskDataTableAdapter.GetData(riskDataID));
                         DataView minimalAdditionMeasures = new DataView(this.get_MinimalAddition_In_RiskDataTableAdapter.GetData(riskDataID));
 
+                        //Add fileID row to the riskDataRow procedure. 
+                        //Get the blob data and convert it to byte[].
+                        //And call the wordInterface function to add image watermark to a specific page.
+                        //Disable default watermark generation.
+                        //if(riskDataRow["fileID"] != DBNull.Value)
+                        //{
+                        //    DataRow blobDataView = this.tbl_BLOB_StorageTableAdapter.GetData().FindByFileID((Int32)riskDataRow["fileID"]);
+                        //}
+
                         //Set some value's before copying document.
                         riskTemplate.Activate();
                         foreach (DataRow exposedPersonRow in this.get_ExposedPersons_In_RiskDataTableAdapter.GetData(riskDataID).Rows)
