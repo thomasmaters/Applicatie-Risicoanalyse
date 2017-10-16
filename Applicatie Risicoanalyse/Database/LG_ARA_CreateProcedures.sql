@@ -402,12 +402,11 @@ CREATE PROCEDURE Insert_Picture_Into_Risk(@riskDataID AS INT, @objectData AS VAR
 AS
 BEGIN
 		DECLARE @fileID INT
-		SET @fileID = (SELECT TOP 1 MAX(FileID) FROM Tbl_BLOB_Storage)
-		
+
 		INSERT INTO Tbl_BLOB_Storage
-		VALUES(@fileID + 1,@objectData)
+		VALUES(@objectData)
 
-
+		SET @fileID = (SELECT TOP 1 MAX(FileID) FROM Tbl_BLOB_Storage)
 
 		UPDATE Tbl_Risk_Data
 		SET FileID = @fileID
@@ -455,10 +454,8 @@ AS
 BEGIN
 	DECLARE @newRiskDataID INT
 
-SET @newRiskDataID = (SELECT TOP 1 MAX(RiskDataID) FROM Tbl_Risk_Data)
-
 	INSERT INTO Tbl_Risk_Data
-	SELECT @newRiskDataID + 1,DangerID,DangerSourceID,HazardSituation,HazardEvent,@userID,RiskReductionInfo,MinimalAdditionInfo,FileID
+	SELECT DangerID,DangerSourceID,HazardSituation,HazardEvent,@userID,RiskReductionInfo,MinimalAdditionInfo,FileID
 	FROM Tbl_Risk_Data
 	WHERE RiskDataID = @oldRiskDataID
 
@@ -607,17 +604,11 @@ BEGIN
 		WHERE GroupName = @tempGroupName
 		ORDER BY NEWID())
 
-	DECLARE @newRiskDataID INT
-	SET @newRiskDataID = (SELECT TOP 1 MAX(RiskDataID) FROM Tbl_Risk_Data)
-
 	INSERT INTO Tbl_Risk_Data
-	VALUES(@newRiskDataID + 1,1,1,'','',@userID,'','',NULL)
-
-	DECLARE @newRiskID INT
-	SET @newRiskID = (SELECT TOP 1 MAX(RiskID) FROM Tbl_Risk)
+	VALUES(1,1,'','',@userID,'','',NULL)
 
 	INSERT INTO Tbl_Risk
-	VALUES(@newRiskID + 1,1,GETDATE(),@tempTypeName,@tempGroupName,(SELECT MAX(RiskDataID) FROM Tbl_Risk_Data))
+	VALUES(1,GETDATE(),@tempTypeName,@tempGroupName,(SELECT MAX(RiskDataID) FROM Tbl_Risk_Data))
 
 	SELECT (SELECT MAX(RiskID) FROM Tbl_Risk) AS NewRiskID,(SELECT MAX(RiskDataID) FROM Tbl_Risk_Data) AS NewRiskDataID
 END
