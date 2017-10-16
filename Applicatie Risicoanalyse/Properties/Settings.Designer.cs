@@ -37,8 +37,8 @@ namespace Applicatie_Risicoanalyse.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WS-024\\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;User ID=sa;Pas" +
-            "sword=Wachtwoord@1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SERVER4A;Initial Catalog=LG_Analysis_Database;Persist Security Info=T" +
+            "rue;User ID=Risicoanalyse;Password=Welkom123")]
         public string LG_Analysis_DatabaseConnectionString1 {
             get {
                 return ((string)(this["LG_Analysis_DatabaseConnectionString1"]));

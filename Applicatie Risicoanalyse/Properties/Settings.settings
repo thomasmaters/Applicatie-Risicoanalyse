@@ -13,10 +13,10 @@
     <Setting Name="LG_Analysis_DatabaseConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=WS-024\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;User ID=sa;Password=Wachtwoord@1&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=SERVER4A;Initial Catalog=LG_Analysis_Database;Persist Security Info=True;User ID=Risicoanalyse;Password=Welkom123&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=WS-024\SQLEXPRESS;Initial Catalog=LG_Analysis_Database;User ID=sa;Password=Wachtwoord@1</Value>
+      <Value Profile="(Default)">Data Source=SERVER4A;Initial Catalog=LG_Analysis_Database;Persist Security Info=True;User ID=Risicoanalyse;Password=Welkom123</Value>
     </Setting>
     <Setting Name="ApplicationScale" Type="System.Single" Scope="User">
       <Value Profile="(Default)">15</Value>
