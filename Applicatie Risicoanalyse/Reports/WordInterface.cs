@@ -11,6 +11,7 @@ using Microsoft.Office.Interop.Word;
 using Applicatie_Risicoanalyse.Controls;
 using Applicatie_Risicoanalyse.Globals;
 using Microsoft.Office.Core;
+using System.IO;
 
 namespace Applicatie_Risicoanalyse.Reports
 {
@@ -85,6 +86,14 @@ namespace Applicatie_Risicoanalyse.Reports
         {
             if (!searchInLastTextBox)
             {
+                //Bug fix for searching and replacing it with long strings. Fix it by calling this function recursifly.
+                string replaceWithPart = "";
+                if (replaceWith.Length > 250)
+                {
+                    replaceWithPart = replaceWith.Substring(250);
+                    replaceWith = replaceWith.Substring(0, 250) + "<rep>";
+                }
+
                 Microsoft.Office.Interop.Word.Find findObject = this.app.Selection.Find;
                 findObject.ClearFormatting();
                 findObject.Text = find;
@@ -96,12 +105,16 @@ namespace Applicatie_Risicoanalyse.Reports
                 {
                     findObject.Replacement.Font.Color = (Microsoft.Office.Interop.Word.WdColor)(textColor.R + 0x100 * textColor.G + 0x10000 * textColor.B);
                 }
-
                 object replaceAll = Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll;
                 findObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing, ref missing, ref missing,
                     ref replaceAll, ref missing, ref missing, ref missing, ref missing);
 
+                //Call searchAndReplace recursively if we have a long string.
+                if(replaceWithPart.Length > 0)
+                {
+                    searchAndReplace(wordDocument, "<rep>", replaceWithPart, textColor, searchInLastTextBox);
+                }
             }
             else
             {
@@ -330,6 +343,32 @@ namespace Applicatie_Risicoanalyse.Reports
                 nShape.Left = (float)WdShapePosition.wdShapeCenter;
                 nShape.Top = (float)WdShapePosition.wdShapeCenter;
             }
+        }
+
+        /// <summary>
+        /// Inserts a watermark image into a document.
+        /// </summary>
+        /// <param name="doc">The input document.</param>
+        /// <param name="watermarkText">Text of the watermark.</param>
+        public void insertWatermarkImage(Document doc,int pageNumber, byte[] image)
+        {
+            String tempTemplateFile = Path.GetTempPath() + "/temp.png";
+            File.WriteAllBytes(tempTemplateFile, image);
+
+            Microsoft.Office.Interop.Word.Shape nShape = null;
+            Section section = doc.Sections[pageNumber];
+
+            nShape = section.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Shapes.AddPicture(tempTemplateFile);
+            nShape.Fill.Visible = MsoTriState.msoTrue;
+            nShape.Line.Visible = MsoTriState.msoFalse;
+            nShape.Rotation = 45;
+            nShape.Fill.Solid();
+            nShape.Fill.ForeColor.RGB = (Int32)WdColor.wdColorGray20;
+            nShape.RelativeHorizontalPosition = WdRelativeHorizontalPosition.wdRelativeHorizontalPositionMargin;
+            nShape.RelativeVerticalPosition = WdRelativeVerticalPosition.wdRelativeVerticalPositionMargin;
+            // center location
+            nShape.Left = (float)WdShapePosition.wdShapeCenter;
+            nShape.Top = (float)WdShapePosition.wdShapeCenter;
         }
 
         /// <summary>
