@@ -1,0 +1,113 @@
+USE LG_Analysis_Database
+GO
+DROP PROCEDURE Create_RiskProject_Revision
+GO
+DROP PROCEDURE Update_Risks_In_Open_Risk_Projects
+GO
+DROP PROCEDURE Create_RiskProject
+GO
+DROP PROCEDURE Get_Recent_Risk_Projects
+GO
+DROP PROCEDURE Get_Risks_In_Project_Group
+GO
+DROP PROCEDURE Get_Risks_In_Project_Type
+GO
+DROP PROCEDURE Get_Risks_In_ProjectGroupType
+GO
+DROP FUNCTION Get_Latest_Versions_Of_Risks
+GO
+DROP PROCEDURE Insert_In_ProjectRisks
+GO
+DROP PROCEDURE Get_Newest_Added_Project
+GO
+DROP FUNCTION Select_Add_Risk_To_Project_Data
+GO
+DROP FUNCTION Get_Projects_With_Revision
+GO
+DROP PROCEDURE Insert_Risks_From_Type_Into_Project
+GO
+DROP PROCEDURE Is_Risk_In_Project
+GO
+DROP PROCEDURE Search_Risks_In_Project
+GO
+DROP PROCEDURE Get_TypeNames_In_Group
+GO
+DROP PROCEDURE Delete_From_ProjectRisks
+GO
+DROP PROCEDURE Get_RiskReduction_In_RiskData
+GO
+DROP PROCEDURE Get_MinimalAddition_In_RiskData
+GO
+DROP PROCEDURE Get_RiskEstimation_In_RiskData_After
+GO
+DROP PROCEDURE Get_RiskEstimation_In_RiskData_Before
+GO
+DROP PROCEDURE Get_ExposedPersons_In_RiskData
+GO
+DROP PROCEDURE Insert_Into_RiskEstimation_Before
+GO
+DROP PROCEDURE Insert_Into_RiskEstimation_After
+GO
+DROP PROCEDURE Insert_Danger_In_RiskData
+GO
+DROP PROCEDURE Insert_Picture_Into_Risk
+GO
+DROP PROCEDURE Search_ProjectRisks
+GO
+DROP PROCEDURE Get_RiskDataID_From_Risks_In_Project
+GO
+DROP PROCEDURE Update_RiskDataID_In_RisksInProject
+GO
+DROP PROCEDURE Copy_RiskData_From_RiskDataID
+GO
+DROP PROCEDURE Get_Risks_With_Type_And_Group_In_Project
+GO
+DROP PROCEDURE Update_RiskReductionInfo_In_RiskData
+GO
+DROP PROCEDURE Update_MinimalAdditionInfo_In_RiskData
+GO
+DROP PROCEDURE Search_Risk_Standard
+GO
+DROP PROCEDURE Create_New_Risk_Version
+GO
+DROP PROCEDURE Create_New_Risk
+GO
+DROP PROCEDURE Update_ComponentTypeAndGroup_In_Risk
+GO
+DROP PROCEDURE Delete_Risk
+GO
+DROP PROCEDURE Get_Risks_In_Group_And_Type
+GO
+DROP PROCEDURE Get_Risks_With_RiskData_In_Project
+GO
+DROP PROCEDURE Get_RemainingRisks_In_Project
+GO
+DROP PROCEDURE Increase_Project_DraftVersion
+GO
+DROP PROCEDURE Update_Project_State
+GO
+DROP PROCEDURE Is_ProjectReview_Accepted
+GO
+DROP PROCEDURE Set_Risk_In_Project_Reviewed
+GO
+DROP PROCEDURE Get_Risks_In_Project
+GO
+DROP PROCEDURE Is_Risk_Old
+GO
+DROP PROCEDURE Search_Projects
+GO
+DROP PROCEDURE Get_RiskAssessment_Index_Data
+GO
+DROP PROCEDURE Get_Risks_With_PL_In_Project
+GO
+DROP PROCEDURE Copy_Risk_From_Project_Into_Project
+GO
+DROP PROCEDURE Get_Projects_For_ProjectRevision
+GO
+DROP PROCEDURE Get_Latest_Activity
+GO
+DROP PROCEDURE Get_All_RiskProject_Info
+GO
+DROP PROCEDURE Update_ProjectDetails
+GO
+DROP PROCEDURE Update_Project_RecentActivity
