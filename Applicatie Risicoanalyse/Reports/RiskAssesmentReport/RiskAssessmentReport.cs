@@ -341,7 +341,7 @@ namespace Applicatie_Risicoanalyse.Reports
 
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataRow["RiskID"].ToString());
+                            throw new Exception("Cant generate report, because risk " + riskDataRow["RiskID"].ToString() + " isn't correctly filled in.");
                         wordInterface.searchAndReplace(wordDocument, "<SEDescriptionB>", riskEstimationBeforeView[0]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<FRDescriptionB>", riskEstimationBeforeView[1]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<PRDescriptionB>", riskEstimationBeforeView[2]["ItemDescription"].ToString());
@@ -356,7 +356,7 @@ namespace Applicatie_Risicoanalyse.Reports
                         temp.setControlData(riskEstimationAfterView);
                         riskEstimationAfterView.RowFilter = "InProject = '1'";
                         if (riskEstimationAfterView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataRow["RiskID"].ToString());
+                            throw new Exception("Cant generate report, because risk " + riskDataRow["RiskID"].ToString() + " isn't correctly filled in.");
                         wordInterface.searchAndReplace(wordDocument, "<SEDescriptionA>", riskEstimationAfterView[0]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<FRDescriptionA>", riskEstimationAfterView[1]["ItemDescription"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<PRDescriptionA>", riskEstimationAfterView[2]["ItemDescription"].ToString());
@@ -414,7 +414,7 @@ namespace Applicatie_Risicoanalyse.Reports
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating +  ex.ToString(), ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating + ex.Message, ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

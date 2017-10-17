@@ -300,14 +300,14 @@ namespace Applicatie_Risicoanalyse.Reports
                         //Set risk class fields.
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                            throw new Exception("Cant generate report, because risk " + riskDataID.ToString() + " isn't correctly filled in.");
                         wordInterface.searchAndReplace(wordDocument, "<RiskClassValueB>", temp.calculateRiskEstimationClass().ToString());
                         wordInterface.searchAndReplace(wordDocument, "<RiskClassDescriptionB>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 
                         temp.setControlData(riskEstimationAfterView);
                         riskEstimationAfterView.RowFilter = "InProject = '1'";
                         if (riskEstimationAfterView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                            throw new Exception("Cant generate report, because risk " + riskDataID.ToString() + " isn't correctly filled in.");
                         wordInterface.searchAndReplace(wordDocument, "<RiskClassValueA>", temp.calculateRiskEstimationClass().ToString());
                         wordInterface.searchAndReplace(wordDocument, "<RiskClassDescriptionA>", ARA_Globals.RiskClassDescription[temp.calculateRiskEstimationClass()], riskEstimationColors[temp.calculateRiskEstimationClass()]);
 

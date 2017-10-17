@@ -83,9 +83,9 @@ namespace Applicatie_Risicoanalyse.Forms
 
                 //Get selected project id.
                 int projectIDToOpen = (Int32)this.recentProjectsDataGrid.Rows[e.RowIndex].Cells["ProjectID"].Value;
-
+                string projectName = (String)this.recentProjectsDataGrid.Rows[e.RowIndex].Cells["machineNumberDataGridViewTextBoxColumn"].Value;
                 //Log this event.
-                ARA_Events.triggerProjectOpendEvent(projectIDToOpen);
+                ARA_Events.triggerProjectOpendEvent(projectIDToOpen, projectName);
 
                 //Trigger event to add a button to the sidebar and attach this form to it.
                 Applicatie_Risicoanalyse.Globals.ARA_Events.triggerSideBarAddNewButtonEvent(

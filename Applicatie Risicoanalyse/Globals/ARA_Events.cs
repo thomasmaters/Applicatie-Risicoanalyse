@@ -97,9 +97,10 @@ namespace Applicatie_Risicoanalyse.Globals
                 RiskAddedToProjectEventHandler(new object(), new RiskAddedToProjectEvent(aProjectID));
             }
         }
-        public static void triggerProjectOpendEvent(int aProjectID)
+        public static void triggerProjectOpendEvent(int aProjectID, string aProjectName = "")
         {
-            Logger.Instance.log(string.Format("{0} opened project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
+
+            Logger.Instance.log(string.Format("{0} opened project '{1}'.", ARA_Globals.LoggedInUsername, aProjectName));
             if (ProjectOpendEventHandler != null)
             {
                 ProjectOpendEventHandler(new object(), new ProjectOpendEvent(aProjectID));

@@ -19,6 +19,7 @@ namespace Applicatie_Risicoanalyse.Reports
     {
         private object missing = Type.Missing;
         private object paramFalse = false;
+        private const int searchReplaceLenght = 240;
         public Microsoft.Office.Interop.Word.Application app = null;
 
         public WordInterface()
@@ -26,6 +27,11 @@ namespace Applicatie_Risicoanalyse.Reports
             // Start an instance of Word.
             this.app = new Microsoft.Office.Interop.Word.Application();
             this.app.Visible = false;
+        }
+
+        public float getWordVersion()
+        {
+            return float.Parse(app.Version,System.Globalization.CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -88,10 +94,10 @@ namespace Applicatie_Risicoanalyse.Reports
             {
                 //Bug fix for searching and replacing it with long strings. Fix it by calling this function recursifly.
                 string replaceWithPart = "";
-                if (replaceWith.Length > 250)
+                if (replaceWith.Length > searchReplaceLenght)
                 {
-                    replaceWithPart = replaceWith.Substring(250);
-                    replaceWith = replaceWith.Substring(0, 250) + "<rep>";
+                    replaceWithPart = replaceWith.Substring(searchReplaceLenght);
+                    replaceWith = replaceWith.Substring(0, searchReplaceLenght) + "<rep>";
                 }
 
                 Microsoft.Office.Interop.Word.Find findObject = this.app.Selection.Find;

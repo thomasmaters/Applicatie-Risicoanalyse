@@ -8,6 +8,15 @@ namespace Applicatie_Risicoanalyse.Globals
 {
     public static class ARA_Constants
     {
+        //Email settings
+        public const string receiverEmail = "risicoanalyseErrorReport@outlook.com";
+        public const string senderEmail = "risicoanalyseErrorReport@outlook.com";
+        public const string senderMailPassword = "RisicoAnalyse";
+        public const string emailSubject = "Error in RiskAnalysis application.";
+        public const string emailSMTPServer = "smtp-mail.outlook.com";
+        public const int emailPort = 587;
+
+
         //Application constants.
         public const float noScaleFontSize     = 15F;
         public const int randomPasswordLength = 10;

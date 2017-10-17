@@ -39,6 +39,17 @@ namespace Applicatie_Risicoanalyse.Globals
         public static byte[] PerformanceLevelFrontPageTemplate = System.IO.File.ReadAllBytes(appLocation + "PerformanceLevelFrontPageTemplate.docx");
         public static byte[] PerformanceLevelRiskPageTemplate = System.IO.File.ReadAllBytes(appLocation + "PerformanceLevelRiskPageTemplate.docx");
 
+        //Templates for word 2013 and later.
+        public static byte[] RiskAssessmentFrontPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RiskAssessmentFrontPageTemplate.docx");
+        public static byte[] RiskAssessmentIndexPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RiskAssessmentIndexPageTemplate.docx");
+        public static byte[] RiskAssessmentRiskPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RiskAssessmentRiskPageTemplate.docx");
+
+        public static byte[] RemainingRiskFrontPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RemainingRiskFrontPageTemplate.docx");
+        public static byte[] RemainingRiskRiskPageHeaderTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RemainingRiskRiskPageHeaderTemplate.docx");
+        public static byte[] RemainingRiskRiskPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/RemainingRiskRiskPageTemplate.docx");
+
+        public static byte[] PerformanceLevelFrontPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/PerformanceLevelFrontPageTemplate.docx");
+        public static byte[] PerformanceLevelRiskPageTemplate2013 = System.IO.File.ReadAllBytes(appLocation + "Word2013/PerformanceLevelRiskPageTemplate.docx");
 
         private static string[] riskClassDescription = 
         {

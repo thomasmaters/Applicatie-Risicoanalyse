@@ -29,15 +29,10 @@ namespace Applicatie_Risicoanalyse.Forms
 
         public void runBackgroundWorker(DoWorkEventArgs args)
         {
-            // To report progress from the background worker we need to set this property.
             backgroundWorker1.WorkerReportsProgress = true;
-            // Enabled cancelation of thread progress.
             backgroundWorker1.WorkerSupportsCancellation = true;
-            //Attach eventargs to backgroundworker.
             backgroundWorker1.DoWork += (obj, e) => generateReport(obj, args);
-            // This event will be raised when we call ReportProgress.
             backgroundWorker1.ProgressChanged += new ProgressChangedEventHandler(backgroundWorker1_ProgressChanged);
-            //Do something when the background worker completes.
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorker1_WorkerCompleted);
         }
 

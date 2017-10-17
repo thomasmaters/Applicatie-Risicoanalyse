@@ -14,6 +14,7 @@ using static System.Environment;
 using Applicatie_Risicoanalyse.Reports.PerformanceLevelReport;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Net.Mail;
 
 namespace Applicatie_Risicoanalyse
 {
@@ -27,11 +28,47 @@ namespace Applicatie_Risicoanalyse
         static void Main()
         {
             Logger.Instance.ToString();
-          
+
+            ARA_Events.UserLoggedInEventHandler += ARA_Events_UserLoggedInEventHandler;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.AddMessageFilter(new MessageFilter());
             Application.Run(new ARA_LoadingScreen());
+        }
+
+        private static void ARA_Events_UserLoggedInEventHandler(object sender, UserLoggedInEvent e)
+        {
+            AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+        }
+
+        private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs args)
+        {
+            Exception e = args.Exception;
+            if( e is System.Net.Mail.SmtpException || e is System.ArgumentOutOfRangeException || 
+                e is System.Net.Mail.SmtpFailedRecipientException)
+            {
+                return;
+            }
+
+            Console.WriteLine("GlobalExceptionHandler caught : " + e.Message);
+            try
+            {
+                string body = e.ToString();
+                MailMessage message = new MailMessage(ARA_Constants.senderEmail, ARA_Constants.receiverEmail, ARA_Constants.emailSubject, body);
+                SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
+                client.Port = ARA_Constants.emailPort;
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential(ARA_Constants.senderEmail, ARA_Constants.senderMailPassword);
+
+                client.Send(message);
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine(er.ToString());
+                //throw;
+            }      
         }
     }
 

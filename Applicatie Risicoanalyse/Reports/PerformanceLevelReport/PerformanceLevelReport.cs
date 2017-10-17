@@ -218,7 +218,7 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
 
                         riskEstimationBeforeView.RowFilter = "InProject = '1'";
                         if (riskEstimationBeforeView.Count != 4)
-                            throw new Exception("Cant generate report, because a risk isn't correctly filled in " + riskDataID.ToString());
+                            throw new Exception("Cant generate report, because risk " + riskDataID.ToString() + " isn't correctly filled in.");
                         wordInterface.searchAndReplace(wordDocument, "<SEWeightB>", riskEstimationBeforeView[0]["ItemWeight"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<FRWeightB>", riskEstimationBeforeView[1]["ItemWeight"].ToString());
                         wordInterface.searchAndReplace(wordDocument, "<PRWeightB>", riskEstimationBeforeView[2]["ItemWeight"].ToString());

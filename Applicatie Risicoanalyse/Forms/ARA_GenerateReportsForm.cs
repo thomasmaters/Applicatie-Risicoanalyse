@@ -96,14 +96,27 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="filePath">Where to save the report.</param>
         private void generatePerformanceLevelReport(string filePath)
         {
-            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-            PerformanceLevelReport report = new PerformanceLevelReport(
-                this.projectID,
-                this.generateReportsComboBoxSort.SelectedItem.ToString(),
-                filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
-                ARA_Globals.PerformanceLevelRiskPageTemplate,
-                ARA_Globals.PerformanceLevelFrontPageTemplate);
-            report.Show();
+            if (hasWord2013OrLater())
+            {
+                PerformanceLevelReport report = new PerformanceLevelReport(
+                    this.projectID,
+                    this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                    filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
+                    ARA_Globals.PerformanceLevelRiskPageTemplate2013,
+                    ARA_Globals.PerformanceLevelFrontPageTemplate2013);
+                report.Show();
+            }
+            else
+            {
+                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+                PerformanceLevelReport report = new PerformanceLevelReport(
+                    this.projectID,
+                    this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                    filePath + "\\" + ARA_Constants.performanceLevelReportFileName,
+                    ARA_Globals.PerformanceLevelRiskPageTemplate,
+                    ARA_Globals.PerformanceLevelFrontPageTemplate);
+                report.Show();
+            }
         }
 
         /// <summary>
@@ -112,15 +125,29 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="filePath">Where to save the report.</param>
         private void generateRemainingRiskReport(string filePath)
         {
-            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-            RemainingRiskReport report = new RemainingRiskReport(
-                this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
-                filePath + "\\" + ARA_Constants.remainingRiskReportFileName,
-                ARA_Globals.RemainingRiskRiskPageHeaderTemplate,
-                ARA_Globals.RemainingRiskRiskPageTemplate,
-                ARA_Globals.RiskAssessmentIndexPageTemplate,
-                ARA_Globals.RemainingRiskFrontPageTemplate);
-            report.Show();
+            if (hasWord2013OrLater())
+            {
+                RemainingRiskReport report = new RemainingRiskReport(
+                    this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                    filePath + "\\" + ARA_Constants.remainingRiskReportFileName,
+                    ARA_Globals.RemainingRiskRiskPageHeaderTemplate2013,
+                    ARA_Globals.RemainingRiskRiskPageTemplate2013,
+                    ARA_Globals.RiskAssessmentIndexPageTemplate2013,
+                    ARA_Globals.RemainingRiskFrontPageTemplate2013);
+                report.Show();
+            }
+            else
+            {
+                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+                RemainingRiskReport report = new RemainingRiskReport(
+                    this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                    filePath + "\\" + ARA_Constants.remainingRiskReportFileName,
+                    ARA_Globals.RemainingRiskRiskPageHeaderTemplate,
+                    ARA_Globals.RemainingRiskRiskPageTemplate,
+                    ARA_Globals.RiskAssessmentIndexPageTemplate,
+                    ARA_Globals.RemainingRiskFrontPageTemplate);
+                report.Show();
+            }
         }
 
         /// <summary>
@@ -129,14 +156,27 @@ namespace Applicatie_Risicoanalyse.Forms
         /// <param name="filePath">Where to save the report.</param>
         private void generateRiskAssessmentReport(string filePath)
         {
-            Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
-            RiskAssessmentReport report = new RiskAssessmentReport(
-                this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), 
-                filePath + "\\" + ARA_Constants.riskAssesmentReportFileName,
-                ARA_Globals.RiskAssessmentRiskPageTemplate,
-                ARA_Globals.RiskAssessmentIndexPageTemplate,
-                ARA_Globals.RiskAssessmentFrontPageTemplate);
-            report.Show();
+            if(hasWord2013OrLater())
+            {
+                RiskAssessmentReport report = new RiskAssessmentReport(
+                    this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(),
+                    filePath + "\\" + ARA_Constants.riskAssesmentReportFileName,
+                    ARA_Globals.RiskAssessmentRiskPageTemplate2013,
+                    ARA_Globals.RiskAssessmentIndexPageTemplate2013,
+                    ARA_Globals.RiskAssessmentFrontPageTemplate2013);
+                report.Show();
+            }
+            else
+            {
+                Debug.WriteLine(this.generateReportsComboBoxSort.SelectedItem);
+                RiskAssessmentReport report = new RiskAssessmentReport(
+                    this.projectID, this.generateReportsComboBoxSort.SelectedItem.ToString(), 
+                    filePath + "\\" + ARA_Constants.riskAssesmentReportFileName,
+                    ARA_Globals.RiskAssessmentRiskPageTemplate,
+                    ARA_Globals.RiskAssessmentIndexPageTemplate,
+                    ARA_Globals.RiskAssessmentFrontPageTemplate);
+                report.Show();
+            }
         }
 
         /// <summary>
@@ -173,6 +213,15 @@ namespace Applicatie_Risicoanalyse.Forms
                 generateRemainingRiskReport(filePath);
                 generatePerformanceLevelReport(filePath);
             }
+        }
+
+        private bool hasWord2013OrLater()
+        {
+            WordInterface word = new WordInterface();
+            float version = word.getWordVersion();
+            Console.WriteLine(version);
+            word.Quit();
+            return version > 14.99;
         }
     }
 }
