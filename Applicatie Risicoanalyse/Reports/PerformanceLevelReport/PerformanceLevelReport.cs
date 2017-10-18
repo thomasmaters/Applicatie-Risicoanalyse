@@ -82,7 +82,7 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating + ex.ToString(), ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating + ex.Message, ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -266,7 +266,7 @@ namespace Applicatie_Risicoanalyse.Reports.PerformanceLevelReport
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating +  ex.ToString(), ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show(ARA_Constants.messageBoxSomethingWrongWhileGenerating +  ex.Message, ARA_Constants.messageBoxSomethingWrongWhileGeneratingHeader, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
