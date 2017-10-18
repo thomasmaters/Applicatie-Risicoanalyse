@@ -51,7 +51,7 @@ namespace Applicatie_Risicoanalyse.Forms
                     this.editProjectDetailsInputExtraInfo.Text);
 
                 //Trigger event.
-                ARA_Events.triggerProjectDetailsChangedEvent(this.projectID);
+                ARA_Events.triggerProjectDetailsChangedEvent(this.projectID, this.editProjectDetailsInputMachineNumber.Text);
 
                 //Let the user know we updated the project details.
                 MessageBox.Show(ARA_Constants.messageBoxProjectDetailsSaved, ARA_Constants.messageBoxProjectDetailsSavedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);

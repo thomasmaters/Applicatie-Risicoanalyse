@@ -42,22 +42,27 @@ namespace Applicatie_Risicoanalyse.Forms
         private void loadPermissions()
         {
             this.projectOverviewButtonCreateProject.Visible         = ARA_ACL.getPermissionLevel("General.ButtonCreateProject") >= ARA_Globals.PermissionLevel.ReadOnly;
-            this.ProjectOverviewButtonSpacer1.Visible               = ARA_ACL.getPermissionLevel("General.ButtonCreateProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.projectOverviewButtonSpacer3.Visible               = ARA_ACL.getPermissionLevel("General.ButtonCreateProject") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelCreateProject.Enabled          = ARA_ACL.getPermissionLevel("General.ButtonCreateProject") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonOpenProject.Visible           = ARA_ACL.getPermissionLevel("General.ButtonOpenProject") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.projectOverviewButtonSpacer2.Visible               = ARA_ACL.getPermissionLevel("General.ButtonOpenProject") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelOpenProject.Enabled            = ARA_ACL.getPermissionLevel("General.ButtonOpenProject") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonRecentProjects.Visible        = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.ProjectOverviewButtonSpacer1.Visible               = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.ProjectOverviewPanelRecentProjects.Enabled         = ARA_ACL.getPermissionLevel("General.ButtonRecentProjects") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonCreateProjectRevision.Visible = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.panel1.Visible                                     = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelCreateProjectRevision.Enabled  = ARA_ACL.getPermissionLevel("General.ButtonCreateProjectRevision") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonEditRiskStandard.Visible      = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") >= ARA_Globals.PermissionLevel.ReadOnly;
+            this.panel2.Visible                                     = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") >= ARA_Globals.PermissionLevel.ReadOnly;
             this.projectOverviewPanelEditRiskStandard.Enabled       = ARA_ACL.getPermissionLevel("General.ButtonEditStandardRisks") == ARA_Globals.PermissionLevel.All;
 
             this.projectOverviewButtonCreateNewRisk.Visible         = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
+            this.panel3.Visible                                     = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
             this.projectOverviewButtonCreateNewRisk.Enabled         = ARA_ACL.getPermissionLevel("General.ButtonCreateNewRisk") == ARA_Globals.PermissionLevel.All;
         }
 

@@ -383,7 +383,7 @@ namespace Applicatie_Risicoanalyse.Reports
         /// <param name="range"></param>
         public void insertLineBreakAtRange(Range range)
         {
-            range.Text += "\u2028\n";
+            range.Text += "\u2028";
         }
 
         /// <summary>

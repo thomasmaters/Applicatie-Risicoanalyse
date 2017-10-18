@@ -70,7 +70,7 @@ namespace Applicatie_Risicoanalyse.Globals
             foreach (DataRow row in userTableAdapter.GetData().Rows)
             {
                 //Do the usernames match?
-                if (row["UserName"].ToString().ToLower() ==  Environment.UserName.ToLower())
+                if (row["UserName"].ToString().ToLower() == Environment.UserName.ToLower())
                 {
                     //Set userid.
                     ARA_Globals.UserID = (Int32)row["UserID"];

@@ -124,15 +124,15 @@ namespace Applicatie_Risicoanalyse.Globals
         }
         public static void triggerProjectStateChangedEvent(int aProjectID, string aState)
         {
-            Logger.Instance.log(string.Format("{0} changed the state of project {1} to the state {2}.", ARA_Globals.LoggedInUsername, aProjectID, aState));
+            Logger.Instance.log(string.Format("{0} changed the state of project '{1}' to the state {2}.", ARA_Globals.LoggedInUsername, aProjectID, aState));
             if (ProjectStateChangedEventHandler != null)
             {
                 ProjectStateChangedEventHandler(new object(), new ProjectStateChangedEvent(aProjectID, aState));
             }
         }
-        public static void triggerNewProjectRevisionEvent(int aRevisionOfProjectID, int aRevison)
+        public static void triggerNewProjectRevisionEvent(int aRevisionOfProjectID, int aRevison, string aProjectName = "")
         {
-            Logger.Instance.log(string.Format("{0} created revsion {2} of project {1}.", ARA_Globals.LoggedInUsername, aRevisionOfProjectID, aRevison));
+            Logger.Instance.log(string.Format("{0} created revision {2} of project '{1}'.", ARA_Globals.LoggedInUsername, aProjectName, aRevison));
             if (NewProjectRevisionEventHandler != null)
             {
                 NewProjectRevisionEventHandler(new object(), new NewProjectRevisionEvent(aRevisionOfProjectID, aRevison));
@@ -177,9 +177,9 @@ namespace Applicatie_Risicoanalyse.Globals
                 NewLogMessageEventHandler(new object(), new NewLogMessageEvent(aLogMessage));
             }
         }
-        public static void triggerProjectDetailsChangedEvent(int aProjectID)
+        public static void triggerProjectDetailsChangedEvent(int aProjectID, string aProjectName = "")
         {
-            Logger.Instance.log(string.Format("{0} updated the project details of project {1}.", ARA_Globals.LoggedInUsername, aProjectID));
+            Logger.Instance.log(string.Format("{0} updated the project details of project '{1}'.", ARA_Globals.LoggedInUsername, aProjectName));
             if (ProjectDetailsChangedEventHandler != null)
             {
                 ProjectDetailsChangedEventHandler(new object(), new ProjectDetailsChangedEvent(aProjectID));

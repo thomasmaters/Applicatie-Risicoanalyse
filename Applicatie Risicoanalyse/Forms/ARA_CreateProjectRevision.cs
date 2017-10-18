@@ -80,12 +80,13 @@ namespace Applicatie_Risicoanalyse.Forms
                 {
                     int selectedProjectID = (Int32)this.projectRevisionDataGrid.SelectedRows[0].Cells["projectIDDataGridViewTextBoxColumn"].Value;
                     int selectedRevision = Int32.Parse(this.projectRevisionDataGrid.SelectedRows[0].Cells["Revision"].Value.ToString()) + 1;
+                    string selectedProjectName = this.projectRevisionDataGrid.SelectedRows[0].Cells["machineNumberDataGridViewTextBoxColumn"].Value.ToString();
 
                     //Execute procedure to create a project revision.
                     queriesTableAdapter1.Create_RiskProject_Revision(selectedProjectID, ARA_Globals.UserID);
 
                     //Log event.
-                    ARA_Events.triggerNewProjectRevisionEvent(selectedProjectID, selectedRevision);
+                    ARA_Events.triggerNewProjectRevisionEvent(selectedProjectID, selectedRevision, selectedProjectName);
 
                     //Let the user know something happend.
                     MessageBox.Show(ARA_Constants.messageBoxProjectRevisionCreated, ARA_Constants.messageBoxProjectRevisionCreatedHeader, MessageBoxButtons.OK, MessageBoxIcon.Information);

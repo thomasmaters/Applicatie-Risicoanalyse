@@ -232,7 +232,9 @@ namespace Applicatie_Risicoanalyse.Reports
                         if(oldPageCount < wordDocument.ComputeStatistics(WdStatistic.wdStatisticPages))
                         {
                             Range tableRange = indexTable.Range;
-                            tableRange.SetRange(indexTable.Range.Start - 2, indexTable.Range.Start);
+
+                            tableRange.SetRange(wordDocument.Content.End - 2, wordDocument.Content.End + 2);
+                            //tableRange.SetRange(indexTable.Range.Start - 2, indexTable.Range.Start);
                             wordInterface.insertPageBreakAtRange(indexTable.Range);
                         }
                     }
